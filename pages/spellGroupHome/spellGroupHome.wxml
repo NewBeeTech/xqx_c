@@ -1,0 +1,68 @@
+<scroll-view>
+  <swiper class='top_banner' indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{3000}}" duration="{{1000}}">
+
+    <swiper-item>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+        width="355" height="150" />
+    </swiper-item>
+    <swiper-item>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+        width="355" height="150" />
+    </swiper-item>
+    <swiper-item>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+        width="355" height="150" />
+    </swiper-item>
+    <swiper-item>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+        width="355" height="150" />
+    </swiper-item>
+
+  </swiper>
+
+  <view class='nav'>
+    <view class='item'>
+      <image src='../../images/tabBar/a.png'></image>
+      <text>附近</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/tabBar/a.png'></image>
+      <text>附近</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/tabBar/a.png'></image>
+      <text>附近</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/tabBar/a.png'></image>
+      <view>附近</view>
+    </view>
+  </view>
+
+  <view class='goods'>
+    <view class='title'>热门拼团</view>
+    <view class='good_list'>
+      <view class='item'>
+        <image class='item_detail left_icon' src='../../images/tabBar/a.png'></image>
+        <view class='item_detail right_des'>
+          <view class='title'>商品名称</view>
+          <view>
+            <text>￥6.00</text>
+            <text>￥14.00</text>
+          </view>
+          <view>
+            额外奖励:
+            <text>2.00</text>小金
+          </view>
+          <view>
+            <text>6人团</text>
+            <text>已团出:333件</text>
+          </view>
+        </view>
+        <button class='right_button'>去开团</button>
+      </view>
+    </view>
+  </view>
+
+
+</scroll-view>

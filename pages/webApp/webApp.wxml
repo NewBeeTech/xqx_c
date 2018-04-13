@@ -1,0 +1,8 @@
+<!--pages/webApp/webApp.wxml-->
+
+<!-- <view class='scrollNo'>
+  <image src='https://activity.denong.com/w.png'></image>
+  <text>正在努力更新中，敬请期待</text>
+</view> -->
+
+<web-view src="https://a.app.qq.com/o/simple.jsp?pkgname=com.denong.doluck"></web-view>

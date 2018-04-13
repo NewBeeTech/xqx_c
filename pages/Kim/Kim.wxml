@@ -1,0 +1,44 @@
+<!--pages/Kim/Kim.wxml-->
+<view class='top'>
+    <view class='top_w' bindtap='popupTap'>
+        <text>小金规则</text>
+        <image src='https://activity.denong.com/c.png'></image>
+    </view>
+    <view class='top_q'>
+        <text>当前小金</text>
+        <view>{{obj.notDeposite/100}}</view>
+    </view>
+    <view class='top_t'>等于{{obj.notDeposite/100}}元消费养老金</view>
+</view>
+
+<!-- <view class='scroll_title'>2018年3月</view> -->
+<scroll-view scroll-y='true' class='scroll'>
+    <view class='scroll_list' wx:for='{{obj.retList}}' wx:key='{{index}}' bindtap='toInfo' data-id='{{item.id}}'>
+        <view class='scroll_list_left'>
+            <image src='{{item.store_logo}}'></image>
+            <view>
+                <view>{{item.merchant_name}}</view>
+                <text>{{item.trade_time}}</text>
+            </view>
+        </view>
+        <view class='scroll_list_right'>
+            <view>+{{item.currency}}</view>
+            <text>{{item.gold_pathway}}</text>
+        </view>
+    </view>
+</scroll-view>
+
+
+<view class='popup' wx:if='{{popupIf}}'>
+    <view>
+        <view class='popup_title'>小金规则</view>
+        <text class='popup_cont'><text>什么是小金？</text>\n您注册小确幸账号后所获得的消费养老金，在兑现托管到工商银行账户之前，被称为“小金”。\n1.00小金可=1.00元消费养老金，您完成实名认证后，平台会为您在工商银行开通消费养老金账户。每月获得的小金，也将在次月15号左右自动兑现托管到您的工商银行消费养老金账户。</text>
+        <view class='popup_btn' bindtap='popupTap'>知道了</view>
+    </view>
+</view>
+
+  <view class='scrollNo' wx:if="{{!obj.retList.length}}">
+  <view class='line'></view>
+      <image src='https://activity.denong.com/Group.png'></image>
+      <text>暂时没有小金记录</text>
+    </view>

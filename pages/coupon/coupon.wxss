@@ -1,0 +1,158 @@
+/* pages/coupon/coupon.wxss */
+.wrap{
+    /* background: #f0f0f0; */
+    padding-bottom: 50rpx;
+}
+.topWrap{
+    width: 100%;
+    background: #fff;
+    padding-bottom: 40rpx;
+    border-bottom: solid 13rpx #f0f0f0;
+}
+.coupOrder{
+  margin:30rpx 34rpx;
+  padding-bottom: 35rpx;
+  padding-top: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 1rpx #dadada solid; */
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx #e5e5e5;
+}
+.mealInfo{
+  line-height: 50rpx;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.priceInfo{
+    line-height: 50rpx;
+}
+.discountPrice{
+  font-size: 15px;
+  color: #333;
+  margin-right: 20rpx;
+}
+.oriPrice{
+  text-decoration: line-through;
+  color: #979797;
+  font-size: 12px;
+  margin-right: 20rpx;
+}
+.discount{
+  border:#fcaa01 1rpx solid;
+  border-radius: 10rpx;
+  font-size: 13px;
+  color: #fcaa01;
+  padding:5rpx 10rpx;
+}
+.imgInfo{
+    margin: -50rpx 32rpx 0 24rpx;
+}
+.imgInfo>image{
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 10rpx;
+}
+.saleInfo>text{
+    color: #6e6e6e;
+    font-size: 13px;
+}
+.condInfo{
+    width: 100%;
+    margin: 30rpx 0 40rpx 34rpx;
+}
+.condInfo>text{
+    color: #666;
+    font-size: 12px;
+}
+.addNum{
+    width: 200rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 36rpx;
+}
+.addNum>.reduce{
+    margin-right: 32rpx;
+}
+.addNum>text{
+    font-size: 16px;
+    color: #000;
+}
+.addNum>.reduce>image{
+    width: 56rpx;
+    height: 56rpx;
+}
+.addNum>.plus{
+    margin-left: 32rpx;
+}
+.addNum>.plus>image{
+    width: 56rpx;
+    height: 56rpx;
+}
+.immShopping{
+    width: calc(100%-68rpx);
+    height: 90rpx;
+    margin: 0 34rpx;
+    background: #fea400;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 32rpx;
+}
+.shopCoupon{
+    background: #fff;
+    padding: 50rpx 34rpx;
+}
+.shopCoupon>text{
+    font-size: 14px;
+    color: #999;
+}
+.shopInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #dadada;
+    margin-top: 36rpx;
+    padding-bottom: 26rpx;
+}
+.shopInfo>view{
+    display: flex;
+    align-items: center;
+}
+.shopInfo>view>.logo{
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    margin-right: 28rpx;
+}
+.shopInfo>view>text{
+    font-size: 14px;
+    color: #333;
+}
+.shopInfo>view>image{
+    width: 20rpx;
+    height: 28rpx;
+}
+.finiteTime{
+    font-size: 14px;
+    color: #999;
+    padding: 36rpx 0;
+    border-bottom: 1rpx solid #dadada;
+}
+.finiteTime>text{
+    margin-bottom: 28rpx;
+}
+.finiteTime>view{
+    color: #333;
+    margin-top: 28rpx;
+}

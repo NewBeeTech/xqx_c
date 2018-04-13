@@ -1,0 +1,81 @@
+<!--pages/about/about.wxml-->
+
+<web-view src="https://mini.xqx.com/app_person_addition/about_xqx.html"></web-view>
+<!-- <view class='videoBox'><video></video></view>
+
+<view class='list' wx:for='{{[1,2,3]}}' wx:key='{{index}}'>
+    <view class='list_title' bindtap='listTitle' data-index='{{index}}' style='border:{{index==0 && "none"}}'>
+        <text>{{index+1}} 什么是什么？</text>
+        <image class='{{index == inde && listIf || "list_title_icon"}}' src='../../images/icon/b.png'></image>
+    </view>
+    <view wx:if='{{index == inde && listIf}}' class='list_cont'>小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运小幸运</view>
+</view>
+
+<view class='tiao'></view>
+
+<view class='cont'>
+    <view class='cont_title'>平台特色</view>
+    <view class='cont_box'>
+        <image src='../../images/icon/d.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+    <view class='cont_box'>
+        <image src='../../images/icon/e.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+    <view class='cont_box'>
+        <image src='../../images/icon/f.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+    <view class='cont_box'>
+        <image src='../../images/icon/g.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+    <view class='cont_box'>
+        <image src='../../images/icon/h.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+    <view class='cont_box'>
+        <image src='../../images/icon/i.png'></image>
+        <text><text>消费养老金</text>\n线下消费得养老金\n积分兑换得养老金\n刷银行卡得养老金\n在线消费得养老金</text>
+    </view>
+</view> 
+
+<view class='tiao'></view>
+
+<view class='Tz'>
+    <view>
+        <text>小去app功能介绍</text>
+        <image src='../../images/icon/b.png'></image>
+    </view>
+    <view>
+        <text>小去app功能介绍</text>
+        <image src='../../images/icon/b.png'></image>
+    </view>
+</view>
+
+<view class='tiao'></view>
+
+<view class='Lx'>
+    <view class='Lx_title'>联系方式</view>
+    <view class='Lx_cont'>
+        <image src='../../images/icon/j.png'></image>
+        <text>客服电话：400 837 2611</text>
+    </view>
+    <view class='Lx_cont'>
+        <image src='../../images/icon/k.png'></image>
+        <text>客服电话：400 837 2611</text>
+    </view>
+    <view class='Lx_cont'>
+        <image src='../../images/icon/l.png'></image>
+        <text>客服电话：400 837 2611</text>
+    </view>
+    <view class='Lx_cont'>
+        <image src='../../images/icon/m.png'></image>
+        <text>客服电话：400 837 2611</text>
+    </view>
+    <view class='Lx_cont'>
+        <image src='../../images/icon/n.png'></image>
+        <text>客服电话：400 837 2611</text>
+    </view>
+</view> -->

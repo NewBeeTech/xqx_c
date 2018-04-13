@@ -1,0 +1,50 @@
+<!--pages/details/details.wxml-->
+<view class='wrap'>
+    <view class='blockArea'>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254969&di=203880142892af7789969ac26cd7cd53&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F4a36acaf2edda3ccd53548ea0be93901203f9223.jpg'></image>
+        <view class='wordArea'>
+            <text>2018苹果春季发布会的三个看点和一个悬念三个看点和一个悬念</text>
+            <view class='detailsTime'>
+                <text>2.18-03-31 13.28</text>
+            </view>
+            <view class='wordInfo'>
+                重前几年高高在上的故宫博物馆院到前几天引起的“俏格格“,故宫近几年的改变一直备受关注如何改
+            </view>
+        </view>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254969&di=203880142892af7789969ac26cd7cd53&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F4a36acaf2edda3ccd53548ea0be93901203f9223.jpg'></image>
+        <view class='wordArea'>
+            <view class='wordInfo'>
+                重前几年高高在上的故宫博物馆院到前几天引起的“俏格格“,故宫近几年的改变一直备受关注如何改
+            </view>
+        </view>
+    </view>
+    <view class='coupOrder'>
+        <text>推荐</text>
+        <view class='listInfo'>
+            <view>
+                <view class='imgInfo'>
+                    <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254969&di=203880142892af7789969ac26cd7cd53&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F4a36acaf2edda3ccd53548ea0be93901203f9223.jpg'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>外婆家</view>
+                        <text>酸豆角肉沫饭</text>
+                    </view>
+                    <view class='priceInfo'> 
+                        <text class='discountPrice'>￥45</text>
+                        <text class='oriPrice'>￥45</text>
+                    </view>  
+                </view>
+            </view>
+            <view class='imgInfo couponInfo'>
+                <view>购买</view>
+            </view> 
+        </view>
+        <view class='mealInfo shopInfo' wx:if="{{true}}">
+            <text>已售:\t432份\t|\t</text> 
+            <text>返0.45小金\t|\t</text>
+            <text>距离100米</text>
+        </view>
+    </view>
+</view>
+

@@ -1,0 +1,10 @@
+<!--pages/businessIntr/businessIntr.wxml-->
+<view class='describeInfo'>
+  <text>{{obj.merchant_introduction||""}}</text>
+  <image wx:for="{{obj.merchant_introduction_pictures}}" wx:key='{{index}}' src='{{item}}'></image>
+  <view class='scrollNo' wx:if="{{!obj.merchant_introduction&&!obj.merchant_introduction}}">
+      <image src='../../images/icon/w.png'></image>
+      <text>亲，当前还没有介绍，\n敬请期待哦</text>
+    </view>
+</view>
+

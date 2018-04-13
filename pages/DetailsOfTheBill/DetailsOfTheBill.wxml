@@ -1,0 +1,50 @@
+<!--pages/DetailsOfTheBill/DetailsOfTheBill.wxml-->
+<view class='name'>
+    <image class='name_t' src='{{obj.logo}}'></image>
+    <view>{{obj.merchant_name}}</view>
+    <image wx:if="{{obj.merchant_id!='denong'}}" class='name_icon' src='https://activity.denong.com/b.png'></image>
+</view>
+
+<view class='money'>
+    <view>+{{obj.currency}}</view>
+    <text>小金已到账，待托管工商银行</text>
+</view>
+
+<view class='cont'>
+    <view class='cont_title'>进度</view>
+    <view class='cont_box'>
+        <icon class='cont_box_icon1' type='success' size='25' color='#fea400'></icon>
+        <icon class='cont_box_icon2' type='success' size='25' color='#fea400'></icon>
+        <view>
+            <view>获得小金</view>
+            <text>{{obj.generate_time}}</text>
+        </view>
+        <view>
+            <view>获得方式</view>
+            <text>{{obj.gold_pathway}}</text>
+        </view>
+        <view>
+            <view>消费金额</view>
+            <text>{{obj.real_charge/100}}</text>
+        </view>
+        <view wx:if="{{obj.cur_ratio}}">
+            <view>返金比例</view>
+            <text>{{obj.cur_ratio}}%</text>
+        </view>
+        <view>
+            <view>流水号</view>
+            <text>{{obj.serial_number}}</text>
+        </view>
+        <view class='cont_box_zh'>
+            <view>商家结算到账</view>
+            <text>{{obj.trade_time}}</text>
+        </view>
+    </view>
+    <view class='cont_box cont_box2' wx:if="{{!obj.fund_trans_state||obj.fund_trans_state!='1'}}">
+        <icon class='cont_box_icon2' type='waiting' size='25' color='#e3e3e3'></icon>
+        <view>
+            <view>托管入账工商银行</view>
+            <text>2018-10-10 10:10:10</text>
+        </view>
+    </view>
+</view>

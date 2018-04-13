@@ -1,0 +1,62 @@
+/* pages/invitingAwards/invitingAwards.wxss */
+.invitationIcon>image{
+  width: 186rpx;
+  height: 205rpx;
+  display: block;
+  margin: 120rpx auto 130rpx; 
+}
+.inviInfo{
+  width: 100%;
+}
+.condition{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 47rpx;
+}
+.bonus{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 180rpx;
+}
+.share{
+  width: 596rpx;
+  height: 90rpx;
+  margin: 0 auto;
+  border-radius: 8rpx;
+  background-color: #f3a824;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share>image{
+  width: 23rpx;
+  height: 33rpx;
+}
+.share>text{
+  font-size: 16px;
+  color: #fff;
+  margin-left: 17rpx;
+}
+.getReward{
+  width: 100%;
+  position: absolute;
+  bottom: 78rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.getReward>text{
+  font-size: 14px;
+  color: #666;
+  margin-right: 10rpx;
+}
+.getReward>image{
+  width: 15rpx;
+  height: 28rpx;
+}

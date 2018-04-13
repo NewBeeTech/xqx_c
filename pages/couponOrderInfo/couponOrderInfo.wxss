@@ -1,0 +1,91 @@
+/* pages/couponOrderInfo/couponOrderInfo.wxss */
+.coupOrder{
+  margin:35rpx 40rpx;
+  padding-bottom: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx #dadada solid;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.discountPrice{
+  font-size: 15px;
+  color: #333;
+  margin-right: 20rpx;
+}
+.oriPrice{
+  text-decoration: line-through;
+  color: #979797;
+  font-size: 12px;
+  margin-right: 20rpx;
+}
+.discount{
+  border:#fcaa01 1rpx solid;
+  border-radius: 10rpx;
+  font-size: 13px;
+  color: #fcaa01;
+  padding:5rpx 10rpx;
+}
+.imgInfo>image{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 10rpx;
+}
+.couponInfo{
+  margin:35rpx 40rpx;
+  border-bottom: 1rpx #dadada solid;
+  padding-bottom: 40rpx;
+}
+.couponInfo>text{
+  font-size: 16px;
+  color: #020202;
+}
+.ticNumber{
+  text-decoration: line-through;
+  font-weight: bold;
+  color: #020202;
+  font-size: 25px;
+}
+.couponSit{
+  font-size: 14px;
+  color: #666;
+}
+.seeInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.seeInfo>.seeInfoBtn{
+  width: 146rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 13px;
+  padding: 0;
+  color: #ffa401;
+  border: #ffa401 1rpx solid;
+  border-radius: 50rpx;
+}
+.orderInfo{
+  margin:35rpx 40rpx;
+}
+.orderInfo>text{
+  font-size: 16px;
+  color: #333;
+  line-height: 60rpx;
+}
+.orderInfo>view{
+  font-size: 13px;
+  color: #b8b8b8;
+  margin-bottom: 10rpx;
+}
+.orderInfo>view>text{
+  color: #666;
+}

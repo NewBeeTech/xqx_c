@@ -1,0 +1,185 @@
+/* pages/purchaseCoupon/purchaseCoupon.wxss */
+/* pages/myCoupon/myCoupon.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    font-size:14px;
+     background: #f0f0f0; 
+}
+swiper {
+  min-height: 1200rpx;
+}
+page>view{
+      box-sizing: border-box;
+      width: 100%;
+     /* height: calc(100% - 42px); */
+     overflow-y: auto;
+}
+.warp>scroll-view{
+      box-sizing: border-box;
+      height: 100%;
+      padding-top: 10px;
+}
+.Input{
+    padding: 15rpx 32rpx;
+    background: #f0f0f0;
+}
+.Input>view{
+    height: 57rpx;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8rpx;
+}
+.Input>view>icon{
+    margin: 0 14rpx 0 38rpx;
+}
+
+/*选项卡样式*/
+.shopNo{
+    margin-top: 80px;
+    float: none;
+    color: #999;
+    text-align: center;
+    font-size: 16px;
+}
+.shopNo image{
+      width: 256rpx;
+      height: 220rpx;
+      display: block;
+      margin: 0 auto 22rpx;
+
+}
+.scroll-view {
+    width: 100%;
+    background: #fff;
+    white-space: nowrap;
+    background: #fff;
+}
+.scroll_warp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab-beset {
+    width: 20% ;
+    /* float: left; */
+    padding: 5px 10px;
+}
+.tab-text {
+    display: block;
+    width: 100%;
+    line-height: 30px ;
+    color: #666;
+    text-align: center;
+}
+.active {
+    border-bottom:2px #ff5429 solid ;
+    color: #43964e;
+}
+
+/*列表内容样式*/
+.coupOrder{
+  margin:30rpx 34rpx;
+  padding-bottom: 35rpx;
+  padding-top: 34rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.coupOrder>.listInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.coupOrder>view>view{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.mealInfo{
+    margin-bottom: 10rpx;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.priceInfo{
+    margin-bottom: 10rpx;
+}
+.discountPrice{
+  font-size: 15px;
+  color: #333;
+  margin-right: 20rpx;
+}
+.oriPrice{
+  text-decoration: line-through;
+  color: #979797;
+  font-size: 12px;
+  margin-right: 20rpx;
+}
+.discount{
+  border:#fcaa01 1rpx solid;
+  border-radius: 10rpx;
+  font-size: 13px;
+  color: #fcaa01;
+  padding:5rpx 10rpx;
+}
+.imgInfo{
+    margin: 0 32rpx 0 24rpx;
+}
+.imgInfo>image{
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 10rpx;
+}
+.saleInfo>text{
+    color: #6e6e6e;
+    font-size: 13px;
+}
+.couponInfo>view{
+    width: 120rpx;
+    height: 60rpx;
+    border-radius: 50rpx;
+    background: #ffa300;
+    color: #fff;
+    text-align: center;
+    line-height: 60rpx;
+}
+.shopInfo{
+    margin-left: 160rpx;
+    
+}
+.shopInfo>text{
+    color: #666;
+    font-size: 13px;
+}
+
+
+.scrollNo{
+    text-align: center;
+    color: #7e7e7e;
+    position: relative;
+    top: 232rpx;
+    font-size: 32rpx;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx; 
+    display: block;
+    margin: 100rpx auto 50rpx;
+}
+.action {
+  border-bottom:6rpx solid #fea400;
+}
+
+.action text {
+  color:#fea400;
+}

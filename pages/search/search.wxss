@@ -1,0 +1,101 @@
+/* pages/search/search.wxss */
+.wrap{
+    background: #f0f0f0;
+}
+.tophead{
+    background: #fff;
+    height: 160rpx;
+}
+.tophead>view{
+    margin: 0 34rpx;
+    border-bottom: 1rpx solid #999;
+}
+.tophead>view>input{
+    font-size: 17px;
+    color: #333;
+    text-indent: 10rpx;
+    height: 112rpx;
+    line-height: 112rpx;
+}
+.bar{
+    background: #fff;
+    padding-top:30rpx;
+    /* margin-top: 13rpx; */
+}
+.recordBar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 34rpx;
+    font-size: 14px;
+    color: #333;
+}
+.recordBar>.removeRecord{
+    color: #f5a623;
+}
+
+view{ 
+  box-sizing: border-box; 
+} 
+.item-box{ 
+  width: 700rpx; 
+  margin: 0 auto; 
+  padding:40rpx 0; 
+} 
+.items{ 
+  width: 100%; 
+} 
+.item{ 
+  position: relative; 
+  border-top: 1rpx solid #eee; 
+  height: 108rpx; 
+  line-height: 108rpx; 
+  overflow: hidden; 
+} 
+.item:last-child{ 
+  border-bottom: 1rpx solid #eee; 
+} 
+.inner{ 
+  position: absolute; 
+  top:0; 
+} 
+.inner.txt{ 
+  background-color: #fff; 
+  width: 100%; 
+  z-index: 5; 
+  padding:0 10rpx; 
+  transition: left 0.2s ease-in-out; 
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  font-size: 15px;
+  color: #333;
+} 
+
+.title {
+  position: relative;
+  width: 100rpx;
+  left: 0;
+}
+
+.inner.del{ 
+  background-color: #ff2800; 
+  width: 146rpx;
+  text-align: center; 
+  z-index: 4; 
+  right: 0; 
+  font-size:15px;
+  color: #fff;
+  position: absolute;
+
+} 
+.item-icon{ 
+  width: 64rpx; 
+  vertical-align: middle; 
+  margin-right: 16rpx 
+} 
+.thumb{ 
+  width: 200px; 
+  height: 200px; 
+  -webkit-overflow-scrolling: touch; 
+  overflow: scroll; 
+} 

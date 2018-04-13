@@ -1,0 +1,71 @@
+{
+    "pages": [
+        "pages/homePage/homePage",
+        "pages/Album/Album",
+        "pages/AlbumDetail/AlbumDetail",
+        "pages/boundNumber/boundNumber",
+        "pages/problem/problem",
+        "pages/Kim/Kim",
+        "pages/Branch/Branch",
+        "pages/PaymentSuccess/PaymentSuccess",
+        "pages/about/about",
+        "pages/shopList/shopList",
+        "pages/MerchantDetails/MerchantDetails",
+        "pages/map/map",
+        "pages/details/details",
+        "pages/spellGroup/spellGroup",
+        "pages/spellGroupHome/spellGroupHome",
+
+        "pages/couponOrderInfo/couponOrderInfo",
+        "pages/couponOrderInfo2/couponOrderInfo2",
+        "pages/identityCode/identityCode",
+        "pages/invitingAwards/invitingAwards",
+        "pages/businessIntr/businessIntr",
+        "pages/myAccumGold/myAccumGold",
+        "pages/my/my",
+        "pages/DetailsOfTheBill/DetailsOfTheBill",
+        "pages/coupon/coupon",
+        "pages/setUp/setUp",
+        "pages/myCoupon/myCoupon",
+        "pages/check/check",
+        "pages/historyInvitation/historyInvitation",
+        "pages/search/search",
+        "pages/purchaseCoupon/purchaseCoupon",
+        "pages/exploreExperience/exploreExperience",
+        "pages/webApp/webApp"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh":true,
+        "onReachBottomDistance":50
+    },
+    "tabBar": {
+        "color": "#9d9d9d",
+        "selectedColor": "#ffa700",
+        "backgroundColor": "#fff",
+        "borderStyle": "#e4e4e4",
+        "list": [
+            {
+                "pagePath": "pages/homePage/homePage",
+                "text": "首页",
+                "iconPath": "images/tabBar/a.png",
+                "selectedIconPath": "images/tabBar/a2.png"
+            },
+            {
+                "pagePath": "pages/about/about",
+                "text": "关于小确幸",
+                "iconPath": "images/tabBar/b.png",
+                "selectedIconPath": "images/tabBar/b2.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/tabBar/c.png",
+                "selectedIconPath": "images/tabBar/c2.png"
+            }
+        ]
+    }
+}

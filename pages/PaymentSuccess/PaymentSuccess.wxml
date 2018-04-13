@@ -1,0 +1,36 @@
+<!--pages/PaymentSuccess/PaymentSuccess.wxml-->
+<view>
+    <icon class='icon' type='success' size='48' color='1bb100'></icon>
+    <view class='ck'>付款成功</view>
+    <view class='nub'><text>￥</text>50.00</view>
+    <view class='nub2'>50.00</view> 
+</view>
+<view class='cont'>
+    <view>
+        <view>消费金额</view>
+        <text>￥55.00</text>
+    </view>
+    <view>
+        <view>优惠（满50减5元）</view>
+        <text><text>-</text>￥5.00</text>
+    </view>
+    <view>
+        <view>收款方</view>
+        <text>星巴克</text>
+    </view>
+</view>
+
+<view class='hd'>
+    <view class='hd_title'>本次付款获得</view>
+    <view class='hd_cont1'>
+        <view class='hd_cont1_left'>
+            <image src='https://activity.denong.com/cs.jpg'></image>
+            <view>
+                <view>新吧科</view>
+                <text>返还0.5小金</text>
+            </view>
+        </view>
+        <view class='hd_cont1_right' bindtap='ckxqTap'>查看详情</view>
+    </view>
+    <image class='hd_cont2' src='https://activity.denong.com/cs.jpg'></image>
+</view>

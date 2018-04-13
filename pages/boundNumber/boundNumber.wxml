@@ -1,0 +1,37 @@
+<!--pages/boundNumber/boundNumber.wxml-->
+
+
+
+<view class='title'>新用户绑定手机号可得3小金哦！</view>
+
+<button class='btnB' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+    <image src='https://activity.denong.com/a.png'></image>
+    <text>一键绑定</text>
+</button>
+
+<view class='Ts'>
+    <text></text>
+    <view>或手动绑定手机号码</view>
+    <text></text>
+</view>
+
+<view class='Sj'>
+    <text>手机号</text>
+    <input type='number' placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" ></input>
+</view>
+
+<view class='Yz'>
+<input  maxlength="11"  placeholder="请输入验证码" placeholder-style='font-size:15.5px' bindinput='getCode' bindblur="codeDone" ></input>
+    
+    <text bindtap='getCode'>获取验证码</text>
+    
+</view>
+
+<view class='Tk' bindtap='toAgree'>
+    <icon wx:if='{{isAgree}}' type='success' color='red' size='24'></icon>
+    <view wx:else></view>
+
+    <text>我已阅读并同意<text>《用户服务条款》</text></text>
+</view>
+
+<button class='btnQ' bindtap='register' disabled="{{!isAgree}}">确定</button>

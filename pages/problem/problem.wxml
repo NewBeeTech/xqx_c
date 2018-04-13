@@ -1,0 +1,2 @@
+<!--pages/problem/problem.wxml-->
+<web-view src="https://mini.xqx.com/app_person_addition/questions.html"></web-view>

@@ -1,0 +1,102 @@
+/* pages/DetailsOfTheBill/DetailsOfTheBill.wxss */
+page{
+    border-top: solid 1rpx #e4e4e4;
+}
+
+.name{
+    
+    display: flex;
+    align-items: center;
+    width: 230rpx;
+    margin: 42rpx auto 0;
+}
+.name_t{
+  display: inline-block;
+    width: 75rpx;
+    height: 75rpx;
+    border-radius: 50%;
+    border: solid 1rpx #999999;
+    margin-right: 30rpx;
+}
+.name_icon{
+  display: inline-block;
+    width: 24rpx;
+    height: 14rpx;
+    transform: rotate(90deg);
+    margin-left: 5rpx;
+}
+.name>view{
+    /* width: 380rpx; */
+    font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center
+}
+
+.money{
+    margin-top: 70rpx;
+    text-align: center;
+}
+.money>view{
+    font-size: 30px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+.money>text{
+    font-size: 13px;
+    color: #333;
+}
+
+.cont{
+    margin-top: 98rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cont_title{
+    width: 120rpx;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+.cont_box{
+    position: relative;
+    width: calc(100% - 128rpx);
+    border-left: solid 4rpx #fea400;
+}
+.cont_box_icon1{
+    position: absolute;
+    left: -26rpx;
+    top: -12rpx;
+    background: #fff;
+}
+.cont_box_icon2{
+    position: absolute;
+    left: -26rpx;
+    bottom: -12rpx;
+    background: #fff;
+    z-index: 9;
+}
+.cont_box>view{
+    margin: 0 35rpx 0 60rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 18rpx;
+}
+.cont_box>view>text{
+    color: #999;
+}
+.cont_box>view.cont_box_zh{
+    margin-top: 60rpx;
+    margin-bottom: 0;
+}
+.cont_box2{
+    margin-left: 120rpx;
+    padding-top: 120rpx;
+    border-left:  dashed 4rpx #e3e3e3;
+}
+.cont_box2>view{
+    margin-bottom: 0;
+}

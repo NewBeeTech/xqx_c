@@ -1,0 +1,26 @@
+/* pages/AlbumDetail/AlbumDetail.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item {
+  position: relative;
+}
+.showImage {
+  width: 750rpx;
+  height: 750rpx;
+  position: absolute;
+  top:50%;
+  margin-top: -375rpx;
+}
+
+.close {
+  position: absolute;
+  left: 30rpx;
+  top: 80rpx;
+  font-size: 30rpx;
+  color: black;
+  text-shadow: 2rpx 2rpx 5rpx gray;
+}

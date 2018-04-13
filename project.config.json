@@ -1,0 +1,144 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx54d2f780ab825ea7",
+	"projectname": "%E5%B0%8F%E7%A1%AE%E5%B9%B8CCPP",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": -1,
+					"name": "2",
+					"pathName": "pages/boundNumber/boundNumber",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3",
+					"pathName": "pages/problem/problem",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "pages/Kim/Kim",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "5",
+					"pathName": "pages/Branch/Branch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "6",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "7",
+					"pathName": "pages/about/about",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "8",
+					"pathName": "pages/homePage/homePage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "9",
+					"pathName": "pages/shopList/shopList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "10",
+					"pathName": "pages/MerchantDetails/MerchantDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的养老金",
+					"pathName": "pages/myAccumGold/myAccumGold",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "11",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webApp",
+					"pathName": "pages/webApp/webApp",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "PaymentSuccess",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "exploreExperience",
+					"pathName": "pages/exploreExperience/exploreExperience",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "DetailsOfTheBill",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拼团",
+					"pathName": "pages/spellGroup/spellGroup"
+				}
+			]
+		}
+	}
+}

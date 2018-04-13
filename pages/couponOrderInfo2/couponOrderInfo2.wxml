@@ -1,0 +1,64 @@
+<!--pages/couponOrderInfo/couponOrderInfo.wxml-->
+<view class='coupOrder'>
+  <view>
+      <view class='mealInfo'>
+        <view>外婆家</view>
+        <text>酸豆角肉沫饭</text>
+      </view>
+      <view class='priceInfo'> 
+          <text class='discountPrice'>￥45</text>
+          <text class='oriPrice'>￥45</text>
+          <text class='discount'>9折</text>
+      </view> 
+  </view>
+  <view class='imgInfo'>
+      <image src='https://activity.denong.com/che2.png'></image>
+  </view>
+</view>
+<view class='couponInfo'>
+<image class='bg' src='https://activity.denong.com/info2bg.png' width="712rpx"></image>
+    <view>优惠券到店核销使用后,返<text>0.45</text>小金</view>
+    <image class='qrCode' src='https://activity.denong.com/che2.png'></image>
+    <view class='couponCode'>134115480982</view>
+    <view class='effectiveTime'>有效期:2018.3.29-2018.3.30</view>
+    <view class='refundMode'>
+      <text>随时退\t|\t</text>
+      <text>可叠加\t|\t</text>
+      <text>过期自动退</text>
+    </view>
+    <view class='applyRefund'>
+        <text bindtap='sqtkTap'>申请退款</text>
+        <image src='https://activity.denong.com/right_arrow.png'></image>
+    </view>
+    <view class='getInto' bindtap='intoInfo'>进入商户主页</view>
+</view>
+<view class='orderInfo'>
+    <text>订单信息</text>
+    <view>
+      订单号：<text>123456787</text>
+    </view>
+    <view>
+      手机号：<text>157****1278</text>
+    </view>
+    <view>
+      购买时间：<text>2018.3.30 14:23</text>
+    </view>
+    <view>
+      温馨提示：<text>优惠券到店核销使用后，返还的小金才会到账哦</text>
+    </view>
+</view>
+<!-- 弹窗 -->
+<view class='popup' wx:if='{{sqtkIf}}'>
+    <view>
+         <view class='popup_box'>         
+            <text>退款提示</text>
+         </view> 
+         <view class='explain'>
+            <text class='describeInfo'>你确认要退款吗？确认退款后,优惠券将失效,对应款项将在1-3个工作日退回你的原付款账户</text>
+         </view>
+         <view class='close'>
+            <button class='cancel' bindtap='sqtkTap'>取消</button>
+            <button class='confirm' bindtap='sqtkTap'>确认退款</button>
+         </view>
+    </view>
+</view>

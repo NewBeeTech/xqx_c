@@ -1,0 +1,16 @@
+<!--pages/invitingAwards/invitingAwards.wxml-->
+<view class='invitationIcon'>
+  <image src='https://activity.denong.com/invitation.png'></image>
+</view>
+<view class='inviInfo'>
+  <text class='condition'>邀请好友注册并实名认证</text>
+  <text class='bonus'>与好友各得3小金</text>
+  <button class='share'  open-type="share">
+      <image src='https://activity.denong.com/share.png'></image>
+      <text>立即邀请</text>
+  </button>
+  <view class='getReward' wx:if="{{false}}">
+      <text bindtap='ckTap'>已获得邀请奖励50小金，查看详情</text>
+      <image src='https://activity.denong.com/right_arrow.png'></image>
+  </view>
+</view>

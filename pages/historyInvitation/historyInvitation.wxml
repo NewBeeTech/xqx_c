@@ -1,0 +1,29 @@
+<!--pages/historyInvitation/historyInvitation.wxml-->
+<view class='wrap'>
+    <view class='topHead'>
+        <view class='cumulative'>累计获得小金奖励</view>
+        <view class='kimNum'>55.00<text>小金</text></view>
+    </view>
+    <view class='history'>
+         <scroll-view scroll-y='true' lower-threshold='1' enable-back-to-top='true' scroll-top='{{scrollTop}}'>
+        <view class='coupOrder'>
+            <view class='leftContent'>
+                <view class='imgInfo'>
+                    <image src='https://activity.denong.com/che.png'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>小文文</view>
+                        <text>157****9742</text>
+                    </view>
+                </view>
+            </view>
+            <view class='couponInfo'>
+                <view class='addPrice'>+3.00</view>
+                <view class='dataTime'>2018.03.28</view>
+            </view> 
+        </view>
+        
+      </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/identityCode/identityCode.wxml-->
+<view class='topBack'>
+    <image src='https://activity.denong.com/identityBack.png'></image>   
+</view>
+<view class='iconCode'>
+    <view class='iconImg'>
+      <image src='https://activity.denong.com/identityIcon.png'></image>
+    </view>
+    <view class='mobile'>{{phone}}</view>
+    <view class='codeImg'>
+      <image src='{{obj.path}}'></image>
+    </view>
+    <text>扫码积小金</text>
+    <view class='intrUse'>
+      <text bindtap='syjsTap'>使用介绍</text>
+      <image src='https://activity.denong.com/right_arrow.png'></image>
+    </view>
+</view>
+<view class='popup' wx:if='{{syjsIf}}'>
+    <view>
+         <!-- <view class='popup_bg'></view>  -->
+         <view class='popup_box'>         
+            <image src='https://activity.denong.com/headImg.png'></image>
+         </view> 
+         <view class='explain'>
+            <text>出示身份码获金</text>
+            <view>线下消费付款后向店员出示身份码获小金</view>
+         </view> 
+         <view class='close'>
+            <image bindtap='syjsTap' src='https://activity.denong.com/close.png'></image>
+         </view>
+    </view>
+</view>
