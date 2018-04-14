@@ -22,20 +22,24 @@
 
   <view class='nav'>
     <view class='item'>
-      <image src='../../images/tabBar/a.png'></image>
+      <image src='../../images/home/fujin.png'></image>
       <text>附近</text>
     </view>
     <view class='item'>
-      <image src='../../images/tabBar/a.png'></image>
-      <text>附近</text>
+      <image src='../../images/home/pintuan.png'></image>
+      <text>拼团</text>
     </view>
     <view class='item'>
-      <image src='../../images/tabBar/a.png'></image>
-      <text>附近</text>
+      <image src='../../images/home/kanjia.png'></image>
+      <text>砍价免费拿</text>
     </view>
     <view class='item'>
-      <image src='../../images/tabBar/a.png'></image>
-      <view>附近</view>
+      <image src='../../images/home/xianshi.png'></image>
+      <view>限时秒杀</view>
+    </view>
+    <view class='item'>
+      <image src='../../images/home/sousuo.png'></image>
+      <view>搜索</view>
     </view>
   </view>
 

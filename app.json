@@ -15,6 +15,7 @@
         "pages/details/details",
         "pages/spellGroup/spellGroup",
         "pages/spellGroupHome/spellGroupHome",
+        "pages/goodsDetail/goodsDetail",
 
         "pages/couponOrderInfo/couponOrderInfo",
         "pages/couponOrderInfo2/couponOrderInfo2",
