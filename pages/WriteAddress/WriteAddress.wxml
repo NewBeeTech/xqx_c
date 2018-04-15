@@ -11,7 +11,7 @@
     <view class='wrap_box'>
         <text>选择地区</text>
         <view class='wrap_rei'>
-            <text>北京北京</text>
+            <modal modal-pageactive="{{is_modal_Pageactive}}" modal-cityname="{{is_modal_Cityname}}"/>
             <image src='../../images/icon/jit2.png'></image>
         </view>
     </view>

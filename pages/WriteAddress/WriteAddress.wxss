@@ -19,6 +19,8 @@
 .wrap_rei{
     display: flex;
     align-items: center;
+    width: 535rpx;
+    justify-content: flex-end;
 }
 .wrap_rei>image{
     width: 19rpx;
