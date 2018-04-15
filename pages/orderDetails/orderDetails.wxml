@@ -13,10 +13,10 @@
 </view>
 <view class='position_info'>
     <view>
-        <text class='buyers_name'>张三</text>
-        <text>1520158237</text>
+        <text class='buyers_name'>{{xqObj.receive_name}}</text>
+        <text>{{item.receive_phone}}</text>
     </view>
-    <text>北京市海淀区知春路6号锦秋国际B座404</text>
+    <text>{{xqObj.receive_address}}</text>
 </view>
 <view class='fight_info'>
     <view class='fight_icon'>
@@ -24,23 +24,20 @@
         <text>拼团成功</text>
     </view>
     <view class='headPor'>
-        <image src='../../images/icon/waitFor.png'></image>
-        <image src='../../images/icon/waitFor.png'></image>
-        <image src='../../images/icon/waitFor.png'></image>
-        <image src='../../images/icon/waitFor.png'></image>
+        <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{}}'></image>
     </view>
 </view>
  <view class='order_list'>
     <view class='order_status'>  
-        <text class='shop_name'>外婆家</text><image src='../../images/icon/right_arrow2.png'></image>
+        <text class='shop_name'>{{xqObj.name}}</text><image src='{{xqObj.img_url}}'></image>
     </view> 
     <view class='order_info'>
         <image src="../../images/icon/che.png"></image>
         <view class='price_info'>
-            <view class='shop_info'>【4件装】，2018新款男士短袖体恤【4件装】，2018新款男士短袖体恤【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+            <view class='shop_info'>{{xqObj.explain_content}}</view>
             <view class='present_price'>
                 <view>
-                    <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                    <text class='symbol'>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/10000}}<text class='original_price'>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/10000}}</text>
                 </view>
             </view>
         </view> 
@@ -68,8 +65,9 @@
     </view>
 </view>
 <view class='btn_bar'>
+    <view class='customer_service_btn' bindtap='quxTap'>取消订单</view>
       <view class='customer_service_btn'>售后</view>  <!--订单完成宽度  percent_width  -->
-     <view class='confirmation_receipt_btn identical'>确认收货</view> 
+     <view class='confirmation_receipt_btn identical' bindtap='qusTap'>确认收货</view> 
     <view class='buy_again_btn identical' wx:if="{{false}}">再次购买</view>
     <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
 </view>

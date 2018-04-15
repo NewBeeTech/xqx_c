@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 28,
 			"list": [
 				{
 					"id": -1,
@@ -190,7 +190,19 @@
 				{
 					"id": 26,
 					"name": "3",
-					"pathName": "pages/WriteAddress/WriteAddress",
+					"pathName": "pages/wholeOrder/wholeOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "pages/orderList/orderList",
+					"query": ""
+				},
+				{
+					"id": 28,
+					"name": "5",
+					"pathName": "pages/orderDetails/orderDetails",
 					"query": ""
 				}
 			]

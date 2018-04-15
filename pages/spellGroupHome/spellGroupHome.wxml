@@ -46,7 +46,7 @@
   <view class='goods'>
     <view class='title'>热门拼团</view>
     <view class='good_list'>
-      <view class='item' wx:for="{{goods}}">
+      <view class='item' wx:for="{{goods}}" wx:key='{{index}}'>
         <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
         <view class='item_detail right_des'>
           <view class='title '>{{item.name}}</view>

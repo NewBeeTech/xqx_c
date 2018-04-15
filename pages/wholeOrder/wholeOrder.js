@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      page:1,//页码
+      Ddarr:[]
   },
 
   /**
@@ -13,6 +14,38 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  //详情
+  gmTap: function () {
+      wx.navigateTo({
+          url: '../orderDetails/orderDetails?id=' + e.currentTarget.dataset.id
+      })
+  },
+  //售后
+  sohTap:function(){
+      wx.navigateTo({
+          url: '../customerService/customerService',
+      })
+  },
+
+  //获取用户全部订单
+  getDdList:function(){
+      var that = this;
+      appData.Tool.getGoodsGroupOrderListXCX({ page: that.data.page, rows:10 }).then(function (res) {
+        console.log(res)
+        that.setData({
+            Ddarr: that.data.Ddarr.concat(res.data.list)
+        })
+      })
+          .catch(function (err) {})
+  },
+
+  //下拉加载
+  xijSoll:function(){
+      this.setData({
+          page:this.data.page+1
+      });
+      this.getDdList();
   },
 
   /**

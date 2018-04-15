@@ -7,10 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    xqObj:{}
   },
-  loadData: function (page) {
-      appData.Tool.getGoodsGroupBuyInfoXCX({ cnd: 0}).then(function (res) {
+  loadData: function (id) {
+      var that = this;
+      appData.Tool.getGoodsGroupBuyInfoXCX({ cnd: id}).then(function (res) {
+          console.log(res)
+          that.setData({
+              xqObj:res.data
+          })
+      }).catch(function (err) { });
+  },
+  //确认收货
+  qusTap:function(){
+      var that = this;
+      appData.Tool.commitReceiveGoods({ goods_group_id: that.data.xqObj.goods_group_id, group_buy_id:'' }).then(function (res) {
+          console.log(res)
+      }).catch(function (err) { });
+  },
+  //取消订单
+  quxTap:function(){
+      var that = this;
+      appData.Tool.cancelGroupOrder({ goods_group_id: that.data.xqObj.goods_group_id, group_buy_id: '' }).then(function (res) {
           console.log(res)
       }).catch(function (err) { });
   },
@@ -19,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.loadData();
+      this.loadData(options.id);
   },
 
   /**

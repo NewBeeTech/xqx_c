@@ -1,35 +1,41 @@
 <!--pages/wholeOrder/wholeOrder.wxml-->
-<view class='coupOrder' bindtap='gmTap'>
-    <view class='order_list'>
+<scroll-view bindscrolltolower='xijSoll' style='height:100%'>
+
+<view class='coupOrder'>
+    <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
         <view class='order_status'>  
             <view>
-                <text class='shop_name'>外婆家</text>
-                <image src='../../images/icon/right_arrow2.png'></image>
+                <text class='shop_name'>{{item.name}}</text>
+                <image src='{{item.img_url}}'></image>
             </view>
-            <text>卖家已发货</text>
-            <text wx:if="{{false}}">待分享</text>
+            <text wx:if='{{item.express_number!=""}}'>卖家已发货</text>
+            <text wx:if="{{item.express_number==''}}">待分享</text>
             <text wx:if="{{false}}">待发货</text>
-            <text wx:if="{{false}}">待收货</text>
-            <text wx:if="{{false}}">已收货</text>
+            <text wx:if="{{item.express_number!=''}}">待收货</text>
+            <text wx:if="{{item.receive_time!=''}}">已收货</text>
         </view> 
-        <view class='order_info'>
+        <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
             <image src="../../images/icon/che.png"></image>
             <view class='price_info'>
-                <view class='shop_info'>【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+                <view class='shop_info'>{{item.explain_content}}</view>
                 <view class='present_price'>
                     <view>
-                        <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                        <text class='symbol'>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/10000}}<text class='original_price'>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/10000}}</text>
                     </view>
                     <view class='fight_group'>拼团</view>
                 </view>
             </view>
         </view>
         <view class='order_btn_bar'>
-            <view class='cancel_order_btn' wx:if="{{false}}">取消订单</view>
-            <view class='customer_service_btn' wx:if="{{true}}">售后</view>
-            <view class='confirmation_receipt_btn identical' wx:if="{{true}}">确认收货</view>
-            <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view> 
+            <view class='customer_service_btn' wx:if="{{item.receive_time!=''}}" bindtap='sohTap'>售后</view>
+            <block wx:if="{{item.receive_time==''}}">
+                <view class='cancel_order_btn' wx:if="{{item.receive_time==''}}">取消订单</view>
+                <view class='confirmation_receipt_btn identical' wx:if="{{item.express_number!=''}}">确认收货</view>
+                <view class='confirmation_receipt_btn identical' wx:if="{{}}">确认收货</view>
+                <view class='sharing_friends_btn identical' wx:if="{{item.express_number==''}}">分享好友</view> 
+            </block>
         </view>
     </view>
 </view>
 
+</scroll-view>

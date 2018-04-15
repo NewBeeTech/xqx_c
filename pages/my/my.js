@@ -32,7 +32,7 @@ Page({
     //
     wdyhTap: function () {
         wx.navigateTo({
-            url: '../myCoupon/myCoupon',
+            url: '../wholeOrder/wholeOrder',
         })
     },
     //
