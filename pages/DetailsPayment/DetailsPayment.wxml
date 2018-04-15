@@ -1,2 +1,56 @@
 <!--pages/DetailsPayment/DetailsPayment.wxml-->
-<text>pages/DetailsPayment/DetailsPayment.wxml</text>
+<view class='wrap1'>
+    <view class='wrap1_shop'>
+        <image class='wrap1_shop_img' src='{{}}'></image>
+        <view>
+            <view class='wrap1_shop_name'>名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字</view>
+        </view>
+    </view>
+    <view class='wrap1_biq'>
+        <view>
+            <view>即时立省</view>
+            <text>98%</text>
+        </view>
+        <view>
+            <text>￥200</text>
+            <view class='wrap1_biq_yas'>￥12.00</view>
+        </view>
+    </view>
+</view>
+
+<view class='wrap2'>
+    <view class='wrap2_title'>本次拼团成功预计奖励：0.5小金</view>
+    <view class='wrap2_rey'>
+        <view wx:for='{{[1,2,3,4,5,6]}}' wx:key='{{index}}'>
+            <image src='../../images/icon/wu.png'></image>
+            <view wx:if='{{index==0}}'>团长</view>
+        </view>
+    </view>
+    <view class='wrap2_btn'>邀请好友参团23：23：23后结束</view>
+    <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
+</view>
+
+<view class='order_detailed'>
+    <view>
+        <view>商品名称</view>
+        <view class='notice'>
+            <view>名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字</view>
+            <image src='../../images/icon/jit2.png'></image>
+        </view>
+    </view>
+    <view>
+        <view>参团时间</view>
+        <text>2018-10-10 12：12：12</text>
+    </view>
+    <view>
+        <view>订单编号</view>
+        <text>22929929911011011</text>
+    </view>
+    <view>
+        <view>拼团须知</view>
+        <view class='notice'>
+            <view>拼团须知1 拼团须知2 拼团须知3 </view>
+            <image src='../../images/icon/jit2.png'></image>
+        </view>
+    </view>
+</view>

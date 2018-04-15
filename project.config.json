@@ -29,7 +29,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": -1,
+=======
+			"current": 26,
+>>>>>>> bf61950194b0e568e570f6ec9011c0fb56de81ab
 			"list": [
 				{
 					"id": -1,
@@ -185,6 +189,12 @@
 					"id": -1,
 					"name": "确认订单",
 					"pathName": "pages/ConfirmationOrder/ConfirmationOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3",
+					"pathName": "pages/WriteAddress/WriteAddress",
 					"query": ""
 				}
 			]
