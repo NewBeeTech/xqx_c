@@ -13,6 +13,39 @@ Page({
     isShow:"none",
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }]
   },
+  loadData: function (id) {
+    var self = this;
+    return new Promise(function (success, fail) {
+      var config = { cnd:id };
+      
+      appData.Tool.getGoodsGroupBuyInfoXCX(config).then(function (res) {
+        wx.hideLoading();
+        console.log(res)
+        if (res.code === 0) {
+          success();
+          self.setData({
+            goods: res.data.list
+          });
+          wx.stopPullDownRefresh();
+          if (result.data.list.length == 0) {
+            wx.showToast({
+              title: '没有更多数据',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        } else {
+          wx.showToast({
+            title: res.message,
+            duration: 2000
+          })
+        }
+
+      }).catch(function (err) {
+        wx.hideLoading();
+      });
+    });
+  },
   callPhone:function(){
     wx.makePhoneCall({
       phoneNumber: '1340000' 

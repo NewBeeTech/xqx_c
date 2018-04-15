@@ -41,11 +41,8 @@
     "pages/exploreExperience/exploreExperience",
     "pages/WriteAddress/WriteAddress",
     "pages/DetailsPayment/DetailsPayment",
-<<<<<<< HEAD
-    "pages/waring/waring"
-=======
+    "pages/waring/waring",
     "pages/PaymentCompletion2/PaymentCompletion2"
->>>>>>> 55ba008eaa73eab458fd6c86f06f202d4a38c99e
   ],
   "window": {
     "backgroundTextStyle": "light",
