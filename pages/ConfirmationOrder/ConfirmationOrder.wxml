@@ -1,8 +1,8 @@
 <!--pages/ConfirmationOrder/ConfirmationOrder.wxml-->
 <view class='wrap1' wx:if='{{true}}'>
     <view class='wrap1_box'>
-        <view>张三 123456789</view>
-        <text>北京北京北京北京北京北京北京北京北京</text>
+        <view>{{groupInfo.receiveName  }}{{groupInfo.phone}}</view>
+        <text>{{groupInfo.address}}</text>
     </view>
     <image class='wrap1_icon' src='../../images/icon/jit2.png'></image>
 </view>
@@ -17,16 +17,16 @@
 
 <view class='wrap2'>
     <view class='wrap2_title'>
-        <image></image>
-        <text>名字名字名字</text>
+        <image src='{{groupInfo.store_logo}}'></image>
+        <text>{{groupInfo.merchant_name}}</text>
     </view>
     <view class='wrap2_shop'>
-        <image class='wrap2_shop_img' src='{{}}'></image>
+        <image class='wrap2_shop_img' src='{{groupInfo.img_url}}'></image>
         <view>
-            <view class='wrap2_shop_name'>名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字</view>
+            <view class='wrap2_shop_name'>{{groupInfo.name}}</view>
             <view class='wrap2_shop_jig'>
-                <view><text>￥</text>200</view>
-                <text>￥12.5</text>
+                <view><text>￥</text>{{~~groupInfo.group_price/100==groupInfo.group_price/100?groupInfo.group_price/100+".00":~~(groupInfo.group_price*100)/100}}</view>
+                <text>￥{{~~groupInfo.price/100==groupInfo.price/100?groupInfo.price/100+".00":~~(groupInfo.price*100)/100}}</text>
             </view>
         </view>
     </view>
@@ -35,7 +35,7 @@
         <view class='wrap2_nub_anj'>
             <image wx:if='{{false}}' src='../../images/icon/jia.png'></image>
             <image wx:else src='../../images/icon/jia2.png'></image>
-            <view>1</view>
+            <view>{{buyNum}}</view>
             <image src='../../images/icon/ja.png'></image>
         </view>
     </view>
@@ -45,11 +45,11 @@
     <view class='wrap3_cont'>
         <view class='wrap3_cont_he'>
             <view>付款金额：</view>
-            <text>￥2.00</text>
+            <text>￥{{~~groupInfo.group_price/100==groupInfo.group_price/100?groupInfo.group_price/100+".00":~~(groupInfo.group_price*100)/100}}</text>
         </view>
         <view>
             <view>额外奖励：</view>
-            <text>0.5小金</text>
+            <text>{{groupInfo.ratio/100*groupInfo.group_price/100}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>
