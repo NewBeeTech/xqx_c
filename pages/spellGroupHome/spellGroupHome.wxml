@@ -63,7 +63,7 @@
             <text class='group_out'>已团出:{{item.sellNum}}件</text>
           </view>
         </view>
-        <button class='right_button' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>去开团</button>
+        <view class='right_button' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>去开团</view>
       </view>
     </view>
   </view>
