@@ -156,9 +156,20 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
  * 
  */
 Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+
 /**
  * 获取拼团详情
  */
-Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyInfoXCX"
+Default.GOODS_GROUP_BUY_INFO = "xcxgroupbuy/getGoodsGroupBuyInfoXCX";
+
+/**
+ * 确认收货
+ */
+Default.COMMIT_RECEIVE_GOODS = "xcxgroupbuy/commitReceiveGoods";
+
+/**
+ * 取消订单
+ */
+Default.CANCEL_GROUP_ORDER = "xcxgroupbuy/cancelGroupOrder";
 
 module.exports = Default;

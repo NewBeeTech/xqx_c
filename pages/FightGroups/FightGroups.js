@@ -1,4 +1,6 @@
 // pages/MerchantList/MerchantList.js
+var app = getApp();
+var appData = app.globalData;
 Page({
 
   /**
@@ -13,6 +15,12 @@ Page({
     wx.navigateTo({
       url: '../goodDetail/goodDetail',
     })
+  },
+
+  loadData:function(page){
+      appData.Tool.getGoodsGroupBuyListXCX({ intPara: 0, intPara2: 0, page: page, rows:10}).then(function(res){
+          console.log(res)
+      }).catch(function(err){});
   },
   //页面滚动
   pageScroll:function(e){
@@ -53,7 +61,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      this.loadData();
   },
 
   /**

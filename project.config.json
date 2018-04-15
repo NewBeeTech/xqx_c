@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx54d2f780ab825ea7",
-	"projectname": "%E5%B0%8F%E7%A1%AE%E5%B9%B8CCPP",
+	"projectname": "c%E7%AB%AF%E5%B0%8F%E7%A8%8B%E5%BA%8Fgit",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,

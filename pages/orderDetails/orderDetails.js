@@ -1,4 +1,6 @@
 // pages/orderDetails/orderDetails.js
+var app = getApp();
+var appData = app.globalData;
 Page({
 
   /**
@@ -7,12 +9,17 @@ Page({
   data: {
   
   },
+  loadData: function (page) {
+      appData.Tool.getGoodsGroupBuyInfoXCX({ cnd: 0}).then(function (res) {
+          console.log(res)
+      }).catch(function (err) { });
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      this.loadData();
   },
 
   /**

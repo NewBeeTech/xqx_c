@@ -2,11 +2,7 @@
 var app = getApp();
 var appData = app.globalData;
 
-appData.Tool.getGoodsGroupBuyInfoXCX({page:0,rows:10}).then(function(res){
-  console.log(res);
-}).catch(function(err){
 
-});
 Page({
 
   /**

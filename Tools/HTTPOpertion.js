@@ -12,8 +12,8 @@ function HTTPOpertion() { };
  * longitude	String	是	经度
  */
 HTTPOpertion.getAddressData = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.ADDRESS_DATA, parm);
+    return HttpManager
+        .post(Default.HOST + Default.ADDRESS_DATA, parm);
 
 }
 
@@ -28,14 +28,14 @@ HTTPOpertion.getAddressData = function (parm) {
  */
 HTTPOpertion.getMianData = function (parm) {
 
-  return HttpManager
-    .post(Default.HOST + Default.MAIN_PAGE, parm);
+    return HttpManager
+        .post(Default.HOST + Default.MAIN_PAGE, parm);
 
 }
 
 HTTPOpertion.getMy = function () {
-  return HttpManager
-    .post(Default.HOST + Default.GET_MY, { userId: 60018 });
+    return HttpManager
+        .post(Default.HOST + Default.GET_MY, { userId: 60018 });
 
 }
 
@@ -46,8 +46,8 @@ HTTPOpertion.getMy = function () {
  * intPara	String	是	上级分类id 默认为0 查询第一级分类
  */
 HTTPOpertion.getSubCatelog = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.SUB_CATEGORY, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.SUB_CATEGORY, parm || {});
 }
 
 /**
@@ -56,8 +56,8 @@ HTTPOpertion.getSubCatelog = function (parm) {
  * token	String	是	token
  */
 HTTPOpertion.getCCPPCity = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.SUB_CATEGORY, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.SUB_CATEGORY, parm || {});
 
 }
 
@@ -75,8 +75,8 @@ HTTPOpertion.getCCPPCity = function (parm) {
  * longitude	String	是	经度
  */
 HTTPOpertion.getIndustryMerchantV24 = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.SEARCH_MERCHANT, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.SEARCH_MERCHANT, parm || {});
 }
 
 
@@ -88,8 +88,8 @@ HTTPOpertion.getIndustryMerchantV24 = function (parm) {
  * cnd	String	是	商户id
  */
 HTTPOpertion.getMerchantInfo = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.MERCHANT_INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.MERCHANT_INFO, parm || {});
 
 }
 
@@ -105,8 +105,8 @@ HTTPOpertion.getMerchantInfo = function (parm) {
  * rows	Integer	是	页面大小
  */
 HTTPOpertion.getSubMerchant = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.SUBMERCHANT, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.SUBMERCHANT, parm || {});
 
 }
 
@@ -117,8 +117,8 @@ HTTPOpertion.getSubMerchant = function (parm) {
  * merchantId	String	是	商户id
  */
 HTTPOpertion.getMerchantPicCatelogs = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.MERCHANT_PIC_CATE, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.MERCHANT_PIC_CATE, parm || {});
 
 }
 
@@ -133,8 +133,8 @@ HTTPOpertion.getMerchantPicCatelogs = function (parm) {
  */
 HTTPOpertion.getMerchantStorePics = function (parm) {
 
-  return HttpManager
-    .post(Default.HOST + Default.MERCHANT_STORE_PICS, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.MERCHANT_STORE_PICS, parm || {});
 
 }
 
@@ -146,8 +146,8 @@ HTTPOpertion.getMerchantStorePics = function (parm) {
  * cnd	String	否	商户id
  */
 HTTPOpertion.getMerchantIntroduce = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.MERCHANT_INTRODUCE, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.MERCHANT_INTRODUCE, parm || {});
 
 }
 
@@ -159,8 +159,8 @@ HTTPOpertion.getMerchantIntroduce = function (parm) {
  * iv	String	是	微信用户加密信息
  */
 HTTPOpertion.get3rdSession = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.GET_3RD_SESSION, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.GET_3RD_SESSION, parm || {});
 
 }
 
@@ -173,8 +173,8 @@ HTTPOpertion.get3rdSession = function (parm) {
  * encryptedData	String	是	encryptedData
  */
 HTTPOpertion.info = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.INFO, parm || {});
 
 }
 
@@ -184,8 +184,8 @@ HTTPOpertion.info = function (parm) {
  * loginName	String	是	用户手机号
  */
 HTTPOpertion.checkLoginNameV1 = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.CHECK_LOGIN, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.CHECK_LOGIN, parm || {});
 
 }
 
@@ -198,8 +198,8 @@ HTTPOpertion.checkLoginNameV1 = function (parm) {
  * registerFlag	String	是	固定字符串 sms
  */
 HTTPOpertion.register = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.REGISTER, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.REGISTER, parm || {});
 
 }
 
@@ -207,8 +207,8 @@ HTTPOpertion.register = function (parm) {
  * 获取个人信息
  */
 HTTPOpertion.getUserInfo = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.USER_INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.USER_INFO, parm || {});
 
 }
 
@@ -217,8 +217,8 @@ HTTPOpertion.getUserInfo = function (parm) {
  * 获取账单历史明细接口,已到账未托管
  */
 HTTPOpertion.getArrivalTradeHistoryv232 = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.ARRIVAL_TRADE_HISTORY, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.ARRIVAL_TRADE_HISTORY, parm || {});
 
 }
 
@@ -227,8 +227,8 @@ HTTPOpertion.getArrivalTradeHistoryv232 = function (parm) {
  * 获取账单详情接口
  */
 HTTPOpertion.getTradeDetail = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.TRADE_DETAIL, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.TRADE_DETAIL, parm || {});
 
 }
 
@@ -236,8 +236,8 @@ HTTPOpertion.getTradeDetail = function (parm) {
  * 获取缴存详情接口
  */
 HTTPOpertion.getDepositedInfo = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.Deposited_INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.Deposited_INFO, parm || {});
 
 }
 
@@ -250,8 +250,8 @@ HTTPOpertion.getDepositedInfo = function (parm) {
  * rows 每页记录数
  */
 HTTPOpertion.getDepositedHistory = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.DEPOSITED_HISTORY, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.DEPOSITED_HISTORY, parm || {});
 
 }
 
@@ -260,8 +260,8 @@ HTTPOpertion.getDepositedHistory = function (parm) {
  * 获取二维码接口
  */
 HTTPOpertion.createQRCode = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.CREATE_QRCODE, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.CREATE_QRCODE, parm || {});
 
 }
 
@@ -270,8 +270,8 @@ HTTPOpertion.createQRCode = function (parm) {
  * 获取邀请相关参数
  */
 HTTPOpertion.getInviteInfo = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.INVITE_INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.INVITE_INFO, parm || {});
 
 }
 
@@ -287,14 +287,14 @@ HTTPOpertion.getInviteInfo = function (parm) {
  * discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户详情mInfo
  */
 HTTPOpertion.createPay = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.CREATE_PAY, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.CREATE_PAY, parm || {});
 
 }
 
 HTTPOpertion.getMerchantDiscountInfo = function (parm) {
-  return HttpManager
-    .post(Default.HOST + Default.MERCHANT_DISCOUNT_INFO, parm || {});
+    return HttpManager
+        .post(Default.HOST + Default.MERCHANT_DISCOUNT_INFO, parm || {});
 
 }
 
@@ -304,38 +304,38 @@ HTTPOpertion.getMerchantDiscountInfo = function (parm) {
  */
 HTTPOpertion.login = function () {
 
-  return new Promise(function(success,fail){
-    wx.login({
-      success: function (res) {
-        console.log(res);
-
-        var code = res.code;
-          wx.getUserInfo({
+    return new Promise(function (success, fail) {
+        wx.login({
             success: function (res) {
-              console.log(res);
-              HTTPOpertion.saveToLocation("encryptedData",res.encryptedData);
-              HTTPOpertion.saveToLocation("iv", res.iv);
-              /**
-               * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
-               * 
-               * code	String	是	code
-               * encryptedData	String	是	微信用户加密信息
-               * iv	String	是	微信用户加密信息
-               */
-              HTTPOpertion.get3rdSession({ code: code, encryptedData: res.encryptedData, iv: res.iv }).then(function (result) {
-                console.log(result);
-                success(result);
-              }).catch(function (error) {
-                console.log(error);
-                fail(error);
-              });
-            }
-          })
-       
+                console.log(res);
 
-      }
-    });
-  })
+                var code = res.code;
+                wx.getUserInfo({
+                    success: function (res) {
+                        console.log(res);
+                        HTTPOpertion.saveToLocation("encryptedData", res.encryptedData);
+                        HTTPOpertion.saveToLocation("iv", res.iv);
+                        /**
+                         * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
+                         * 
+                         * code	String	是	code
+                         * encryptedData	String	是	微信用户加密信息
+                         * iv	String	是	微信用户加密信息
+                         */
+                        HTTPOpertion.get3rdSession({ code: code, encryptedData: res.encryptedData, iv: res.iv }).then(function (result) {
+                            console.log(result);
+                            success(result);
+                        }).catch(function (error) {
+                            console.log(error);
+                            fail(error);
+                        });
+                    }
+                })
+
+
+            }
+        });
+    })
 }
 
 /**
@@ -345,18 +345,18 @@ HTTPOpertion.login = function () {
  */
 
 HTTPOpertion.saveArrayToLocation = function (key, value) {
-  return new Promise(function (success, fail) {
-    wx.setStorage({
-      key: key,
-      data: value.join(","),
-      success: function () {
-        success("存储成功");
-      },
-      fail: function () {
-        fail("存储失败");
-      }
-    })
-  });
+    return new Promise(function (success, fail) {
+        wx.setStorage({
+            key: key,
+            data: value.join(","),
+            success: function () {
+                success("存储成功");
+            },
+            fail: function () {
+                fail("存储失败");
+            }
+        })
+    });
 
 }
 
@@ -367,18 +367,18 @@ HTTPOpertion.saveArrayToLocation = function (key, value) {
  */
 
 HTTPOpertion.saveToLocation = function (key, value) {
-  return new Promise(function (success, fail) {
-    wx.setStorage({
-      key: key,
-      data: value,
-      success: function () {
-        success("存储成功");
-      },
-      fail: function () {
-        fail("存储失败");
-      }
-    })
-  });
+    return new Promise(function (success, fail) {
+        wx.setStorage({
+            key: key,
+            data: value,
+            success: function () {
+                success("存储成功");
+            },
+            fail: function () {
+                fail("存储失败");
+            }
+        })
+    });
 }
 
 /**
@@ -389,18 +389,18 @@ HTTPOpertion.saveToLocation = function (key, value) {
 
 HTTPOpertion.getArrayToLocation = function (key) {
 
-  return new Promise(function (success, fail) {
-    wx.getStorage({
-      key: key,
-      success: function (res) {
-        console.log(res.data.split(","));
-        success(res.data.split(","));
-      },
-      fail: function () {
-        fail("获取失败");
-      }
-    })
-  });
+    return new Promise(function (success, fail) {
+        wx.getStorage({
+            key: key,
+            success: function (res) {
+                console.log(res.data.split(","));
+                success(res.data.split(","));
+            },
+            fail: function () {
+                fail("获取失败");
+            }
+        })
+    });
 
 }
 
@@ -411,24 +411,66 @@ HTTPOpertion.getArrayToLocation = function (key) {
  */
 
 HTTPOpertion.getToLocation = function (key) {
-  return new Promise(function (success, fail) {
-    wx.getStorage({
-      key: key,
-      success: function (res) {
-        console.log(res.data)
-        success(res.data);
-      },
-      fail: function () {
-        fail("获取失败");
-      }
-    })
-  });
-  
-  HTTPOpertion.getGoodsGroupBuyInfoXCX = function (parm) {
-    return HttpManager
-      .post(Default.HOST + Default.GOODS_GROUP_BUY_LIST, parm || {});
-
-  }
+    return new Promise(function (success, fail) {
+        wx.getStorage({
+            key: key,
+            success: function (res) {
+                console.log(res.data)
+                success(res.data);
+            },
+            fail: function () {
+                fail("获取失败");
+            }
+        })
+    });
 }
+
+
+/**
+token	String	是	token
+intPara	Integer	否	分类id
+intPara2	Integer	否	排序规则 1 返金由高到低 2 人气由高到低 3价格由高到低
+page	Integer	是	页码
+rows	Integer	是	页面大小
+* 
+*/
+
+HTTPOpertion.getGoodsGroupBuyListXCX = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.GOODS_GROUP_BUY_LIST, parm);
+
+}
+/**
+ * token	String	是
+ * page	Integer	是	页码
+ * rows	Integer	是	页面大小
+ * 
+ */
+HTTPOpertion.getGoodsGroupBuyInfoXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GOODS_GROUP_BUY_INFO, parm || {});
+
+};
+/**
+ * token	String	是	token
+ * orderId	String	是	账单ID
+ * goods_group_id	String	是	团id 订单列表/详情接口可获得
+ * group_buy_id	String	是	拼团id 订单列表/详情接口可获得
+ * 
+*/
+
+HTTPOpertion.commitReceiveGoods = function (parm) {
+    return HttpManager.post(Default.HOST + Default.COMMIT_RECEIVE_GOODS, parm || {});
+
+};
+/**
+ * token	String	是	token
+ * orderId	String	是	账单ID
+ * goods_group_id	String	是	团id 订单列表/详情接口可获得
+ * group_buy_id	String	是	拼团id 订单列表/详情接口可获得
+ */
+HTTPOpertion.cancelGroupOrder = function (parm) {
+    return HttpManager.post(Default.HOST + Default.CANCEL_GROUP_ORDER, parm || {});
+
+};
 
 module.exports = HTTPOpertion;
