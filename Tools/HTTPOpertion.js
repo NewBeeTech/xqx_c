@@ -451,6 +451,60 @@ HTTPOpertion.getGoodsGroupBuyInfoXCX = function (parm) {
 
 };
 /**
+token	String	是	token
+cnd	String	是	团id
+create_person_id	String	否	团id 开团此项为空 参团此项必填
+group_buy_id	String	否	拼团id 开团此项为空 参团此项必填
+ */
+HTTPOpertion.getCreateGroupBuyInfoXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.CREATE_GROUP_BUY_INFO, parm || {});
+
+};
+/**
+token	String	是	token
+id	String	否	地址id //修改时此项必填
+name	String	是	名字
+phone	String	是	电话
+address	String	是	地址
+ */
+HTTPOpertion.operatePersonAddress = function (parm) {
+    return HttpManager.post(Default.HOST + Default.OPERATE_PERSON_ADDRESS, parm || {});
+
+};
+/**
+token	String	是	token
+cnd	String	是	团id
+num	String	是	商品数量
+money	String	是	支付金 分
+merchant_id	String	是	商户id
+ratio	String	是	返金比例
+address_id	String	是
+name	String	是	团名称
+create_person_id	String	否	团长id 开团此项为空 参团此项必填
+group_buy_id	String	否	拼团id 开团此项为空 参团此项必填
+ */
+HTTPOpertion.createGroupBuyXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.CREATE_GROUP_BUY, parm || {});
+
+};
+/**
+token	String	是
+page	Integer	是	页码
+rows	Integer	是	页面大小
+ */
+HTTPOpertion.getGoodsGroupOrderListXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GET_GOODS_GROUP_ORDER_LIST, parm || {});
+
+};
+/**
+token	String	是	token
+cnd	String	是	账单id
+ */
+HTTPOpertion.getGoodsGroupOrderInfoXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GET_GOODS_GROUP_ORDER_INFO, parm || {});
+
+};
+/**
  * token	String	是	token
  * orderId	String	是	账单ID
  * goods_group_id	String	是	团id 订单列表/详情接口可获得

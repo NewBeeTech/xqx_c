@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -188,7 +188,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 26,
 					"name": "3",
 					"pathName": "pages/WriteAddress/WriteAddress",
 					"query": ""
