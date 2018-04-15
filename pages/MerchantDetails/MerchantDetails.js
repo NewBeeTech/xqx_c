@@ -191,6 +191,15 @@ Page({
           
         }
         
+    }, 
+    toNextPage: function (e) {
+      console.log(e);
+
+      var pageIndex = e.currentTarget.dataset.page;
+      var pages = ["../homePage/homePage", "../FightGroups/FightGroups", "../search/search", '../goodDetail/goodDetail']
+      wx.navigateTo({
+        url: pages[pageIndex],
+      })
     },
 
     /**

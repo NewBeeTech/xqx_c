@@ -1,0 +1,90 @@
+<!--pages/orderDetails/orderDetails.wxml-->
+<view class='order_info_head'>
+    <view>
+        <view class='fight_success'>拼团成功</view>
+        <text>商家已发货，请耐心等待</text>
+        <text wx:if="{{false}}">已取消订单</text>
+        <text wx:if="{{false}}">退款3个工作日内将返还你的支付账户</text>
+        <text wx:if="{{false}}">待商家发货，请耐心等待</text>
+        <text wx:if="{{false}}">已完成收货</text>
+        <text wx:if="{{false}}">正在努力拼团中，请耐心等待</text>
+    </view>
+        <image src='../../images/icon/waitFor.png' class='waitImg'></image>
+</view>
+<view class='position_info'>
+    <view>
+        <text class='buyers_name'>张三</text>
+        <text>1520158237</text>
+    </view>
+    <text>北京市海淀区知春路6号锦秋国际B座404</text>
+</view>
+<view class='fight_info'>
+    <view class='fight_icon'>
+        <!-- <image src='../../images/icon/waitFor.png'></image> -->
+        <text>拼团成功</text>
+    </view>
+    <view class='headPor'>
+        <image src='../../images/icon/waitFor.png'></image>
+        <image src='../../images/icon/waitFor.png'></image>
+        <image src='../../images/icon/waitFor.png'></image>
+        <image src='../../images/icon/waitFor.png'></image>
+    </view>
+</view>
+ <view class='order_list'>
+    <view class='order_status'>  
+        <text class='shop_name'>外婆家</text><image src='../../images/icon/right_arrow2.png'></image>
+    </view> 
+    <view class='order_info'>
+        <image src="../../images/icon/che.png"></image>
+        <view class='price_info'>
+            <view class='shop_info'>【4件装】，2018新款男士短袖体恤【4件装】，2018新款男士短袖体恤【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+            <view class='present_price'>
+                <view>
+                    <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                </view>
+            </view>
+        </view> 
+    </view>
+</view>
+<view class='order_detailed'>
+    <view>
+        <view>参团时间</view>
+        <text>2018-02-28 13:24:24</text>
+    </view>
+    <view>
+        <view>订单编号</view>
+        <text>2929929911011011</text>
+    </view>
+    <view>
+        <view>快递单号</view>
+        <text>22929929911011011</text>
+    </view>
+    <view>
+        <view>拼团须知</view>
+        <view class='notice'>
+            <view><text>拼团须知1</text><text>拼团须知2</text><text>拼团须知3</text></view>
+            <image src='../../images/icon/right_arrow2.png'></image>
+        </view>     
+    </view>
+</view>
+<view class='btn_bar'>
+      <view class='customer_service_btn'>售后</view>  <!--订单完成宽度  percent_width  -->
+     <view class='confirmation_receipt_btn identical'>确认收货</view> 
+    <view class='buy_again_btn identical' wx:if="{{false}}">再次购买</view>
+    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+</view>
+<!-- 弹窗 -->
+<view class='popup' wx:if='{{false}}'>
+    <view>
+         <!-- <view class='popup_box'>         
+            <text>退款提示</text>
+         </view>  -->
+         <view class='explain'>
+            <text class='describeInfo'>是否取消订单？</text>
+         </view>
+         <view class='close'>
+            <button class='cancel' bindtap='sqtkTap'>取消</button>
+            <button class='confirm' bindtap='sqtkTap'>确认退款</button>
+         </view>
+    </view>
+</view>

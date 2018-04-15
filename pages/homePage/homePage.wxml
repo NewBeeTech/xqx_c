@@ -9,7 +9,7 @@
         <input placeholder='搜索商户'></input>
       </view>
     </view>
-
+<!-- 
     <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400' wx:if='{{obj.topPics.length}}'>
       <block wx:for='{{obj.topPics}}' wx:key='{{index}}'>
         <swiper-item>
@@ -48,7 +48,7 @@
         </view>
         <image src='https://activity.denong.com/yh2.png'></image>
       </view>
-    </view>
+    </view> -->
     </view>
 
     <view class='cont'>

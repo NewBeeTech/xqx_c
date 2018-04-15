@@ -90,7 +90,7 @@ console.log(e);
     scrolling:function(e){
       // console.log(e.detail.scrollTop, this.data.positionType);
       if (this.data.positionType==="nor"){
-        if (e.detail.scrollTop > 248){
+        if (e.detail.scrollTop > (47+52)){
           this.setData({
             positionType: "fixed",
             PopupIf: false,
@@ -99,7 +99,7 @@ console.log(e);
           });
         }
       }else{
-        if (e.detail.scrollTop < 248){ 
+        if (e.detail.scrollTop < (47 + 52)){ 
           this.setData({
             positionType:  "nor",
             PopupIf: false,

@@ -1,5 +1,5 @@
 <scroll-view>
-  <swiper class='top_banner' indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{3000}}" duration="{{1000}}">
+  <swiper class='top_banner' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
 
     <swiper-item>
       <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
@@ -21,11 +21,11 @@
   </swiper>
 
   <view class='nav'>
-    <view class='item'>
+    <view class='item' bindtap='toNextPage' data-page='{{0}}'>
       <image src='../../images/home/fujin.png'></image>
       <text>附近</text>
     </view>
-    <view class='item'>
+    <view class='item' bindtap='toNextPage' data-page='{{1}}'>
       <image src='../../images/home/pintuan.png'></image>
       <text>拼团</text>
     </view>
@@ -37,7 +37,7 @@
       <image src='../../images/home/xianshi.png'></image>
       <view>限时秒杀</view>
     </view>
-    <view class='item'>
+    <view class='item' bindtap='toNextPage' data-page='{{2}}'>
       <image src='../../images/home/sousuo.png'></image>
       <view>搜索</view>
     </view>
@@ -47,23 +47,23 @@
     <view class='title'>热门拼团</view>
     <view class='good_list'>
       <view class='item'>
-        <image class='item_detail left_icon' src='../../images/tabBar/a.png'></image>
+        <image class='item_detail left_icon' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg' mode='aspectFill'></image>
         <view class='item_detail right_des'>
-          <view class='title'>商品名称</view>
+          <view class='title '>商品名称</view>
           <view>
-            <text>￥6.00</text>
-            <text>￥14.00</text>
+            <text><text class='money_symbol'>￥</text><text class='min_price'>6.00</text></text>
+            <text class='orange_price'>￥14.00</text>
           </view>
-          <view>
+          <view class='xiaojin'>
             额外奖励:
             <text>2.00</text>小金
           </view>
-          <view>
-            <text>6人团</text>
-            <text>已团出:333件</text>
+          <view class='group'>
+            <text class='group_num'>6人团</text>
+            <text class='group_out'>已团出:333件</text>
           </view>
         </view>
-        <button class='right_button'>去开团</button>
+        <button class='right_button' bindtap='toNextPage' data-page='{{3}}'>去开团</button>
       </view>
     </view>
   </view>

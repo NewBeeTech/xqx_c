@@ -423,7 +423,12 @@ HTTPOpertion.getToLocation = function (key) {
       }
     })
   });
+  
+  HTTPOpertion.getGoodsGroupBuyInfoXCX = function (parm) {
+    return HttpManager
+      .post(Default.HOST + Default.GOODS_GROUP_BUY_LIST, parm || {});
 
+  }
 }
 
 module.exports = HTTPOpertion;

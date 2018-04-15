@@ -1,4 +1,4 @@
-// pages/goodsDetail/goodsDetail.js
+// pages/customerService/customerService.js
 Page({
 
   /**

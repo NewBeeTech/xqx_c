@@ -1,4 +1,7 @@
 // pages/spellGroup/spellGroup.js
+var app = getApp();
+var appData = app.globalData;
+
 Page({
 
   /**
@@ -7,12 +10,43 @@ Page({
   data: {
   
   },
-
+  toNextPage:function(e){
+    console.log(e);
+  
+    var pageIndex = e.currentTarget.dataset.page;
+    var pages = ["../homePage/homePage", "../FightGroups/FightGroups","../search/search", '../goodDetail/goodDetail']
+    wx.navigateTo({
+      url: pages[pageIndex],
+    })
+  },
+  loadUserStatus:function(){
+    app.getUserLocation(function (addr) {
+      app.login(function () {
+        wx.hideLoading();
+        console.log(wx.getStorageSync("token"));
+        appData.Tool.getAddressData({ location: addr }).then(function (result) {
+          wx.hideLoading();
+          wx.setStorageSync("city", result.data.id);
+          wx.setStorageSync("level", result.data.level);
+          
+        })
+          .catch(function (err) {
+            console.log(err);
+            wx.hideLoading();
+            wx.showToast({
+              title: err.message,
+              icon: 'none',
+              duration: 2000
+            })
+          });
+      });
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.loadUserStatus();
   },
 
   /**

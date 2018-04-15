@@ -1,0 +1,23 @@
+<!--pages/WriteAddress/WriteAddress.wxml-->
+<view class='wrap'>
+    <view class='wrap_box'>
+        <text>姓名</text>
+        <input placeholder='请输入姓名' placeholder-style='color:#ccc'></input>
+    </view>
+    <view class='wrap_box'>
+        <text>电话</text>
+        <input placeholder='请输入电话' placeholder-style='color:#ccc'></input>
+    </view>
+    <view class='wrap_box'>
+        <text>选择地区</text>
+        <view class='wrap_rei'>
+            <text>北京北京</text>
+            <image src='../../images/icon/jit2.png'></image>
+        </view>
+    </view>
+    <view class='wrap_box'>
+        <text>详细地址</text>
+        <input placeholder='请输入详细地址(如街道、乡镇、小区、村)' placeholder-style='color:#ccc'></input>
+    </view>
+    <view class='wrap_btn'>保存</view>
+</view>

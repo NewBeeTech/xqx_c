@@ -150,4 +150,15 @@ Default.CREATE_PAY = "xcxwechatpay/createPay";
  */
 Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
+/**
+ * 
+ * 开团
+ * 
+ */
+Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+/**
+ * 获取拼团详情
+ */
+Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyInfoXCX"
+
 module.exports = Default;

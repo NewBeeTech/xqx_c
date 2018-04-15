@@ -1,0 +1,40 @@
+/* pages/WriteAddress/WriteAddress.wxss */
+.wrap{
+    border-top: solid 1rpx #dadada;
+    padding: 0 33rpx;
+}
+.wrap_box{
+    height: 97rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1rpx #dadada;
+    font-size: 28rpx;
+}
+.wrap_box>input{
+    width: 535rpx;
+    height: 70rpx;
+    text-align: right;
+}
+.wrap_rei{
+    display: flex;
+    align-items: center;
+}
+.wrap_rei>image{
+    width: 19rpx;
+    height: 30rpx;
+    margin-left: 46rpx;
+}
+
+.wrap_btn{
+    width: 687rpx;
+    height: 90rpx;
+    border-radius: 8rpx;
+    background: #ff9400;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-weight: bold;
+    margin: 110rpx auto 0;
+}

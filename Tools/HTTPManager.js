@@ -34,7 +34,6 @@ HTTPManager.post = function (url, parm) {
   wx.showLoading({
     title: '加载中',
   });
-  // parm.userId = "20291";
   parm.token = wx.getStorageSync('token');
   parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
   console.log(parm,wx.getStorageSync('token'));
@@ -44,9 +43,6 @@ HTTPManager.post = function (url, parm) {
       console.log(res);
     },
   })
-  // wx.setStorage("userId", res.userId);
-  // wx.setStorage("token", res.token);
-  // wx.setStorage("session", res.session);
   return new Promise(function (success, fail) {
     wx.request({
       url: url,
@@ -58,19 +54,9 @@ HTTPManager.post = function (url, parm) {
       success: function (res) {
         console.log(res);
         if (res.data.code === 2) {
-          // HTTPManager.login();
           return;
         }
-        // if(res.data.code == 0){
           success(res.data);
-        // }else{
-          // wx.showToast({
-          //   title: res.data.message,
-          //   icon: 'none',
-          //   duration: 2000
-          // })
-        // }
-        
       },
       fail: function (error) {
         fail(error)

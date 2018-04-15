@@ -1,4 +1,6 @@
 // pages/spellGroup/spellGroup.js
+var app = getApp();
+var appData = app.globalData;
 Page({
 
   /**

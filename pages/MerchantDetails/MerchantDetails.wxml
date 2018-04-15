@@ -56,7 +56,7 @@
         <text class='details_box3_time'>{{obj.business_hours}}</text>
     </view>
 </view>
-<view class='shop' wx:if="{{gonlList.length>0}}">
+<!-- <view class='shop' wx:if="{{gonlList.length>0}}">
     <view class='shop_list'  wx:for="{{gonlList}}" >
         <view class='shop_list_x'>
             <image src="{{item.url}}"></image>
@@ -68,12 +68,34 @@
         </view>
         <view class='shop_list_btn' bindtap='shop_list_btn' data-id='{{item.id}}'>购买</view>
     </view>
-    <!-- <view class='shop_btn'>
+    <view class='shop_btn'>
         <text>查看其它3张劵</text>
         <image src='../../images/icon/b.png'></image>
-    </view> -->
-</view>
-
+    </view> 
+</view> -->
+  <view class='goods'>
+    <view class='good_list'>
+      <view class='item'>
+        <image class='item_detail left_icon' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg' mode='aspectFill'></image>
+        <view class='item_detail right_des'>
+          <view class='title '>商品名称</view>
+          <view>
+            <text><text class='money_symbol'>￥</text><text class='min_price'>6.00</text></text>
+            <text class='orange_price'>￥14.00</text>
+          </view>
+          <view class='xiaojin'>
+            额外奖励:
+            <text>2.00</text>小金
+          </view>
+          <view class='group'>
+            <text class='group_num'>6人团</text>
+            <text class='group_out'>已团出:333件</text>
+          </view>
+        </view>
+        <button class='right_button' bindtap='toNextPage' data-page='{{3}}'>去开团</button>
+      </view>
+    </view>
+  </view>
 <view class='shop' wx:if="{{currentLikes.length>0}}">
     <view class='shop_list' bindtap='gmTap' wx:for="{{currentLikes}}" wx:key="index">
         <view class='shop_list_x' >
