@@ -11,6 +11,7 @@ Page({
   data: {
     alertTop:0,
     isShow:"none",
+    goodsInfo:{},
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }]
   },
   loadData: function (id) {
@@ -24,16 +25,9 @@ Page({
         if (res.code === 0) {
           success();
           self.setData({
-            goods: res.data.list
+            goodsInfo: res.data
           });
-          wx.stopPullDownRefresh();
-          if (result.data.list.length == 0) {
-            wx.showToast({
-              title: '没有更多数据',
-              icon: 'success',
-              duration: 2000
-            })
-          }
+         
         } else {
           wx.showToast({
             title: res.message,
@@ -61,7 +55,7 @@ Page({
     },500);
   },
   stopTimer:function(){
-
+    clearInterval(timer);
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -102,6 +96,7 @@ Page({
   onLoad: function (options) {
     this.startTimer();
     console.log(options.id);
+    this.loadData(options.id);
   },
 
   /**

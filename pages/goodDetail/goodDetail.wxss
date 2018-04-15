@@ -227,6 +227,9 @@ page>view>scroll-view{
   align-items: center;
   justify-content: flex-end;
 }
+.beginBtn view {
+  text-align: center;
+}
 .beginBtn2{
     flex: 1;
     height: 92rpx;
