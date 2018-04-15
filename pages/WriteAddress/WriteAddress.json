@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "确认订单",
-    "usingComponents": {
-        "modal": "../../component/city/city"
-    }
+    "navigationBarTitleText": "确认订单"
 }

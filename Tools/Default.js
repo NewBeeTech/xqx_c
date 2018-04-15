@@ -152,7 +152,7 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
 /**
  * 
- * 开团
+ * 开团列表
  * 
  */
 Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
@@ -161,6 +161,31 @@ Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
  * 获取拼团详情
  */
 Default.GOODS_GROUP_BUY_INFO = "xcxgroupbuy/getGoodsGroupBuyInfoXCX";
+
+/**
+ * 一键开团/参团
+ */
+Default.CREATE_GROUP_BUY_INFO = "xcxgroupbuy/getCreateGroupBuyInfoXCX";
+
+/**
+ * 新建/修改收货地址
+ */
+Default.OPERATE_PERSON_ADDRESS = "xcxgroupbuy/operatePersonAddress";
+
+/**
+ * 确认一键开团/参团
+ */
+Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuyXCX";
+
+/**
+ * 获取用户拼团订单列表
+ */
+Default.GET_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getGoodsGroupOrderListXCX";
+
+/**
+ * 获取拼团订单详情
+ */
+Default.GET_GOODS_GROUP_ORDER_INFO = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
 
 /**
  * 确认收货

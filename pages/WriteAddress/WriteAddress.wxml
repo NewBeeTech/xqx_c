@@ -2,22 +2,44 @@
 <view class='wrap'>
     <view class='wrap_box'>
         <text>姓名</text>
-        <input placeholder='请输入姓名' placeholder-style='color:#ccc'></input>
+        <input placeholder='请输入姓名' placeholder-style='color:#ccc' bindinput='inputTap' data-id='1'></input>
     </view>
     <view class='wrap_box'>
         <text>电话</text>
-        <input placeholder='请输入电话' placeholder-style='color:#ccc'></input>
+        <input placeholder='请输入电话' placeholder-style='color:#ccc' bindinput='inputTap' data-id='2'></input>
     </view>
     <view class='wrap_box'>
         <text>选择地区</text>
         <view class='wrap_rei'>
-            <modal modal-pageactive="{{is_modal_Pageactive}}" modal-cityname="{{is_modal_Cityname}}"/>
+            <text bindtap='popupTap'>{{modalCityname}}</text>
             <image src='../../images/icon/jit2.png'></image>
         </view>
     </view>
     <view class='wrap_box'>
         <text>详细地址</text>
-        <input placeholder='请输入详细地址(如街道、乡镇、小区、村)' placeholder-style='color:#ccc'></input>
+        <input placeholder='请输入详细地址(如街道、乡镇、小区、村)' placeholder-style='color:#ccc' bindinput='inputTap' data-id='3'></input>
     </view>
-    <view class='wrap_btn'>保存</view>
+    <view class='wrap_btn' style='background:{{btnIf?"":"#ccc"}}' bindtap='{{btnIf?"bcTap":""}}'>保存</view>
+</view>
+
+
+<!-- 弹窗 -->
+<view class='popup' wx:if='{{popupIf}}'>
+    <view style='height:20%' bindtap='popupTap'></view>
+    <view class='p-content {{cssDH}} animated'>
+        <view class='c-title'>
+            <view class='c-t-list'>
+                <text>{{nameLs}}</text>
+                <view>请选择</view>
+            </view>
+            <text class='c-t-col' catchtap='popupTap'>取消</text>
+        </view>
+        <scroll-view class='c-city' scroll-y="true">
+            <view wx:for="{{city}}" wx:key="{{index}}">
+                <view class='cityList' catchtap='choiseCity' data-id='{{item.id}}' data-name='{{item.fullname}}'>
+                    <text>{{item.fullname}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
 </view>
