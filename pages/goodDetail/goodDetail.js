@@ -12,8 +12,15 @@ Page({
     alertTop:0,
     isShow:"none",
     goodsInfo:{},
+    groupInfo:{},
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }]
   },
+  oneKeyGroup: function (e){
+    wx.navigateTo({
+      url: '../ConfirmationOrder/ConfirmationOrder?cnd=' +e.currentTarget.dataset.id,
+    })
+  },
+  
   loadData: function (id) {
     var self = this;
     return new Promise(function (success, fail) {

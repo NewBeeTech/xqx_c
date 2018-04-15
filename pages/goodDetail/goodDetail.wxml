@@ -103,7 +103,7 @@
       <image src='../../images/tabBar/a2.png'></image>
       <view>首页</view>
     </view>
-     <view class='beginBtn'>
+     <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}'>
           <view>  
               <view>¥{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/100}}</view>
               <view>一键开团</view>
