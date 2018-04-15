@@ -68,6 +68,7 @@ Page({
    */
   onLoad: function (options) {
     this.startTimer();
+    console.log(options.id);
   },
 
   /**

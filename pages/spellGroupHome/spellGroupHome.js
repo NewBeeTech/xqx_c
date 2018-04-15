@@ -2,21 +2,51 @@
 var app = getApp();
 var appData = app.globalData;
 
+Number.prototype.toDouble = function(){
+  return this.toFixed(2);
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    page:1,
+    goods:[]
+  },
+  loadOpenedGroup:function(page){
+    var a = 1;
+    console.log(a.toDouble());
+    var self = this;
+    appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 }).then(function (result) {
+      wx.hideLoading();
+      console.log(result);
+      if(result.code == 0){
+        self.setData({
+          goods:result.data.list
+        });
+      }else{
+        wx.showToast({
+          title: result.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }).catch(function(err){
+      console.log(err);
+    });
   },
   toNextPage:function(e){
     console.log(e);
-  
     var pageIndex = e.currentTarget.dataset.page;
     var pages = ["../homePage/homePage", "../FightGroups/FightGroups","../search/search", '../goodDetail/goodDetail']
+    var url = pages[pageIndex];
+    if (pages[pageIndex] =="../goodDetail/goodDetail"){
+      url += "?id=" + e.currentTarget.dataset.id
+    }
     wx.navigateTo({
-      url: pages[pageIndex],
+      url: url,
     })
   },
   loadUserStatus:function(){
@@ -47,6 +77,7 @@ Page({
    */
   onLoad: function (options) {
     this.loadUserStatus();
+    this.loadOpenedGroup(1);
   },
 
   /**

@@ -40,7 +40,8 @@
     "pages/purchaseCoupon/purchaseCoupon",
     "pages/exploreExperience/exploreExperience",
     "pages/WriteAddress/WriteAddress",
-    "pages/DetailsPayment/DetailsPayment"
+    "pages/DetailsPayment/DetailsPayment",
+    "pages/waring/waring"
   ],
   "window": {
     "backgroundTextStyle": "light",

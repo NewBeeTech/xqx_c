@@ -30,6 +30,7 @@ HTTPManager.get = function (url, parm) {
 }
 
 HTTPManager.post = function (url, parm) {
+  console.log("URL:",url,"parms:", parm);
   wx.hideLoading();
   wx.showLoading({
     title: '加载中',

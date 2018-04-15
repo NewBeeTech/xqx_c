@@ -1,52 +1,73 @@
 <!--pages/MerchantList/MerchantList.wxml-->
-<scroll-view scroll-y='true' style='height:100%;' bindscroll='pageScroll' >
+<scroll-view scroll-y='true' style='height:100%;' bindscroll='pageScroll'>
 
-<view class='wrap1'>
-    <image class='wrap1_img' src=''></image>
-    <view class='wrap1_box'>
-        <image class='wrap1_img' src='../../images/icon/weh.png'></image>
-        <text>拼团须知</text>
+  <view class='wrap1'>
+    <image class='wrap1_img' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg'></image>
+    <view class='wrap1_box' bindtap='toWaring'>
+      <image class='wrap1_img' src='../../images/icon/weh.png'></image>
+      <text>拼团须知</text>
     </view>
-</view>
+  </view>
 
-<view class='wrap2 {{julIf && "wrap2_jul"}}'>
-    <view class='wrap2_nav'>
-        <view class='wrap2_nav_li' bindtap='popupTap' data-ind='0'>
-            <view>类型</view>
-            <image class='{{popupIf && index==0 && "wrap2_nav_li_zut"}}' src='../../images/icon/jit.png'></image>
+  <view class='cont'>
+  <view class='{{positionType}}'>
+    <view class='cont_title'>
+      <view bindtap='shTap'>
+        <text>{{types}}</text>
+        <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+      </view>
+      <view bindtap='unionidTap'>
+        <text>{{orderType}}</text>
+        <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+      </view>
+    </view>
+    <!-- 筛选_弹窗 -->
+    <view class='Popup left_container' wx:if='{{PopupIf}}'>
+      <view class='Popup_box'>
+        <scroll-view class='Popup_box_scroll' scroll-y='true'>
+          <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+            <view>{{item.name}}</view>
+          </view>
+        </scroll-view>
+        <scroll-view class='Popup_box_scroll' scroll-y='true' style='background: #fff;'>
+          <view class='Popup_box_left Popup_box_right {{index==Popup_index_right&&"Popup_co"}}' wx:for='{{subList}}' wx:key='{{index}}' bindtap='PopupBoxLeft' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+            <view>{{item.name}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <view style='height:100%' bindtap='PopupF'></view>
+    </view>
+
+    <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
+      <view class='Popup_box'>
+        <scroll-view class='Popup_box_scroll' scroll-y='true'>
+          <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+            <view>{{item.name}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <view style='height:100%' bindtap='PopupF'></view>
+    </view>
+  </view>
+  </view>
+  <view class='wrap3 {{julIf && "wrap3_jul"}}'>
+    <view wx:for='{{goods}}' wx:key='{{index}}'>
+      <image class='wrap3_img' src='{{item.img_url}}'></image>
+      <view class='wrap3_box'>
+        <view class='wrap3_box_name'>{{item.name}}</view>
+        <view class='wrap3_box_jig'>
+          <view>
+            <text>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/100}}</view>
+          <text>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/100}}</text>
         </view>
-        <view class='wrap2_nav_li' bindtap='popupTap' data-ind='1'>
-            <view>排序</view>
-            <image class='{{popupIf && index==1 && "wrap2_nav_li_zut"}}' src='../../images/icon/jit.png'></image>
+        <view class='wrap3_box_ewj'>额外奖励： {{item.ratio/100*item.group_price/100}}小金</view>
+        <view class='wrap3_box_shl'>
+          <view>{{item.group_person_num}}人团</view>
+          <text>已团： {{item.sellNum}}件</text>
         </view>
+      </view>
+      <view class='wrap3_btn' bindtap='toGroupDetail' data-id='{{item.id}}'>去开团</view>
     </view>
-
-    <view class='wrap2_popup' wx:if='{{popupIf}}'>
-        <view class='wrap2_popup_col'>返金金额由高到低</view>
-        <view>人气由高到低</view>
-        <view>价格由低到高</view>
-    </view>
-</view>
-
-<view class='wrap2_popup_ze' wx:if='{{popupIf}}'></view>
-
-<view class='wrap3 {{julIf && "wrap3_jul"}}'>
-    <view wx:for='{{[1,2,3,4,5,6,7]}}' wx:key='{{index}}'>
-        <image class='wrap3_img' src='{{}}'></image>
-        <view class='wrap3_box'>
-            <view class='wrap3_box_name'>名字名字名字名字</view>
-            <view class='wrap3_box_jig'>
-                <view><text>￥</text>200</view>
-                <text>￥12.5</text>
-            </view>
-            <view class='wrap3_box_ewj'>额外奖励： 2.00小金</view>
-            <view class='wrap3_box_shl'>
-                <view>6人团</view>
-                <text>已团： 333件</text>
-            </view>
-        </view>
-        <view class='wrap3_btn' bindtap='toGroupDetail'>去开团</view>
-    </view>
-</view>
+  </view>
 
 </scroll-view>

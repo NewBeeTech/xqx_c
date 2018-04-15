@@ -122,3 +122,31 @@ page {
   color: #6e6e6e;
   padding-left: 10rpx;
 }
+
+.cont {
+    position: relative;  
+}
+
+.cont_title>view{
+    width: 50%;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont_title>view:nth-child(1){
+    border-right: solid 1rpx #c7c7c7;
+    
+}
+.cont_title>view>image{
+    width: 24rpx;
+    height: 14rpx;
+}
+.cont_title>view>text{
+    font-size: 13px;
+    color: #242424;
+    margin-right: 12rpx;
+}
+.cont_title_deg{
+    transform: rotate(180deg)
+}
