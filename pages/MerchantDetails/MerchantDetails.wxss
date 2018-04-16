@@ -422,7 +422,7 @@ page{
 
 .goods .right_button {
   width: 130rpx;
-  background: gray;
+  background: #fea400;
   height: 70rpx;  
   box-sizing: border-box;
   font-size: 26rpx;
@@ -430,8 +430,8 @@ page{
   border-radius: 30rpx;
   line-height: 70rpx;
   color: white;
-  background:  rgb(251,115,39);
   margin-right: -5rpx;
+  padding: 0;
 }
 .goods .group {
   padding-top: 10rpx;

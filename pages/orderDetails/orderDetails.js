@@ -11,12 +11,16 @@ Page({
   },
   loadData: function (id) {
       var that = this;
-      appData.Tool.getGoodsGroupBuyInfoXCX({ cnd: id}).then(function (res) {
+      appData.Tool.getGoodsGroupOrderInfoXCX({ cnd: id}).then(function (res) {
           console.log(res)
+          wx.hideLoading();
           that.setData({
               xqObj:res.data
           })
-      }).catch(function (err) { });
+      }).catch(function (err) {
+          wx.hideLoading();
+          console.log(err)
+       });
   },
   //确认收货
   qusTap:function(){

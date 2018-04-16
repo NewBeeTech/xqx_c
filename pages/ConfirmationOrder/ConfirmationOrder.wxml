@@ -1,13 +1,13 @@
 <!--pages/ConfirmationOrder/ConfirmationOrder.wxml-->
-<view class='wrap1' wx:if='{{true}}'>
+<view class='wrap1' wx:if='{{groupInfo.address_id}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
-        <view>{{groupInfo.receiveName  }}{{groupInfo.phone}}</view>
+        <view>{{groupInfo.receiveName}} {{groupInfo.phone}}</view>
         <text>{{groupInfo.address}}</text>
     </view>
     <image class='wrap1_icon' src='../../images/icon/jit2.png'></image>
 </view>
 
-<view class='wrap1' wx:else>
+<view class='wrap1' wx:else bindtap='bjAddress'>
     <view class='wrap1_box2'>
         <image src='../../images/icon/ja.png'></image>
         <text>手动添加地址</text>
@@ -33,10 +33,9 @@
     <view class='wrap2_nub'>
         <text>购买数量</text>
         <view class='wrap2_nub_anj'>
-            <image wx:if='{{false}}' src='../../images/icon/jia.png'></image>
-            <image wx:else src='../../images/icon/jia2.png'></image>
+            <image src='{{buyNum==1?"../../images/icon/jia2.png":"../../images/icon/jia.png"}}' bindtap='ja1'></image>
             <view>{{buyNum}}</view>
-            <image src='../../images/icon/ja.png'></image>
+            <image src='../../images/icon/ja.png' bindtap='ja2'></image>
         </view>
     </view>
 </view>
@@ -45,11 +44,11 @@
     <view class='wrap3_cont'>
         <view class='wrap3_cont_he'>
             <view>付款金额：</view>
-            <text>￥{{~~groupInfo.group_price/100==groupInfo.group_price/100?groupInfo.group_price/100+".00":~~(groupInfo.group_price*100)/100}}</text>
+            <text>￥{{~~groupInfo.group_price/100==groupInfo.group_price/100?groupInfo.group_price*buyNum/100+".00":~~(groupInfo.group_price*100)*buyNum/10000}}</text>
         </view>
         <view>
             <view>额外奖励：</view>
-            <text>{{groupInfo.ratio/100*groupInfo.group_price/100}}小金</text>
+            <text>{{~~(groupInfo.ratio/100*groupInfo.group_price/100*buyNum*100)/100}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>

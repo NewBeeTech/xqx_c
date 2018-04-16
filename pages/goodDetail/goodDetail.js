@@ -3,6 +3,7 @@ var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
 var timer = null;
+var dsq;
 Page({
 
   /**
@@ -13,11 +14,12 @@ Page({
     isShow:"none",
     goodsInfo:{},
     groupInfo:{},
-    groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }]
+    groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }],
+    tId:''
   },
   oneKeyGroup: function (e){
     wx.navigateTo({
-      url: '../ConfirmationOrder/ConfirmationOrder?cnd=' +e.currentTarget.dataset.id,
+        url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
     })
   },
   
@@ -32,8 +34,31 @@ Page({
         if (res.code === 0) {
           success();
           self.setData({
-            goodsInfo: res.data
+            goodsInfo: res.data,
+            tId:res.id
           });
+          dsq = function(){
+              var arr = self.data.goodsInfo.joinList;
+              for (var k in arr){
+                  if (arr[k].deadLine - 1000 > 0){
+                      arr[k].deadLine -= 1000;
+                  }else{
+                      clearInterval(dsq);
+                  }
+                  arr[k].deadLineX = fnItem(arr[k].deadLine);
+              };
+              self.setData({
+                  'goodsInfo.joinList': arr
+              });
+              function fnItem(t) {
+                  var s = ~~(t / 60 / 60 / 1000);
+                  var f = ~~((t - s * 60 * 60 * 1000) / 60 / 1000);
+                  var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
+                  return (s < 10 ? '0' + s : s) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
+              };
+          };
+          setInterval(dsq,1000)
+
          
         } else {
           wx.showToast({
@@ -71,7 +96,7 @@ Page({
     }
     return {
       title: '自定义转发标题',
-      path: '/page/user?id=123',
+      path: this.data.goodsInfo.shareUrl,
       success: function (res) {
         // 转发成功
       },
@@ -94,7 +119,7 @@ Page({
   },
   goToConfirmationOrder:function(){
     wx.navigateTo({
-      url: '../ConfirmationOrder/ConfirmationOrder',
+        url: '../ConfirmationOrder/ConfirmationOrder'
     })
   },
   /**

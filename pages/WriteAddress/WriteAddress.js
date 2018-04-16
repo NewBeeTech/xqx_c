@@ -22,10 +22,14 @@ Page({
           id:'',
           name:'',
           phone:'',
-          address: ''
+          address: '',
+          group_buy_id: '',
+          create_person_id:''
       },
       xaxAddress:'',//详细地址
-      btnIf:false//btn是否可点
+      btnIf:false,//btn是否可点
+      a1:'',
+      a2:'',
   },
 
   //获取全国所有城市
@@ -104,6 +108,21 @@ Page({
    */
   onLoad: function (options) {
       this.getCityList();
+      var obj = this.data.objC;
+      if (options.address_id){
+          obj.id = options.address_id;
+      };
+      if (options.a1){
+          this.setData({
+              a1: options.a1,
+              a2: options.a2
+          })
+      };
+      if (options.create_person_id){
+          obj.create_person_id =  options.create_person_id;
+          obj.group_buy_id = options.group_buy_id;
+      };
+      console.log(options)
   },
 
   //输入input
@@ -141,9 +160,17 @@ Page({
       objC.address = that.data.modalCityname + that.data.xaxAddress;
       console.log(objC)
 
-      appData.Tool.getCreateGroupBuyInfoXCX(objC).then(function (res) {
+      appData.Tool.operatePersonAddress(objC).then(function (res) {
           console.log(res)
-      }).catch(function (err) { });
+          wx.hideLoading();
+
+          if (res.data.id){
+              wx.navigateBack({})
+          }
+      }).catch(function (err) {
+          wx.hideLoading();
+          console.log(err)
+       });
   },
 
 

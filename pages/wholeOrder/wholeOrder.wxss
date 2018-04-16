@@ -111,3 +111,13 @@ page{
     color: #ff9e00;
     border:1rpx solid #ff9e00;
 }
+.sharing_friends_btn{
+    width: 172rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin-left: 20rpx;
+    border-radius: 8rpx;
+    background: #ff9e00;
+    color: #fff;
+}

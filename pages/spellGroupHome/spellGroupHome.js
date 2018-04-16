@@ -50,6 +50,7 @@ Page({
     })
   },
   loadUserStatus:function(){
+      var self = this;
     app.getUserLocation(function (addr) {
       app.login(function () {
         wx.hideLoading();
@@ -58,7 +59,7 @@ Page({
           wx.hideLoading();
           wx.setStorageSync("city", result.data.id);
           wx.setStorageSync("level", result.data.level);
-          
+          self.loadOpenedGroup(1);
         })
           .catch(function (err) {
             console.log(err);
@@ -77,7 +78,7 @@ Page({
    */
   onLoad: function (options) {
     this.loadUserStatus();
-    this.loadOpenedGroup(1);
+    
   },
 
   /**

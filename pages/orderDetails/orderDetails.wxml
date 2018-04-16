@@ -2,6 +2,7 @@
 <view class='order_info_head'>
     <view>
         <view class='fight_success'>拼团成功</view>
+
         <text>商家已发货，请耐心等待</text>
         <text wx:if="{{false}}">已取消订单</text>
         <text wx:if="{{false}}">退款3个工作日内将返还你的支付账户</text>
@@ -11,13 +12,15 @@
     </view>
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
 </view>
+
 <view class='position_info'>
     <view>
         <text class='buyers_name'>{{xqObj.receive_name}}</text>
-        <text>{{item.receive_phone}}</text>
+        <text>{{xqObj.receive_phone}}</text>
     </view>
     <text>{{xqObj.receive_address}}</text>
 </view>
+
 <view class='fight_info'>
     <view class='fight_icon'>
         <!-- <image src='../../images/icon/waitFor.png'></image> -->
@@ -27,17 +30,19 @@
         <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{}}'></image>
     </view>
 </view>
+
  <view class='order_list'>
     <view class='order_status'>  
-        <text class='shop_name'>{{xqObj.name}}</text><image src='{{xqObj.img_url}}'></image>
+        <text class='shop_name'>{{xqObj.merchant_name}}</text>
+        <image src='../../images/icon/jit2.png'></image>
     </view> 
     <view class='order_info'>
-        <image src="../../images/icon/che.png"></image>
+        <image src="{{xqObj.img_url}}"></image>
         <view class='price_info'>
-            <view class='shop_info'>{{xqObj.explain_content}}</view>
+            <view class='shop_info'>{{xqObj.name}}</view>
             <view class='present_price'>
                 <view>
-                    <text class='symbol'>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/10000}}<text class='original_price'>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/10000}}</text>
+                    <text class='symbol'>￥</text>{{~~xqObj.group_price/100==xqObj.group_price/100?xqObj.group_price/100+".00":~~(xqObj.group_price*100)/10000}}<text class='original_price'>￥{{~~xqObj.price/100==xqObj.price/100?xqObj.price/100+".00":~~(xqObj.price*100)/10000}}</text>
                 </view>
             </view>
         </view> 

@@ -23,18 +23,18 @@
         <view class='goodsPrice'>
           <view class='price'>
             <view>
-              <text>¥</text>200</view>
-            <view>¥12.00</view>
+              <text>¥</text>{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/10000}}</view>
+            <view>¥{{~~goodsInfo.price/100==goodsInfo.price/100?goodsInfo.price/100+".00":~~(goodsInfo.price*100)/10000}}</view>
           </view>
-          <view class='reward'>拼团成功额外奖励：0.5 小金 </view>
+          <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price/100*goodsInfo.ratio/100}} 小金 </view>
           <view class='result'>
-            <view>6人团</view>
-            <view>已团：33件</view>
+            <view>{{goodsInfo.group_person_num}}人团</view>
+            <view>已团：{{goodsInfo.sellNum}}件</view>
           </view>
         </view>
         <button class='goodShare' open-type="share">分享给好友</button>
       </view>
-      <view class='goodNmae padding_rl bg_white'>买三送一，打折优惠买三送一，打折优惠买三送一，打折优惠买三送一，打折优惠</view>
+      <view class='goodNmae padding_rl bg_white'>{{goodsInfo.name}}</view>
       <view class='discount  bg_white' bindtap='showAlert'>
         <view>
           <image src='../../images/img/dui.png'></image>
@@ -57,17 +57,15 @@
       <view class='groupsMsg padding_rl'>{{goodsInfo.joinNum}}名小伙伴正在参团，可直接参与</view>
       <view class='padding_rl bg_white'>
         <view class='groupsList'>
-          <view class='groupsList' wx:for="{{goodsInfo.joinList}}">
+          <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
             <view class='groupsUser'>
-              <image src='http://logo.denong.com/Android_b_03838ca571983efa63748022d8d3e710'></image>
-              <view>姓名</view>
               <image src='{{item.portrait}}'></image>
               <view>{{item.name}}</view>
             </view>
             <view class='groupsFn'>
               <view>
                 <view>还差{{item.avail_num}}人拼成</view>
-                <view class='groupsTime'>剩余{{item.deadLine}}</view>
+                <view class='groupsTime'>剩余{{item.deadLineX}}</view>
               </view>
               <view bindtap='goToConfirmationOrder' data-id='{{item.id}}' data-person_id='{{item.person_id}}' data-goods_group_id='{{item.goods_group_id}}'>去参团</view>
             </view>
@@ -75,7 +73,7 @@
         </view>
       </view>
       <view class='goodDetails bg_white'>
-        <view class='detaileTitle'>商品详情</view>
+        <view class='detaileTitle'>{{goodsInfo.explain_content}}</view>
       </view>
     </view>
   </scroll-view>
@@ -86,7 +84,7 @@
       <image src='../../images/tabBar/a2.png'></image>
       <view>首页</view>
     </view>
-     <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}'>
+     <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
           <view>  
               <view>¥200.00</view>
               <view>一键开团</view>
