@@ -182,12 +182,6 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "确认订单",
-					"pathName": "pages/ConfirmationOrder/ConfirmationOrder",
-					"query": ""
-				},
-				{
 					"id": 26,
 					"name": "3",
 					"pathName": "pages/wholeOrder/wholeOrder",

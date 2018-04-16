@@ -206,6 +206,10 @@ page>view>scroll-view{
 /* 底部功能 */
 .bottomBtn{
   height: 45px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   background: white;
@@ -238,8 +242,6 @@ page>view>scroll-view{
     line-height: 47px;
     background: #ff9c00;
     border-radius: 0;
-    position: relative;
-    top: -5rpx;
 }
 .bottomreward{
   line-height: 22px;
