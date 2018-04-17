@@ -82,6 +82,8 @@ Page({
     console.log(this.data.resultMoney);
     
     resultM = Math.ceil(resultM * 1000) / 1000;
+    resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
+
     resultM = ~~resultM / 100 == resultM / 100 ? resultM / 100 + ".00" : ~~(resultM * 100) / 100;
     var resultMStr = resultM + "";
 
@@ -95,14 +97,20 @@ Page({
     });
     
     var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
-    r = Math.round(r * 100)/100;
-    r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
+    r = Math.round(r * 1000)/1000;
+    r = Math.round(Math.round(r * 1000) / 10) / 100;
+    console.log(Math.round(r * 1000)/10);
+    console.log(r );
+    
     var str = r+"";
 
     if (str.split(".").length>1){
       if (str.split(".")[1].length < 2 ){
         str = r+"0";
       }
+    }else{
+      r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
+      str = r+"";
     }
     console.log(str);
     this.setData({
