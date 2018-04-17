@@ -198,6 +198,18 @@
 					"name": "5",
 					"pathName": "pages/orderDetails/orderDetails",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "DetailsOfTheBill",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "PaymentSuccess",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
 				}
 			]
 		}

@@ -2,21 +2,21 @@
 <view>
     <icon class='icon' type='success' size='48' color='1bb100'></icon>
     <view class='ck'>付款成功</view>
-    <view class='nub'><text>￥</text>50.00</view>
-    <view class='nub2'>50.00</view> 
+    <view class='nub'><text>￥</text>{{info.real_charge}}</view>
+    <view class='nub2'>￥{{info.real_charge}}</view> 
 </view>
 <view class='cont'>
     <view>
         <view>消费金额</view>
-        <text>￥55.00</text>
+        <text>￥{{info.real_charge}}</text>
     </view>
-    <view>
+    <!-- <view>
         <view>优惠（满50减5元）</view>
         <text><text>-</text>￥5.00</text>
-    </view>
+    </view> -->
     <view>
-        <view>收款方</view>
-        <text>星巴克</text>
+        <view wx:if="{{info.third_service_name}}">{{info.third_service_name}}</view>
+        <text>{{info.merchant_name}}</text>
     </view>
 </view>
 
@@ -24,13 +24,13 @@
     <view class='hd_title'>本次付款获得</view>
     <view class='hd_cont1'>
         <view class='hd_cont1_left'>
-            <image src='https://activity.denong.com/cs.jpg'></image>
+            <image src='{{info.logo}}'></image>
             <view>
-                <view>新吧科</view>
-                <text>返还0.5小金</text>
+                <view>{{info.merchant_name}}</view>
+                <text>返还{{info.curR}}小金</text>
             </view>
         </view>
-        <view class='hd_cont1_right' bindtap='ckxqTap'>查看详情</view>
+        <view class='hd_cont1_right' bindtap='toNext'>查看详情</view>
     </view>
-    <image class='hd_cont2' src='https://activity.denong.com/cs.jpg'></image>
+    <image mode='widthFix' class='hd_cont2' src='{{info.advertisement.pic}}'></image>
 </view>

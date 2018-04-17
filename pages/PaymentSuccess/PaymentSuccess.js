@@ -1,24 +1,52 @@
 // pages/PaymentSuccess/PaymentSuccess.js
+var app = getApp();
+var appData = app.globalData;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    tradeId:0,
+    info:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  this.setData({
+    tradeId: options.tradeId
+  });
+  console.log(options.tradeId);
+  this.loadData(options.tradeId);
+  },
+
+  loadData: function (tradeId){
+    var self = this;
+    appData.Tool.getTradeDetail({ cnd: tradeId}).then(function(res){
+      console.log(res);
+      wx.hideLoading();
+      self.setData({
+        info:res.data
+      });
+      self.info.curR = (info.cur_ratio * info.real_charge / 100) < 0.01 ? 0.01 : (info.cur_ratio * info.real_charge / 100);
+    }).catch(function(err){
+      wx.hideLoading();
+      wx.showToast({
+        title: err.message,
+        duration:2000
+      })
+    });
   },
   //
-  ckxqTap: function () {
-      wx.redirectTo({
-          url: '../DetailsOfTheBill/DetailsOfTheBill',
-      })
+  toNext: function () {
+    console.log("OK");
+    var self = this;
+    wx.redirectTo({
+      url: '../DetailsOfTheBill/DetailsOfTheBill?id=' + self.data.tradeId
+    })
   },
 
   /**
