@@ -13,9 +13,9 @@ Page({
     info: {},
     money: 0,
     resultMoney: 0,
-    ratio: 0,
+    ratio: 0.00,
     isChoose: "nor",
-    resultRatio:0
+    resultRatio:"0.00"
   },
 
   /**
@@ -84,7 +84,7 @@ Page({
     resultM = Math.ceil(resultM * 1000) / 1000;
     resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
 
-    resultM = ~~resultM / 100 == resultM / 100 ? resultM / 100 + ".00" : ~~(resultM * 100) / 100;
+    resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
     var resultMStr = resultM + "";
 
     if (resultMStr.split(".").length > 1) {
@@ -116,6 +116,13 @@ Page({
     this.setData({
       resultRatio: str
     });
+    if (this.data.info.ratio){
+      if (r < 0.01){
+        this.setData({
+          resultRatio: 0.01
+        });
+      }
+    }
     
   },
   
