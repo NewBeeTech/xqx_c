@@ -21,6 +21,8 @@ Page({
     console.log(id);
     appData.Tool.getTradeDetail({cnd:id}).then(function (result) {
       console.log(result);
+      var stri = new Date(result.data.expect_time);
+      result.data.expect_time = stri.getFullYear() + '-' + (stri.getMonth() + 1) + '-' + stri.getDate() + ' ' + stri.getHours() + ':' + stri.getMinutes() + ':' + stri.getSeconds();
       self.setData({
         obj: result.data,
       });

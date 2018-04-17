@@ -42,6 +42,26 @@ Page({
       appData.Tool.getUserInfo().then(function (result) {
           console.log(result);
           wx.hideLoading()
+
+          function fn(a){
+              var str = ~~(a / 100) + '';
+              var i = str.indexOf('.');
+              if (i != -1) {
+                  if (str.length != i + 3) {
+                      str += '0';
+                  }
+              } else {
+                  str += '.00';
+              }
+              return str
+          };
+
+          result.data.currency = fn(result.data.currency);
+          result.data.not_deposite = fn(result.data.not_deposite);
+          if (result.data.priorRemain){
+              result.data.priorRemain = fn(result.data.priorRemain);
+          }
+          
           self.setData({
               obj: result.data
           });

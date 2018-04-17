@@ -7,7 +7,7 @@
             </view>
             <view class="user_top_word">
                   <view class="user_top_name">{{obj.nick_name}}</view>
-                  <text>目前累计金：￥{{obj.currency/100}}</text>
+                  <text>目前累计金：￥{{obj.currency}}</text>
             </view>
       </view>
 
@@ -15,14 +15,14 @@
             <view class="warp_sub" bindtap='daijie' wx:if="{{obj.priorRemain}}">
                   <view class="sub_tit">待商家结算小金</view>
                   <view class='arrowOnfo'>
-                    <text class='priceInfo'>{{obj.priorRemain/100}}</text>
+                    <text class='priceInfo'>{{obj.priorRemain}}</text>
                     <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
                   </view>
             </view>
             <view class="warp_sub" bindtap='dqxjTap'>
                   <view class="sub_tit">当前小金</view>
                   <view class='arrowOnfo'>
-                  <text class='priceInfo'>{{obj.not_deposite/100}}</text>
+                  <text class='priceInfo'>{{obj.not_deposite}}</text>
                   <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
                   </view>
             </view>
