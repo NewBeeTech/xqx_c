@@ -210,6 +210,12 @@
 					"name": "PaymentSuccess",
 					"pathName": "pages/PaymentSuccess/PaymentSuccess",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "boundNumber",
+					"pathName": "pages/boundNumber/boundNumber",
+					"query": ""
 				}
 			]
 		}

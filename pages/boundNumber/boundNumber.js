@@ -43,7 +43,7 @@ Page({
         appData.Tool.saveToLocation("tocken",res.data.tocken);
         appData.Tool.saveToLocation("userId", res.data.userId);
         wx.reLaunch({
-          url: '../homePage/homePage'
+          url: '../spellGroupHome/spellGroupHome'
         })
       }).catch(function (error) {
         wx.hideLoading();
@@ -119,11 +119,11 @@ Page({
       appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code, session: session, registerFlag: "sms" }).then(function (res) {
         wx.hideLoading();
         console.log(res);
-        if(res.code===0){
+        // if(res.code===0){
           wx.reLaunch({
-            url: '../homePage/homePage'
+            url: '../spellGroupHome/spellGroupHome'
           })
-        }
+        // }
 
       }).catch(function (error) {
         console.log(error);
