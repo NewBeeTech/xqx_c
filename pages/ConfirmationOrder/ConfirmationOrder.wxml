@@ -44,11 +44,11 @@
     <view class='wrap3_cont'>
         <view class='wrap3_cont_he'>
             <view>付款金额：</view>
-            <text>￥{{groupInfo.group_price*100*buyNum/100}}</text>
+            <text class='wrap3_cont_he_sc'>￥{{groupInfo.group_price*100*buyNum/100}}</text>
         </view>
         <view>
             <view>额外奖励：</view>
-            <text>{{groupInfo.group_price*100*groupInfo.ratio*buyNum/10000}}小金</text>
+            <text class='wrap3_cont_he_sc'>{{groupInfo.group_price*100*groupInfo.ratio*buyNum/10000}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>

@@ -2,8 +2,8 @@ function Default() { }
 /**
  * 主机地址
  */
-Default.HOST = "http://ccpp.denong.com/app_person/";
-// Default.HOST = "http://mini.xqx.com/app_person/";
+// Default.HOST = "http://ccpp.denong.com/app_person/";
+Default.HOST = "http://mini.xqx.com/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
 /**

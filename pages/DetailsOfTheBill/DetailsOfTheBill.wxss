@@ -7,7 +7,8 @@ page{
     
     display: flex;
     align-items: center;
-    width: 230rpx;
+    justify-content: center;
+    width: 100%;
     margin: 42rpx auto 0;
 }
 .name_t{
@@ -26,7 +27,7 @@ page{
     margin-left: 5rpx;
 }
 .name>view{
-    /* width: 380rpx; */
+    max-width: 180rpx; 
     font-size: 15px;
     overflow: hidden;
     white-space: nowrap;

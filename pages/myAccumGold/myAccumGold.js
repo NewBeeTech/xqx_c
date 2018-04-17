@@ -71,7 +71,68 @@ Page({
               console.log(error);
           });
   },
+  //点击下载
+  close2: function () {
+      this.setData({
+          downloadIf: true,
+          ytgIf: false
+      })
+  },
+  //关闭
+  close:function(){
+      this.setData({
+          downloadIf: false,
+      })
+  },
+  //保存到相册
+  downloadTap: function () {
+      var self = this;
 
+      wx.getSetting({
+          success(res) {
+              if (!res.authSetting['scope.writePhotosAlbum']) {
+                  wx.authorize({
+                      scope: 'scope.writePhotosAlbum',
+                      success() {
+                          self.download();
+                      }
+                  })
+              } else {
+                  self.download();
+              }
+          }
+      })
+
+  },
+  download: function () {
+
+      wx.getImageInfo({
+          src: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png',
+          success: function (ret) {
+              var path = ret.path;
+              wx.saveImageToPhotosAlbum({
+                  filePath: path,
+                  success(result) {
+                      wx.showToast({
+                          title: '保存成功',
+                          icon: 'success',
+                          duration: 2000
+                      })
+
+                  },
+                  fail(err) {
+                      console.log(err);
+                      wx.showToast({
+                          title: err.errMsg,
+                          icon: 'none',
+                          duration: 2000
+                      })
+
+                  }
+              })
+          }
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
