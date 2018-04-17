@@ -40,11 +40,11 @@
             <text>{{obj.trade_time}}</text>
         </view>
     </view>
-    <view class='cont_box cont_box2' wx:if="{{!obj.fund_trans_state||obj.fund_trans_state!='1'}}">
+    <view class='cont_box cont_box2'>
         <icon class='cont_box_icon2' type='waiting' size='25' color='#e3e3e3'></icon>
         <view>
             <view>托管入账工商银行</view>
-            <text>{{obj.expect_time}}</text>
+            <text>{{obj.TMDtime}}</text>
         </view>
     </view>
 </view>
