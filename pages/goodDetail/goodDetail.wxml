@@ -23,10 +23,10 @@
             <view class='goodsPrice'>
                 <view class='price'>
                     <view>
-                        <text>¥</text>{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/10000}}</view>
-                    <view>¥{{~~goodsInfo.price/100==goodsInfo.price/100?goodsInfo.price/100+".00":~~(goodsInfo.price*100)/10000}}</view>
+                        <text>¥</text>{{goodsInfo.group_price}}</view>
+                    <view>¥{{goodsInfo.price}}</view>
                 </view>
-                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price/100*goodsInfo.ratio/100}} 小金 </view>
+                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price*100*goodsInfo.ratio/10000}} 小金 </view>
                 <view class='result'>
                     <view>{{goodsInfo.group_person_num}}人团</view>
                     <view>已团：{{goodsInfo.sellNum}}件</view>
