@@ -136,7 +136,7 @@ page>view>scroll-view{
   border:none;
 }
 .groupsUser{
-  flex: 1;
+  width: 190rpx;
   display: flex;
   align-items: center;
 }
@@ -148,19 +148,25 @@ page>view>scroll-view{
    margin-right: 10px;
 }
 .groupsUser>view{
-    width: 230rpx;
+    width: 150rpx;
 }
 .groupsFn{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.groupsFn>view:nth-child(1) {
+  width: 260rpx;
+  text-align: left;
+}
 .groupsFn>view:nth-child(2){
   padding:0 13px;
+  width: 100rpx;
   line-height: 35px;
   background: #ff9c00;
   color: white;
   border-radius: 20px;
+  text-align: center;
 }
 .groupsTime{
   color: #999;

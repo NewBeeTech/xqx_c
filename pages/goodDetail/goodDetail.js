@@ -22,7 +22,12 @@ Page({
         url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
     })
   },
-  
+  lastTime:function(last){
+    var curTime = new Date();
+    var timeNum = curTime.getTime();
+    console.log(timeNum);
+    return "";
+  },
   loadData: function (id) {
     var self = this;
     return new Promise(function (success, fail) {

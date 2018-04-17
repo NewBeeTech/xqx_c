@@ -42,11 +42,11 @@
             </view>
             <view>
                 <image src='../../images/img/dui.png'></image>
-                <text>48小时2发货</text>
+                <text>48小时内发货</text>
             </view>
             <view>
                 <image src='../../images/img/dui.png'></image>
-                <text>消费既得养老金</text>
+                <text>消费即得养老金</text>
             </view>
             <image class='rightImg' src='https://activity.denong.com/right_arrow.png'></image>
         </view>
@@ -56,7 +56,7 @@
     <view class='' wx:if="{{goodsInfo.joinNum>0}}">
         <view class='groupsMsg padding_rl'>{{goodsInfo.joinNum}}名小伙伴正在参团，可直接参与</view>
         <view class='padding_rl bg_white'>
-            <view class='groupsList'>
+            <view >
                 <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
                     <view class='groupsUser'>
                         <image src='{{item.portrait}}'></image>
