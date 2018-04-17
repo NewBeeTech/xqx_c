@@ -15,14 +15,26 @@ Page({
    */
   onLoad: function (options) {
     this.loadData(options.id);
+    
   },
   loadData: function (id) {
     var self = this;
     console.log(id);
     appData.Tool.getTradeDetail({cnd:id}).then(function (result) {
       console.log(result);
-      var stri = new Date(result.data.expect_time);
-      result.data.expect_time = stri.getFullYear() + '-' + (stri.getMonth() + 1) + '-' + stri.getDate() + ' ' + stri.getHours() + ':' + stri.getMinutes() + ':' + stri.getSeconds();
+
+      function fn(a){
+          var t = a ? new Date(a) : new Date();
+          function fnt(z) {return z < 10 ? '0' + z : z};
+        return fnt(t.getFullYear()) + '-' + fnt(t.getMonth() + 1) + '-' + fnt(t.getDate()) + ' ' + t.toUTCString().split(' ')[4];
+      };
+
+      if (result.data.fund_trans_state==1){
+          result.data.TMDtime = fn(result.data.expect_time);
+      }else{
+          result.data.TMDtime = new Date().getMonth()+2+'-15';
+      }
+
       self.setData({
         obj: result.data,
       });
