@@ -57,7 +57,7 @@ Page({
   bjAddress:function(){
       var obj = this.data.groupInfo;
       wx.navigateTo({
-          url: '../WriteAddress/WriteAddress?address_id=' + obj.address_id + '&a1=' + obj.receiveName + '&a2=' + obj.phone + '&create_person_id=' + this.data.create_person_id + '&group_buy_id=' + this.data.group_buy_id
+          url: '../WriteAddress/WriteAddress?address_id=' + obj.address_id + '&create_person_id=' + this.data.create_person_id + '&group_buy_id=' + this.data.group_buy_id
       })
   },
   //减
