@@ -44,7 +44,7 @@
         <icon class='cont_box_icon2' type='waiting' size='25' color='#e3e3e3'></icon>
         <view>
             <view>托管入账工商银行</view>
-            <text>2018-10-10 10:10:10</text>
+            <text>{{obj.expect_time}}</text>
         </view>
     </view>
 </view>
