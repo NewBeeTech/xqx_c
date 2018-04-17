@@ -161,6 +161,17 @@ Page({
     bcTap: function () {
         var that = this;
         var objC = that.data.objC;
+        function checktel(str) {    //手机号
+            var reg = /^1[3|4|5|7|8][0-9]\d{9}$/;
+            return reg.test(str) ? true : false;
+        };
+        console.log(objC.phone)
+        if (checktel(objC.phone)){
+            wx.showToast({
+                title:'不是手机号码'
+            })
+            return
+        };
         objC.address = that.data.modalCityname + that.data.xaxAddress;
         console.log(objC)
 
