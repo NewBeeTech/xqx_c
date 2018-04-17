@@ -22,6 +22,7 @@ Page({
     appData.Tool.getArrivalTradeHistoryv232().then(function (result) {
       console.log(result);
       wx.hideLoading()
+      
       self.setData({
         obj: result.data,
       });

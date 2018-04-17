@@ -53,12 +53,12 @@
         <view class='item_detail right_des'>
           <view class='title '>{{item.name}}</view>
           <view>
-            <text><text class='money_symbol'>￥</text><text class='min_price'>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/100}}</text></text>
-            <text class='orange_price'>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/100}}</text>
+            <text><text class='money_symbol'>￥</text><text class='min_price'>{{item.group_price}}</text></text>
+            <text class='orange_price'>￥{{item.price}}</text>
           </view>
           <view class='xiaojin'>
             额外奖励:
-            <text>{{item.ratio/100*item.group_price/100}}</text>小金
+            <text>{{item.group_price*100*item.ratio/10000}}</text>小金
           </view>
           <view class='group'>
             <text class='group_num'>{{item.group_person_num}}人团</text>

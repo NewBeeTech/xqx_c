@@ -13,7 +13,8 @@
     <view class='discountActive' wx:if="{{info.discountMode!=null}}">
         <view class='discontent'>
             <text class='discountTit'>优惠活动:</text>
-            <view class='fullCut' wx:if="{{info.discountMode=='MD'}}">
+            <!-- <view class='fullCut' wx:if="{{info.discountMode=='MD'}}"> -->
+            <view class='fullCut' wx:if="{{info.discountMode=='MR'}}">
                 <view bindtap='choose' wx:if="{{info.mInfo.length>0}}" wx:for="{{info.mInfo}}" class="{{isChoose}}">
                     <text  class='fullCutCond'>满{{item.full/100}}减{{item.subtract/100}}元</text>
                     <text class='discountNum' wx:if="{{item.subtract}}">-{{item.subtract/100}}</text>

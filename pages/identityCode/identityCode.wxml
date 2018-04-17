@@ -4,7 +4,8 @@
 </view>
 <view class='iconCode'>
     <view class='iconImg'>
-      <image src='https://activity.denong.com/identityIcon.png'></image>
+      <!-- <image src='https://activity.denong.com/identityIcon.png'></image> -->
+      <image src='../../images/icon/logo.png'></image>
     </view>
     <view class='mobile'>{{phone}}</view>
     <view class='codeImg'>

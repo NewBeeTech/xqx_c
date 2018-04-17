@@ -112,6 +112,19 @@ Page({
         appData.Tool.getUserInfo().then(function (result) {
           wx.hideLoading()
             console.log(result);
+
+            var str = ~~(result.data.currency/100) + '';
+            var i = str.indexOf('.');
+            if(i!=-1){
+                if (str.length != i + 3){
+                    str += '0';
+                }
+            }else{
+                str += '.00';
+            }
+
+            result.data.currency=str;
+            
             self.setData({
                 obj: result.data
             });

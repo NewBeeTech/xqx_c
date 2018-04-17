@@ -17,7 +17,7 @@
                 <text class="sub_tit">我的累计金</text>
             </view>
             <view class='arrowOnfo'>
-                <text class='priceInfo'>￥{{obj.currency?obj.currency/100:''}}</text>
+                <text class='priceInfo'>￥{{obj.currency}}</text>
                 <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
             </view>
         </view>
@@ -89,7 +89,7 @@
             </view>
         </view>
         <!-- <view class='wrap_colorT'></view> -->
-        <view class="warp_sub warp_sub2 clearBorder" wx:if="{{false}}">
+        <view class="warp_sub warp_sub2 clearBorder" wx:if="{{true}}">
             <view class="moreExp">更多获金体验，请下载小确幸app</view>
             <view class='btnDlone' bindtap='downloadApp'>点击下载</view>
         </view>

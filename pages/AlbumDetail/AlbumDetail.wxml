@@ -3,9 +3,9 @@
 
 <!-- <image src='{{imageUrl}}' class='showImage' mode='aspectFill'></image> -->
 
-<swiper indicator-dots="{{true}}" class='showImage'>
+<swiper indicator-dots="{{true}}" class='showImage' current='{{inde}}'>
   
-    <swiper-item wx:for="{{images}}">
+    <swiper-item wx:for="{{images}}" wx:key='{{index}}'>
       <image class='showImage' src='{{item.url}}' mode='aspectFill'></image>
     </swiper-item>
   

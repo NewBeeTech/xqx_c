@@ -1,5 +1,5 @@
 <!--pages/wholeOrder/wholeOrder.wxml-->
-<scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%'>
+<scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
 
 <view class='coupOrder'>
     <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
@@ -22,7 +22,7 @@
                 <view class='shop_info'>{{item.name}}</view>
                 <view class='present_price'>
                     <view>
-                        <text class='symbol'>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/10000}}<text class='original_price'>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/10000}}</text>
+                        <text class='symbol'>￥</text>{{item.group_price}}<text class='original_price'>￥{{item.price}}</text>
                     </view>
                     <view class='fight_group'>拼团</view>
                 </view>
@@ -49,3 +49,8 @@
 </view>
 
 </scroll-view>
+
+<view wx:else class='scrollNo'>
+    <image src='https://activity.denong.com/w.png'></image>
+    <view>暂无数据</view>
+</view>

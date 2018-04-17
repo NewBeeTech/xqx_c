@@ -116,8 +116,25 @@ page{
     height: 60rpx;
     text-align: center;
     line-height: 60rpx;
-    margin-left: 20rpx;
     border-radius: 8rpx;
     background: #ff9e00;
     color: #fff;
+    padding: 0;
+    font-size: 28rpx;
+    margin: 0;
+    margin-left: 20rpx;
+}
+.sharing_friends_btn::after{
+    border: none;
+}
+
+.scrollNo{
+    text-align: center;
+    color: #989898;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx;
+    display: block;
+    margin: 100rpx auto 50rpx;
 }

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // imageUrl:"",
+    inde:0,
     images: []
   },
   
@@ -17,9 +17,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+        inde: options.index,
       images: appData.photos
     });
-    console.log(this.data.images);
+    console.log(options.index);
 
   },
   close:function(){

@@ -1,126 +1,125 @@
 <!--pages/goodDetail/goodDetail.wxml-->
- 
-  <scroll-view scroll-y="true">
+
+<scroll-view scroll-y="true">
     <!-- 轮播图 -->
     <view class='Swipr_wrap'>
-      <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
-        <swiper-item>
-          <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
-        </swiper-item>
-        <swiper-item>
-          <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
-        </swiper-item>
-        <swiper-item>
-          <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
-        </swiper-item>
-      </swiper>
-      <view class='Swipr_pop' wx:if="{{goodsInfo.ratio!=0||goodsInfo.integral_ratio}}">{{goodsInfo.ratio}}%</view>
+        <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
+            <swiper-item>
+                <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
+            </swiper-item>
+            <swiper-item>
+                <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
+            </swiper-item>
+            <swiper-item>
+                <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
+            </swiper-item>
+        </swiper>
+        <view class='Swipr_pop' wx:if="{{goodsInfo.ratio!=0||goodsInfo.integral_ratio}}">{{goodsInfo.ratio}}%</view>
     </view>
-  
+
     <view class='goodsMsg'>
-      <!-- 商品头部信息 -->
-      <view class='goodTitle padding_rl bg_white'>
-        <view class='goodsPrice'>
-          <view class='price'>
+        <!-- 商品头部信息 -->
+        <view class='goodTitle padding_rl bg_white'>
+            <view class='goodsPrice'>
+                <view class='price'>
+                    <view>
+                        <text>¥</text>{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/10000}}</view>
+                    <view>¥{{~~goodsInfo.price/100==goodsInfo.price/100?goodsInfo.price/100+".00":~~(goodsInfo.price*100)/10000}}</view>
+                </view>
+                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price/100*goodsInfo.ratio/100}} 小金 </view>
+                <view class='result'>
+                    <view>{{goodsInfo.group_person_num}}人团</view>
+                    <view>已团：{{goodsInfo.sellNum}}件</view>
+                </view>
+            </view>
+            <button class='goodShare' open-type="share">分享给好友</button>
+        </view>
+        <view class='goodNmae padding_rl bg_white'>{{goodsInfo.name}}</view>
+        <view class='discount  bg_white' bindtap='showAlert'>
             <view>
-              <text>¥</text>{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/10000}}</view>
-            <view>¥{{~~goodsInfo.price/100==goodsInfo.price/100?goodsInfo.price/100+".00":~~(goodsInfo.price*100)/10000}}</view>
-          </view>
-          <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price/100*goodsInfo.ratio/100}} 小金 </view>
-          <view class='result'>
-            <view>{{goodsInfo.group_person_num}}人团</view>
-            <view>已团：{{goodsInfo.sellNum}}件</view>
-          </view>
+                <image src='../../images/img/dui.png'></image>
+                <text>全场包邮</text>
+            </view>
+            <view>
+                <image src='../../images/img/dui.png'></image>
+                <text>48小时2发货</text>
+            </view>
+            <view>
+                <image src='../../images/img/dui.png'></image>
+                <text>消费既得养老金</text>
+            </view>
+            <image class='rightImg' src='https://activity.denong.com/right_arrow.png'></image>
         </view>
-        <button class='goodShare' open-type="share">分享给好友</button>
-      </view>
-      <view class='goodNmae padding_rl bg_white'>{{goodsInfo.name}}</view>
-      <view class='discount  bg_white' bindtap='showAlert'>
-        <view>
-          <image src='../../images/img/dui.png'></image>
-          <text>全场包邮</text>
-        </view>
-        <view>
-          <image src='../../images/img/dui.png'></image>
-          <text>48小时2发货</text>
-        </view>
-        <view>
-          <image src='../../images/img/dui.png'></image>
-          <text>消费既得养老金</text>
-        </view>
-        <image class='rightImg' src='https://activity.denong.com/right_arrow.png'></image>
-      </view>
-      <!-- 商品头部信息 -->
+        <!-- 商品头部信息 -->
     </view>
     <!-- 参团人数 -->
     <view class='' wx:if="{{goodsInfo.joinNum>0}}">
-      <view class='groupsMsg padding_rl'>{{goodsInfo.joinNum}}名小伙伴正在参团，可直接参与</view>
-      <view class='padding_rl bg_white'>
-        <view class='groupsList'>
-          <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
-            <view class='groupsUser'>
-              <image src='{{item.portrait}}'></image>
-              <view>{{item.name}}</view>
+        <view class='groupsMsg padding_rl'>{{goodsInfo.joinNum}}名小伙伴正在参团，可直接参与</view>
+        <view class='padding_rl bg_white'>
+            <view class='groupsList'>
+                <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
+                    <view class='groupsUser'>
+                        <image src='{{item.portrait}}'></image>
+                        <view>{{item.name}}</view>
+                    </view>
+                    <view class='groupsFn'>
+                        <view>
+                            <view>还差{{item.avail_num}}人拼成</view>
+                            <view class='groupsTime'>剩余 {{item.deadLineX}}</view>
+                        </view>
+                        <view bindtap='goToConfirmationOrder' data-id='{{item.id}}' data-person_id='{{item.person_id}}' data-goods_group_id='{{item.goods_group_id}}'>去参团</view>
+                    </view>
+                </view>
             </view>
-            <view class='groupsFn'>
-              <view>
-                <view>还差{{item.avail_num}}人拼成</view>
-                <view class='groupsTime'>剩余{{item.deadLineX}}</view>
-              </view>
-              <view bindtap='goToConfirmationOrder' data-id='{{item.id}}' data-person_id='{{item.person_id}}' data-goods_group_id='{{item.goods_group_id}}'>去参团</view>
-            </view>
-          </view>
         </view>
-      </view>
-      <view class='goodDetails bg_white'>
-        <view class='detaileTitle'>{{goodsInfo.explain_content}}</view>
-      </view>
+        <view class='goodDetails bg_white'>
+            <view class='detaileTitle'>{{goodsInfo.explain_content}}</view>
+        </view>
     </view>
-  </scroll-view>
-  
-  <!-- 底部功能件 -->
-  <view class='bottomBtn'>
+</scroll-view>
+
+<!-- 底部功能件 -->
+<view class='bottomBtn'>
     <view class='backHome' bindtap='backHome'>
-      <image src='../../images/tabBar/a2.png'></image>
-      <view>首页</view>
+        <image src='../../images/tabBar/a2.png'></image>
+        <view>首页</view>
     </view>
-     <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
-          <view>  
-              <view>¥200.00</view>
-              <view>一键开团</view>
-          </view> 
-          <view class='bottomreward'>奖励0.5小金</view>
-      </view> 
+    <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
+        <view>
+            <view>¥200.00</view>
+            <view>一键开团</view>
+        </view>
+        <view class='bottomreward'>奖励0.5小金</view>
+    </view>
     <button wx:if="{{goodsInfo.infoStatus==1}}" class='beginBtn2' open-type="share">立即分享好友拼团</button>
-  </view>
+</view>
 
-  <view class='alertView' style='top:{{alertTop}}%; display:{{isShow}}'>
+<view class='alertView' style='top:{{alertTop}}%; display:{{isShow}}'>
     <view class='container'>
-      <image bindtap='close' class='close' src='../../images/img/close.png'></image>
-      <view class='alert_title'>服务说明</view>
-      <view class='item'>
-        <view class='sub_title'>
-          <image class='ok_icon' src='../../images/img/dui.png'></image>
-          <text>全场包邮</text>
+        <image bindtap='close' class='close' src='../../images/img/close.png'></image>
+        <view class='alert_title'>服务说明</view>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>全场包邮</text>
+            </view>
+            <view class='des'>所有商品均无包邮</view>
         </view>
-        <view class='des'>所有商品均无包邮</view>
-      </view>
-      <view class='item'>
-        <view class='sub_title'>
-          <image class='ok_icon' src='../../images/img/dui.png'></image>
-          <text>消费即得养老金</text>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>消费即得养老金</text>
+            </view>
+            <view class='des'>每一笔消费都能获得一定比例的养老金</view>
         </view>
-        <view class='des'>每一笔消费都能获得一定比例的养老金</view>
-      </view>
-      <view class='item'>
-        <view class='sub_title'>
-          <image class='ok_icon' src='../../images/img/dui.png'></image>
-          <text>假一赔十</text>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>假一赔十</text>
+            </view>
+            <view class='des'>若收到的商品是假冒品牌，可获得到加倍赔偿</view>
         </view>
-        <view class='des'>若收到的商品是假冒品牌，可获得到加倍赔偿</view>
-      </view>
 
 
     </view>
-  </view>
-  
+</view>

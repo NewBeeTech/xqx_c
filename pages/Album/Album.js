@@ -15,9 +15,9 @@ Page({
       merchantId:""
   },
   showMax:function(e){
-    var url = e.currentTarget.dataset.url;
+      var index = e.currentTarget.dataset.index;
     wx.navigateTo({
-       url:"../AlbumDetail/AlbumDetail?url="+url
+        url: "../AlbumDetail/AlbumDetail?index=" + index
      })
   },
 

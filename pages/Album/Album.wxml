@@ -6,6 +6,6 @@
 <view class='img'>
     <view wx:for='{{imgList}}' wx:key='{{index}}'>
         <!-- <view>温泉温泉温泉温泉</view> -->
-        <image mode='aspectFill' bindtap='showMax' data-url='{{item.url}}' src='{{item.url}}'/>
+        <image mode='aspectFill' bindtap='showMax' data-index='{{index}}' src='{{item.url}}'/>
     </view>
 </view>

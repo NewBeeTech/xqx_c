@@ -57,10 +57,10 @@
         <view class='wrap3_box_name'>{{item.name}}</view>
         <view class='wrap3_box_jig'>
           <view>
-            <text>￥</text>{{~~item.group_price/100==item.group_price/100?item.group_price/100+".00":~~(item.group_price*100)/100}}</view>
-          <text>￥{{~~item.price/100==item.price/100?item.price/100+".00":~~(item.price*100)/100}}</text>
+            <text>￥</text>{{item.group_price}}</view>
+          <text>￥{{item.price}}</text>
         </view>
-        <view class='wrap3_box_ewj'>额外奖励： {{item.ratio/100*item.group_price/100}}小金</view>
+        <view class='wrap3_box_ewj'>额外奖励： {{item.group_price*100*item.ratio/10000}}小金</view>
         <view class='wrap3_box_shl'>
           <view>{{item.group_person_num}}人团</view>
           <text>已团： {{item.group_num}}件</text>

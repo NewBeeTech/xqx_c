@@ -6,6 +6,7 @@ page{
 .nav{
     display: flex;
     padding: 35rpx 0 0 32rpx;
+    flex-wrap: wrap;
 }
 .navList{
     height: 50rpx;
@@ -14,7 +15,7 @@ page{
     color: #999999;
     border: solid 1rpx #999999;
     border-radius: 24rpx;
-    margin-right: 22rpx;
+    margin: 0 22rpx 22rpx 0;
     font-size: 13.5px;
 }
 .navList_color{

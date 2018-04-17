@@ -42,7 +42,7 @@
             <view class='shop_info'>{{xqObj.name}}</view>
             <view class='present_price'>
                 <view>
-                    <text class='symbol'>￥</text>{{~~xqObj.group_price/100==xqObj.group_price/100?xqObj.group_price/100+".00":~~(xqObj.group_price*100)/10000}}<text class='original_price'>￥{{~~xqObj.price/100==xqObj.price/100?xqObj.price/100+".00":~~(xqObj.price*100)/10000}}</text>
+                    <text class='symbol'>￥</text>{{xqObj.group_price}}<text class='original_price'>￥{{xqObj.price}}</text>
                 </view>
             </view>
         </view> 

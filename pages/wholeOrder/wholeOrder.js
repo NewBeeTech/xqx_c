@@ -38,6 +38,23 @@ Page({
         appData.Tool.getGoodsGroupOrderListXCX({ page: that.data.page, rows: 10 }).then(function (res) {
             console.log(res)
             wx.hideLoading();
+            var arr = res.data.list;
+            for (var k in arr) {
+                arr[k].group_price = fn(arr[k].group_price);
+                arr[k].price = fn(arr[k].price);
+            }
+            function fn(a) {
+                var str = ~~(a / 100) + '';
+                var i = str.indexOf('.');
+                if (i != -1) {
+                    if (str.length != i + 3) {
+                        str += '0';
+                    }
+                } else {
+                    str += '.00';
+                }
+                return str;
+            };
             that.setData({
                 Ddarr: that.data.Ddarr.concat(res.data.list)
             })

@@ -121,7 +121,7 @@
             <view>￥</view>
             <text>到店消费</text>
         </view>
-        <text>获金{{obj.ratio}}%</text>
+        <text>返金{{obj.ratio}}%</text>
     </view>
     <view class='dui-box' wx:if="{{obj.integral_ratio&&obj.integral_ratio!='0'}}">
         <view>

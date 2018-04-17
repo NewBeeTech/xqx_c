@@ -25,6 +25,20 @@ Page({
         console.log(res)
         if (res.code === 0) {
           success();
+          function fn(a){
+              var str = ~~(a / 100) + '';
+              var i = str.indexOf('.');
+              if (i != -1) {
+                  if (str.length != i + 3) {
+                      str += '0';
+                  }
+              } else {
+                  str += '.00';
+              }
+              return str;
+          };
+          res.data.group_price = fn(res.data.group_price);
+          res.data.price = fn(res.data.price);
           self.setData({
             groupInfo: res.data
           });
