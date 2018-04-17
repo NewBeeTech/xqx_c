@@ -81,7 +81,7 @@ Page({
     
     console.log(this.data.resultMoney);
     
-    resultM = Math.ceil(resultM * 100) / 100;
+    resultM = Math.ceil(resultM * 1000) / 1000;
     resultM = ~~resultM / 100 == resultM / 100 ? resultM / 100 + ".00" : ~~(resultM * 100) / 100;
     var resultMStr = resultM + "";
 
@@ -91,7 +91,7 @@ Page({
       }
     }
     this.setData({
-      resultMoney: resultMStr
+      resultMoney:resultMStr
     });
     
     var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
