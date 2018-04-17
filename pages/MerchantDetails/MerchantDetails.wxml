@@ -155,7 +155,7 @@
         <image src='{{item.material_url}}' mode='aspectFill'></image>
         <text>{{item.material_name}}</text>
     </view>
-    <view class='gonl_gd' wx:if="{{allServices.length>=8}}" bindtap='showAll'>
+    <view class='gonl_gd' wx:if="{{allServices.length>8}}" bindtap='showAll'>
         <view>+{{allServices.length-8}}</view>
         <text>{{services.length<=8?"查看更多":"收起"}}</text>
         <image src='{{services.length<=8?"https://activity.denong.com/b.png":"https://activity.denong.com/up.png"}}'></image>

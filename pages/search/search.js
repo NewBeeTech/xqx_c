@@ -61,9 +61,26 @@ Page({
         var self = this;
 
         console.log(e.detail.value);
+        if (e.detail.value.length<=0){
+          wx.showToast({
+            title: '请输入搜索内容',
+            icon:"none",
+            duration:2000
+          })
+          return;
+        }
         appData.Tool.getIndustryMerchantV24({ cnd2: e.detail.value, latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), cnd: wx.getStorageSync("city"), intPara2: wx.getStorageSync("level"), intPara: this.data.types}).then(function (result) {
             console.log(result);
             wx.hideLoading()
+
+            if (result.data.list.length==0){
+              wx.showToast({
+                title: "没有查询到相关数据",
+                icon: "none",
+                duration: 2000
+              })
+              return;
+            }
             self.setData({
                 list: result.data.list,
                 searchContent: e.detail.value
@@ -72,6 +89,12 @@ Page({
         })
             .catch(function (error) {
                 console.log(error);
+                wx.hideLoading()
+                wx.showToast({
+                  title: error.message,
+                  icon: "none",
+                  duration: 2000
+                })
             });
     },
     navToBussess:function(e){
