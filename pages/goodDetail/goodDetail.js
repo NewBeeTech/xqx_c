@@ -117,11 +117,11 @@ Page({
       isShow: "none"
     });
   },
-  goToConfirmationOrder:function(){
-    wx.navigateTo({
-        url: '../ConfirmationOrder/ConfirmationOrder'
-    })
-  },
+//   goToConfirmationOrder:function(){
+//     wx.navigateTo({
+//         url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+//     })
+//   },
   /**
    * 生命周期函数--监听页面加载
    */
