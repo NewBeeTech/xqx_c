@@ -292,7 +292,7 @@ Page({
               return str;
           };
           self.setData({
-            goods: arr
+              goods: self.data.goods.concat(arr)
           });
           wx.stopPullDownRefresh();
           if (result.data.list.length == 0) {
@@ -330,6 +330,11 @@ Page({
       })
       console.log(false)
     }
+  },
+  //上滑加载
+  shjiaz:function(){
+      this.data.page+=1
+      this.loadData(this.data.page);
   },
   //弹窗
   popupTap: function (e) {

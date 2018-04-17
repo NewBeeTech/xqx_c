@@ -7,7 +7,7 @@
             </swiper-item>
         </block>
     </swiper>
-     <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':'100:'+obj.integral_ratio}}</view> 
+     <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view> 
 </view>
 
 <view class='Md'>

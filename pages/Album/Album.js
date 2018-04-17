@@ -25,8 +25,9 @@ Page({
   navList:function(e){
       var that = this;
       var index = e.currentTarget.dataset.index;
+      var i = e.currentTarget.dataset.i;
       that.setData({
-          navIndex: index
+          navIndex: i
       })
       console.log(this.data.navList,this.data.merchantId, index);
       this.loadImages(this.data.merchantId, index);

@@ -1,6 +1,6 @@
 <!--pages/homePage/homePage.wxml-->
  <view class='container'> 
-  <scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight-44}}'>
+  <scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight-44}}' bindscrolltolower='onReachBottom'>
 
     <view>
     <view class='Input' style='margin-bottom: {{obj.catalogList.length>0?15:0}}rpx;'>

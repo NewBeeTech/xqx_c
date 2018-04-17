@@ -1,5 +1,5 @@
 <!--pages/MerchantList/MerchantList.wxml-->
-<scroll-view scroll-y='true' style='height:100%;' bindscroll='pageScroll'>
+<scroll-view scroll-y='true' style='height:100%;' bindscroll='pageScroll' bindscrolltolower='shjiaz'>
 
   <view class='wrap1'>
     <image class='wrap1_img' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg'></image>

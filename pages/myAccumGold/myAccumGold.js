@@ -9,7 +9,8 @@ Page({
   data: {
       daijieIf:false,
       ytgIf:false,
-      obj:{}
+      obj:{},
+      downloadIf:false
   },
 
   /**

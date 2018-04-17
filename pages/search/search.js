@@ -231,5 +231,9 @@ Page({
           wx.stopPullDownRefresh()
         });
     },
+    a:function(e){
+        var z = 6.8;//打折
+        var nu = e.detail.value;
+    }
 
 }) 

@@ -37,13 +37,14 @@ Page({
   },
   onShareAppMessage: function (res) {
     var self = this;
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
+    // if (res.from === 'button') {
+    //   // 来自页面内转发按钮
+    //   console.log(res.target)
+    // }
     return {
       title: self.data.obj.act_title,
-      path: self.data.obj.inviteUrl,
+    //   path: self.data.obj.inviteUrl,
+      path:'/spellGroupHome/spellGroupHome',
       success: function (res) {
         // 转发成功
         wx.showToast({

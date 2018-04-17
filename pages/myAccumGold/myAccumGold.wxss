@@ -135,3 +135,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.qxtc{
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    z-index: 99999;
+}

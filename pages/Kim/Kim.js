@@ -23,6 +23,17 @@ Page({
       console.log(result);
       wx.hideLoading()
       
+      var str = ~~(result.data.notDeposite / 100) + '';
+      var i = str.indexOf('.');
+      if (i != -1) {
+          if (str.length != i + 3) {
+              str += '0';
+          }
+      } else {
+          str += '.00';
+      }
+
+      result.data.notDeposite = str;
       self.setData({
         obj: result.data,
       });
@@ -97,6 +108,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    
   }
 })

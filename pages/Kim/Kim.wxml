@@ -6,9 +6,9 @@
     </view>
     <view class='top_q'>
         <text>当前小金</text>
-        <view>{{obj.notDeposite/100}}</view>
+        <view>{{obj.notDeposite?obj.notDeposite:''}}</view>
     </view>
-    <view class='top_t'>等于{{obj.notDeposite/100}}元消费养老金</view>
+    <view class='top_t'>等于{{obj.notDeposite?obj.notDeposite:''}}元消费养老金</view>
 </view>
 
 <!-- <view class='scroll_title'>2018年3月</view> -->
