@@ -29,7 +29,7 @@
             <view class="warp_sub" bindtap='ytgTap'>
                   <view class="sub_tit">已托管消费养老金</view>
                   <view class='arrowOnfo'>
-                    <text class='priceInfo'>未实名认证</text>
+                    <text class='priceInfo' wx:if="{{obj.idcard_state==0}}">未实名认证</text>
                     <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
                   </view>
             </view>

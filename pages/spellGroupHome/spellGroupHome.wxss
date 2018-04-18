@@ -52,6 +52,7 @@ page {
   background: white;
   border-bottom:1rpx solid rgb(240,240,240); 
   box-sizing: border-box;
+  overflow: hidden;
 }
 .goods .left_icon{
   display: block;
@@ -118,7 +119,7 @@ page {
   border-radius: 10rpx;
   text-align: center;
   line-height: 40rpx;
-  border: 1rpx solid rgb(251,115,39);
+  /* border: 1rpx solid rgb(251,115,39); */
 }
 
 .goods .group_out {
