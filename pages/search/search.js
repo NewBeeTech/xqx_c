@@ -31,26 +31,31 @@ Page({
         types: options.id
       });
         // 页面初始化 options为页面跳转所带来的参数 
+      // 页面显示 
+      this.initEleWidth();
+      console.log(appData.searchData);
+      
         
     },
     onReady: function () {
         // 页面渲染完成 
     },
     onShow: function () {
-        // 页面显示 
-        this.initEleWidth();
-        console.log(appData.searchData);
-        if (appData.searchData.length > 0) {
-            this.setData({
-                list: appData.searchData
-            });
-        }
+      console.log(appData.searchData);
+      if (appData.searchData.length > 0) {
+        this.setData({
+          list: appData.searchData
+        });
+      }
     },
     onHide: function () {
         // 页面隐藏 
     },
     onUnload: function () {
         // 页面关闭 
+        this.setData({
+          list:[]
+        });
     },
     touchS: function (e) {
         if (e.touches.length == 1) {
@@ -103,6 +108,7 @@ Page({
     navToBussess:function(e){
       var info = e.currentTarget.dataset.info;
       info.txtStyle = "";
+      console.log(info);
       // this.data.list.push(info);
       if (appData.searchData.length==0){
         appData.searchData.push(info);
@@ -148,7 +154,6 @@ Page({
             list[index].textStyle = textStyle;
             //更新列表的状态 
            
-            appData.searchData = list;
         }
     },
 
@@ -171,7 +176,7 @@ Page({
             this.setData({
                 list: list
             });
-            appData.searchData = this.data.list;
+           
         }
     },
     //获取元素自适应后的实际宽度 
