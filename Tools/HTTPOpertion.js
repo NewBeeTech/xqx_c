@@ -12,11 +12,13 @@ function HTTPOpertion() { };
  * longitude	String	是	经度
  */
 HTTPOpertion.getAddressData = function (parm) {
-    return HttpManager
-        .post(Default.HOST + Default.ADDRESS_DATA, parm);
+    return HttpManager.post(Default.HOST + Default.ADDRESS_DATA, parm);
 
 }
 
+HTTPOpertion.getTopPics = function (parm) {
+  return HttpManager.post(Default.HOST + Default.GET_TOP_PICS, parm);
+}
 
 /**
  * 首页
@@ -29,7 +31,7 @@ HTTPOpertion.getAddressData = function (parm) {
 HTTPOpertion.getMianData = function (parm) {
 
     return HttpManager
-        .post(Default.HOST + Default.MAIN_PAGE, parm);
+        .post(Default.HOST + Default.MAIN_PAGE, parm||{});
 
 }
 

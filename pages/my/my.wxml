@@ -17,7 +17,7 @@
                 <text class="sub_tit">我的累计金</text>
             </view>
             <view class='arrowOnfo'>
-                <text class='priceInfo'>￥{{obj.currency}}</text>
+                <text class='priceInfo'>￥{{xiaojin}}</text>
                 <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
             </view>
         </view>

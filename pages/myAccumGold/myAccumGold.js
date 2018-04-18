@@ -10,7 +10,8 @@ Page({
       daijieIf:false,
       ytgIf:false,
       obj:{},
-      downloadIf:false
+      downloadIf:false,
+      xiaojin:0
   },
 
   /**
@@ -89,8 +90,28 @@ Page({
       appData.Tool.getUserInfo().then(function (result) {
           console.log(result);
           wx.hideLoading()
-          self.loadInfo(result);
+          // self.loadInfo(result);
+          var temp = parseFloat(not_deposite) + parseFloat(depositing);
+          var str = ~~(temp / 100) + '';
+          var i = str.indexOf('.');
+          if (i != -1) {
+            if (str.length != i + 3) {
+              str += '0';
+            }
+          } else {
+            str += '.00';
+          }
+
           
+          result.data.not_deposite = fn(result.data.not_deposite);
+          if (result.data.priorRemain) {
+            result.data.priorRemain = fn(result.data.priorRemain);
+          }
+
+          self.setData({
+            obj: result.data,
+            xiaojin:temp
+          });
       })
           .catch(function (error) {
               console.log(error);

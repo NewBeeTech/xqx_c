@@ -22,8 +22,8 @@ Page({
     appData.Tool.getArrivalTradeHistoryv232().then(function (result) {
       console.log(result);
       wx.hideLoading()
-      
-      var str = ~~(result.data.notDeposite / 100) + '';
+      var temp = parseFloat(result.data.notDeposite) + parseFloat(result.data.priorRemain);
+      var str = ~~(temp/ 100) + '';
       var i = str.indexOf('.');
       if (i != -1) {
           if (str.length != i + 3) {
@@ -36,6 +36,7 @@ Page({
       result.data.notDeposite = str;
       self.setData({
         obj: result.data,
+        xiaojin:temp
       });
     })
       .catch(function (error) {

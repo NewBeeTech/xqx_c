@@ -43,7 +43,8 @@
     "pages/DetailsPayment/DetailsPayment",
     "pages/waring/waring",
     "pages/PaymentCompletion2/PaymentCompletion2",
-    "pages/webApp/webApp"
+    "pages/webApp/webApp",
+    "pages/h5/h5"
   ],
   "window": {
     "backgroundTextStyle": "light",

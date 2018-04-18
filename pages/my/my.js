@@ -8,7 +8,8 @@ Page({
      */
     data: {
         downloadIf: false,
-        obj:{}
+        obj:{},
+        xiaojin:0
     },
 
     /**
@@ -156,10 +157,25 @@ Page({
     //获取个人信息
     getMy: function () {
         var self = this;
-        appData.Tool.getUserInfo().then(function (result) {
+        appData.Tool.getUserInfo({}).then(function (result) {
           wx.hideLoading()
             console.log(result);
-            self.loadInfo(result);
+            // self.loadInfo(result);
+            var temp = parseFloat(not_deposite) + parseFloat(depositing);
+            var str = ~~(temp/ 100) + '';
+            var i = str.indexOf('.');
+            if (i != -1) {
+              if (str.length != i + 3) {
+                str += '0';
+              }
+            } else {
+              str += '.00';
+            }
+
+            self.setData({
+              obj: result.data,
+              xiaojin: temp
+            });
            
         })
             .catch(function (error) {

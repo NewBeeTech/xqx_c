@@ -4,7 +4,6 @@
         <swiper-item wx:for="{{banners}}" bindtap="link" data-type="{{item.activity_type}}" data-id="{{item.activity_id}}" data-url="{{item.url}}" >
             <image src="{{item.img_url}}" class="slide-image" width="355" height="150" />
         </swiper-item>
-
     </swiper>
 
     <view class='nav'>

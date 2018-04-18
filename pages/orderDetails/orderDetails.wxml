@@ -1,14 +1,13 @@
 <!--pages/orderDetails/orderDetails.wxml-->
 <view class='order_info_head'>
     <view>
-        <view class='fight_success'>拼团成功</view>
+        <view class='fight_success'>{{xqObj.order_state==-2||xqObj.order_state==-1?"已取消":"拼团成功"}}</view>
 
-        <text>商家已发货，请耐心等待</text>
-        <text wx:if="{{false}}">已取消订单</text>
-        <text wx:if="{{false}}">退款3个工作日内将返还你的支付账户</text>
-        <text wx:if="{{false}}">待商家发货，请耐心等待</text>
-        <text wx:if="{{false}}">已完成收货</text>
-        <text wx:if="{{false}}">正在努力拼团中，请耐心等待</text>
+        <text wx:if="{{xqObj.order_state==2}}">商家已发货，请耐心等待</text>
+        <text wx:if="{{xqObj.order_state==-2||xqObj.order_state==-1}}">已取消订单\n退款3个工作日内将返还你的支付账户</text>
+        <text wx:if="{{xqObj.order_state==4}}">待商家发货，请耐心等待</text>
+        <text wx:if="{{xqObj.order_state==3}}">已完成收货</text>
+        <text wx:if="{{xqObj.order_state==0}}">待支付</text>
     </view>
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
 </view>
@@ -27,7 +26,7 @@
         <text>拼团成功</text>
     </view>
     <view class='headPor'>
-        <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{}}'></image>
+        <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{item.portrait}}'></image>
     </view>
 </view>
 
@@ -51,30 +50,30 @@
 <view class='order_detailed'>
     <view>
         <view>参团时间</view>
-        <text>2018-02-28 13:24:24</text>
+        <text>{{xqObj.joinTime}}</text>
     </view>
     <view>
         <view>订单编号</view>
-        <text>2929929911011011</text>
+        <text>{{xqObj.express_number}}</text>//?
     </view>
     <view>
         <view>快递单号</view>
-        <text>22929929911011011</text>
+        <text>{{xqObj.serial_number}}</text>
     </view>
     <view>
         <view>拼团须知</view>
         <view class='notice'>
-            <view><text>拼团须知1</text><text>拼团须知2</text><text>拼团须知3</text></view>
+            <view>{{xqObj.explain_content}}</view>
             <image src='../../images/icon/right_arrow2.png'></image>
         </view>     
     </view>
 </view>
 <view class='btn_bar'>
-    <view class='customer_service_btn' bindtap='quxTap'>取消订单</view>
-      <view class='customer_service_btn'>售后</view>  <!--订单完成宽度  percent_width  -->
-     <view class='confirmation_receipt_btn identical' bindtap='qusTap'>确认收货</view> 
-    <view class='buy_again_btn identical' wx:if="{{false}}">再次购买</view>
-    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+    <view class='customer_service_btn' bindtap='quxTap' wx:if="{{xqObj.order_state==0||xqObj.order_state==1}}">取消订单</view>//1
+      <view class='customer_service_btn' wx:if="{{xqObj.order_state==3}}">售后</view>  <!--订单完成宽度  percent_width  -->
+     <view class='confirmation_receipt_btn identical' bindtap='qusTap' wx:if="{{xqObj.order_state==2}}" >确认收货</view> 
+    <view class='buy_again_btn identical' wx:if="{{xqObj.order_state==3}}">再次购买</view>
+    <view class='sharing_friends_btn identical' wx:if="{{xqObj.order_state==1||xqObj.order_state==2||xqObj.order_state==3||xqObj.order_state==4}}">分享好友</view>
 </view>
 <!-- 弹窗 -->
 <view class='popup' wx:if='{{false}}'>

@@ -18,16 +18,30 @@ Page({
   },
   loadBanners:function(){
      var self = this;
-      appData.Tool.getTopPics().then(function (result) {
+      appData.Tool.getTopPics({}).then(function (result) {
+        wx.hideLoading();
         self.setData({
             banners: result.data.topPics
         });
+        console.log(self.data.banners);
       });
   },
   link:function(e){
-    wx.navigateTo({
-        url: e.currentTarget.dataset.url,
-    })
+    // wx.navigateTo({
+    //     url: e.currentTarget.dataset.url,
+    // })
+    var info = e.currentTarget.dataset;
+    console.log(info);
+    if (info.url==""){
+      wx.navigateTo({
+        url: '../goodDetail/goodDetail?id='+info.id,
+      })
+    }else{
+      wx.navigateTo({
+        url: '../h5/h5?url='+info.url,
+      })
+    }
+
   },
   loadOpenedGroup:function(page){
     var a = 1;
@@ -36,6 +50,7 @@ Page({
     appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 }).then(function (result) {
       wx.hideLoading();
       console.log(result);
+      self.loadBanners();
       if(result.code == 0){
           var arr = result.data.list;
           for (var k in arr) {
