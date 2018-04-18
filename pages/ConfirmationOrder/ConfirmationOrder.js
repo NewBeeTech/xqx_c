@@ -77,6 +77,13 @@ Page({
   //立即支付
   toPay: function () {
       var that = this;
+      if (!that.data.groupInfo.address_id){
+          wx.showToast({
+              title: '请先添加地址',
+              icon:'none'
+          });
+          return
+      };
       var obj ={
           cnd: that.data.cnd,
           num: that.data.buyNum,

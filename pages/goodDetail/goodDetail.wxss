@@ -89,7 +89,8 @@ page>view>scroll-view{
    color: #ffc580;
    /* border: 1px solid #ffc580; */
    border-radius: 4px;
-   padding: 0 12px;
+   /* padding: 0 12px; */
+   padding-right: 6rpx;
    margin-right: 10px;
 }
 .goodShare{

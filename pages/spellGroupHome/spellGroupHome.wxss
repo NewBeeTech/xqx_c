@@ -52,7 +52,7 @@ page {
   background: white;
   border-bottom:1rpx solid rgb(240,240,240); 
   box-sizing: border-box;
-  overflow: hidden;
+  position: relative;
 }
 .goods .left_icon{
   display: block;
@@ -106,13 +106,15 @@ page {
   text-align: center;
   position: absolute;
   right: 30rpx;
+  top: 120rpx;
 }
 .goods .group {
   padding-top: 10rpx;
 }
 .goods .group_num {
   display: inline-block;
-  width: 114rpx;
+  /* width: 114rpx; */
+  padding-right: 16rpx;
   height: 40rpx;
   font-size: 24rpx;
   color: rgb(251,115,39);

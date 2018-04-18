@@ -156,9 +156,10 @@ page{
     align-items: center;
 }
 .wrap3_box_shl>view{
-    width: 112rpx;
+    /* width: 112rpx; */
+    padding-right: 16rpx;
     height: 38rpx;
-    border: solid 1rpx #ff9a00;
+    /* border: solid 1rpx #ff9a00; */
     border-radius: 8rpx;
     line-height: 38rpx;
     text-align: center;
