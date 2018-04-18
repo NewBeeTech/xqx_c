@@ -27,7 +27,9 @@ Page({
     Popup_index_right: 0,
     types: "全部分类",
     orderType: "智能排序",
-    superID: 0
+    superID: 0,
+    classID: 0,
+    orderID: ""
   },
   onPullDownRefresh: function () {
     // wx.stopPullDownRefresh()
@@ -319,13 +321,14 @@ Page({
     })
     var self = this;
     var id = e.currentTarget.dataset.id;
+    
     console.log(e);
     if (id == 0) {
       self.setData({
         Popup_index_right: 0,
         // Popup_inde: 0,
         orderType: "全部",
-
+        classID: 0
       });
       // this.loadData();
       // this.returnType();
@@ -333,15 +336,16 @@ Page({
     } else {
       this.setData({
         Popup_index_right: e.currentTarget.dataset.index,
-        types: e.currentTarget.dataset.name
+        types: e.currentTarget.dataset.name,
+        classID: id
       })
     }
     console.log(e);
 
-
+    console.log("id:", self.data.classID, "order:", self.data.orderID);
     console.log(wx.getStorageSync("level"));
 
-    var config = e.currentTarget.dataset.id == 0 ? { intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), intPara: self.data.superID } : { latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), intPara: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city") };
+    var config = e.currentTarget.dataset.id == 0 ? { intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), intPara: self.data.superID } : { latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), intPara: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), unionid: self.data.orderID };
     console.log(config);
     appData.Tool.getIndustryMerchantV24(config).then(function (result) {
       console.log(result);
@@ -373,11 +377,14 @@ Page({
     console.log(this.data.PopupIf);
     this.setData({
       Popup_inde2: e.currentTarget.dataset.index,
-      orderType: e.currentTarget.dataset.name
+      orderType: e.currentTarget.dataset.name,
+      orderID: e.currentTarget.dataset.id
     })
+
     var self = this;
+    console.log("id:", self.data.classID, "order:", self.data.orderID);
     console.log(e.currentTarget.dataset.id);
-    appData.Tool.getIndustryMerchantV24({ latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), unionid: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city") }).then(function (result) {
+    appData.Tool.getIndustryMerchantV24({ latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), unionid: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), intPara: self.data.classID }).then(function (result) {
       console.log(result);
       self.setData({
         list: result.data.list,
