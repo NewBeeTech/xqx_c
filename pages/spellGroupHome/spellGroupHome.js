@@ -80,12 +80,6 @@ Page({
         })
           .catch(function (err) {
             console.log(err);
-            wx.hideLoading();
-            wx.showToast({
-              title: err.message,
-              icon: 'none',
-              duration: 2000
-            })
           });
       });
     })

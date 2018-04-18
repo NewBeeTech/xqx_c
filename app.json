@@ -42,7 +42,8 @@
     "pages/WriteAddress/WriteAddress",
     "pages/DetailsPayment/DetailsPayment",
     "pages/waring/waring",
-    "pages/PaymentCompletion2/PaymentCompletion2"
+    "pages/PaymentCompletion2/PaymentCompletion2",
+    "pages/webApp/webApp"
   ],
   "window": {
     "backgroundTextStyle": "light",

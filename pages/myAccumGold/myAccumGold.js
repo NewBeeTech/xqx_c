@@ -25,10 +25,16 @@ Page({
           daijieIf: !this.data.daijieIf
       })
   },
-  //
+  //弹窗
+  ytgTapTc:function(){
+        this.setData({
+            ytgIf: !this.data.ytgIf
+      })
+  },
+  //跳转下载
   ytgTap: function () {
-      this.setData({
-          ytgIf: !this.data.ytgIf
+      wx.navigateTo({
+          url: '../webApp/webApp',
       })
   },
   //

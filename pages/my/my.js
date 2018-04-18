@@ -185,7 +185,10 @@ Page({
 
     },
     downloadApp:function(){
-     
+     wx.showModal({
+         title: '',
+         content: '',
+     })
       wx.navigateTo({
         url: '../webApp/webApp'
       })

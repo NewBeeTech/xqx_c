@@ -62,6 +62,7 @@ page {
 }
 .goods .right_des {
   padding-left: 40rpx;
+  text-align: left;
   
 }
 .goods .right_des .title{
@@ -116,7 +117,7 @@ page {
   /* width: 114rpx; */
   padding-right: 16rpx;
   height: 40rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: rgb(251,115,39);
   border-radius: 10rpx;
   text-align: center;

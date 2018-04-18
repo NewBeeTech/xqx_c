@@ -25,7 +25,7 @@
         <view>
             <view class='wrap2_shop_name'>{{groupInfo.name}}</view>
             <view class='wrap2_shop_jig'>
-                <view><text>￥</text>{{groupInfo.group_price/100}}</view>
+                <view><text>￥</text>{{groupInfo.group_price}}</view>
                 <text>￥{{groupInfo.price/100}}</text>
             </view>
         </view>

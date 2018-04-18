@@ -22,8 +22,8 @@
                 </view>
                 <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price*100*goodsInfo.ratio/10000}} 小金 </view>
                 <view class='result'>
-                    <view>{{goodsInfo.group_person_num}}人团</view>
-                    <view>已团出：{{goodsInfo.sellNum}}件</view>
+                    <view> {{goodsInfo.group_person_num}}人团</view>
+                    <view>已团出：{{goodsInfo.sellNum?goodsInfo.sellNum:0}}件</view>
                 </view>
             </view>
             <button class='goodShare' open-type="share">分享给好友</button>
@@ -50,10 +50,12 @@
     <view class='' wx:if="{{goodsInfo.joinNum>0}}">
         <view class='groupsMsg padding_rl'>{{goodsInfo.joinNum}}名小伙伴正在参团，可直接参与</view>
         <view class='padding_rl bg_white'>
-            <view >
+            <view>
                 <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
                     <view class='groupsUser'>
-                        <image src='{{item.portrait}}'></image>
+                    <!--先做测试 假数据  -->
+                        <!-- <image src='{{item.portrait}}'></image> -->
+                        <image src='../../images/icon/che.png'></image>
                         <view>{{item.name}}</view>
                     </view>
                     <view class='groupsFn'>
@@ -66,8 +68,28 @@
                 </view>
             </view>
         </view>
-        <view class='goodDetails bg_white'>
-            <view class='detaileTitle'>{{goodsInfo.explain_content}}</view>
+        <view class='address_tel'>
+            <view class='address'>
+                <image src='{{goodsInfo.store_logo}}'></image>
+                <view>
+                    <text class='shop_name'>{{goodsInfo.merchant_name}}</text>
+                    <view class='address_info' wx:if="{{goodsInfo.address}}">{{goodsInfo.address}}</view>
+                </view>
+            </view>
+            <view class='address_tel_rig'>
+                <image bindtap='ddhua' data-store_phone='{{goodsInfo.store_phone}}' src='../../images/img/phone.png'></image>
+            </view>
+        </view>
+        <view class='goodDetails bg_white' wx:if="{{goodsInfo.explain_content||goodsInfo.explain_img_url}}">
+            <view>
+                <view class='detaileTitle'>商品详情</view>
+                <view class='detaileTitle'>商品描述</view>
+            </view>
+            <view>
+                <view class='detaileTitle' wx:if="{{goodsInfo.explain_content}}">{{goodsInfo.explain_content}}</view>
+                <!-- <image wx:for="{{goodsInfo.explain_img_url}}" src='{{item}}'></image> -->
+                <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{[1,1,1]}}" src='../../images/icon/che.png'></image>
+            </view>
         </view>
     </view>
 </scroll-view>
@@ -79,7 +101,7 @@
         <view>首页</view>
     </view>
     <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
-        <view>
+        <view class='beginBtn_lef'>
             <view>¥{{goodsInfo.group_price}}</view>
             <view>一键开团</view>
         </view>
@@ -104,14 +126,14 @@
                 <image class='ok_icon' src='../../images/img/dui.png'></image>
                 <text>消费即得养老金</text>
             </view>
-            <view class='des'>每一笔消费都能获得相应比例得养老金</view>
+            <view class='des'>每一笔消费都能获得相应比例的养老金</view>
         </view>
         <view class='item'>
             <view class='sub_title'>
                 <image class='ok_icon' src='../../images/img/dui.png'></image>
                 <text>假一赔十</text>
             </view>
-            <view class='des'>若收到的商品是假冒品牌，可获得到加倍赔偿</view>
+            <view class='des'>若收到的商品是假冒品牌，可获得加倍赔偿</view>
         </view>
 
 

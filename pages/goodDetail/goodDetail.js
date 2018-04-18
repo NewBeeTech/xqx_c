@@ -147,6 +147,13 @@ Page({
 //         url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
 //     })
 //   },
+
+//打电话
+    ddhua:function(e){
+        wx.makePhoneCall({
+            phoneNumber: e.currentTarget.dataset.store_phone
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

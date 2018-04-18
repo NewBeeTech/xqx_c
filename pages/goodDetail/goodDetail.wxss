@@ -3,6 +3,7 @@ page{
   background: #f0f0f0;
   height: 100%;
   width: 100%;
+  padding-bottom: 90rpx;
 }
 
 .ta{
@@ -92,6 +93,7 @@ page>view>scroll-view{
    /* padding: 0 12px; */
    padding-right: 6rpx;
    margin-right: 10px;
+   font-size: 26rpx;
 }
 .goodShare{
   background: #ff9c00;
@@ -251,10 +253,13 @@ page>view>scroll-view{
   color: white;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .beginBtn view {
   text-align: center;
+}
+.beginBtn_lef{
+    padding-left: 190rpx;
 }
 .beginBtn2{
     flex: 1;
@@ -270,7 +275,7 @@ page>view>scroll-view{
   border: 1px solid #fff;
   border-radius: 5px;
   padding: 0 10px;
-  margin:0  20px;
+  margin-right: 35rpx;
 }
 
 .alertView {
@@ -315,4 +320,52 @@ page>view>scroll-view{
 .ok_icon {
   width: 39rpx;
   height: 39rpx;
+}
+
+/* 地址电话 */
+.address_tel{
+display: flex;
+height: 140rpx;
+justify-content: space-between;
+align-items: center;
+border-bottom: 14rpx solid #f0f0f0;
+border-top:14rpx solid #f0f0f0;
+background: #ffffff;
+}
+.shop_name{
+font-size: 30rpx;
+font-weight: 500;
+}
+
+.address{
+display: flex;
+align-items: center;
+}
+.address>image{
+width: 100rpx;
+height: 100rpx;
+border-radius: 50%;
+border: solid 1rpx #dadada;
+margin: 0 26rpx 0 34rpx;
+}
+.shop_name{
+    font-size: 30rpx;
+    font-weight: bold;
+    height: 48rpx;
+    display: block;
+}
+.address_info{
+    font-size: 25rpx;
+    color: #9a9a9a;
+}
+.address_tel_rig{
+    height: 72rpx;
+    border-left: solid 1rpx #dadada;
+    padding: 0 75rpx 0 60rpx;
+    display: flex;
+    align-items: center;
+}
+.address_tel_rig>image{
+    width: 48rpx;
+    height: 48rpx;
 }

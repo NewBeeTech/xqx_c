@@ -163,12 +163,12 @@ page{
     border-radius: 8rpx;
     line-height: 38rpx;
     text-align: center;
-    font-size: 25rpx;
+    font-size: 26rpx;
     color: #ff9a00;
 }
 .wrap3_box_shl>text{
     color: #6e6e6e;
-    font-size: 25rpx;
+    font-size: 24rpx;
     padding-left: 20rpx;
 }
 .wrap3_btn{

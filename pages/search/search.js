@@ -19,6 +19,7 @@ Page({
         page:0
     },
     removeRecordTap: function () {
+        console.log(".....");
         this.setData({
             list: []
         })
