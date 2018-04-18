@@ -19,6 +19,46 @@ Page({
   onLoad: function (options) {
       this.getMy();
   },
+  loadInfo: function (e) {
+      var result = e;
+      var self = this;
+      appData.Tool.getArrivalTradeHistoryv232().then(function (response) {
+          console.log(response.data.retList);
+         wx.hideLoading();
+          var resultNum = 0;
+          response.data.retList.forEach(function (item) {
+              resultNum += (parseFloat(item.currency)*100);
+              console.log(resultNum)
+          });
+          result.data.currency = parseFloat(result.data.currency) + resultNum;
+          console.log(result.data.currency)
+
+          var str = ~~(result.data.currency / 100) + '';
+          var i = str.indexOf('.');
+          if (i != -1) {
+              if (str.length != i + 3) {
+                  str += '0';
+              }
+          } else {
+              str += '.00';
+          }
+
+          result.data.currency = str;
+          result.data.not_deposite = fn(result.data.not_deposite);
+          if (result.data.priorRemain) {
+              result.data.priorRemain = fn(result.data.priorRemain);
+          }
+
+          self.setData({
+              obj: result.data
+          });
+
+          console.log(result);
+
+
+
+      })
+  },
   //
   daijie:function(){
       this.setData({
@@ -49,29 +89,8 @@ Page({
       appData.Tool.getUserInfo().then(function (result) {
           console.log(result);
           wx.hideLoading()
-
-          function fn(a){
-              var str = ~~(a / 100) + '';
-              var i = str.indexOf('.');
-              if (i != -1) {
-                  if (str.length != i + 3) {
-                      str += '0';
-                  }
-              } else {
-                  str += '.00';
-              }
-              return str
-          };
-
-          result.data.currency = fn(result.data.currency);
-          result.data.not_deposite = fn(result.data.not_deposite);
-          if (result.data.priorRemain){
-              result.data.priorRemain = fn(result.data.priorRemain);
-          }
+          self.loadInfo(result);
           
-          self.setData({
-              obj: result.data
-          });
       })
           .catch(function (error) {
               console.log(error);

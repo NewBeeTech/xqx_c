@@ -23,6 +23,7 @@ Page({
         this.setData({
             list: []
         })
+        appData.searchData = [];
     },
     onLoad: function (options) {
       console.log(options);
@@ -30,19 +31,20 @@ Page({
         types: options.id
       });
         // 页面初始化 options为页面跳转所带来的参数 
-        this.initEleWidth();
-        console.log(appData.searchData);
-        if (appData.searchData.length>0){
-          this.setData({
-            list: appData.searchData
-          });
-        }
+        
     },
     onReady: function () {
         // 页面渲染完成 
     },
     onShow: function () {
         // 页面显示 
+        this.initEleWidth();
+        console.log(appData.searchData);
+        if (appData.searchData.length > 0) {
+            this.setData({
+                list: appData.searchData
+            });
+        }
     },
     onHide: function () {
         // 页面隐藏 
@@ -111,9 +113,7 @@ Page({
           }
         });
       }
-      
-      console.log(appData.searchData);
-      
+ 
       wx.navigateTo({
         url: '../MerchantDetails/MerchantDetails?id=' + info.id,
       })
@@ -147,9 +147,8 @@ Page({
             list[index].txtStyle = txtStyle;
             list[index].textStyle = textStyle;
             //更新列表的状态 
-            this.setData({
-                list: list
-            });
+           
+            appData.searchData = list;
         }
     },
 
@@ -171,8 +170,8 @@ Page({
             //更新列表的状态 
             this.setData({
                 list: list
-                
             });
+            appData.searchData = this.data.list;
         }
     },
     //获取元素自适应后的实际宽度 
@@ -212,6 +211,7 @@ Page({
                     that.setData({
                         list: list
                     });
+                    appData.searchData = that.data.list;
                 } else {
                     initdata(that)
                 }

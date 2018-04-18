@@ -7,7 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        downloadIf: false
+        downloadIf: false,
+        obj:{}
     },
 
     /**
@@ -15,6 +16,43 @@ Page({
      */
     onLoad: function (options) {
 
+    },
+
+
+    loadInfo:function(e){
+        var result = e;
+        var self = this;
+        appData.Tool.getArrivalTradeHistoryv232().then(function (response) {
+            console.log(response.data.retList);
+            wx.hideLoading();
+
+            var resultNum = 0;
+            response.data.retList.forEach(function (item) {
+                resultNum += (parseFloat(item.currency) * 100);
+            });
+            result.data.currency = parseFloat(result.data.currency) + resultNum;
+
+            var str = ~~(result.data.currency / 100) + '';
+            var i = str.indexOf('.');
+            if (i != -1) {
+                if (str.length != i + 3) {
+                    str += '0';
+                }
+            } else {
+                str += '.00';
+            }
+
+            result.data.currency = str;
+
+            self.setData({
+                obj: result.data
+            });
+
+            console.log(result);
+
+
+        
+        })
     },
     //
     myjinTap: function () {
@@ -53,9 +91,18 @@ Page({
       })
     },
     close:function(){
-      this.setData({
-        downloadIf: !this.data.downloadIf
-      })
+    //   this.setData({
+    //     downloadIf: !this.data.downloadIf
+    //   })
+
+    wx.showModal({
+        title: '更多获金体验，请下载小确幸app',
+        success:function(){
+            wx.navigateTo({
+                url: '../webApp/webApp',
+            })
+        }
+    })
     },
     //
     downloadTap: function () {
@@ -112,22 +159,8 @@ Page({
         appData.Tool.getUserInfo().then(function (result) {
           wx.hideLoading()
             console.log(result);
-
-            var str = ~~(result.data.currency/100) + '';
-            var i = str.indexOf('.');
-            if(i!=-1){
-                if (str.length != i + 3){
-                    str += '0';
-                }
-            }else{
-                str += '.00';
-            }
-
-            result.data.currency=str;
-            
-            self.setData({
-                obj: result.data
-            });
+            self.loadInfo(result);
+           
         })
             .catch(function (error) {
                 console.log(error);
@@ -141,13 +174,14 @@ Page({
      */
     onReady: function () {
         this.getMy();
+        
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        
     },
 
     /**

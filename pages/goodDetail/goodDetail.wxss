@@ -150,7 +150,6 @@ page>view>scroll-view{
   border:none;
 }
 .groupsUser{
-  width: 190rpx;
   display: flex;
   align-items: center;
 }

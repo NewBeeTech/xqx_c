@@ -17,7 +17,7 @@
 
 <view class='Sj'>
     <text>手机号</text>
-    <input type='number' placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" ></input>
+    <input type='number' maxlength='11' placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" ></input>
 </view>
 
 <view class='Yz'>
@@ -27,9 +27,9 @@
     
 </view>
 
-<view class='Tk' bindtap='toAgree'>
-    <icon wx:if='{{isAgree}}' type='success' color='red' size='24'></icon>
-    <view wx:else></view>
+<view class='Tk'>
+    <icon type='success' color='red' size='24'></icon>
+    <!-- <view wx:else></view> -->
 
     <text>我已阅读并同意<text>《用户服务条款》</text></text>
 </view>

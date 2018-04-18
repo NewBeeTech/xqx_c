@@ -164,9 +164,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 22,
 					"name": "customerService",
-					"pathName": "pages/customerService/customerService",
+					"pathName": "pages/spellGroupHome/spellGroupHome",
 					"query": ""
 				},
 				{
@@ -214,6 +214,12 @@
 				{
 					"id": -1,
 					"name": "boundNumber",
+					"pathName": "pages/boundNumber/boundNumber",
+					"query": ""
+				},
+				{
+					"id": 31,
+					"name": "注册",
 					"pathName": "pages/boundNumber/boundNumber",
 					"query": ""
 				}

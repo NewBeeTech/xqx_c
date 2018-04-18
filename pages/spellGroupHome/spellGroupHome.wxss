@@ -115,14 +115,15 @@ page {
 .goods .group_num {
   display: inline-block;
   /* width: 114rpx; */
-  padding-right: 16rpx;
+  /* padding-right: 16rpx; */
   height: 40rpx;
   font-size: 26rpx;
   color: rgb(251,115,39);
   border-radius: 10rpx;
-  text-align: center;
+  text-align: left;
   line-height: 40rpx;
   /* border: 1rpx solid rgb(251,115,39); */
+  padding-left: 10rpx;
 }
 
 .goods .group_out {

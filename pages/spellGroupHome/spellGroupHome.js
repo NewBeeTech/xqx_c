@@ -13,7 +13,21 @@ Page({
    */
   data: {
     page:1,
-    goods:[]
+    goods:[],
+    banners:[]
+  },
+  loadBanners:function(){
+     var self = this;
+      appData.Tool.getTopPics().then(function (result) {
+        self.setData({
+            banners: result.data.topPics
+        });
+      });
+  },
+  link:function(e){
+    wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+    })
   },
   loadOpenedGroup:function(page){
     var a = 1;
