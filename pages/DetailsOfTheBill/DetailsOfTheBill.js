@@ -43,11 +43,7 @@ Page({
       .catch(function (error) {
         console.log(error);
         wx.hideLoading()
-        wx.showToast({
-          title: error.message,
-          icon: 'none',
-          duration: 2000
-        })
+       
       });
   },
 

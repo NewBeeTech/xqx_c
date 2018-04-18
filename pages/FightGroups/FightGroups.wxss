@@ -109,6 +109,7 @@ page{
     border-bottom: solid 1rpx #dadada;
     padding: 40rpx 0 38rpx;
     display: flex;
+    overflow: hidden;
 }
 .wrap3>view:last-child{
     border: none;

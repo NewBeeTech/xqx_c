@@ -80,7 +80,7 @@ Page({
       var obj ={
           cnd: that.data.cnd,
           num: that.data.buyNum,
-          money: that.data.groupInfo.group_price * that.data.buyNum,
+          money: that.data.groupInfo.group_price*100 * that.data.buyNum,
           merchant_id: that.data.groupInfo.merchant_id,
           ratio: that.data.groupInfo.ratio,
           address_id: that.data.groupInfo.address_id,

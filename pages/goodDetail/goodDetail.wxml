@@ -1,15 +1,9 @@
 <!--pages/goodDetail/goodDetail.wxml-->
-
+<view class='ta' class='ta' style='display:{{isShow}}'></view>
 <scroll-view scroll-y="true">
     <!-- 轮播图 -->
     <view class='Swipr_wrap'>
         <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
-            <swiper-item>
-                <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
-            </swiper-item>
-            <swiper-item>
-                <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
-            </swiper-item>
             <swiper-item>
                 <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
             </swiper-item>
@@ -23,13 +17,13 @@
             <view class='goodsPrice'>
                 <view class='price'>
                     <view>
-                        <text>¥</text>{{~~goodsInfo.group_price/100==goodsInfo.group_price/100?goodsInfo.group_price/100+".00":~~(goodsInfo.group_price*100)/10000}}</view>
-                    <view>¥{{~~goodsInfo.price/100==goodsInfo.price/100?goodsInfo.price/100+".00":~~(goodsInfo.price*100)/10000}}</view>
+                        <text>¥</text>{{goodsInfo.group_price}}</view>
+                    <view>¥{{goodsInfo.price}}</view>
                 </view>
-                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price/100*goodsInfo.ratio/100}} 小金 </view>
+                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price*100*goodsInfo.ratio/10000}} 小金 </view>
                 <view class='result'>
                     <view>{{goodsInfo.group_person_num}}人团</view>
-                    <view>已团：{{goodsInfo.sellNum}}件</view>
+                    <view>已团出：{{goodsInfo.sellNum}}件</view>
                 </view>
             </view>
             <button class='goodShare' open-type="share">分享给好友</button>
@@ -103,14 +97,14 @@
                 <image class='ok_icon' src='../../images/img/dui.png'></image>
                 <text>全场包邮</text>
             </view>
-            <view class='des'>所有商品均无包邮</view>
+            <view class='des'>所有商品均无条件包邮</view>
         </view>
         <view class='item'>
             <view class='sub_title'>
                 <image class='ok_icon' src='../../images/img/dui.png'></image>
                 <text>消费即得养老金</text>
             </view>
-            <view class='des'>每一笔消费都能获得一定比例的养老金</view>
+            <view class='des'>每一笔消费都能获得相应比例得养老金</view>
         </view>
         <view class='item'>
             <view class='sub_title'>

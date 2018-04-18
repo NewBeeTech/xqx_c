@@ -142,3 +142,68 @@
     right: 20rpx;
     z-index: 99999;
 }
+
+/* 窗体 */
+.popup2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+}
+.popup2>view{
+    width: 634rpx;
+    height: 678rpx;  
+    background: #fff;
+    border-radius: 10rpx;
+    position: absolute;
+    padding-bottom: 44rpx;
+    left: 50%;
+    top: 50%;
+    margin: -339rpx 0 0 -317rpx;
+}
+.popup2>view>.explain{
+  width: calc(100%-80rpx);
+  padding: 76rpx 40rpx 70rpx 40rpx;
+  text-align: justify;
+}
+.popup2>view>.explain>.describeTit{
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+.popup2>view>.explain>.describeInfo{
+  font-size: 14px;
+  color: #000;
+}
+.code{
+    display: block;
+    width: 210rpx;
+    height: 210rpx;
+    margin: 0 auto 68rpx;
+}
+.preservation{
+    width: 525rpx;
+    height: 90rpx;
+    color: #fff;
+    background: #fea400;
+    border-radius: 8rpx;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 32rpx;
+}
+.popup2>view>.close{
+  position: absolute;
+  bottom: -150rpx;
+  width: 100%;
+  z-index: 10;
+}
+.popup2>view>.close>image{
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 0 auto;
+}
