@@ -44,11 +44,7 @@
     <view class='wrap3_cont'>
         <view class='wrap3_cont_he'>
             <view>付款金额：</view>
-<<<<<<< HEAD
-            <text>￥{{groupInfo.group_price*100*buyNum/100/100}}</text>
-=======
             <text class='wrap3_cont_he_sc'>￥{{groupInfo.group_price*100*buyNum/100}}</text>
->>>>>>> 4e2dc5e9cbefe204384cfa1b9a692260016d941e
         </view>
         <view>
             <view>额外奖励：</view>
