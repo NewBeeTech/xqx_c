@@ -57,6 +57,11 @@ Page({
             goodsInfo: res.data,
             tId:res.id
           });
+          var arry = self.data.goodsInfo.joinList;
+          var sj = Date.now();
+          for (var k in arry){
+              arry[k].deadLine -= sj;
+          };
           dsq = function(){
               var arr = self.data.goodsInfo.joinList;
               for (var k in arr){
