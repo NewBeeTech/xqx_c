@@ -42,6 +42,15 @@ Page({
         console.log(res);
         appData.Tool.saveToLocation("tocken",res.data.tocken);
         appData.Tool.saveToLocation("userId", res.data.userId);
+        if (res.code == 2){
+          wx.hideLoading();
+          wx.showToast({
+            title: "授权失败请重新一键授权",
+            icon: 'none',
+            duration: 2000
+          })
+          return;
+        }
         wx.reLaunch({
           url: '../spellGroupHome/spellGroupHome'
         })
