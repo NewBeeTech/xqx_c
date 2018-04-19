@@ -8,7 +8,7 @@
         <text>当前小金</text>
         <view>{{xiaojin}}</view>
     </view>
-    <view class='top_t'>等于{{obj.notDeposite?obj.notDeposite:''}}元消费养老金</view>
+    <view class='top_t'>等于{{xiaojin}}元消费养老金</view>
 </view>
 
 <!-- <view class='scroll_title'>2018年3月</view> -->
