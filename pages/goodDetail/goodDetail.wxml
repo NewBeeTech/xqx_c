@@ -8,7 +8,7 @@
                 <image bindtap='tpTap' src='{{goodsInfo.img_url}}' mode='aspectFill'></image>
             </swiper-item>
         </swiper>
-        <view class='Swipr_pop' wx:if="{{goodsInfo.ratio!=0||goodsInfo.integral_ratio}}">{{goodsInfo.ratio}}%</view>
+        <!-- <view class='Swipr_pop' wx:if="{{goodsInfo.ratio!=0||goodsInfo.integral_ratio}}">{{goodsInfo.ratio}}%</view> -->
     </view>
 
     <view class='goodsMsg'>
@@ -69,7 +69,7 @@
             </view>
         </view>
         <view class='address_tel'>
-            <view class='address'>
+            <view class='address' bindtap='dpzy'>
                 <image src='{{goodsInfo.store_logo}}'></image>
                 <view>
                     <text class='shop_name'>{{goodsInfo.merchant_name}}</text>

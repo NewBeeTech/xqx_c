@@ -44,7 +44,7 @@
 </view>
 
 <view class='wrap2'>
-    <view class='wrap2_title'>本次拼团成功预计奖励：{{xqObj.group_price*100*xqObj.ratio/100}}小金</view>
+    <view class='wrap2_title'>本次拼团成功预计奖励：{{~~(xqObj.group_price*100*xqObj.ratio/100)?~~(xqObj.group_price*100*xqObj.ratio/100)/100:0.01}}小金</view>
     <view class='wrap2_rey'>
         <view wx:for='{{xqObj.joinList}}' wx:key='{{index}}'>
             <image src='{{item.portrait?item.portrait:"../../images/icon/wu.png"}}'></image>

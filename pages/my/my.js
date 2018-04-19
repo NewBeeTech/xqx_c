@@ -101,11 +101,15 @@ Page({
     //   })
 
     wx.showModal({
-        title: '更多获金体验，请下载小确幸app',
-        success:function(){
-            wx.navigateTo({
-                url: '../webApp/webApp',
-            })
+        title: '提示',
+        content:"更多获金体验，请下载小确幸app",
+        success:function(e){
+            if (e.confirm){
+                wx.navigateTo({
+                    url: '../webApp/webApp',
+                })
+            }
+            
         }
     })
     },

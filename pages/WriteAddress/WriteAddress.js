@@ -117,15 +117,23 @@ Page({
             obj.create_person_id = options.create_person_id;
             obj.group_buy_id = options.group_buy_id;
         };
-        var obj = wx.getStorageSync('a1a2a3');
-        if (obj !== undefined && obj.modalCityname) {
-            this.data.objC.name = obj.a1;
-            this.data.objC.phone = obj.a2;
-            this.data.objC.address = obj.modalCityname + obj.a3;
-            this.setData(obj);
-            this.btnYN();
+
+        
+        var a = options.a3.indexOf('~');
+        var b = options.a3.substring(0, a);
+        var c = options.a3.substring(a+1);
+        this.setData({
+            'objC.name': options.a1,
+            'objC.phone': options.a2,
+            'objC.address': options.a3,
+            modalCityname: b,
+            a3: c,
+            xaxAddress: c,
+            a2: options.a2,
+            a1: options.a1
+        });
+        this.btnYN();
             console.log(obj)
-        }
         console.log(options)
     },
 
@@ -172,20 +180,12 @@ Page({
             })
             return
         };
-        objC.address = that.data.modalCityname + that.data.xaxAddress;
+        objC.address = that.data.modalCityname +'~'+ that.data.xaxAddress;
         console.log(objC)
 
         appData.Tool.operatePersonAddress(objC).then(function (res) {
             console.log(res)
             wx.hideLoading();
-            var obj = {
-                a1: objC.name,
-                a2: objC.phone,
-                a3: that.data.xaxAddress,
-                modalCityname: that.data.modalCityname,
-                xaxAddress: that.data.xaxAddress
-            };
-            wx.setStorageSync('a1a2a3', obj)
             if (res.data.id) {
                 wx.navigateBack({})
             }

@@ -155,6 +155,12 @@ Page({
             phoneNumber: e.currentTarget.dataset.store_phone
         })
     },
+    //前往店铺首页
+    dpzy:function(){
+        wx.navigateTo({
+            url: '../MerchantDetails/MerchantDetails?id=' + this.data.goodsInfo.merchant_id
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
