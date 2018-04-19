@@ -58,6 +58,7 @@ Page({
             goodsInfo: res.data,
             tId:res.id
           });
+          console.log(this.data.goodsInfo);
           var arry = self.data.goodsInfo.joinList;
           var sj = Date.now();
           for (var k in arry){
