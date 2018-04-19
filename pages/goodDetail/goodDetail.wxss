@@ -341,8 +341,8 @@ display: flex;
 align-items: center;
 }
 .address>image{
-width: 100rpx;
-height: 100rpx;
+width: 80rpx;
+height: 80rpx;
 border-radius: 50%;
 border: solid 1rpx #dadada;
 margin: 0 26rpx 0 34rpx;

@@ -60,7 +60,7 @@
             <text>￥</text>{{item.group_price}}</view>
           <text>￥{{item.price}}</text>
         </view>
-        <view class='wrap3_box_ewj'>额外奖励： {{item.group_price*100*item.ratio/10000}}小金</view>
+        <view class='wrap3_box_ewj'>额外奖励： {{~~(item.group_price*100*item.ratio/100)?~~(item.group_price*100*item.ratio/100)/100:0.01}}小金</view>
         <view class='wrap3_box_shl'>
           <view>{{item.group_person_num}}人团</view>
           <text>已团出： {{item.group_num}}件</text>

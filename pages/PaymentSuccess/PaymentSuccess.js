@@ -31,7 +31,7 @@ Page({
       self.setData({
         info:res.data
       });
-      self.info.curR = (info.cur_ratio * info.real_charge / 100) < 0.01 ? 0.01 : (info.cur_ratio * info.real_charge / 100);
+      self.info.curR = ~~(info.real_charge * 100 * info.cur_ratio / 100) ? ~~(info.real_charge * 100 * info.cur_ratio / 100) / 100 : 0.01;
     }).catch(function(err){
       wx.hideLoading();
       wx.showToast({

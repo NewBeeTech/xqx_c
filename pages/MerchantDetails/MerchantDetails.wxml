@@ -85,7 +85,7 @@
           </view>
           <view class='xiaojin'>
             额外奖励:
-            <text>{{item.group_price*item.ratio/100}}</text>小金
+            <text>{{~~(item.group_price*100*item.ratio/100)?~~(item.group_price*100*item.ratio/100)/100:0.01}}</text>小金
           </view>
           <view class='group'>
             <text class='group_num'>{{item.group_person_num}}人团</text>
@@ -103,7 +103,7 @@
             <view>
                 <view class='shop_list_x_name'>{{item.business_ind_name}}</view>
                 <view class='shop_list_x_jg'>￥{{item.integral_ratio?item.integral_ratio:0}} <text style='text-decoration:line-through' wx:if="{{item.total_currency!=0.00&&item.total_currency}}">￥{{item.total_currency}}</text></view>
-                <view class='shop_list_x_ys'><text wx:if="{{obj.consumerNum}}"style='padding-right:15rpx'>已售:{{obj.consumerNum}}份</text> <text>返{{item.ratio/100}}小金</text></view>
+                <view class='shop_list_x_ys'><text wx:if="{{obj.consumerNum}}"style='padding-right:15rpx'>已售:{{obj.consumerNum}}份</text> <text>返{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}}小金</text></view>
             </view>
         </view>
         <view class='shop_list_btn'>购买</view>

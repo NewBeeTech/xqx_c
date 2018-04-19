@@ -20,7 +20,7 @@
                         <text>¥</text>{{goodsInfo.group_price}}</view>
                     <view>¥{{goodsInfo.price}}</view>
                 </view>
-                <view class='reward'>拼团成功额外奖励：{{goodsInfo.group_price*100*goodsInfo.ratio/10000}} 小金 </view>
+                <view class='reward'>拼团成功额外奖励：{{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}} 小金 </view>
                 <view class='result'>
                     <view> {{goodsInfo.group_person_num}}人团</view>
                     <view>已团出：{{goodsInfo.sellNum?goodsInfo.sellNum:0}}件</view>
@@ -105,7 +105,7 @@
             <view>¥{{goodsInfo.group_price}}</view>
             <view>一键开团</view>
         </view>
-        <view class='bottomreward'>奖励{{goodsInfo.group_price*100*goodsInfo.ratio/10000}}小金</view>
+        <view class='bottomreward'>奖励{{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}}小金</view>
     </view>
     <button wx:if="{{goodsInfo.infoStatus==1}}" class='beginBtn2' open-type="share">立即分享好友拼团</button>
 </view>
