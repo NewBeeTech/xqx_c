@@ -101,6 +101,13 @@ Page({
       appData.Tool.createGroupBuyXCX(obj).then(function (res) {
           console.log(res)
           wx.hideLoading();
+          if (!res.data){
+              wx.showToast({
+                  title: res.message,
+                  icon:'none'
+              })
+              return
+          };
 
           if (res.data.package) {
               wx.requestPayment({
