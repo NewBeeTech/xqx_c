@@ -146,3 +146,115 @@
     width: 15rpx;
     height: 26rpx;
 }
+.wrap1_shop_shl{
+    display: flex;
+    align-items: center;
+}
+.wrap1_shop_shl>view{
+    width: 112rpx;
+    height: 38rpx;
+    border: solid 1rpx #ff9a00;
+    border-radius: 8rpx;
+    line-height: 38rpx;
+    text-align: center;
+    font-size: 25rpx;
+    color: #ff9a00;
+    margin-bottom: 10rpx;
+}
+.wrap1_shop_shl>text{
+    color: #6e6e6e;
+    font-size: 25rpx;
+    padding-left: 20rpx;
+}
+.wrap1_shop_jig{
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+}
+.wrap1_shop_jig>view{
+    font-size: 34rpx;
+}
+.wrap1_shop_jig>view>text{
+    font-size: 24rpx;
+}
+.wrap1_shop_jig>text{
+    font-size: 24rpx;
+    color: #999999;
+    text-decoration: line-through;
+    padding-left: 22rpx;
+}
+.wrap1_biq2{
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1rpx #dadada;
+    margin-top: 10rpx;
+}
+.wrap1_biq2>view{
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+}
+.wrap1_biq2>view>image{
+    width: 39rpx;
+    height: 39rpx;
+    display: block;
+    margin-right: 12rpx;
+}
+.wrap1_biq2>view>image.wrap1_biq_icon{
+    width: 31rpx;
+    height: 18rpx;
+    margin: 0;
+    margin-left: 23rpx;
+    transform: rotate(90deg);
+}
+.wrap2_mie2{
+    height: 75rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrap3{
+    border-bottom: solid 15rpx #f0f0f0;
+    height: 107rpx;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrap3>view{
+    color: #333;
+    padding-left: 33rpx;
+}
+.wrap3>text{
+    padding-right: 38rpx;
+    color: #666;
+}
+.wrap1_biq2{
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1rpx #dadada;
+    margin-top: 10rpx;
+}
+.wrap1_biq2>view{
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+}
+.wrap1_biq2>view>image{
+    width: 39rpx;
+    height: 39rpx;
+    display: block;
+    margin-right: 12rpx;
+}
+.wrap1_biq2>view>image.wrap1_biq_icon{
+    width: 31rpx;
+    height: 18rpx;
+    margin: 0;
+    margin-left: 23rpx;
+    transform: rotate(90deg);
+}

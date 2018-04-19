@@ -199,6 +199,7 @@ page{
 .btn_bar>view.identical{
     background: #ff9e00;
     color: #fff;
+    margin: 0;
 }
 .btn_bar>view.percent_width{
     width: 100%;

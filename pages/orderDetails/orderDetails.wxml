@@ -76,11 +76,11 @@
         <view class='customer_service_btn percent_width' bindtap='shohTap'>售后</view>
     </block>
     <block wx:elif="{{xqObj.order_state==0}}">
-        <view class='customer_service_btn' bindtap='quxTap'>取消订单</view>
+        <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
         <view class='buy_again_btn identical' bindtap='lijizfTap'>立即支付</view>
     </block>
     <block wx:elif="{{xqObj.order_state==1}}">
-        <view class='customer_service_btn' bindtap='quxTap'>取消订单</view>
+        <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
         <view class='buy_again_btn identical'>分享好友</view>
     </block>
     <block wx:elif="{{xqObj.order_state==4}}">
@@ -94,7 +94,7 @@
 
 </view>
 <!-- 弹窗 -->
-<view class='popup' wx:if='{{false}}'>
+<view class='popup' wx:if='{{qxdd}}'>
     <view>
          <!-- <view class='popup_box'>         
             <text>退款提示</text>
@@ -104,7 +104,7 @@
          </view>
          <view class='close'>
             <button class='cancel' bindtap='sqtkTap'>取消</button>
-            <button class='confirm' bindtap='sqtkTap'>确认退款</button>
+            <button class='confirm' bindtap='quxTap'>确认退款</button>
          </view>
     </view>
 </view>

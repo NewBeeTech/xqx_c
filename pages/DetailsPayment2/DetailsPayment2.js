@@ -1,4 +1,4 @@
-// pages/paymentCompletion/paymentCompletion.js
+// pages/DetailsPayment2/DetailsPayment2.js
 Page({
 
   /**

@@ -49,6 +49,11 @@ Page({
         }).catch(function (err) { });
     },
     //取消订单
+    sqtkTap:function(){
+        this.setData({
+            qxdd: !this.data.qxdd
+        })
+    },
     quxTap: function () {
         var that = this;
         appData.Tool.cancelGroupOrder({
@@ -104,7 +109,7 @@ Page({
                             title: '支付成功',
                             complete: function () {
                                 wx.redirectTo({
-                                    url: '../paymentCompletion/paymentCompletion?cnd='+that.data.id
+                                    url: '../DetailsPayment/DetailsPayment?cnd='+that.data.id
                                 })
                             }
                         })
@@ -183,7 +188,7 @@ Page({
             success: function (res) {
                 // 转发成功
                 wx.redirectTo({
-                    url: '../paymentCompletion/paymentCompletion?cnd=' + that.data.id
+                    url: '../DetailsPayment/DetailsPayment?cnd=' + that.data.id
                 })
             },
             fail: function (res) {
