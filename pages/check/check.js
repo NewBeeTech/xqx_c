@@ -38,8 +38,18 @@ Page({
 
   },
   inputMoney: function (e) {
+    this.setData({
+      resultRatio: "0.00"
+    });
     var self = this;
     if (self.data.money >= 99999.99) {
+      wx.showToast({
+        title: "请输入0.01-99999.99的金额",
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    if (self.data.money <= 0.01) {
       wx.showToast({
         title: "请输入0.01-99999.99的金额",
         icon: 'none',
