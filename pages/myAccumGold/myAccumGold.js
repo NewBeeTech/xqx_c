@@ -31,7 +31,7 @@ Page({
               resultNum += (parseFloat(item.currency)*100);
               console.log(resultNum)
           });
-          result.data.currency = parseFloat(result.data.currency) + resultNum;
+          result.data.currency = fn(parseFloat(result.data.currency) + resultNum);
           console.log(result.data.currency)
 
           function fn(a){
@@ -47,7 +47,6 @@ Page({
               }
           }
 
-          result.data.currency = fn(result.data.currency);
           result.data.not_deposite = fn(result.data.not_deposite);
           if (result.data.priorRemain) {
               result.data.priorRemain = fn(result.data.priorRemain);
@@ -104,8 +103,7 @@ Page({
               }
               return str
           }
-          
-          result.data.not_deposite = fn(result.data.not_deposite);
+          result.data.not_deposite = fn(result.data.not_deposite-0);
           if (result.data.priorRemain) {
             result.data.priorRemain = fn(result.data.priorRemain);
           }

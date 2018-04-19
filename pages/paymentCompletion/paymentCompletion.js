@@ -1,4 +1,6 @@
 // pages/paymentCompletion/paymentCompletion.js
+var app = getApp();
+var appData = app.globalData;
 Page({
 
   /**
@@ -12,7 +14,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      this.loadData(options.cnd)
+  },
+  loadData: function (id) {
+      var that = this;
+      appData.Tool.getGoodsGroupOrderInfoXCX({ cnd: id }).then(function (res) {
+          console.log(res)
+          wx.hideLoading();
+          that.setData({
+              xqObj: res.data
+          })
+      }).catch(function (err) {
+          wx.hideLoading();
+          console.log(err)
+      });
   },
 
   /**

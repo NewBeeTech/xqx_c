@@ -7,7 +7,7 @@
             </view>
             <view class="user_top_word">
                   <view class="user_top_name">{{obj.nick_name}}</view>
-                  <text>目前累计金：￥{{obj.currency}}</text>
+                  <text>目前累计金：￥{{xiaojin}}</text>
             </view>
       </view>
 

@@ -104,7 +104,7 @@ Page({
                             title: '支付成功',
                             complete: function () {
                                 wx.redirectTo({
-                                    url: '../wholeOrder/wholeOrder'
+                                    url: '../paymentCompletion/paymentCompletion?cnd='+that.data.id
                                 })
                             }
                         })
@@ -176,6 +176,19 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        var that = this;
+        return {
+            title: '自定义转发标题',
+            path: '/page/user?id=123',
+            success: function (res) {
+                // 转发成功
+                wx.redirectTo({
+                    url: '../paymentCompletion/paymentCompletion?cnd=' + that.data.id
+                })
+            },
+            fail: function (res) {
+                // 转发失败
+            }
+        }
     }
 })
