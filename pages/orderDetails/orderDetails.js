@@ -15,7 +15,8 @@ Page({
             console.log(res)
             wx.hideLoading();
             function fn(a) {
-                var str = ~~(a / 100) + '';
+                if (typeof a == 'string') { return a };
+                var str = a / 100 + '';
                 var i = str.indexOf('.');
                 if (i != -1) {
                     if (str.length != i + 3) {

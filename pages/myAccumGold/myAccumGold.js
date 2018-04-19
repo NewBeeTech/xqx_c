@@ -35,7 +35,8 @@ Page({
           console.log(result.data.currency)
 
           function fn(a){
-              var str = ~~(a / 100) + '';
+              if (typeof a == 'string') { return a };
+              var str = a / 100 + '';
               var i = str.indexOf('.');
               if (i != -1) {
                   if (str.length != i + 3) {
@@ -92,7 +93,8 @@ Page({
           var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
           temp = fn(temp);
           function fn(a){
-              var str = ~~(a / 100) + '';
+              if (typeof a == 'string') { return a };
+              var str = a / 100 + '';
               var i = str.indexOf('.');
               if (i != -1) {
                   if (str.length != i + 3) {
