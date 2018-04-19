@@ -17,21 +17,21 @@
 
 <view class='Sj'>
     <text>手机号</text>
-    <input type='number' maxlength='11' placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" ></input>
+    <input type='number'  placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" style='font-size:30rpx'></input>
 </view>
 
 <view class='Yz'>
-<input  maxlength="11"  placeholder="请输入验证码" placeholder-style='font-size:15.5px' bindinput='getCode' bindblur="codeDone" ></input>
+<input   placeholder="请输入验证码" placeholder-style='font-size:15.5px' style='font-size:30rpx' bindblur="codeDone" ></input>
     
     <text bindtap='getCode'>获取验证码</text>
     
 </view>
 
 <view class='Tk'>
-    <icon type='success' color='red' size='24'></icon>
+    <icon type='success' color='green' size='24'></icon>
     <!-- <view wx:else></view> -->
 
     <text>我已阅读并同意<text>《用户服务条款》</text></text>
 </view>
 
-<button class='btnQ' bindtap='register' disabled="{{!isAgree}}">确定</button>
+<button class='btnQ' bindtap='register' disabled="{{false}}">确定</button>

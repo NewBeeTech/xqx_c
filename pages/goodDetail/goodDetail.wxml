@@ -87,8 +87,8 @@
             </view>
             <view>
                 <view class='detaileTitle' wx:if="{{goodsInfo.explain_content}}">{{goodsInfo.explain_content}}</view>
-                <!-- <image wx:for="{{goodsInfo.explain_img_url}}" src='{{item}}'></image> -->
-                <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{[1,1,1]}}" src='../../images/icon/che.png'></image>
+                 <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{goodsInfo.explain_img_url}}" src='{{item}}'></image> 
+                <!-- <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{[1,1,1]}}" src='../../images/icon/che.png'></image> -->
             </view>
         </view>
     </view>

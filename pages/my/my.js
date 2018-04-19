@@ -161,7 +161,7 @@ Page({
           wx.hideLoading()
             console.log(result);
             // self.loadInfo(result);
-            var temp = parseFloat(not_deposite) + parseFloat(depositing);
+            var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
             var str = ~~(temp/ 100) + '';
             var i = str.indexOf('.');
             if (i != -1) {

@@ -53,11 +53,7 @@ Page({
           self.setData({
               obj: result.data
           });
-
           console.log(result);
-
-
-
       })
   },
   //
@@ -87,11 +83,11 @@ Page({
   //获取个人信息
   getMy: function () {
       var self = this;
-      appData.Tool.getUserInfo().then(function (result) {
+      appData.Tool.getUserInfo({}).then(function (result) {
           console.log(result);
           wx.hideLoading()
           // self.loadInfo(result);
-          var temp = parseFloat(not_deposite) + parseFloat(depositing);
+          var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
           var str = ~~(temp / 100) + '';
           var i = str.indexOf('.');
           if (i != -1) {
@@ -101,7 +97,6 @@ Page({
           } else {
             str += '.00';
           }
-
           
           result.data.not_deposite = fn(result.data.not_deposite);
           if (result.data.priorRemain) {
@@ -112,6 +107,8 @@ Page({
             obj: result.data,
             xiaojin:temp
           });
+
+          console.log(result.data);
       })
           .catch(function (error) {
               console.log(error);

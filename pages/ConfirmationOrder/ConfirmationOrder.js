@@ -93,8 +93,10 @@ Page({
           address_id: that.data.groupInfo.address_id,
           name: that.data.groupInfo.name,
           create_person_id: that.data.create_person_id,
-          group_buy_id: that.data.group_buy_id
+          group_buy_id: that.data.group_buy_id,
+          orderId: that.data.orderId
       };
+      console.log(obj);
       appData.Tool.createGroupBuyXCX(obj).then(function (res) {
           console.log(res)
           wx.hideLoading();
@@ -107,6 +109,7 @@ Page({
                   signType: res.data.signType,
                   paySign: res.data.paySign,
                   success:function(e){
+                    console.log(e);
                       wx.showToast({
                           title: '支付成功',
                           complete:function(){
