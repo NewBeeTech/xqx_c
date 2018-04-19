@@ -90,8 +90,7 @@ Page({
           console.log(result);
           wx.hideLoading()
           // self.loadInfo(result);
-          var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
-          temp = fn(temp);
+          var temp = fn(parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing));
           function fn(a){
               if (typeof a == 'string') { return a };
               var str = a / 100 + '';

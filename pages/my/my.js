@@ -33,17 +33,21 @@ Page({
             });
             result.data.currency = parseFloat(result.data.currency) + resultNum;
 
-            var str = ~~(result.data.currency / 100) + '';
-            var i = str.indexOf('.');
-            if (i != -1) {
-                if (str.length != i + 3) {
-                    str += '0';
+            function fn(a) {
+                if (typeof a == 'string') { return a };
+                var str = a / 100 + '';
+                var i = str.indexOf('.');
+                if (i != -1) {
+                    if (str.length != i + 3) {
+                        str += '0';
+                    }
+                } else {
+                    str += '.00';
                 }
-            } else {
-                str += '.00';
-            }
+                return str;
+            };
 
-            result.data.currency = str;
+            result.data.currency = fn(result.data.currency);
 
             self.setData({
                 obj: result.data
@@ -161,16 +165,20 @@ Page({
           wx.hideLoading()
             console.log(result);
             // self.loadInfo(result);
-            var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
-            var str = ~~(temp/ 100) + '';
-            var i = str.indexOf('.');
-            if (i != -1) {
-              if (str.length != i + 3) {
-                str += '0';
-              }
-            } else {
-              str += '.00';
-            }
+            var temp = fn(parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing));
+            function fn(a) {
+                if (typeof a == 'string') { return a };
+                var str = a / 100 + '';
+                var i = str.indexOf('.');
+                if (i != -1) {
+                    if (str.length != i + 3) {
+                        str += '0';
+                    }
+                } else {
+                    str += '.00';
+                }
+                return str;
+            };
 
             self.setData({
               obj: result.data,

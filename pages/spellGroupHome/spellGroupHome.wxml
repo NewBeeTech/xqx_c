@@ -1,7 +1,7 @@
 <scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
     <swiper class='top_banner' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
 
-        <swiper-item wx:for="{{banners}}" bindtap="link" data-type="{{item.activity_type}}" data-id="{{item.activity_id}}" data-url="{{item.url}}" >
+        <swiper-item wx:for="{{banners}}" wx:key='{{index}}' bindtap="link" data-type="{{item.activity_type}}" data-id="{{item.activity_id}}" data-url="{{item.url}}" >
             <image src="{{item.img_url}}" class="slide-image" width="355" height="150" />
         </swiper-item>
     </swiper>

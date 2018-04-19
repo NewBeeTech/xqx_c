@@ -22,18 +22,21 @@ Page({
     appData.Tool.getArrivalTradeHistoryv232().then(function (result) {
       console.log(result);
       wx.hideLoading()
-      var temp = parseFloat(result.data.notDeposite) + parseFloat(result.data.priorRemain);
-      var str = ~~(temp/ 100) + '';
-      var i = str.indexOf('.');
-      if (i != -1) {
-          if (str.length != i + 3) {
-              str += '0';
+      var temp = fn(parseFloat(result.data.notDeposite) + parseFloat(result.data.priorRemain));
+      function fn(a) {
+          if (typeof a == 'string') { return a };
+          var str = a / 100 + '';
+          var i = str.indexOf('.');
+          if (i != -1) {
+              if (str.length != i + 3) {
+                  str += '0';
+              }
+          } else {
+              str += '.00';
           }
-      } else {
-          str += '.00';
-      }
+          return str;
+      };
 
-      result.data.notDeposite = str;
       self.setData({
         obj: result.data,
         xiaojin:temp
