@@ -15,6 +15,9 @@ page{
     background: rgba(0, 0, 0, 0.3);
     z-index: 99;
 }
+.goodDetails {
+  margin-bottom: 88rpx;
+}
 page>view{
    height: 100%;
 }
