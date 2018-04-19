@@ -188,7 +188,7 @@ page{
     width: 317rpx;
     height: 90rpx;
     border-radius: 8rpx;
-    margin-right: 10rpx;
+    margin-right: 25rpx;
     border: 1rpx solid #ff9e00;
     text-align: center;
     line-height: 90rpx;

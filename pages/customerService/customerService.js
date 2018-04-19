@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    dh:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      this.setData({
+          dh: options.store_phone
+      })
+  },
+  //打电话
+  ddh:function(){
+      wx.makePhoneCall({
+          phoneNumber: this.data.dh
+      })
   },
 
   /**

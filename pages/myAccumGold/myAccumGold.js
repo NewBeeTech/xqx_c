@@ -34,17 +34,19 @@ Page({
           result.data.currency = parseFloat(result.data.currency) + resultNum;
           console.log(result.data.currency)
 
-          var str = ~~(result.data.currency / 100) + '';
-          var i = str.indexOf('.');
-          if (i != -1) {
-              if (str.length != i + 3) {
-                  str += '0';
+          function fn(a){
+              var str = ~~(a / 100) + '';
+              var i = str.indexOf('.');
+              if (i != -1) {
+                  if (str.length != i + 3) {
+                      str += '0';
+                  }
+              } else {
+                  str += '.00';
               }
-          } else {
-              str += '.00';
           }
 
-          result.data.currency = str;
+          result.data.currency = fn(result.data.currency);
           result.data.not_deposite = fn(result.data.not_deposite);
           if (result.data.priorRemain) {
               result.data.priorRemain = fn(result.data.priorRemain);
@@ -88,14 +90,18 @@ Page({
           wx.hideLoading()
           // self.loadInfo(result);
           var temp = parseFloat(result.data.not_deposite) + parseFloat(result.data.depositing);
-          var str = ~~(temp / 100) + '';
-          var i = str.indexOf('.');
-          if (i != -1) {
-            if (str.length != i + 3) {
-              str += '0';
-            }
-          } else {
-            str += '.00';
+          temp = fn(temp);
+          function fn(a){
+              var str = ~~(a / 100) + '';
+              var i = str.indexOf('.');
+              if (i != -1) {
+                  if (str.length != i + 3) {
+                      str += '0';
+                  }
+              } else {
+                  str += '.00';
+              }
+              return str
           }
           
           result.data.not_deposite = fn(result.data.not_deposite);

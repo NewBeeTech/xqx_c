@@ -29,12 +29,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 24,
 			"list": [
 				{
 					"id": 0,
 					"name": "2",
-					"pathName": "pages/ConfirmationOrder/ConfirmationOrder",
+					"pathName": "pages/customerService/customerService",
 					"query": ""
 				},
 				{

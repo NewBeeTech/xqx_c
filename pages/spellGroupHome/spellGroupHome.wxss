@@ -1,6 +1,7 @@
 /* pages/spellGroup/spellGroup.wxss */
 page {
   background: rgb(240,240,240);
+  height: 100%;
 }
 .top_banner {
   height: 345rpx; 

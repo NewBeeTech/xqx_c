@@ -52,7 +52,7 @@ Page({
       console.log(result);
       self.loadBanners();
       if(result.code == 0){
-          var arr = result.data.list;
+          var arr = self.data.goods.concat(result.data.list);
           for (var k in arr) {
               arr[k].group_price = fn(arr[k].group_price);
               arr[k].price = fn(arr[k].price);
@@ -113,12 +113,16 @@ Page({
       });
     })
   },
+  //上拉加载
+  wrapList:function(){
+      this.data.page += 1;
+      this.loadOpenedGroup(this.data.page);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.loadUserStatus();
-    
   },
 
   /**

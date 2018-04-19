@@ -67,7 +67,7 @@ Page({
   },
   toGroupDetail: function (e) {
     wx.navigateTo({
-      url: '../goodDetail/goodDetail',
+        url: '../goodDetail/goodDetail?id='+e.currentTarget.dataset.id
     })
   },
   PopupF: function () {

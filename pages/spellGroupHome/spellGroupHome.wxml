@@ -1,4 +1,4 @@
-<scroll-view>
+<scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
     <swiper class='top_banner' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
 
         <swiper-item wx:for="{{banners}}" bindtap="link" data-type="{{item.activity_type}}" data-id="{{item.activity_id}}" data-url="{{item.url}}" >
