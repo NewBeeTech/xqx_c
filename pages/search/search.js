@@ -4,9 +4,10 @@ var appData = app.globalData;
 var initdata = function (that) {
   var list = that.data.list
   for (var i = 0; i < list.length; i++) {
-    list[i].txtStyle = "";
-    list[i].textStyle = ""
+      list[i].txtStyle = "";
+      list[i].textStyle = ""
   }
+  console.log(list)
   that.setData({ list: list })
   
 }
@@ -29,6 +30,11 @@ Page({
     appData.searchData = [];
   },
   onLoad: function (options) {
+      var list = appData.searchData
+      for (var i = 0; i < list.length; i++) {
+          list[i].txtStyle = "";
+          list[i].textStyle = ""
+      }
     console.log(options);
     this.setData({
       types: options.id
@@ -57,6 +63,11 @@ Page({
   },
   onHide: function () {
     // 页面隐藏 
+      var list = appData.searchData
+      for (var i = 0; i < list.length; i++) {
+          list[i].txtStyle = "";
+          list[i].textStyle = ""
+      }
   },
   onUnload: function () {
     // 页面关闭 

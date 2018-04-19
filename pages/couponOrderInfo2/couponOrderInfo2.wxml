@@ -58,7 +58,7 @@
          </view>
          <view class='close'>
             <button class='cancel' bindtap='sqtkTap'>取消</button>
-            <button class='confirm' bindtap='sqtkTap'>确认退款</button>
+            <button class='confirm' bindtap='sqtkTap'>确认</button>
          </view>
     </view>
 </view>
