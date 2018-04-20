@@ -14,7 +14,12 @@ Page({
     timer:null
   },
   inputDone: function (e) {
-    if (e.detail.value.length < 11) {
+      function checktel(str) {
+          var reg = /^1[3|4|5|7|8][0-9]\d{9}$/;
+          return reg.test(str) ? true : false;
+      }
+      var f = checktel(e.detail.value);
+    if (f) {
       wx.showToast({
         title: '请输入正确的手机号',
         icon: 'none',

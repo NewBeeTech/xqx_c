@@ -180,16 +180,18 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function (res) {
         var that = this;
+        if (res.from === 'button') {
+            // 来自页面内转发按钮
+            console.log(res.target)
+            var id = res.target.dataset.id
+        }
         return {
             title: '自定义转发标题',
-            path: '/page/user?id=123',
+            path: '/pages/goodDetail/goodDetail?id=' + id,
             success: function (res) {
                 // 转发成功
-                wx.redirectTo({
-                    url: '../DetailsPayment/DetailsPayment?cnd=' + that.data.id
-                })
             },
             fail: function (res) {
                 // 转发失败

@@ -41,7 +41,7 @@
     <view class='order_info'>
         <image src="{{xqObj.img_url}}"></image>
         <view class='price_info'>
-            <view class='shop_info'>{{xqObj.name}}</view>
+            <view class='shop_info'>{{xqObj.group_name}}</view>
             <view class='present_price'>
                 <view>
                     <text class='symbol'>￥</text>{{xqObj.group_price}}<text class='original_price'>￥{{xqObj.price}}</text>
@@ -81,7 +81,7 @@
     </block>
     <block wx:elif="{{xqObj.order_state==1}}">
         <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
-        <view class='buy_again_btn identical'>分享好友</view>
+        <button class='buy_again_btn identical buy_again_no' data-id='{{xqObj.goods_group_id}}' open-type="share">分享好友</button>
     </block>
     <block wx:elif="{{xqObj.order_state==4}}">
         <view class='customer_service_btn' bindtap='shohTap'>售后</view>

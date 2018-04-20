@@ -160,3 +160,7 @@ page {
 .cont_title_deg{
     transform: rotate(180deg)
 }
+.slide-image{
+    width: 100%;
+    height: 345rpx;
+}

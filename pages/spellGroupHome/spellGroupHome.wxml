@@ -4,7 +4,7 @@
     <swiper-item wx:for="{{banners}}" wx:key='{{index}}'>
       <!-- <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
         width="355" height="150" /> -->
-        <image src="{{item.img_url}}" class="slide-image" width="355" height="150" data-info='{{item}}' bindtap='link'/>
+        <image src="{{item.img_url}}" class="slide-image" data-info='{{item}}' bindtap='link'/>
     </swiper-item>
     <!-- <swiper-item>
         <image src="../../images/img/banner.png" class="slide-image" width="355" height="150" />
