@@ -118,7 +118,7 @@ Page({
             obj.group_buy_id = options.group_buy_id;
         };
 
-        if (!options.a3){return};
+        if (options.a3=='undefined'){return};
         var a = options.a3.indexOf('~');
         var b = options.a3.substring(0, a);
         var c = options.a3.substring(a+1);
