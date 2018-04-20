@@ -15,7 +15,8 @@ Page({
     goodsInfo:{},
     groupInfo:{},
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }],
-    tId:''
+    tId:'',
+    imgList:[]
   },
   oneKeyGroup: function (e){
     wx.navigateTo({
@@ -56,9 +57,9 @@ Page({
           res.data.price = fn(res.data.price);
           self.setData({
             goodsInfo: res.data,
-            tId:res.id
+            tId:res.id,
+            imgList: res.data.explain_img_url.split(",")
           });
-          console.log(this.data.goodsInfo);
           var arry = self.data.goodsInfo.joinList;
           var sj = Date.now();
           for (var k in arry){

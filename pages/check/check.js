@@ -42,18 +42,22 @@ Page({
       resultRatio: "0.00"
     });
     var self = this;
-    var money2= e.detail.value;
-    this.data.money2 = money2;
-    console.log(money != '')
-    if (money2 != '' && (money2 >= 999999.99 || money2<=0.01)) {
+    if (self.data.money >= 99999.99) {
       wx.showToast({
-        title: "请输入0.01-999999.99的金额",
+        title: "请输入0.01-99999.99的金额",
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    if (self.data.money <= 0.01) {
+      wx.showToast({
+        title: "请输入0.01-99999.99的金额",
         icon: 'none',
         duration: 2000
       })
     }
     if (this.data.info.discountMode == "MR") {
-        this.setData({
+      this.setData({
         money: e.detail.value,
         resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
       });
@@ -163,7 +167,8 @@ origionPrice	String	是	原始价格
 discountId	String	是	折扣id 打折id 满减此项为空
 discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户详情mInfo
      */
-    if (self.data.money != '' &&(self.data.money <= 0 || self.data.money >= 999999.99)) {
+    var decimal = (self.data.money).toString().split('.');
+    if (self.data.money != '' && (self.data.money <= 0 || self.data.money >= 999999.99) || decimal[1].length > 2) {
         console.log(1111)
       wx.showToast({
         title: "请输入0.01-999999.99的金额",
@@ -291,3 +296,4 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
 
   }
 })
+/*赶出来的代码，*一样的代码*/

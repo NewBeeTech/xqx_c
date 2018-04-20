@@ -81,37 +81,46 @@ Page({
     //取消订单
     qxdTap:function(e){
         var that = this;
-        var obj = {
-            orderId: e.currentTarget.dataset.id,
-            goods_group_id: e.currentTarget.dataset.goods_group_id,
-            group_buy_id: e.currentTarget.dataset.group_buy_id
-        }
-        appData.Tool.cancelGroupOrder(obj).then(function (res) {
-            console.log(res)
-            wx.hideLoading();
-            var title = '';
-            if (res.data.cancelFlag){
-                title ='取消成功'
-            }else{
-                title = '取消失败'
-            };
-            wx.showToast({
-                title: title
-            });
-            setTimeout(function () {
-                that.data.Ddarr = [];
-                that.data.page = 1;
-                that.getDdList();
-            },1500)
+        wx.showModal({
+            title:'提示',
+            content:'是否取消订单',
+            success:function(e){
+                if (e.confirm){
+                    var obj = {
+                        orderId: e.currentTarget.dataset.id,
+                        goods_group_id: e.currentTarget.dataset.goods_group_id,
+                        group_buy_id: e.currentTarget.dataset.group_buy_id
+                    }
+                    appData.Tool.cancelGroupOrder(obj).then(function (res) {
+                        console.log(res)
+                        wx.hideLoading();
+                        var title = '';
+                        if (res.data.cancelFlag) {
+                            title = '取消成功'
+                        } else {
+                            title = '取消失败'
+                        };
+                        wx.showToast({
+                            title: title
+                        });
+                        setTimeout(function () {
+                            that.data.Ddarr = [];
+                            that.data.page = 1;
+                            that.getDdList();
+                        }, 1500)
+                    })
+                        .catch(function (err) {
+                            wx.hideLoading();
+                            console.log(err)
+                            wx.showToast({
+                                title: err.message,
+                                duration: 2000
+                            })
+                        })
+                }
+            }
         })
-            .catch(function (err) {
-                wx.hideLoading();
-                console.log(err)
-                wx.showToast({
-                    title: err.message,
-                    duration: 2000
-                })
-            })
+        
     },
     //确认收货
     qrsTap: function (e) {
