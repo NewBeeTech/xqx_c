@@ -6,7 +6,7 @@
         <view wx:elif='{{xqObj.order_state==1}}' class='fight_success'>购买成功</view>
         <view wx:else class='fight_success'>拼团成功</view>
 
-        <text wx:if='{{xqObj.order_state==-2||xqObj.order_state==-1}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
+        <text wx:if='{{xqObj.order_state==-3}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
         <text wx:elif='{{xqObj.order_state==1}}' class='fight_success'>正在努力拼团中，请耐心等待</text>
         <text wx:elif="{{xqObj.order_state==4}}">待商家发货，请耐心等待</text>
         <text wx:elif="{{xqObj.order_state==2}}">商家已发货，请耐心等待</text>

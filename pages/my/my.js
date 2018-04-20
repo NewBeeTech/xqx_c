@@ -59,37 +59,38 @@ Page({
         
         })
     },
-    //
+    //我的累计金
     myjinTap: function () {
         wx.navigateTo({
             url: '../myAccumGold/myAccumGold',
         })
     },
-    //
+    //我的身份码
     wdsfTap: function (e) {
       console.log(e);
         wx.navigateTo({
           url: '../identityCode/identityCode?loginname=' + e.currentTarget.dataset.loginname,
         })
     },
-    //
+    //我的订单
     wdyhTap: function () {
         wx.navigateTo({
             url: '../wholeOrder/wholeOrder',
         })
     },
-    //
+    //邀请奖励
     yqTap: function () {
         wx.navigateTo({
             url: '../invitingAwards/invitingAwards',
         })
     },
-    //
+    //常见问题
     cjwtTap: function () {
         wx.navigateTo({
           url: '../problem/problem',
         })
     },
+    //更多获金体验，请下载小确幸app
     btnDlone:function(){
       this.setData({
         downloadIf: !this.data.downloadIf
@@ -113,7 +114,7 @@ Page({
         }
     })
     },
-    //
+    //保存到相册
     downloadTap: function () {
       var self = this;
       
@@ -201,7 +202,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        this.getMy();
+        
         
     },
 
@@ -209,7 +210,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        
+        this.getMy();
     },
 
     /**

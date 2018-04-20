@@ -85,6 +85,13 @@ Page({
           });
           return
       };
+      if (that.data.groupInfo.group_price * 100 * that.data.buyNum==0) {
+          wx.showToast({
+              title: '至少支付0.01元',
+              icon: 'none'
+          });
+          return
+      };
       var obj ={
           cnd: that.data.cnd,
           num: that.data.buyNum,

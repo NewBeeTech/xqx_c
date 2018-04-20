@@ -90,6 +90,7 @@ Page({
         } else {
           wx.showToast({
             title: res.message,
+            icon:'none',
             duration: 2000
           })
         }
