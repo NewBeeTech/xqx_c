@@ -30,7 +30,7 @@ Page({
     // wx.navigateTo({
     //     url: e.currentTarget.dataset.url,
     // })
-    var info = e.currentTarget.dataset;
+    var info = e.currentTarget.dataset.info;
     console.log(info);
     if (info.url==""){
       wx.navigateTo({

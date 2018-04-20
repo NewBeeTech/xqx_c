@@ -10,7 +10,7 @@
             </view>
 
             <text wx:if="{{item.order_state==-1||item.order_state==-2||item.order_state==-3}}">已取消</text>
-            <text wx:elif="{{item.order_state==0||item.order_state==1}}">待分享</text>
+            <text wx:elif="{{item.order_state==0||item.order_state==1}}">待支付</text>
             <text wx:elif="{{item.order_state==2}}">待收货</text>
             <text wx:elif='{{item.order_state==3}}'>已收货</text>
             <text wx:elif='{{item.order_state==4}}'>待发货</text>
