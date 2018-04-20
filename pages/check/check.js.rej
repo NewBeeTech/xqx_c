@@ -1,9 +1,0 @@
-diff a/pages/check/check.js b/pages/check/check.js	(rejected hunks)
-@@ -42,7 +42,6 @@
-       resultRatio: "0.00"
-     });
-     var self = this;
--    if (self.data.money >= 99999.99) {
-     var money2= e.detail.value;
-     this.data.money2 = money2;
-     console.log(money != '')

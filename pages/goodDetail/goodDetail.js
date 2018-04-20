@@ -107,7 +107,9 @@ Page({
     })
   },
   backHome:function(){
-    wx.navigateBack();
+      wx.switchTab({
+          url:'../spellGroupHome/spellGroupHome'
+      });
   },
   startTimer:function(){
     var self = this;

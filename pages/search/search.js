@@ -14,7 +14,7 @@ var initdata = function (that) {
 
 Page({
   data: {
-    delBtnWidth: 180,//删除按钮宽度单位（rpx） 
+    delBtnWidth: 360,//删除按钮宽度单位（rpx） 
     list: [],
     searchContent: "",
     types: 0,
@@ -41,7 +41,6 @@ Page({
     });
     // 页面初始化 options为页面跳转所带来的参数 
     // 页面显示 
-    
 
 
   },
@@ -301,6 +300,14 @@ Page({
   a: function (e) {
     var z = 6.8;//打折
     var nu = e.detail.value;
-  }
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function (options) {
+      this.setData({
+          delBtnWidth:180
+      })
+  },
 
 }) 
