@@ -45,7 +45,10 @@
     "pages/PaymentCompletion2/PaymentCompletion2",
     "pages/webApp/webApp",
     "pages/h5/h5",
-    "pages/DetailsPayment2/DetailsPayment2"
+    "pages/DetailsPayment2/DetailsPayment2",
+    "pages/kanjia/kanjia",
+    "pages/miaosha/miaosha",
+    "pages/learnOurs/learnOurs"
   ],
   "window": {
     "backgroundTextStyle": "light",

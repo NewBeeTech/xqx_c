@@ -27,11 +27,11 @@
       <image src='../../images/home/pintuan.png'></image>
       <text>拼团</text>
     </view>
-    <view class='item'>
+    <view class='item' bindtap='toNextPage' data-page='{{4}}'>
       <image src='../../images/home/kanjia.png'></image>
       <text>砍价免费拿</text>
     </view>
-    <view class='item'>
+    <view class='item' bindtap='toNextPage'  data-page='{{5}}'>
       <image src='../../images/home/xianshi.png'></image>
       <view>限时秒杀</view>
     </view>

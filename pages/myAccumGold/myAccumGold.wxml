@@ -47,7 +47,7 @@
          </view>
          <view class='close' bindtap='daijie'>知道了</view>
     </view>
-    <view wx:if='{{false}}'>
+    <view wx:if='{{obj.accountState==0}}'>
          <view class='popup_box'>         
             <text>已托管消费养老金</text>
          </view> 
@@ -57,7 +57,7 @@
          </view>
          <view class='close' bindtap='ytgTap'>点击下载</view>
     </view>
-    <view wx:if='{{ytgIf}}' style='position: relative'>
+    <view wx:if='{{obj.accountState==1}}' style='position: relative'>
         <icon class='qxtc' type='cancel' size='25' color='#dadada' bindtap='ytgTapTc'></icon>
          <view class='popup_box'>
             <text>提示</text>           

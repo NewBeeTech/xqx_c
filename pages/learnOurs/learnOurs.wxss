@@ -1,0 +1,13 @@
+.banner,.banner image{width: 100%;}
+.banner{position: relative;}
+.banner .button{ position: absolute;width:50%;left:25%;bottom:20%;}
+.problem{padding:20px 4%;width:92%;}
+.problem image{width:12px;display:inline-block;float:left;}
+.problem text{font-size:20px;display: inline-block;float:left;padding-left:5px;}
+.tab{width:92%;margin:auto;clear:both;line-height:25px;}
+.tab .li{padding:15px 40px 10px 0;font-size:16px;cursor:pointer; position: relative;display:block;}
+.tab image{width: 30px; position: absolute;right:0;top:15px;}
+.tab .dd{font-size:14px;color:#666;border-bottom:solid 1px #dadada;padding-bottom:5px;display:inline-block;}
+.tab .red{color:#ab3623;display:block;}
+.tab .show{display: block;}
+.tab .hide{display: none;}

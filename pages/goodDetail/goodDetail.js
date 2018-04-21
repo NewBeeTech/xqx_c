@@ -37,9 +37,10 @@ Page({
       appData.Tool.getGoodsGroupBuyInfoXCX(config).then(function (res) {
         wx.hideLoading();
         console.log(res)
+        
+        
         if (res.code === 0) {
           success();
-
           function fn(a) {
               if (typeof a == 'string') { return a };
               var str = a / 100 + '';
@@ -61,29 +62,25 @@ Page({
             imgList: res.data.explain_img_url.split(",")
           });
           var arry = self.data.goodsInfo.joinList;
-          var sj = Date.now();
-          for (var k in arry){
-              arry[k].deadLine -= sj;
-          };
+          // var sj = Date.now();
+          // for (var k in arry){
+          //     arry[k].deadLine -= sj;
+          // };
+          var arr = self.data.goodsInfo.joinList;
           dsq = function(){
-              var arr = self.data.goodsInfo.joinList;
               for (var k in arr){
-                  if (arr[k].deadLine - 1000 > 0){
-                      arr[k].deadLine -= 1000;
-                  }else{
-                      clearInterval(dsq);
-                  }
-                  arr[k].deadLineX = fnItem(arr[k].deadLine);
+                var lastTime = DateTool.toHHMMSS(arr[k].deadLine)
+                arr[k].deadLineX = lastTime
               };
               self.setData({
                   'goodsInfo.joinList': arr
               });
-              function fnItem(t) {
-                  var s = ~~(t / 60 / 60 / 1000);
-                  var f = ~~((t - s * 60 * 60 * 1000) / 60 / 1000);
-                  var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
-                  return (s < 10 ? '0' + s : s) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
-              };
+              // function fnItem(t) {
+              //   var s = ~~(t / 1000/ 60 / 60);
+              //   var f = ~~((t - s * 60 * 60 * 1000) / 1000 / 60 );
+              //     var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
+              //     return (s < 10 ? '0' + s : s/10) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
+              // };
           };
           setInterval(dsq,1000)
 
@@ -101,6 +98,7 @@ Page({
       });
     });
   },
+ 
   callPhone:function(){
     wx.makePhoneCall({
       phoneNumber: '1340000' 
