@@ -3,7 +3,7 @@
     <view>
         <view wx:if='{{xqObj.order_state==-2||xqObj.order_state==-1}}' class='fight_success'>已取消订单</view>
         <view wx:elif='{{xqObj.order_state==0}}' class='fight_success'>待支付</view>
-        <view wx:elif='{{xqObj.order_state==1}}' class='fight_success'>拼团成功</view>
+        <view wx:elif='{{xqObj.order_state==1}}' class='fight_success'>支付成功</view>
         <view wx:else class='fight_success'>拼团成功</view>
 
         <text wx:if='{{xqObj.order_state==-3}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
