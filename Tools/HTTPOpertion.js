@@ -5,7 +5,7 @@ function HTTPOpertion() { };
 
 /**
  * 首页
- * 
+ *
  * token	String	是	token
  * intPara	String	否	城市代码 默认为空
  * latitude	String	是	纬度
@@ -22,7 +22,7 @@ HTTPOpertion.getTopPics = function (parm) {
 
 /**
  * 首页
- * 
+ *
  * token	String	是	token
  * intPara	String	否	城市代码 默认为空
  * latitude	String	是	纬度
@@ -43,7 +43,7 @@ HTTPOpertion.getMy = function () {
 
 /**
  * 获取行业分类
- * 
+ *
  * token	String	是	token
  * intPara	String	是	上级分类id 默认为0 查询第一级分类
  */
@@ -54,7 +54,7 @@ HTTPOpertion.getSubCatelog = function (parm) {
 
 /**
  * 获取ccpp城市接口
- * 
+ *
  * token	String	是	token
  */
 HTTPOpertion.getCCPPCity = function (parm) {
@@ -66,7 +66,7 @@ HTTPOpertion.getCCPPCity = function (parm) {
 
 /**
  * 根据行业代码及用户所在城市获取商户，首页搜索商户
- * 
+ *
  * token	String	是	token
  * cnd	String	否	城市代码
  * cnd2	String	否	查询条件，商户名称
@@ -84,7 +84,7 @@ HTTPOpertion.getIndustryMerchantV24 = function (parm) {
 
 /**
  * 获取商户详情
- * 
+ *
  * token	String	是	token
  * userId	String	否	userId
  * cnd	String	是	商户id
@@ -98,7 +98,7 @@ HTTPOpertion.getMerchantInfo = function (parm) {
 
 /**
  * 获取子商户列表信息
- * 
+ *
  * token	String	否	token
  * cnd	String	否	商户id
  * latitude	String	是	纬度
@@ -114,7 +114,7 @@ HTTPOpertion.getSubMerchant = function (parm) {
 
 /**
  * 商户相册列表
- * 
+ *
  * token	String	是	token
  * merchantId	String	是	商户id
  */
@@ -126,7 +126,7 @@ HTTPOpertion.getMerchantPicCatelogs = function (parm) {
 
 /**
  * 商户图片列表
- * 
+ *
  * token	String	是	token
  * page	String	否	页数 默认1
  * rows	String	否	行数 默认15
@@ -143,7 +143,7 @@ HTTPOpertion.getMerchantStorePics = function (parm) {
 
 /**
  * 获取商户介绍信息接口
- * 
+ *
  * token	String	否	token
  * cnd	String	否	商户id
  */
@@ -155,7 +155,7 @@ HTTPOpertion.getMerchantIntroduce = function (parm) {
 
 /**
  * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
- * 
+ *
  * code	String	是	code
  * encryptedData	String	是	微信用户加密信息
  * iv	String	是	微信用户加密信息
@@ -169,7 +169,7 @@ HTTPOpertion.get3rdSession = function (parm) {
 /**
  * 一键授权
  * 解析获取用户手机号 后端自动注册
- * 
+ *
  * session	String	是	session
  * iv	String	是	iv
  * encryptedData	String	是	encryptedData
@@ -182,7 +182,7 @@ HTTPOpertion.info = function (parm) {
 
 /**
  * 发送登录验证码接口，同时验证该手机手否已注册
- * 
+ *
  * loginName	String	是	用户手机号
  */
 HTTPOpertion.checkLoginNameV1 = function (parm) {
@@ -193,7 +193,7 @@ HTTPOpertion.checkLoginNameV1 = function (parm) {
 
 /**
  * 注册接口
- * 
+ *
  * loginName	String	是	用户手机号
  * smsCode	String	是	注册验证码
  * session	String	是	session
@@ -247,7 +247,7 @@ HTTPOpertion.getDepositedInfo = function (parm) {
 /**
  * 已缴存消费养老金页面(托管列表)
  * 获取缴存信息接口
- * 
+ *
  * page 当前页码
  * rows 每页记录数
  */
@@ -279,7 +279,7 @@ HTTPOpertion.getInviteInfo = function (parm) {
 
 /**
  * 支付
- * 
+ *
  * money	String	是	实际支付金额
  * session	String	是	session
  * token	String	是	token
@@ -319,7 +319,7 @@ HTTPOpertion.login = function () {
                         HTTPOpertion.saveToLocation("iv", res.iv);
                         /**
                          * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
-                         * 
+                         *
                          * code	String	是	code
                          * encryptedData	String	是	微信用户加密信息
                          * iv	String	是	微信用户加密信息
@@ -434,7 +434,7 @@ intPara	Integer	否	分类id
 intPara2	Integer	否	排序规则 1 返金由高到低 2 人气由高到低 3价格由高到低
 page	Integer	是	页码
 rows	Integer	是	页面大小
-* 
+*
 */
 
 HTTPOpertion.getGoodsGroupBuyListXCX = function (parm) {
@@ -446,7 +446,7 @@ HTTPOpertion.getGoodsGroupBuyListXCX = function (parm) {
  * token	String	是
  * page	Integer	是	页码
  * rows	Integer	是	页面大小
- * 
+ *
  */
 HTTPOpertion.getGoodsGroupBuyInfoXCX = function (parm) {
     return HttpManager.post(Default.HOST + Default.GOODS_GROUP_BUY_INFO, parm || {});
@@ -511,7 +511,7 @@ HTTPOpertion.getGoodsGroupOrderInfoXCX = function (parm) {
  * orderId	String	是	账单ID
  * goods_group_id	String	是	团id 订单列表/详情接口可获得
  * group_buy_id	String	是	拼团id 订单列表/详情接口可获得
- * 
+ *
 */
 
 HTTPOpertion.commitReceiveGoods = function (parm) {
@@ -529,4 +529,16 @@ HTTPOpertion.cancelGroupOrder = function (parm) {
 
 };
 
+/**
+ * 获取砍价商品详情
+ *
+ * token	String	是	token
+ * userId	String	否	userId
+ * cnd	String	是	商户id
+ */
+HTTPOpertion.getBargainInfo = function (parm) {
+    return HttpManager
+        .get(Default.HOST + Default.GET_BARGAIN_DETAILS, parm || {});
+
+}
 module.exports = HTTPOpertion;

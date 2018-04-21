@@ -55,9 +55,9 @@ HTTPManager.post = function (url, parm) {
       success: function (res) {
         console.log(res);
         if (res.data.code === 2) {
-          wx.reLaunch({
-            url: '../boundNumber/boundNumber',
-          })
+          // wx.reLaunch({
+          //   url: '../boundNumber/boundNumber',
+          // })
 
           return;
         }
@@ -71,13 +71,13 @@ HTTPManager.post = function (url, parm) {
 }
 HTTPManager.login = function(){
   return new Promise(function (success, fail) {
-  
+
     wx.login({
       success: function (res) {
         console.log(res);
 
         var code = res.code;
-        
+
           wx.getUserInfo({
             success: function (res) {
               console.log(res);
@@ -85,7 +85,7 @@ HTTPManager.login = function(){
               wx.setStorage("iv", res.iv);
               /**
                * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
-               * 
+               *
                * code	String	是	code
                * encryptedData	String	是	微信用户加密信息
                * iv	String	是	微信用户加密信息
@@ -104,7 +104,7 @@ HTTPManager.login = function(){
               });
             }
           })
-        
+
       }
     });
   })

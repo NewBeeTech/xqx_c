@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 34,
 			"list": [
 				{
 					"id": 0,
@@ -231,9 +231,27 @@
 				},
 				{
 					"id": 33,
-					"name": "3",
-					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
+					"name": "详情页",
+					"pathName": "pages/MerchantDetails/MerchantDetails",
+					"query": "id=1"
+				},
+				{
+					"id": 34,
+					"name": "砍价商品详情",
+					"pathName": "pages/BargainDetails/BargainDetails",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "拼团须知",
+					"pathName": "pages/waring/waring",
 					"query": ""
+				},
+				{
+					"id": 36,
+					"name": "拼团详情",
+					"pathName": "pages/goodDetail/goodDetail",
+					"query": "id=2"
 				}
 			]
 		}

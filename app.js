@@ -66,11 +66,11 @@ App({
           console.log("！！！！！token", res);
         },
       })
-      
+
       var session = res.session;
       finish();
       if (res.needRegister) {
-       
+
                   wx.reLaunch({
                     url: '/pages/boundNumber/boundNumber'
                   })
