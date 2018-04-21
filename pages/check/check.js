@@ -42,20 +42,20 @@ Page({
       resultRatio: "0.00"
     });
     var self = this;
-    if (self.data.money > 999999.99) {
-      wx.showToast({
-        title: "请输入0.01-999999.99的金额",
-        icon: 'none',
-        duration: 2000
-      })
-    }
-    if (self.data.money < 0.01) {
-      wx.showToast({
-        title: "请输入0.01-999999.99的金额",
-        icon: 'none',
-        duration: 2000
-      })
-    }
+    // if (self.data.money > 999999.99) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
+    // if (self.data.money < 0.01) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
     if (this.data.info.discountMode == "MR") {
       this.setData({
         money: e.detail.value,
@@ -145,14 +145,14 @@ Page({
   
   //
   inputFinish: function (e) {
-    var self = this;
-    if (self.data.money != '' &&(self.data.money == 0 || self.data.money >= 999999.99)) {
-      wx.showToast({
-        title: "请输入0.01-999999.99的金额",
-        icon: 'none',
-        duration: 2000
-      })
-    }
+    // var self = this;
+    // if (self.data.money != '' &&(self.data.money == 0 || self.data.money >= 999999.99)) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
   },
   qrmdTap: function () {
 
@@ -167,25 +167,35 @@ origionPrice	String	是	原始价格
 discountId	String	是	折扣id 打折id 满减此项为空
 discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户详情mInfo
      */
-    var decimal = (self.data.money).toString().split('.');
-    if (self.data.money != '' && (self.data.money <= 0 || self.data.money >= 999999.99) || decimal[1].length > 2) {
-        console.log(1111)
+    // var decimal = (self.data.money).toString().split('.');
+    // if (self.data.money == '' && (self.data.money < 0.01 || self.data.money >= 999999.99) || decimal[1].length > 2) {
+    //     console.log(1111)
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // }
+    // console.log(self.data.money2)
+    // if (self.data.money2 <= 0 || self.data.money2 >= 999999.99) {
+        // wx.showToast({
+        //     title: "请输入0.01-999999.99的金额",
+        //     icon: 'none',
+        //     duration: 2000
+        // })
+        // return;
+    // }
+    console.log(self.data.money);
+    if (parseFloat(self.data.money) < 0.01 || parseFloat(self.data.money) > 999999.99){
       wx.showToast({
         title: "请输入0.01-999999.99的金额",
         icon: 'none',
         duration: 2000
       })
       return;
-    }
-    console.log(self.data.money2)
-    if (self.data.money2 <= 0 || self.data.money2 >= 999999.99) {
-        wx.showToast({
-            title: "请输入0.01-999999.99的金额",
-            icon: 'none',
-            duration: 2000
-        })
-        return;
-    }
+}
+
     appData.Tool.getToLocation("session").then(function (session) {
       console.log(session);
       var config = { merchantName: self.data.info.name, money: self.data.resultMoney * 100 + "", session: session, origionPrice: self.data.money * 100+"", merchantId: self.data.info.id, ratio: self.data.info.ratio ? self.data.info.ratio : "0" };
