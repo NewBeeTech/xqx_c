@@ -9,7 +9,6 @@ var initdata = function (that) {
   }
   console.log(list)
   that.setData({ list: list })
-  
 }
 
 Page({
@@ -20,6 +19,7 @@ Page({
     types: 0,
     page: 0,
     isSearch:false,
+    canMove:1,
     
   },
   removeRecordTap: function () {
@@ -28,9 +28,12 @@ Page({
       list: []
     })
     appData.searchData = [];
+    wx.removeStorageSync("searchData");
+    wx.setStorageSync("searchData", appData.searchData);
   },
   onLoad: function (options) {
-      var list = appData.searchData
+    appData.searchData = wx.getStorageSync("searchData");
+    var list = appData.searchData;
       for (var i = 0; i < list.length; i++) {
           list[i].txtStyle = "";
           list[i].textStyle = ""
@@ -76,6 +79,7 @@ Page({
     });
   },
   searchData: function (e) {
+    var that = this;
     this.setData({
       isSearch: true
     })
@@ -107,6 +111,7 @@ Page({
         searchContent: e.detail.value
       });
       initdata(self);
+      that.setData({ canMove: 0 })
     })
       .catch(function (error) {
         console.log(error);
@@ -126,7 +131,8 @@ Page({
       console.log(appData.searchData.length);
       if (appData.searchData.length == 0) {
         appData.searchData.push(info);
-        
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       } else {
         var temp = new Array(appData.searchData);
         temp.forEach(function (item) {
@@ -134,6 +140,8 @@ Page({
           if (item.id != info.id) {
             appData.searchData.push(info);
             console.log(appData.searchData);
+            wx.removeStorageSync("searchData");
+            wx.setStorageSync("searchData", appData.searchData);
             return;
           }
         });
@@ -154,6 +162,7 @@ Page({
     }
   },
   touchM: function (e) {
+    if (this.data.canMove == 1) {
     var that = this
     console.log("......");
     if (e.touches.length == 1) {
@@ -186,11 +195,15 @@ Page({
       });
       if (!this.data.isSearch) {
         appData.searchData = list;
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       }
+    }
     }
   },
 
   touchE: function (e) {
+    if (this.data.canMove == 1) {
     console.log("......");
     if (e.changedTouches.length == 1) {
       
@@ -215,7 +228,10 @@ Page({
       });
       if (!this.data.isSearch){
         appData.searchData = list;
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       }
+    }
     }
   },
   //获取元素自适应后的实际宽度 
@@ -257,6 +273,8 @@ Page({
           });
           if (!that.data.isSearch) {
             appData.searchData = list;
+            wx.removeStorageSync("searchData");
+            wx.setStorageSync("searchData", appData.searchData);
           }
         } else {
           initdata(that)
