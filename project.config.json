@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx98072aa3f02d25d3",
+	"appid": "wx54d2f780ab825ea7",
 	"projectname": "%E5%B0%8F%E7%A1%AE%E5%B9%B8%E5%AE%A2%E6%88%B7",
 	"condition": {
 		"search": {
@@ -234,6 +234,12 @@
 					"name": "3",
 					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付成功跳转",
+					"pathName": "pages/DetailsPayment/DetailsPayment",
+					"query": "id=709a5462-6e6c-4e0e-a747-38725701b819"
 				}
 			]
 		}

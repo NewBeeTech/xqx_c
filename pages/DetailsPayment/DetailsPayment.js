@@ -116,11 +116,24 @@ Page({
   onReachBottom: function () {
   
   },
-
   /**
-   * 用户点击右上角分享
-   */
+    * 用户点击右上角分享
+    */
   onShareAppMessage: function () {
-  
+
+    return {
+      title: '快来帮我拼团吧',
+      path: 'pages/PaymentCompletion2/PaymentCompletion2',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功")
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败")
+      }
+    }
   }
+  
 })
