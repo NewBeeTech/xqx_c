@@ -16,7 +16,18 @@ Page({
     groupInfo:{},
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }],
     tId:'',
-    imgList:[]
+    imgList:[],
+    // 加入拼团的全部数组
+    joinList:[],
+    // 加入拼团的临时数组  （3个）
+    joinTempList:[],
+    isShowAll:false//是否显示全部参与者
+  },
+  // 显示所有或三张
+  showAll(){
+    this.setData({
+      isShowAll: !this.data.isShowAll
+    });
   },
   oneKeyGroup: function (e){
     wx.navigateTo({
@@ -61,7 +72,7 @@ Page({
             tId:res.id,
             imgList: res.data.explain_img_url.split(",")
           });
-          var arry = self.data.goodsInfo.joinList;
+          // var arry = self.data.goodsInfo.joinList;
           // var sj = Date.now();
           // for (var k in arry){
           //     arry[k].deadLine -= sj;
@@ -72,9 +83,14 @@ Page({
                 var lastTime = DateTool.toHHMMSS(arr[k].deadLine)
                 arr[k].deadLineX = lastTime
               };
+
               self.setData({
-                  'goodsInfo.joinList': arr
+                joinList: arr,
+                joinTempList:[arr[0],arr[1],arr[2]]
               });
+              // self.setData({
+              //     'goodsInfo.joinList': arr
+              // });
               // function fnItem(t) {
               //   var s = ~~(t / 1000/ 60 / 60);
               //   var f = ~~((t - s * 60 * 60 * 1000) / 1000 / 60 );

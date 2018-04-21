@@ -8,7 +8,8 @@
     </view>
     <view class='consAmount'>
         <text class='consTit'>消费金额（元）</text>
-        <input class='consNum'  placeholder='请输入消费金额' bindinput='inputMoney' type='digit' bindblur='inputFinish'></input>
+        <!--bindinput='inputMoney'  -->
+        <input class='consNum'  placeholder='请输入消费金额'  type='digit'></input>
     </view>
     <view class='discountActive' wx:if="{{info.discountMode!=null}}">
         <view class='discontent'>

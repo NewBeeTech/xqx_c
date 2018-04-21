@@ -1,27 +1,25 @@
 <!--pages/search/search.wxml-->
 <view class='wrap'>
-    <view class='tophead'>
-        <view>
-            <input placeholder='商户名称' bindblur='searchData'>{{searchContent}}</input>
-        </view>
+  <view class='tophead'>
+    <view>
+      <input placeholder='商户名称' bindblur='searchData'>{{searchContent}}</input>
     </view>
-    <view class='bar'>
-        <view class='recordBar' wx:if="{{list.length}}">
-            <view class='latelySearch'>最近搜索</view>
-            <view class='removeRecord' bindtap='removeRecordTap'>清空记录</view>
-        </view>
-        <view class="item-box"> 
-            <view class="items"> 
-            <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap='navToBussess' data-info='{{item}}'> 
-                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt"> 
-                <!-- <image class="item-icon" mode="widthFix" src="{{item.icon}}"></image> -->
-                <view class='title' style='{{item.textStyle}}'>{{item.name}}</view>
-                </view> 
-                
-                <view data-index="{{index}}" catchtap = "delItem" class="inner del">删除</view> 
-                </view> 
-            </view> 
-        </view> 
+  </view>
+  <view class='bar'>
+    <view class='recordBar' wx:if="{{list.length}}">
+      <view class='latelySearch'>最近搜索</view>
+      <view class='removeRecord' bindtap='removeRecordTap'>清空记录</view>
     </view>
-   
+    <view class="item-box">
+      <view class="items">
+        <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap='navToBussess' data-info='{{item}}'>
+          <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style='height:108rpx;width:100%' class="inner txt">
+            <view class='title'>{{item.name}}</view>
+            <view style='{{item.txtStyle}}' data-index="{{index}}" catchtap="delItem" class="inner del">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

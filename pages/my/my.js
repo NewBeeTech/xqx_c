@@ -104,6 +104,7 @@ Page({
         success: function (res) {
           console.log(res.model)
           var isiOS = !!res.model.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+          console.log("是不是iOS",isiOS)
           var url = "";
           if (isiOS == true) {
             url = "https://itunes.apple.com/cn/app/id1237657075?mt=8"

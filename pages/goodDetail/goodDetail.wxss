@@ -371,3 +371,19 @@ margin: 0 26rpx 0 34rpx;
     width: 48rpx;
     height: 48rpx;
 }
+
+.shop_btn{
+    height: 76rpx;
+    color: #555;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8rpx;
+}
+.shop_btn>image{
+    width: 24rpx;
+    height: 14rpx;
+    margin-left: 20rpx;
+     transform: rotate(180deg) 
+}

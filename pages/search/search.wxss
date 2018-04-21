@@ -54,25 +54,27 @@ view{
 .item:last-child{ 
   border-bottom: 1rpx solid #eee; 
 } 
-.inner{ 
+/* .inner{ 
   position: absolute; 
   top:0; 
-} 
+}  */
 .inner.txt{ 
   background-color: #fff; 
   width: 100%; 
   z-index: 5; 
-  padding:0 10rpx; 
+   padding:0 10rpx;  
   transition: left 0.2s ease-in-out; 
   white-space:nowrap; 
   overflow:hidden; 
   text-overflow:ellipsis; 
   font-size: 15px;
   color: #333;
+  position: relative;
+  box-sizing: border-box;
 } 
 
 .title {
-  position: relative;
+  position: absolute;
   width: 100rpx;
   left: 0;
 }
@@ -82,7 +84,7 @@ view{
   width: 146rpx;
   text-align: center; 
   z-index: 4; 
-  right: 0; 
+  right: -80px; 
   font-size:15px;
   color: #fff;
   position: absolute;

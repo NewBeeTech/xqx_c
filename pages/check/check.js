@@ -42,16 +42,16 @@ Page({
       resultRatio: "0.00"
     });
     var self = this;
-    if (self.data.money >= 99999.99) {
+    if (self.data.money > 999999.99) {
       wx.showToast({
-        title: "请输入0.01-99999.99的金额",
+        title: "请输入0.01-999999.99的金额",
         icon: 'none',
         duration: 2000
       })
     }
-    if (self.data.money <= 0.01) {
+    if (self.data.money < 0.01) {
       wx.showToast({
-        title: "请输入0.01-99999.99的金额",
+        title: "请输入0.01-999999.99的金额",
         icon: 'none',
         duration: 2000
       })
@@ -179,7 +179,6 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
     }
     console.log(self.data.money2)
     if (self.data.money2 <= 0 || self.data.money2 >= 999999.99) {
-        console.log('sgsdgsdgvsdfadfas')
         wx.showToast({
             title: "请输入0.01-999999.99的金额",
             icon: 'none',
