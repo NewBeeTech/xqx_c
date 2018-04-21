@@ -55,14 +55,30 @@ Page({
         })
     },
     quxTap: function () {
+      this.setData({
+        qxdd: !this.data.qxdd
+      })
         var that = this;
         appData.Tool.cancelGroupOrder({
             orderId: that.data.id,
             goods_group_id: that.data.xqObj.goods_group_id,
             group_buy_id: that.data.xqObj.group_buy_id
         }).then(function (res) {
-            console.log(res)
-        }).catch(function (err) { });
+          wx.hideLoading();
+            console.log(res);
+            if (res.data.cancelFlag == 'false'){
+              wx.showToast({
+                title: "取消失败",
+                duration: 2000
+              });
+            }else{
+              wx.showToast({
+                title: "取消成功",
+                duration: 2000
+              });
+            }
+            
+          }).catch(function (err) { wx.hideLoading();});
     },
     //售后
     shohTap: function () {
