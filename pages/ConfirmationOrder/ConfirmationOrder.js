@@ -129,7 +129,7 @@ Page({
                           title: '支付成功',
                           complete:function(){
                               wx.redirectTo({
-                                  url:'../wholeOrder/wholeOrder'
+                                url: '../DetailsPayment/DetailsPayment?id=' + that.data.id
                               })
                           }
                       })

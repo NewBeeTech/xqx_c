@@ -67,11 +67,11 @@
           </view>
         </view>
       </view>
-      <view class='shop_btn' bindtap='showAll'>
+      <!-- <view class='shop_btn' bindtap='showAll'>
         <text>查看其它{{joinList.length-joinTempList.length}}个团</text>
         <image wx:if="{{isShowAll}}" src='https://activity.denong.com/up.png'></image>
         <image wx:else src='https://activity.denong.com/b.png'></image>
-      </view>
+      </view> -->
     </view>
     <view class='address_tel'>
       <view class='address' bindtap='dpzy'>
