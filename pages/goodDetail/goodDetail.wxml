@@ -54,8 +54,8 @@
                 <view class='groupsList' wx:for="{{goodsInfo.joinList}}" wx:key='{{index}}'>
                     <view class='groupsUser'>
                     <!--先做测试 假数据  -->
-                        <!-- <image src='{{item.portrait}}'></image> -->
-                        <image src='../../images/icon/che.png'></image>
+                         <image src='{{item.portrait}}'></image> 
+                        <!-- <image src='../../images/icon/che.png'></image> -->
                         <view>{{item.name}}</view>
                     </view>
                     <view class='groupsFn'>
