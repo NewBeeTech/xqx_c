@@ -20,16 +20,16 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"plugin": {
 			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
 			"list": [
 				{
 					"id": 0,
@@ -233,6 +233,18 @@
 					"id": 33,
 					"name": "3",
 					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
+					"query": ""
+				},
+				{
+					"id": 34,
+					"name": "砍价免费拿",
+					"pathName": "pages/bargainHomePage/bargainHomePage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价成功",
+					"pathName": "pages/bargainSuccessPage/bargainSuccessPage",
 					"query": ""
 				}
 			]
