@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/bargainSuccessPage/bargainSuccessPage",
+    "pages/bargainRulePage/bargainRulePage",
+    "pages/bargainHomePage/bargainHomePage",
     "pages/spellGroupHome/spellGroupHome",
     "pages/homePage/homePage",
     "pages/Album/Album",

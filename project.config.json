@@ -20,215 +20,19 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": 34,
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
 			"list": [
-				{
-					"id": 0,
-					"name": "2",
-					"pathName": "pages/customerService/customerService",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "3",
-					"pathName": "pages/problem/problem",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "4",
-					"pathName": "pages/Kim/Kim",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "5",
-					"pathName": "pages/Branch/Branch",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "6",
-					"pathName": "pages/PaymentSuccess/PaymentSuccess",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "7",
-					"pathName": "pages/about/about",
-					"query": ""
-				},
-				{
-					"id": 6,
-					"name": "8",
-					"pathName": "pages/homePage/homePage",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "9",
-					"pathName": "pages/shopList/shopList",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "10",
-					"pathName": "pages/MerchantDetails/MerchantDetails",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的养老金",
-					"pathName": "pages/myAccumGold/myAccumGold",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/my/my",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "11",
-					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "webApp",
-					"pathName": "pages/webApp/webApp",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "PaymentSuccess",
-					"pathName": "pages/PaymentSuccess/PaymentSuccess",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "exploreExperience",
-					"pathName": "pages/exploreExperience/exploreExperience",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "DetailsOfTheBill",
-					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "details",
-					"pathName": "pages/details/details",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "拼团",
-					"pathName": "pages/spellGroup/spellGroup",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "首页",
-					"pathName": "pages/spellGroupHome/spellGroupHome",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "spellGroup",
-					"pathName": "pages/spellGroup/spellGroup",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "orderList",
-					"pathName": "pages/orderList/orderList",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "orderDetails",
-					"pathName": "pages/orderDetails/orderDetails",
-					"query": ""
-				},
-				{
-					"id": 22,
-					"name": "customerService",
-					"pathName": "pages/spellGroupHome/spellGroupHome",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "wholeOrder",
-					"pathName": "pages/wholeOrder/wholeOrder",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "paymentCompletion",
-					"pathName": "pages/paymentCompletion/paymentCompletion",
-					"query": ""
-				},
-				{
-					"id": 25,
-					"name": "3",
-					"pathName": "pages/WriteAddress/WriteAddress",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "4",
-					"pathName": "pages/orderList/orderList",
-					"query": ""
-				},
-				{
-					"id": 28,
-					"name": "5",
-					"pathName": "pages/orderDetails/orderDetails",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "DetailsOfTheBill",
-					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "PaymentSuccess",
-					"pathName": "pages/PaymentSuccess/PaymentSuccess",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "boundNumber",
-					"pathName": "pages/boundNumber/boundNumber",
-					"query": ""
-				},
-				{
-					"id": 31,
-					"name": "注册",
-					"pathName": "pages/boundNumber/boundNumber",
-					"query": ""
-				},
-				{
-					"id": 32,
-					"name": "2",
-					"pathName": "pages/DetailsPayment/DetailsPayment",
-					"query": ""
-				},
 				{
 					"id": 33,
 					"name": "详情页",
@@ -252,6 +56,18 @@
 					"name": "拼团详情",
 					"pathName": "pages/goodDetail/goodDetail",
 					"query": "id=2"
+				},
+				{
+					"id": 34,
+					"name": "砍价免费拿",
+					"pathName": "pages/bargainHomePage/bargainHomePage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价成功",
+					"pathName": "pages/bargainSuccessPage/bargainSuccessPage",
+					"query": ""
 				}
 			]
 		}
