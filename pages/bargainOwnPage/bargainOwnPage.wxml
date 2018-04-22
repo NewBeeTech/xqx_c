@@ -1,0 +1,23 @@
+<import src="../../components/bargainGoodsInfo/bargainGoodsInfo.wxml"/>
+<import src="../../components/barginUserList/barginUserList.wxml"/>
+
+<div>
+  <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
+  <div>
+    <div>已砍<span>20</span>元 还差<span>20</span>元</div>
+    <div></div>
+    <div>还剩 结束，快来砍价吧</div>
+  </div>
+  <div>
+    <template is="bargainUserList" data="{{ cutList: barginOwnData.cutList }}"/>
+  </div>
+  <view class='bottomBtn'>
+      <view class='backHome' bindtap='backHome'>
+          <image src='../../images/tabBar/a2.png'></image>
+          <view>首页</view>
+      </view>
+      <view class='bargainBtn' bindtap='oneKeyGroup'>
+          我的砍价商品
+      </view>
+  </view>
+</div>

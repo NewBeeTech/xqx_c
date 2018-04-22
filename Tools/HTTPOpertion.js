@@ -541,4 +541,27 @@ HTTPOpertion.getBargainInfo = function (parm) {
         .get(Default.HOST + Default.GET_BARGAIN_DETAILS, parm || {});
 
 }
+
+/**
+ * 获取砍价商品列表
+ *
+ * token	String	是	token
+ * userId	String	否	userId
+ * cnd	String	是	商户id
+ */
+HTTPOpertion.getBargainList = function (parm) {
+    return HttpManager
+        .get(Default.HOST + Default.GET_BARGAIN_LIST, parm || {});
+
+}
+
+/**
+ * 获取地址列表
+ */
+HTTPOpertion.getAddressList = function (parm) {
+    return HttpManager
+        .get(Default.HOST + Default.GET_ADDRESS_LIST, parm || {});
+
+}
+
 module.exports = HTTPOpertion;

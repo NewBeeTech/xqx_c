@@ -1,0 +1,17 @@
+<template name="bargainUserList">
+  <view class="bargin_user_content">
+    <view class="bargin_user_list">
+       <view class="bargin_header_line"/>
+       <view class="bargin_header_title">砍价帮</view>
+       <view class="bargin_header_line"/>
+    </view>
+    <view wx:for="{{ cutList }}" wx:key='index'  class="bargin_user_item">
+       <view>
+         <view>{{ index + 1 }}</view>
+         <image src="{{ item.portrait }}" />
+         <view>{{ item.name }}</view>
+       </view>
+       <view>砍掉{{ item.cut_price }}元</view>
+    </view>
+  </view>
+</template>

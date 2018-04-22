@@ -1,0 +1,33 @@
+@import "../../components/barginUserList/barginUserList.wxss";
+@import "../../components/bargainGoodsInfo/bargainGoodsInfo.wxss";
+
+
+.bottomBtn{
+  height: 90rpx;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.backHome{
+  width: 90rpx;
+  padding: 0 30rpx;
+  text-align: center;
+}
+.backHome image{
+    width: 18px;
+    height: 18px;
+}
+.bargainBtn{
+  width: calc(100vw - 90rpx);
+  height: 100%;
+  background: #ff9c00;
+  color: white;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+}
