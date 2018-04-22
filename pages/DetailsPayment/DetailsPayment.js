@@ -9,13 +9,23 @@ Page({
    */
   data: {
       xqObj:{},
-      su:''
+      su:'',
+      id:'',
+      onekey:'0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      id:options.id
+    })
+    if (options.onekey){
+      this.setData({
+        onekey: options.onekey
+      })
+    }
       this.loadData(options.id);
   },
   loadData: function (id) {
@@ -82,7 +92,12 @@ Page({
           console.log(err)
       });
   },
-
+  onekey:function(){
+    var that = this;
+  wx.navigateTo({
+    url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + that.data.xqObj.goods_group_id + '&create_person_id=' + that.data.xqObj.person_id + '&id=' + that.data.xqObj.joinList.id,
+  })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -128,10 +143,10 @@ Page({
     * 用户点击右上角分享
     */
   onShareAppMessage: function () {
-
+  var that=this;
     return {
       title: '快来帮我拼团吧',
-      path: 'pages/PaymentCompletion2/PaymentCompletion2',
+      path: 'pages/DetailsPayment/DetailsPayment?id='+this.data.id+'&onekey=1',
       success: function (res) {
         // 转发成功
         console.log("转发成功")

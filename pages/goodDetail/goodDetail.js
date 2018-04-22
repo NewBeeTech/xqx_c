@@ -185,6 +185,7 @@ Page({
    */
   onLoad: function (options) {
     this.startTimer();
+    wx.hideShareMenu();
     console.log(options.id);
     this.loadData(options.id);
   },
@@ -235,6 +236,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var that = this;
+    // wx.navigateTo({
+    //   url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + that.data.joinList.goods_group_id + '&create_person_id=' + that.data.joinList.person_id + '&id=' + that.data.joinList.id,
+    // })
+    var that = this;
+    return {
+      title: '快来帮我拼团吧',
+      // path: 'pages/DetailsPayment/DetailsPayment?id=' + this.data.id,
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功")
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败")
+      }
+    }
   }
+
 })

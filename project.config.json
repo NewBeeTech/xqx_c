@@ -261,6 +261,12 @@
 					"pathName": "pages/notice/notice",
 					"query": "",
 					"scene": "1008"
+				},
+				{
+					"id": 38,
+					"name": "detailsPayment",
+					"pathName": "pages/DetailsPayment/DetailsPayment",
+					"query": "id=226&onekey=1"
 				}
 			]
 		}

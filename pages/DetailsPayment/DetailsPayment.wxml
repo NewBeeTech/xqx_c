@@ -61,8 +61,14 @@
         <view class='wrap2_btn'>拼团</view>
     </block> -->
 
-    <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>
-    <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
+    <block wx:if='{{ onekey ==1}}'>
+           <view class='wrap2_btn' bindtap='onekey'>一键参团</view>
+    </block>
+    <block wx:else>
+          <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>
+          <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
+    </block>
+  
 
     <block wx:if='{{xqObj.deadLine <=0}}'>
         <view class='wrap2_mie2'>当前活动已失效，点击查看其它活动</view>
@@ -74,8 +80,10 @@
     </block>
     <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num >0}}'>
         <view class='wrap2_mie2'>仅剩{{su}}个名额，{{xqObj.deadLine}}后结束</view>
-        <view class='wrap2_btn'>一键参团</view>
+           <view class='wrap2_btn'>一键参团</view>
     </block>
+    
+
     
 </view>
 
