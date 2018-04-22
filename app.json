@@ -49,7 +49,8 @@
     "pages/webApp/webApp",
     "pages/h5/h5",
     "pages/DetailsPayment2/DetailsPayment2",
-    "pages/BargainDetails/BargainDetails"
+    "pages/BargainDetails/BargainDetails",
+    "pages/MyBargain/MyBargain"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -541,4 +541,18 @@ HTTPOpertion.getBargainInfo = function (parm) {
         .get(Default.HOST + Default.GET_BARGAIN_DETAILS, parm || {});
 
 }
+
+/**
+ * 获取我的砍价商品
+ *
+ * token	String	是	token
+ * userId	String	否	userId
+ * cnd	String	是	商户id
+ */
+HTTPOpertion.getMyBargains = function (parm) {
+    return HttpManager
+        .get(Default.HOST + Default.GET_MY_BARGAINS, parm || {});
+
+}
+
 module.exports = HTTPOpertion;

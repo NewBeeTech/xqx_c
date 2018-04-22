@@ -16,6 +16,7 @@
         <view class='Md_top_left'>
             <view><text>￥</text>{{obj.group_price}} <text class="price">￥{{obj.price}}</text></view>
             <view>已累计贡献小金：{{obj.total_currency}} 0.5小金</view>
+            <!-- {{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}} -->
             <view>已23人成功砍价</view>
         </view>
         <text class='Md_top_right' bindtap='mdTap'>分享给好友</text>
@@ -56,7 +57,19 @@
         <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
     </view>
 </view>
-
+<!-- 底部功能件 -->
+<view class='bottomBtn'>
+    <view class='backHome' bindtap='backHome'>
+        <image src='../../images/tabBar/a2.png'></image>
+        <view>首页</view>
+    </view>
+    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>立即支付</view>
+        </view>
+        <!-- <view class='bottomreward'>奖励{{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}}小金</view> -->
+    </view>
+</view>
 <view class='alertView' style='top:{{alertTop}}%; display:{{isShow}}'>
     <view class='container'>
         <image bindtap='close' class='close' src='../../images/img/close.png'></image>

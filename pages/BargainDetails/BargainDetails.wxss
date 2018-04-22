@@ -75,7 +75,7 @@ page{
 .price {
   color: 26rpx;
   color: #999;
-  text-decoration: overline;
+  text-decoration:line-through;
 }
 .Md_top_right {
     display: block;
@@ -192,6 +192,59 @@ margin: 0 26rpx 0 34rpx;
     height: 48rpx;
 }
 
+/* 底部功能 */
+.bottomBtn{
+  border-top: 1rpx solid #dadada;
+  height: 45px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+.backHome{
+  color: #ff9c00;
+  padding: 0 32px;
+  text-align: center;
+}
+.backHome image{
+    width: 18px;
+    height: 18px;
+}
+.beginBtn{
+  flex: 1;
+  height: 100%;
+  font-size: 36rpx;
+  background: #ff9c00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.beginBtn view {
+  text-align: center;
+}
+.beginBtn_lef{
+    padding-left: 190rpx;
+}
+.beginBtn2{
+    flex: 1;
+    height: 92rpx;
+    color: white;
+    text-align: center;
+    line-height: 47px;
+    background: #ff9c00;
+    border-radius: 0;
+}
+.bottomreward{
+  line-height: 22px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-right: 35rpx;
+}
 /* 详情 */
 
 .details{
