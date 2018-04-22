@@ -240,6 +240,12 @@
 					"name": "支付成功跳转",
 					"pathName": "pages/DetailsPayment/DetailsPayment",
 					"query": "id=709a5462-6e6c-4e0e-a747-38725701b819"
+				},
+				{
+					"id": -1,
+					"name": "PaymentCompletion2",
+					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
+					"query": ""
 				}
 			]
 		}

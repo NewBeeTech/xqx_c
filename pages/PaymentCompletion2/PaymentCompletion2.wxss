@@ -88,6 +88,29 @@
     transform: rotate(90deg);
 }
 
+.discount{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 53px;
+  /* margin: 0 15px; */
+  border-bottom: 1px solid #efefef;
+}
+.discount view{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discount image{
+    width: 20px;
+    height: 20px;
+    margin-right:5px;
+}
+.discount .rightImg{
+  width: 10px;
+  height: 18px;
+}
+
 .wrap2{
     padding: 64rpx 0 48rpx;
 }
