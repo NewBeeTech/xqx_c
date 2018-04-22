@@ -2,7 +2,6 @@
   "pages": [
     "pages/bargainOwnPage/bargainOwnPage",
     "pages/bargainGivenPage/bargainGivenPage",
-    "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainHomePage/bargainHomePage",
     "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
