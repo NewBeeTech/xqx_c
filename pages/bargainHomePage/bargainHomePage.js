@@ -31,6 +31,14 @@ Page({
         a1:'',
         a2:''
     },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.loadMainData();
+        this.loadData(1);
+    },
+
     loadMainData: function () {
         wx.showLoading({
             title: '加载中'
@@ -64,9 +72,10 @@ Page({
         })
     },
     toGroupDetail: function (e) {
-        wx.redirectTo({
-            url: '',
-        })
+      const id = e.currentTarget.dataset.id;
+      wx.redirectTo({
+          url: `../bargainOwnPage/bargainOwnPage?id=${id}`,
+      })
     },
     PopupF: function () {
         console.log("....");
@@ -77,11 +86,8 @@ Page({
     },
     //筛选点击
     PopupBoxLeftChoose: function (e) {
-
         var self = this;
         var id = typeof e == "number" ? 10 : e.currentTarget.dataset.id;
-        console.log(e);
-
         if (id == 0) {
             self.setData({
                 subList: [],
@@ -106,14 +112,10 @@ Page({
                 Popup_inde: e.currentTarget.dataset.index,
                 types: e.currentTarget.dataset.name
             });
-            console.log(this.data.subList);
             wx.hideLoading()
-        })
-            .catch(function (error) {
-                console.log(error);
-                wx.hideLoading()
-
-            });
+        }).catch(function (error) {
+          wx.hideLoading()
+        });
     },
     //
     navListTap: function (e) {
@@ -149,8 +151,8 @@ Page({
 
     },
     backHome: function (e) {
-      wx.navigateReplace({
-          url: '',
+      wx.redirectTo({
+          url: '../spellGroupHome/spellGroupHome',
       })
     },
     returnType: function () {
@@ -190,7 +192,6 @@ Page({
             self.setData({
                 Popup_index_right: 0,
                 orderType: "全部",
-
             });
         } else {
             this.setData({
@@ -206,7 +207,6 @@ Page({
                 unionidPopupIf: false
             });
         });
-
     },
     //右侧-筛选**
     PopupBoxRight: function (e) {
@@ -227,6 +227,7 @@ Page({
                 unionidPopupIf: !self.data.unionidPopupIf
             });
         });
+        this.unionidTap()
 
     },
 
@@ -272,53 +273,29 @@ Page({
         var intPara2 = this.data.a2;
         var self = this;
         return new Promise(function (success, fail) {
-            var config = { page: page, rows: 10 };
+            var config = { page: page, rows: 10, token: wx.getStorageSync('token') };
             if (intPara) { config.intPara = intPara }
             if (intPara2) { config.intPara2 = intPara2 }
             appData.Tool.getBargainList(config).then(function (res) {
                 wx.hideLoading();
-                console.log(res)
                 if (res.code === 0) {
-                    success();
-                    var arr = res.data.list;
-                    for (var k in arr) {
-                        arr[k].group_price = fn(arr[k].group_price);
-                        arr[k].price = fn(arr[k].price);
-                    }
-                    function fn(a) {
-                        if (typeof a == 'string') { return a };
-                        var str = a / 100 + '';
-                        var i = str.indexOf('.');
-                        if (i != -1) {
-                            if (str.length != i + 3) {
-                                str += '0';
-                            }
-                        } else {
-                            str += '.00';
-                        }
-                        return str;
-                    };
-                    if (!sf) {
-                        arr = self.data.goods.concat(arr);
-                    }
-                    self.setData({
-                        goods: arr
-                    });
-                    wx.stopPullDownRefresh();
-                    if (result.data.list.length == 0) {
-                        wx.showToast({
-                            title: '没有更多数据',
-                            icon: 'success',
-                            duration: 2000
-                        })
-                    }
-                } else {
+                  var listData = res.data.list;
+                  self.setData({
+                      goods: listData
+                  });
+                  if (res.data.list.length == 0) {
                     wx.showToast({
-                        title: res.message,
+                        title: '没有更多数据',
+                        icon: 'success',
                         duration: 2000
                     })
+                  }
+                }else {
+                  wx.showToast({
+                    title: res.message,
+                    duration: 2000
+                  })
                 }
-
             }).catch(function (err) {
                 wx.hideLoading();
             });
@@ -328,17 +305,14 @@ Page({
     pageScroll: function (e) {
         var bil = e.detail.scrollWidth / 375; //单位换算适应屏幕
         var top = e.detail.scrollTop;
-        console.log(top)
         if (top > bil * 345 / 2) {
             this.setData({
                 julIf: true
             })
-            console.log(true)
         } else {
             this.setData({
                 julIf: false
             })
-            console.log(false)
         }
     },
     //上滑加载
@@ -364,12 +338,5 @@ Page({
         }
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        this.loadMainData();
-        this.loadData(1);
-    },
 
 })

@@ -207,6 +207,9 @@ Default.GET_BARGAIN_DETAILS = "xcxcutprice/getGoodsCutPriceInfoXCX";
 // 砍价首页
 Default.GET_BARGAIN_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
 
+// 砍价详情
+Default.GET_BARGAIN_INFO = "xcxcutprice/createCutPriceXCX";
+
 // 获取收获地址列表
 Default.GET_ADDRESS_LIST = "xcxcutprice/getPersonAddressInfoXCX";
 
