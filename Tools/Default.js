@@ -213,5 +213,8 @@ Default.GET_BARGAIN_INFO = "xcxcutprice/createCutPriceXCX";
 // 获取收获地址列表
 Default.GET_ADDRESS_LIST = "xcxcutprice/getPersonAddressInfoXCX";
 
+// 分享接口
+Default.SHARE_BARGAIN = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
+
 
 module.exports = Default;

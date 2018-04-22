@@ -8,8 +8,8 @@
     <view wx:for="{{ cutList }}" wx:key='index'  class="bargin_user_item">
        <view>
          <view>{{ index + 1 }}</view>
-         <image src="{{ item.portrait }}" />
-         <view>{{ item.name }}</view>
+         <image src="{{ item.join_portrait }}" />
+         <view>{{ item.join_name }}</view>
        </view>
        <view>砍掉{{ item.cut_price }}元</view>
     </view>

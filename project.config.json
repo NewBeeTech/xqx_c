@@ -271,7 +271,8 @@
 				{
 					"id": -1,
 					"name": "砍价",
-					"pathName": "pages/bargainOwnPage/bargainOwnPage"
+					"pathName": "pages/bargainOwnPage/bargainOwnPage",
+					"query": ""
 				}
 			]
 		}
