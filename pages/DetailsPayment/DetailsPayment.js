@@ -1,4 +1,5 @@
 // pages/DetailsPayment/DetailsPayment.js
+var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
 Page({
@@ -51,22 +52,17 @@ Page({
               su:su
           })
 
-          var receive_time = res.data.receive_time - Date.now();
+          var deadLine = res.data.deadLine - Date.now();
           var dsq = function () {
-              if (receive_time-1000 > 0) {
+            if (deadLine-1000 >= 0) {
+              var showTime = DateTool.toHHMMSS(res.data.deadLine);
                   that.setData({
-                      'xqObj.receive_time': fnItem(receive_time - 1000)
+                    'xqObj.deadLine': showTime
                   })
               } else {
                   clearInterval(dsq);
                   return
                };
-              function fnItem(t) {
-                  var s = ~~(t / 60 / 60 / 1000);
-                  var f = ~~((t - s * 60 * 60 * 1000) / 60 / 1000);
-                  var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
-                  return (s < 10 ? '0' + s : s) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
-              };
           };
           setInterval(dsq, 1000)
       }).catch(function (err) {
