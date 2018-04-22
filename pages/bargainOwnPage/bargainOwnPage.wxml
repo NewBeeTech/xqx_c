@@ -28,7 +28,7 @@
      <view class="modal-dialog-content">
          <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
          <view class="modal-dialog-text">您已经砍{{ barginOwnData.cut_price / 100.0  || 0}} 元，听说分享次数越多，砍价成功的机会越大～</view>
-         <button bindtap="shareBtn" data-orderId="{{ barginOwnData.orderId }}" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
+         <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
      </view>
   </view>
 </view>
