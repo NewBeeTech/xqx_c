@@ -55,9 +55,9 @@ HTTPManager.post = function (url, parm) {
       success: function (res) {
         console.log(res);
         if (res.data.code === 2) {
-          // wx.reLaunch({
-          //   url: '../boundNumber/boundNumber',
-          // })
+          wx.reLaunch({
+            url: '../boundNumber/boundNumber',
+          })
 
           return;
         }

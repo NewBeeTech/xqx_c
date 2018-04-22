@@ -14,25 +14,26 @@ var wxTimer = function (initObj){
 wxTimer.prototype = {
 	//开始
 	start:function(self){
-			var seconds = this.beginTime
+			console.log(this.beginTime, new Date().getTime());
+			var seconds = this.beginTime - new Date().getTime()
 		  // this.endTime = new Date("1970/01/01 "+this.beginTime).getTime();//1970年1月1日的00：00：00的字符串日期
 		  // this.endSystemTime = new Date(Date.now() + this.endTime);
 	    var that = this;
 	    //开始倒计时
 	    var count = 0;//这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
 	    function begin(){
-	        var tmpTime = seconds - count++;
+	        var tmpTime = seconds - 1000 * count++;
 	        //把2011年1月1日日 00：00：00换成数字型，这样就可以直接1s，1s的减，就变成了倒计时，为了看的更明确，又用new date把字符串换回来了
 	        // var tmpTimeStr = tmpTime.toString().substr(16,8);//去掉前面的年月日就剩时分秒了
-	        var wxTimerHour = String(parseInt(tmpTime / 60 / 60)).replace(/\b(\d)\b/g, "0$1");//去掉前面的年月日就剩时分秒了
-	        var wxTimerMin = String(parseInt(tmpTime / 60 % 60)).replace(/\b(\d)\b/g, "0$1");//去掉前面的年月日就剩时分秒了
+	        var wxTimerHour = String(parseInt(tmpTime/1000 / 60 / 60)).replace(/\b(\d)\b/g, "0$1");//去掉前面的年月日就剩时分秒了
+	        var wxTimerMin = String(parseInt(tmpTime/1000 / 60 % 60)).replace(/\b(\d)\b/g, "0$1");//去掉前面的年月日就剩时分秒了
 	        // var wxTimerSecond = (tmpTime.getTime() - new Date("1970/01/01 00:00:00").getTime()) / 1000;
-	        var wxTimerSecond = String(parseInt(tmpTime % 60)).replace(/\b(\d)\b/g, "0$1");
+	        var wxTimerSecond = String(parseInt(tmpTime/1000 % 60)).replace(/\b(\d)\b/g, "0$1");
 					var wxTimerList = self.data.wxTimerList;
 					var tmpTimeStr = [
-			        parseInt(tmpTime / 60 / 60), // 时
-			        parseInt(tmpTime / 60 % 60), // 分
-			        parseInt(tmpTime % 60), // 秒
+			        parseInt(tmpTime/1000 / 60 / 60), // 时
+			        parseInt(tmpTime/1000 / 60 % 60), // 分
+			        parseInt(tmpTime/1000 % 60), // 秒
 			    ]
         	.join(":")
         	.replace(/\b(\d)\b/g, "0$1");;
