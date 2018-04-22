@@ -538,7 +538,7 @@ HTTPOpertion.cancelGroupOrder = function (parm) {
  */
 HTTPOpertion.getBargainInfo = function (parm) {
     return HttpManager
-        .get(Default.HOST + Default.GET_BARGAIN_DETAILS, parm || {});
+        .post(Default.HOST + Default.GET_BARGAIN_DETAILS, parm || {});
 
 }
 
@@ -551,7 +551,7 @@ HTTPOpertion.getBargainInfo = function (parm) {
  */
 HTTPOpertion.getMyBargains = function (parm) {
     return HttpManager
-        .get(Default.HOST + Default.GET_MY_BARGAINS, parm || {});
+        .post(Default.HOST + Default.GET_MY_BARGAINS, parm || {});
 }
 
 /**

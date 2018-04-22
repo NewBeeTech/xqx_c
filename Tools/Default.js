@@ -210,4 +210,7 @@ Default.GET_BARGAIN_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
 // 获取收获地址列表
 Default.GET_ADDRESS_LIST = "xcxcutprice/getPersonAddressInfoXCX";
 
+// 获取我的砍价商品
+Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
+
 module.exports = Default;

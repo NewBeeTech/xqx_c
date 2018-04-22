@@ -95,46 +95,46 @@ Page({
         var self = this;
         console.log(self.data.id);
 
-        appData.Tool.getMerchantInfo({ cnd: self.data.id }).then(function (result) {
-          wx.hideLoading();
+        appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
+            // wx.hideLoading();
             console.log(result);
-            self.setData({
-                obj: result.data,
-                likes: result.data.reducedList.length > 2 ? [result.data.reducedList[0], result.data.reducedList[1]] : result.data.reducedList,
-                allLikes: result.data.reducedList,
-                markers: [{
-                    latitude: result.data.latitude,
-                    longitude: result.data.longitude
-                }],
-                allServices: result.data.service
-            });
-
-            if (result.data.service && result.data.service.length >= 8) {
-              self.setData({
-                services: result.data.service.slice(0,8),
-                minServices: result.data.service.slice(0, 8)
-              });
-
-            } else {
-              self.setData({
-                services: result.data.service
-              });
-            }
-
-            console.log(self.data.services);
-            self.setData({
-              currentLikes: self.data.likes
-            });
-            console.log(self.data.currentLikes);
-            if (result.data.storePics.length>=4){
-              for(var i=0;i<4;i++){
-                self.data.pics.push(result.data.storePics[i]);
-              }
-            }else{
-                self.setData({
-                  pics: result.data.storePics
-                });
-            }
+            // self.setData({
+            //     obj: result.data,
+            //     likes: result.data.reducedList.length > 2 ? [result.data.reducedList[0], result.data.reducedList[1]] : result.data.reducedList,
+            //     allLikes: result.data.reducedList,
+            //     markers: [{
+            //         latitude: result.data.latitude,
+            //         longitude: result.data.longitude
+            //     }],
+            //     allServices: result.data.service
+            // });
+            //
+            // if (result.data.service && result.data.service.length >= 8) {
+            //   self.setData({
+            //     services: result.data.service.slice(0,8),
+            //     minServices: result.data.service.slice(0, 8)
+            //   });
+            //
+            // } else {
+            //   self.setData({
+            //     services: result.data.service
+            //   });
+            // }
+            //
+            // console.log(self.data.services);
+            // self.setData({
+            //   currentLikes: self.data.likes
+            // });
+            // console.log(self.data.currentLikes);
+            // if (result.data.storePics.length>=4){
+            //   for(var i=0;i<4;i++){
+            //     self.data.pics.push(result.data.storePics[i]);
+            //   }
+            // }else{
+            //     self.setData({
+            //       pics: result.data.storePics
+            //     });
+            // }
             // wx.setNavigationBarTitle({
             //   title: result.data.name
             // })
