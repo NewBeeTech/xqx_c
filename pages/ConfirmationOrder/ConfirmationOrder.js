@@ -1,4 +1,11 @@
 // pages/ConfirmationOrder/ConfirmationOrder.js
+
+// 点击去参团
+// 传参 cnd  create_person_id    group_buy_id    
+// 数据与joinList的数据对应
+// cnd  对应 joinList 中的 goods_group_id   
+// create_person_id  对应 joinList 中的 person_id    
+// group_buy_id 对应 joinList 中的 id
 var app = getApp();
 var appData = app.globalData;
 Page({
@@ -129,7 +136,7 @@ Page({
                           title: '支付成功',
                           complete:function(){
                               wx.redirectTo({
-                                url: '../DetailsPayment/DetailsPayment?id=' + that.data.id
+                                url: '../DetailsPayment/DetailsPayment?id=' + res.data.orderId
                               })
                           }
                       })
