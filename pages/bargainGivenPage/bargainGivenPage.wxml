@@ -11,15 +11,7 @@
   <view class="bargain_own_list">
     <template is="bargainUserList" data="{{ cutList: barginOwnData.cutList }}"/>
   </view>
-  <view class='bottomBtn'>
-      <view class='backHome' bindtap='backHome'>
-          <image src='../../images/tabBar/a2.png'></image>
-          <view>首页</view>
-      </view>
-      <view class='bargainBtn' bindtap='oneKeyGroup'>
-          我的砍价商品
-      </view>
-  </view>
+  
   <!-- 弹窗 -->
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">
