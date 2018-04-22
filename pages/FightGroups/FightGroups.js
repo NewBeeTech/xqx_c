@@ -30,7 +30,7 @@ Page({
         superID: 0,
         goods: [],
         a1:'',
-        a2:''
+        a2:'1'
     },
     loadMainData: function () {
 

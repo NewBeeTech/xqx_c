@@ -67,7 +67,7 @@ Page({
           setInterval(dsq, 1000)
           var create_time = DateTool.toHHMMSS2(res.data.create_time);
           that.setData({
-            'xqObj.create_time': create_time
+            'xqObj.create_time': res.data.create_time
           })
 
           that.setData({

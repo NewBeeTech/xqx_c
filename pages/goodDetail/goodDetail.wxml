@@ -105,7 +105,7 @@
     <image src='../../images/tabBar/a2.png'></image>
     <view>首页</view>
   </view>
-  <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
+  <view class='beginBtn' wx:if="{{goodsInfo.infoStatus==0}}" bindtap='oneKeyGroup' data-cnd='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
     <view class='beginBtn_lef'>
       <view>¥{{goodsInfo.group_price}}</view>
       <view>一键开团</view>
