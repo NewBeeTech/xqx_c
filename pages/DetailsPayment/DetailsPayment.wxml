@@ -80,7 +80,7 @@
     </block>
     <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num >0}}'>
         <view class='wrap2_mie2'>仅剩{{su}}个名额，{{xqObj.deadLine}}后结束</view>
-           <view class='wrap2_btn'>一键参团</view>
+           <!-- <view class='wrap2_btn'>一键参团</view> -->
     </block>
     
 
