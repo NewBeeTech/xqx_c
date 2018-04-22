@@ -1,7 +1,11 @@
-/* pages/MerchantList/MerchantList.wxss */
+page {
+  overflow: hidden;
+}
+
 .bargain_content {
     width: 100vh;
     height: 100vw;
+    overflow: hidden;
 }
 
 .wrap1{
@@ -104,6 +108,7 @@
 
 .wrap3{
     padding: 0 35rpx;
+    border-bottom: 1px solid #eee;
 }
 .wrap3>view{
     border-bottom: solid 1rpx #dadada;
@@ -130,15 +135,17 @@
     font-size: 30rpx;
 }
 .wrap3_box_jig{
-    height: 50rpx;
+    /* height: 50rpx; */
     display: flex;
     align-items: center;
+    margin: 10rpx 0;
 }
 .wrap3_box_jig>view{
     font-size: 34rpx;
 }
 .wrap3_box_jig>view>text{
     font-size: 24rpx;
+    color: #5a5a5a;
 }
 .wrap3_box_jig>text{
     font-size: 24rpx;
@@ -349,11 +356,12 @@ width: 50%;
 .Popup_box_left,.Popup_box_right{
     font-size: 15px;
     border-bottom: 1rpx solid #c7c7c7;
+    text-align: center;
 }
 .Popup_box_left>view,.Popup_box_right>view{
     height: 92rpx;
     line-height: 92rpx;
-    margin-left: 80rpx;
+    /* margin-left: 80rpx; */
 }
 
 

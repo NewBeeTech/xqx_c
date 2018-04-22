@@ -51,21 +51,21 @@
 
   <scroll-view class="bargin_list" scroll-y="true" bindscroll='pageScroll' bindscrolltolower='shjiaz'>
     <view class='wrap3 {{julIf && "wrap3_jul"}}'>
-      <view wx:for='{{goods}}' wx:key='{{index}}'>
+      <view wx:for='{{goods}}' wx:key='{{ item.id }}' bindtap='toGroupDetail' data-id="{{item.id}}" >
         <image class='wrap3_img' src='{{item.img_url}}'></image>
         <view class='wrap3_box'>
           <view class='wrap3_box_name'>{{item.name}}</view>
           <view class='wrap3_box_jig'>
             <view>
-              <text>原价：￥</text>{{item.group_price}}</view>
+              <text>原价：￥</text>{{item.price / 100.0}}</view>
           </view>
-          <view class='wrap3_box_ewj'>额外奖励： {{~~(item.group_price*100*item.ratio/100)?~~(item.group_price*100*item.ratio/100)/100:0.01}}小金</view>
+          <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
           <view class='wrap3_box_shl'>
-            <view>{{item.group_person_num}}人已0元拿</view>
-            <text>已售出： {{item.group_num}}件</text>
+            <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
+            <text>已售出：{{item.group_person_num || 0}}件</text>
           </view>
         </view>
-        <view class='wrap3_btn' bindtap='toGroupDetail' data-id='{{item.id}}'>砍价10元得</view>
+        <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
       </view>
     </view>
   </scroll-view>

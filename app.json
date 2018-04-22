@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/bargainOwnPage/bargainOwnPage",
-    "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainHomePage/bargainHomePage",
+    "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
     "pages/bargainRulePage/bargainRulePage",
     "pages/spellGroupHome/spellGroupHome",

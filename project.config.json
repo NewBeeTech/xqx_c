@@ -24,6 +24,10 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"list": []
 		},
@@ -255,7 +259,8 @@
 				{
 					"id": -1,
 					"name": "砍价",
-					"pathName": "pages/bargainOwnPage/bargainOwnPage"
+					"pathName": "pages/bargainOwnPage/bargainOwnPage",
+					"query": ""
 				}
 			]
 		}
