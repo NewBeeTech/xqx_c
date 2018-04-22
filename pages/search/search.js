@@ -33,6 +33,9 @@ Page({
   },
   onLoad: function (options) {
     appData.searchData = wx.getStorageSync("searchData");
+    if (!appData.searchData){
+      appData.searchData = [];
+    }
     var list = appData.searchData;
       for (var i = 0; i < list.length; i++) {
           list[i].txtStyle = "";
