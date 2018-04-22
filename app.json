@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/bargainOwnPage/bargainOwnPage",
+    "pages/bargainGivenPage/bargainGivenPage",
+    "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainHomePage/bargainHomePage",
     "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
@@ -51,7 +53,8 @@
     "pages/webApp/webApp",
     "pages/h5/h5",
     "pages/DetailsPayment2/DetailsPayment2",
-    "pages/BargainDetails/BargainDetails"
+    "pages/BargainDetails/BargainDetails",
+    "pages/MyBargain/MyBargain"
   ],
   "window": {
     "backgroundTextStyle": "light",
