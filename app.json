@@ -48,7 +48,8 @@
     "pages/DetailsPayment2/DetailsPayment2",
     "pages/kanjia/kanjia",
     "pages/miaosha/miaosha",
-    "pages/learnOurs/learnOurs"
+    "pages/learnOurs/learnOurs",
+    "pages/notice/notice"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -64,16 +64,16 @@
     <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>
     <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
 
-    <block wx:if='{{deadLine <=0}}'>
+    <block wx:if='{{xqObj.deadLine <=0}}'>
         <view class='wrap2_mie2'>当前活动已失效，点击查看其它活动</view>
         <view class='wrap2_btn'>拼团</view>
     </block>
-    <block wx:elif='{{deadLine >0 && avail_num <=0}}'>
+    <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num <=0}}'>
         <view class='wrap2_mie2'>当前人数已满，可重新开团</view>
         <view class='wrap2_btn'>拼团</view>
     </block>
-    <block wx:elif='{{deadLine >0 && avail_num >0}}'>
-        <view class='wrap2_mie2'>仅剩{{su}}个名额，{{xqObj.receive_time}}后结束</view>
+    <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num >0}}'>
+        <view class='wrap2_mie2'>仅剩{{su}}个名额，{{xqObj.deadLine}}后结束</view>
         <view class='wrap2_btn'>一键参团</view>
     </block>
     
@@ -88,22 +88,22 @@
     <view>
         <view>商品名称</view>
         <view class='notice'>
-            <view>名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字</view>
+            <view>{{xqObj.group_name}}</view>
             <image src='../../images/icon/jit2.png'></image>
         </view>
     </view>
     <view>
         <view>参团时间</view>
-        <text>2018-10-10 12：12：12</text>
+        <text>{{xqObj.create_time}}</text>
     </view>
     <view>
         <view>订单编号</view>
-        <text>22929929911011011</text>
+        <text>{{xqObj.serial_number}}</text>
     </view>
     <view>
-        <view>拼团须知</view>
-        <view class='notice'>
-            <view>拼团须知1 拼团须知2 拼团须知3 </view>
+        <view bindtap='gotoNotice'>拼团须知</view>
+        <view class='notice' bindtap='gotoNotice'>
+            <view>更多</view>
             <image src='../../images/icon/jit2.png'></image>
         </view>
     </view>

@@ -65,6 +65,18 @@ Page({
                };
           };
           setInterval(dsq, 1000)
+          var create_time = DateTool.toHHMMSS2(res.data.create_time);
+          that.setData({
+            'xqObj.create_time': create_time
+          })
+
+          that.setData({
+            'xqObj.group_name': res.data.group_name
+          })
+          that.setData({
+            'xqObj.serial_number': res.data.serial_number
+          })
+
       }).catch(function (err) {
           wx.hideLoading();
           console.log(err)
@@ -130,6 +142,11 @@ Page({
         console.log("转发失败")
       }
     }
-  }
-  
+  },
+  gotoNotice: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '../notice/notice'
+    })
+  },
 })

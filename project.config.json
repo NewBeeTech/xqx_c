@@ -237,7 +237,7 @@
 				},
 				{
 					"id": 34,
-					"name": "支付成功跳转",
+					"name": "拼团须知调试",
 					"pathName": "pages/DetailsPayment/DetailsPayment",
 					"query": "id=226",
 					"scene": "1008"
@@ -247,6 +247,20 @@
 					"name": "PaymentCompletion2",
 					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付成功跳转",
+					"pathName": "pages/DetailsPayment/DetailsPayment",
+					"query": "id=226",
+					"scene": "1008"
+				},
+				{
+					"id": 37,
+					"name": "拼团须知",
+					"pathName": "pages/notice/notice",
+					"query": "",
+					"scene": "1008"
 				}
 			]
 		}
