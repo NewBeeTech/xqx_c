@@ -63,7 +63,7 @@
               <view>还差{{item.avail_num}}人拼成</view>
               <view class='groupsTime'>剩余 {{item.deadLineX}}</view>
             </view>
-            <view bindtap='oneKeyGroup' data-id='{{item.id}}' data-person_id='{{item.person_id}}' data-group_buy_id='{{item.group_buy_id}}' data-create_person_id='{{item.create_person_id}}'>去参团</view>
+            <view bindtap='oneKeyGroup' data-cnd='{{item.goods_group_id}}' data-create_person_id ='{{item.person_id}}' data-group_buy_id='{{item.id}}' >去参团</view>
           </view>
         </view>
       </view>
