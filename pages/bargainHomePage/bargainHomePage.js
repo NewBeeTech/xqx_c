@@ -1,4 +1,3 @@
-// pages/MerchantList/MerchantList.js
 var app = getApp();
 var appData = app.globalData;
 Page({
@@ -33,11 +32,9 @@ Page({
         a2:''
     },
     loadMainData: function () {
-
         wx.showLoading({
             title: '加载中'
         })
-
         var self = this;
         var config = { intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude") };
         console.log(config);
@@ -55,8 +52,7 @@ Page({
             console.log(self.data.typeList);
             wx.hideLoading();
             wx.stopPullDownRefresh();
-        })
-            .catch(function (error) {
+        }).catch(function (error) {
                 console.log(error);
                 wx.hideLoading();
                 wx.stopPullDownRefresh()
@@ -64,12 +60,12 @@ Page({
     },
     toWaring: function () {
         wx.navigateTo({
-            url: '../waring/waring',
+            url: '../bargainRulePage/bargainRulePage',
         })
     },
     toGroupDetail: function (e) {
-        wx.navigateTo({
-            url: '../goodDetail/goodDetail?id=' + e.currentTarget.dataset.id
+        wx.redirectTo({
+            url: '',
         })
     },
     PopupF: function () {
@@ -124,7 +120,7 @@ Page({
         var name = e.currentTarget.dataset.name;
         var id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: '../shopList/shopList?name=' + name + "&id=" + id + "&index=" + e.currentTarget.dataset.index
+            url: '',
         })
         this.returnType();
     },
@@ -152,8 +148,10 @@ Page({
 
 
     },
-    moveToTop: function (e) {
-        // console.log(e);
+    backHome: function (e) {
+      wx.navigateReplace({
+          url: '',
+      })
     },
     returnType: function () {
         this.setData({
@@ -277,7 +275,7 @@ Page({
             var config = { page: page, rows: 10 };
             if (intPara) { config.intPara = intPara }
             if (intPara2) { config.intPara2 = intPara2 }
-            appData.Tool.getGoodsGroupBuyListXCX(config).then(function (res) {
+            appData.Tool.getBargainList(config).then(function (res) {
                 wx.hideLoading();
                 console.log(res)
                 if (res.code === 0) {
