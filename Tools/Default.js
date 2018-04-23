@@ -219,4 +219,7 @@ Default.SHARE_BARGAIN = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
 // 获取我的砍价商品
 Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
+// 砍价确认支付
+Default.BARGAINS_PAY = "xcxcutprice/createWeChatPayXCX";
+
 module.exports = Default;

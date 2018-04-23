@@ -591,4 +591,13 @@ HTTPOpertion.shareBargain = function (parm) {
 
 }
 
+/**
+ * 砍价支付接口
+ */
+HTTPOpertion.bargainPay = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.BARGAINS_PAY, parm || {});
+
+}
+
 module.exports = HTTPOpertion;

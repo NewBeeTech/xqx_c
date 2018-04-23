@@ -1,4 +1,3 @@
-<!--pages/ConfirmationOrder/ConfirmationOrder.wxml-->
 <view class='wrap1' wx:if='{{groupInfo.address_id}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
         <view>{{groupInfo.receiveName}} {{groupInfo.phone}}</view>
