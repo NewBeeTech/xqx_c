@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/spellGroupHome/spellGroupHome",
     "pages/bargainOwnPage/bargainOwnPage",
     "pages/bargainGivenPage/bargainGivenPage",
     "pages/bargainHomePage/bargainHomePage",
     "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
     "pages/bargainRulePage/bargainRulePage",
-    "pages/spellGroupHome/spellGroupHome",
     "pages/homePage/homePage",
     "pages/Album/Album",
     "pages/AlbumDetail/AlbumDetail",
