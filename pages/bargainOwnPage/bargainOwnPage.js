@@ -76,40 +76,11 @@ Page({
   hideModal: function () {
     this.setData({ showModal: false });
   },
-  shareBtn: function (e) {
-    // 分享
-    // const orderId = e.currentTarget.dataset.orderId;
-    // console.log('orderId', orderId)
-    // var self = this;
-    // const params = {
-    //   token: wx.getStorageSync('token'),
-    //   cnd: orderId
-    // };
-    // appData.Tool.shareBargain(params).then(function (result) {
-    //   if (result.code === 0) {
-    //     self.setData({ barginOwnData: result.data });
-    //
-    //     var wxTimer = new timer({
-    //         beginTime: result.data.deadLine,
-    //         name: 'wxTimer1',
-    //         complete:function(){
-    //             console.log("完成了")
-    //         }
-    //     })
-    //     wxTimer.start(self);
-    //   }
-    //   wx.hideLoading();
-    // }).catch(function (error) {
-    //     console.log(error);
-    //     wx.hideLoading()
-    //
-    // });
-  },
   onShareAppMessage: function () {
     const self = this;
     return {
-      title: '自定义转发标题',
-      path: '/page/user?id=123',
+      title: '砍价',
+      path: `../bargainGivenPage/bargainGivenPage?id=379`,
       success: function(res) {
         // 转发成功
         wx.showToast({
@@ -129,7 +100,7 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '../bargainRulePage/bargainRulePage',
+        url: '../MyBargain/MyBargain'
     })
   },
   goBargainRule: function () {

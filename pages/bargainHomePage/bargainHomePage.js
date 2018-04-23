@@ -363,6 +363,11 @@ Page({
             })
         }
     },
+    oneKeyGroup: function () {
+      wx.navigateTo({
+          url: '../MyBargain/MyBargain'
+      })
+    }
 
 
 })
