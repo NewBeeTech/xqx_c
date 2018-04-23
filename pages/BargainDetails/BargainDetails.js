@@ -97,6 +97,11 @@ Page({
       }
     }
   },
+  backHome: function (e) {
+    wx.switchTab({
+        url: '../spellGroupHome/spellGroupHome',
+    })
+  },
   navToMap:function(e){
     console.log(e);
     var lat = e.currentTarget.dataset.info.latitude;

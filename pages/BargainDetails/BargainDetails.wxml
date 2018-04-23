@@ -15,8 +15,8 @@
     <view class='Md_top'>
         <view class='Md_top_left'>
             <view><text>￥</text>{{obj.group_price}} <text class="price">￥{{obj.price}}</text></view>
-            <view>已累计贡献小金：{{obj.total_currency}} 0.5小金</view>
-            <!-- {{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}} -->
+            <view>已累计贡献小金：{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}} 0.5小金</view>
+
             <view>已23人成功砍价</view>
         </view>
         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
@@ -49,12 +49,13 @@
 </view>
 <view class='goodDetails bg_white' wx:if="{{obj.explain_content||obj.explain_img_url}}">
     <view>
-        <view class='detaileTitle'>商品详情</view>
         <view class='detaileTitle'>商品描述</view>
+        <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
     </view>
     <view>
-        <view class='detaileTitle' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
-        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
+        <view class='detaileTitle'>商品详情</view>
+        <!-- <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image> -->
+        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix'  src='{{obj.explain_img_url}}'></image>
     </view>
 </view>
 <!-- 底部功能件 -->
