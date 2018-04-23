@@ -15,23 +15,19 @@ Page({
    */
   onLoad: function (options) {
       this.getAddress();
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-      this.loadInfo();
+      this.getGoodInfo();
   },
   getGoodInfo: function () {
       // 获取支付详情
       const obj = {
         token: wx.getStorageSync('token'),
-        cnd: '' // 订单ID
+        cnd: '327' // 订单ID
       }
+      const that = this;
       appData.Tool.getBargainInfo(obj).then(function (res) {
         wx.hideLoading();
         if (res.code === 0) {
-
+           that.setData({ goodInfo: res.data })
         } else {
           wx.showToast({
               title: res.message,
@@ -46,15 +42,15 @@ Page({
   },
   //编辑地址
   bjAddress:function(){
-      var obj = this.data.groupInfo;
+      var obj = this.data.addressInfo;
       wx.navigateTo({
-          url: '../WriteAddress/WriteAddress?address_id=' + obj.address_id + '&create_person_id=' + this.data.create_person_id + '&group_buy_id=' + this.data.group_buy_id + '&a1=' + this.data.groupInfo.receiveName + '&a2=' + this.data.groupInfo.phone + '&a3=' + this.data.groupInfo.address
+          url: '../WriteAddress/WriteAddress?address_id=' + obj.address_id + '&create_person_id=' + obj.person_id + '&group_buy_id=' + 0 + '&a1=' + obj.name + '&a2=' + obj.phone + '&a3=' + obj.address
       })
   },
   //立即支付
   toPay: function () {
       var that = this;
-      if (!that.data.groupInfo.address_id){
+      if (!this.data.addressInfo.id){
           wx.showToast({
               title: '请先添加地址',
               icon:'none'
@@ -62,17 +58,37 @@ Page({
           return
       };
       var obj ={
-          cnd: that.data.cnd,
-          orderId: that.data.orderId,
+          cnd: that.data.goodInfo.orderId,
+          address_id: that.data.addressInfo.id,
           token: wx.getStorageSync('token')
       };
-      console.log(obj);
       appData.Tool.bargainPay(obj).then(function (res) {
           console.log(res)
           wx.hideLoading();
           if (res.code === 0) {
-            this.setData({
-              goodInfo: res.data
+            // 调起支付
+            const data = res.data;
+            console.log('data:====>', data)
+            wx.requestPayment({
+               'appId': data.appId,
+               'timeStamp': data.timeStamp,
+               'nonceStr': data.nonceStr,
+               'package': data.package,
+               'signType': data.signType,
+               'paySign': data.paySign,
+               'success':function(res){
+                 wx.redirectTo({
+                     url: `../bargainSuccessPage/bargainSuccessPage?orderId=${this.data.goodInfo.orderId}`
+                 });
+               },
+               'fail':function(res){
+                 console.log('res:', res)
+                 wx.showToast({
+                     title: res.err_desc,
+                     icon: 'none',
+                     duration: 2000
+                 })
+               }
             })
           } else {
             wx.showToast({
@@ -88,11 +104,12 @@ Page({
   },
   getAddress: function () {
     // 获取收获地址
-    appData.Tool.getAddressList(obj).then(function (res) {
+    const that = this;
+    appData.Tool.getAddressList({}).then(function (res) {
         console.log(res)
         wx.hideLoading();
         if (res.code === 0) {
-           this.setData({
+           that.setData({
              addressInfo: res.data
            })
         } else {

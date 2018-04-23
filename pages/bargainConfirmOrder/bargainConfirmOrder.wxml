@@ -1,7 +1,7 @@
-<view class='wrap1' wx:if='{{groupInfo.address_id}}' bindtap='bjAddress'>
+<view class='wrap1' wx:if='{{addressInfo.id}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
-        <view>{{groupInfo.receiveName}} {{groupInfo.phone}}</view>
-        <text>{{groupInfo.address}}</text>
+      <view>{{ addressInfo.name }} {{ addressInfo.phone }}</view>
+      <view>{{ addressInfo.address }}</view>
     </view>
     <image class='wrap1_icon' src='../../images/icon/jit2.png'></image>
 </view>
@@ -9,23 +9,23 @@
 <view class='wrap1' wx:else bindtap='bjAddress'>
     <view class='wrap1_box2'>
         <image src='../../images/icon/ja.png'></image>
-        <text>手动添加地址</text>
+        <view >手动添加地址</view>
     </view>
     <image class='wrap1_icon wrap1_icon2' src='../../images/icon/jit2.png'></image>
 </view>
 
 <view class='wrap2'>
     <view class='wrap2_title'>
-        <image src='{{groupInfo.store_logo}}'></image>
-        <text>{{groupInfo.merchant_name}}</text>
+        <image src='{{goodInfo.store_logo}}'></image>
+        <text>{{goodInfo.merchant_name}}</text>
     </view>
     <view class='wrap2_shop'>
-        <image class='wrap2_shop_img' src='{{groupInfo.img_url}}'></image>
+        <image class='wrap2_shop_img' src='{{goodInfo.img_url}}'></image>
         <view>
-            <view class='wrap2_shop_name'>{{groupInfo.name}}</view>
+            <view class='wrap2_shop_name'>{{goodInfo.name}}</view>
             <view class='wrap2_shop_jig'>
-                <view><text>￥</text>{{groupInfo.group_price}}</view>
-                <text>￥{{groupInfo.price/100}}</text>
+                <view><text>￥</text>{{goodInfo.group_price/100}}</view>
+                <text>￥{{goodInfo.price/100}}</text>
             </view>
         </view>
     </view>
@@ -35,11 +35,11 @@
     <view class='wrap3_cont'>
         <view class='wrap3_cont_he'>
             <view>付款金额：</view>
-            <text class='wrap3_cont_he_sc'>￥{{groupInfo.group_price*100*buyNum/100}}</text>
+            <text class='wrap3_cont_he_sc'>￥{{goodInfo.group_price/100}}</text>
         </view>
         <view>
             <view>额外奖励：</view>
-            <text class='wrap3_cont_he_sc'>{{~~(groupInfo.group_price*100*groupInfo.ratio*buyNum/100)?~~(groupInfo.group_price*100*groupInfo.ratio*buyNum/100)/100:0.01}}小金</text>
+            <text class='wrap3_cont_he_sc'>{{goodInfo.group_price/100*goodInfo.ratio/100}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>

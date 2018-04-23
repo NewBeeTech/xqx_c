@@ -18,7 +18,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     this.getInfo()
+     console.log('options.orderId:', options.orderId)
+     this.getInfo(options.orderId)
   },
 
   /**
@@ -34,11 +35,11 @@ Page({
   onShow: function () {
 
   },
-  getInfo: function () {
+  getInfo: function (orderId) {
     // 获取支付成功之后的详情
     const obj = {
       token: wx.getStorageSync('token'),
-      cnd: '327' // 订单ID
+      cnd: orderId // 订单ID
     }
     const that = this;
     appData.Tool.shareBargain(obj).then(function (res) {

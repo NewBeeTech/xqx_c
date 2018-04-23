@@ -13,6 +13,10 @@
 .wrap1_box>view{
     height: 44rpx;
     font-size: 28rpx;
+    width: 80vw;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .wrap1_box>text{
     color: #999999;
@@ -37,6 +41,11 @@
     height: 56rpx;
     margin-right: 18rpx;
 }
+
+.wrap1_box2>view {
+  width: 70vw;
+}
+
 .wrap1_icon2{
     margin-right: 34rpx;
 }
