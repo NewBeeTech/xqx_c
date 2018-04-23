@@ -64,11 +64,15 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.now_price <= obj.group}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
-            <view>立即支付</view>
+            <view >立即支付</view>
         </view>
-        <!-- <view class='bottomreward'>奖励{{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}}小金</view> -->
+    </view>
+    <view wx:else class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>继续砍价</view>
+        </view>
     </view>
 </view>
 <view class='alertView' style='top:{{alertTop}}%; display:{{isShow}}'>
