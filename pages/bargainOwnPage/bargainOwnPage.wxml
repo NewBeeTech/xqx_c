@@ -2,11 +2,12 @@
 <import src="../../components/barginUserList/barginUserList.wxml"/>
 
 <view>
+  <view class="bargain_rule" bindtap='goBargainRule'>活动规则</view>
   <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ barginOwnData.cut_price }}</span>元  还差<span class="bargin_own_info2">20</span>元</view>
     <button bindtap="showModalBtn" class="bargin_share_btn">喊朋友砍一刀</button>
-    <view class="bargin_own_info3">还剩 结束，快来砍价吧</view>
+    <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>
   <view class="bargain_own_list">
     <template is="bargainUserList" data="{{ cutList: barginOwnData.cutList }}"/>
@@ -16,7 +17,7 @@
           <image src='../../images/tabBar/a2.png'></image>
           <view>首页</view>
       </view>
-      <view class='bargainBtn' bindtap='oneKeyGroup'>
+      <view class='bargainBtn' bindtap='myBargainList'>
           我的砍价商品
       </view>
   </view>
@@ -26,8 +27,8 @@
      <view class="modal-close-img" bindtap="hideModal"><image src="{{ closeIcon }}"/></view>
      <view class="modal-dialog-content">
          <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
-         <view class="modal-dialog-text">您已经砍{{ 0 }} 元，听说分享次数越多，砍价成功的机会越大～</view>
-         <button bindtap="shareBtn" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
+         <view class="modal-dialog-text">您已经砍{{ barginOwnData.cut_price / 100.0  || 0}} 元，听说分享次数越多，砍价成功的机会越大～</view>
+         <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
      </view>
   </view>
 </view>

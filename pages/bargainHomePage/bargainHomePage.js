@@ -279,16 +279,17 @@ Page({
             appData.Tool.getBargainList(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
-                  var listData = res.data.list;
+                  const goods = self.data.goods
+                  var listData = goods.concat(res.data.list);
                   self.setData({
                       goods: listData
                   });
                   if (res.data.list.length == 0) {
-                    wx.showToast({
-                        title: '没有更多数据',
-                        icon: 'success',
-                        duration: 2000
-                    })
+                    // wx.showToast({
+                    //     title: '没有更多数据',
+                    //     icon: 'success',
+                    //     duration: 2000
+                    // })
                   }
                 }else {
                   wx.showToast({

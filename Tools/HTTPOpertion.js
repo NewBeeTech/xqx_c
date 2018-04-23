@@ -582,4 +582,13 @@ HTTPOpertion.getAddressList = function (parm) {
 
 }
 
+/**
+ * 分享接口
+ */
+HTTPOpertion.shareBargain = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.SHARE_BARGAIN, parm || {});
+
+}
+
 module.exports = HTTPOpertion;

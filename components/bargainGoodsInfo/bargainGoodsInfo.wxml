@@ -1,6 +1,5 @@
 <template name="bargainGoodsInfo">
   <view class="bargain_content">
-     <view class="bargain_rule">活动规则</view>
      <view class="bargain_portrait">
         <image src="{{ barginOwnData.userPortrait }}"/>
         <view>{{ barginOwnData.userName }}</view>
@@ -11,9 +10,9 @@
           <view class="bargain_right_name">{{ barginOwnData.name }}</view>
           <view  class="bargain_right_money">
              <view  class="bargain_right_money3">
-               <span class="bargain_right_money1">¥</span>{{ barginOwnData.price  }}
+               <span class="bargain_right_money1">¥</span>{{ barginOwnData.price / 100  }}
              </view>
-             <view class="bargain_right_money2">{{  barginOwnData.price }}人已{{ barginOwnData.group_price }}元拿</view>
+             <view class="bargain_right_money2">{{  barginOwnData.price / 100 }}人已{{ barginOwnData.group_price / 100 }}元拿</view>
            </view>
           <view class="bargain_right_money4">砍价购买成功额外奖励2.0元小金</view>
       </view>

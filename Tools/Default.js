@@ -213,6 +213,9 @@ Default.GET_BARGAIN_INFO = "xcxcutprice/createCutPriceXCX";
 // 获取收获地址列表
 Default.GET_ADDRESS_LIST = "xcxcutprice/getPersonAddressInfoXCX";
 
+// 分享接口
+Default.SHARE_BARGAIN = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
+
 // 获取我的砍价商品
 Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 

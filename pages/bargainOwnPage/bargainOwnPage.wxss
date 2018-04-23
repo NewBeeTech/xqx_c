@@ -138,3 +138,12 @@
   width: 30rpx;
   height: 30rpx;
 }
+
+.bargain_rule {
+  width: 94vw;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 24rpx;
+  color: #6e6e6e;
+  text-align: right;
+}

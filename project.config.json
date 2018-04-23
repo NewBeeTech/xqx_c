@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 40,
+			"current": 41,
 			"list": [
 				{
 					"id": 0,
@@ -278,6 +278,12 @@
 					"id": -1,
 					"name": "我的砍价商品",
 					"pathName": "pages/MyBargain/MyBargain",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价",
+					"pathName": "pages/bargainOwnPage/bargainOwnPage",
 					"query": ""
 				}
 			]

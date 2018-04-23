@@ -1,5 +1,6 @@
 var app = getApp();
 var appData = app.globalData;
+var timer = require('../../components/wxTimer/wxTimer.js')
 
 Page({
   /**
@@ -31,7 +32,8 @@ Page({
       // goods_group_id:2,
       // group_buy_id:3,
       // orderId:2
-    }
+    },
+    wxTimerList: {}
   },
   /**
    * 生命周期函数--监听页面加载
@@ -49,7 +51,19 @@ Page({
       cnd: id
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
+      if (result.code === 0) {
+        self.setData({ barginOwnData: result.data });
 
+        var wxTimer = new timer({
+            beginTime: result.data.deadLine - new Date().getTime(),
+            name: 'wxTimer1',
+            complete:function(){
+                console.log("完成了")
+            }
+        })
+        wxTimer.start(self);
+      }
+      wx.hideLoading();
     }).catch(function (error) {
         console.log(error);
         wx.hideLoading()
@@ -62,7 +76,70 @@ Page({
   hideModal: function () {
     this.setData({ showModal: false });
   },
-  shareBtn: function () {
+  shareBtn: function (e) {
     // 分享
+    // const orderId = e.currentTarget.dataset.orderId;
+    // console.log('orderId', orderId)
+    // var self = this;
+    // const params = {
+    //   token: wx.getStorageSync('token'),
+    //   cnd: orderId
+    // };
+    // appData.Tool.shareBargain(params).then(function (result) {
+    //   if (result.code === 0) {
+    //     self.setData({ barginOwnData: result.data });
+    //
+    //     var wxTimer = new timer({
+    //         beginTime: result.data.deadLine,
+    //         name: 'wxTimer1',
+    //         complete:function(){
+    //             console.log("完成了")
+    //         }
+    //     })
+    //     wxTimer.start(self);
+    //   }
+    //   wx.hideLoading();
+    // }).catch(function (error) {
+    //     console.log(error);
+    //     wx.hideLoading()
+    //
+    // });
+  },
+  onShareAppMessage: function () {
+    const self = this;
+    return {
+      title: '自定义转发标题',
+      path: '/page/user?id=123',
+      success: function(res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          duration: 2000
+        })
+        self.setData({ showModal: false })
+      },
+      fail: function(res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          duration: 2000
+        })
+      }
+    }
+  },
+  myBargainList: function () {
+    wx.navigateTo({
+        url: '../bargainRulePage/bargainRulePage',
+    })
+  },
+  goBargainRule: function () {
+    wx.navigateTo({
+        url: '../bargainRulePage/bargainRulePage',
+    })
+  },
+  backHome: function () {
+    wx.redirectTo({
+        url: '../spellGroupHome/spellGroupHome',
+    })
   }
 })
