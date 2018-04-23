@@ -29,7 +29,8 @@ Page({
         superID: 0,
         goods: [],
         a1:'',
-        a2:''
+        a2:'',
+        hasMore: true
     },
     /**
      * 生命周期函数--监听页面加载
@@ -88,12 +89,16 @@ Page({
     PopupBoxLeftChoose: function (e) {
         var self = this;
         var id = typeof e == "number" ? 10 : e.currentTarget.dataset.id;
+        console.log('id:', id);
         if (id == 0) {
             self.setData({
                 subList: [],
                 Popup_inde: 0,
                 types: "全部",
-                superID: e.currentTarget ? e.currentTarget.dataset.id : 0
+                superID: e.currentTarget ? e.currentTarget.dataset.id : 0,
+                a1: '',
+                a2: '',
+                // PopupIf: false,
             });
             this.loadData(1);
             this.returnType();
@@ -110,7 +115,8 @@ Page({
             self.setData({
                 subList: temp,
                 Popup_inde: e.currentTarget.dataset.index,
-                types: e.currentTarget.dataset.name
+                types: e.currentTarget.dataset.name,
+                // PopupIf: false,
             });
             wx.hideLoading()
         }).catch(function (error) {
@@ -207,6 +213,7 @@ Page({
                 unionidPopupIf: false
             });
         });
+        this.setData({ PopupIf: false })
     },
     //右侧-筛选**
     PopupBoxRight: function (e) {
@@ -279,11 +286,21 @@ Page({
             appData.Tool.getBargainList(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
-                  const goods = self.data.goods
-                  var listData = goods.concat(res.data.list);
-                  self.setData({
-                      goods: listData
-                  });
+                  if (page === 1) {
+                    var listData = res.data.list
+                    self.setData({
+                        goods: listData,
+                        hasMore: listData.length >= 10 ? true : false
+                    });
+                  } else {
+                    const goods = self.data.goods
+                    var listData = goods.concat(res.data.list);
+                    self.setData({
+                        goods: listData,
+                        hasMore: res.data.list.length >= 10 ? true : false
+                    });
+                  }
+
                   if (res.data.list.length == 0) {
                     // wx.showToast({
                     //     title: '没有更多数据',
@@ -318,8 +335,16 @@ Page({
     },
     //上滑加载
     shjiaz: function () {
+      if (this.data.hasMore) {
         this.data.page += 1
         this.loadData(this.data.page);
+      } else {
+        wx.showToast({
+            title: '没有更多数据',
+            icon: 'none',
+            duration: 2000
+        })
+      }
     },
     //弹窗
     popupTap: function (e) {
