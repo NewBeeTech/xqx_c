@@ -269,10 +269,10 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
+					"id": 39,
 					"name": "砍价详情",
 					"pathName": "pages/BargainDetails/BargainDetails",
-					"query": "id=1"
+					"query": "id=379"
 				},
 				{
 					"id": -1,

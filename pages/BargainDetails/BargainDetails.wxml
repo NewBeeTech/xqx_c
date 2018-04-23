@@ -1,13 +1,13 @@
 <!--pages/BargainDetails/BargainDetails.wxml-->
 <view class='ta' class='ta' style='display:{{isShow}}'></view>
 <view class='Swipr_wrap'>
-    <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
+    <!-- <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
         <block wx:for='{{obj.carousel_figure}}' wx:key='{{index}}'>
-            <swiper-item>
-                <image bindtap='tpTap' src='{{item.image}}' data-id='{{id}}' mode='aspectFill'></image>
-            </swiper-item>
+            <swiper-item> -->
+                <image src='{{obj.img_url}}' mode='aspectFill'></image>
+            <!-- </swiper-item>
         </block>
-    </swiper>
+    </swiper> -->
      <!-- <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view> -->
 </view>
 
@@ -15,11 +15,11 @@
     <view class='Md_top'>
         <view class='Md_top_left'>
             <view><text>￥</text>{{obj.group_price}} <text class="price">￥{{obj.price}}</text></view>
-            <view>已累计贡献小金：{{obj.total_currency}} 0.5小金</view>
-            <!-- {{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}} -->
+            <view>已累计贡献小金：{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}} 0.5小金</view>
+
             <view>已23人成功砍价</view>
         </view>
-        <text class='Md_top_right' bindtap='mdTap'>分享给好友</text>
+        <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
     </view>
     <view class='Md_mid'>
         {{obj.name}}
@@ -49,12 +49,13 @@
 </view>
 <view class='goodDetails bg_white' wx:if="{{obj.explain_content||obj.explain_img_url}}">
     <view>
-        <view class='detaileTitle'>商品详情</view>
         <view class='detaileTitle'>商品描述</view>
+        <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
     </view>
     <view>
-        <view class='detaileTitle' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
-        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
+        <view class='detaileTitle'>商品详情</view>
+        <!-- <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image> -->
+        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix'  src='{{obj.explain_img_url}}'></image>
     </view>
 </view>
 <!-- 底部功能件 -->
@@ -63,7 +64,7 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
+    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view>立即支付</view>
         </view>
