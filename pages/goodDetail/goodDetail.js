@@ -16,11 +16,22 @@ Page({
     groupInfo:{},
     groups: [{ time: 1523766688, dateString: "0" }, { time: 1523795430, dateString:"0" }],
     tId:'',
-    imgList:[]
+    imgList:[],
+    // 加入拼团的全部数组
+    joinList:[],
+    // 加入拼团的临时数组  （3个）
+    joinTempList:[],
+    isShowAll:false//是否显示全部参与者
+  },
+  // 显示所有或三张
+  showAll(){
+    this.setData({
+      isShowAll: !this.data.isShowAll
+    });
   },
   oneKeyGroup: function (e){
     wx.navigateTo({
-        url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+      url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.cnd + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
     })
   },
   lastTime:function(last){
@@ -37,9 +48,10 @@ Page({
       appData.Tool.getGoodsGroupBuyInfoXCX(config).then(function (res) {
         wx.hideLoading();
         console.log(res)
+        
+        
         if (res.code === 0) {
           success();
-
           function fn(a) {
               if (typeof a == 'string') { return a };
               var str = a / 100 + '';
@@ -60,30 +72,31 @@ Page({
             tId:res.id,
             imgList: res.data.explain_img_url.split(",")
           });
-          var arry = self.data.goodsInfo.joinList;
-          var sj = Date.now();
-          for (var k in arry){
-              arry[k].deadLine -= sj;
-          };
+          // var arry = self.data.goodsInfo.joinList;
+          // var sj = Date.now();
+          // for (var k in arry){
+          //     arry[k].deadLine -= sj;
+          // };
+          var arr = self.data.goodsInfo.joinList;
           dsq = function(){
-              var arr = self.data.goodsInfo.joinList;
               for (var k in arr){
-                  if (arr[k].deadLine - 1000 > 0){
-                      arr[k].deadLine -= 1000;
-                  }else{
-                      clearInterval(dsq);
-                  }
-                  arr[k].deadLineX = fnItem(arr[k].deadLine);
+                var lastTime = DateTool.toHHMMSS(arr[k].deadLine)
+                arr[k].deadLineX = lastTime
               };
+
               self.setData({
-                  'goodsInfo.joinList': arr
+                joinList: arr,
+                joinTempList:[arr[0],arr[1],arr[2]]
               });
-              function fnItem(t) {
-                  var s = ~~(t / 60 / 60 / 1000);
-                  var f = ~~((t - s * 60 * 60 * 1000) / 60 / 1000);
-                  var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
-                  return (s < 10 ? '0' + s : s) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
-              };
+              // self.setData({
+              //     'goodsInfo.joinList': arr
+              // });
+              // function fnItem(t) {
+              //   var s = ~~(t / 1000/ 60 / 60);
+              //   var f = ~~((t - s * 60 * 60 * 1000) / 1000 / 60 );
+              //     var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
+              //     return (s < 10 ? '0' + s : s/10) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
+              // };
           };
           setInterval(dsq,1000)
 
@@ -101,6 +114,7 @@ Page({
       });
     });
   },
+ 
   callPhone:function(){
     wx.makePhoneCall({
       phoneNumber: '1340000' 
@@ -171,6 +185,7 @@ Page({
    */
   onLoad: function (options) {
     this.startTimer();
+    wx.hideShareMenu();
     console.log(options.id);
     this.loadData(options.id);
   },
@@ -221,6 +236,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var that = this;
+    // wx.navigateTo({
+    //   url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + that.data.joinList.goods_group_id + '&create_person_id=' + that.data.joinList.person_id + '&id=' + that.data.joinList.id,
+    // })
+    var that = this;
+    return {
+      title: '快来帮我拼团吧',
+      // path: 'pages/DetailsPayment/DetailsPayment?id=' + this.data.id,
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功")
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败")
+      }
+    }
   }
+
 })

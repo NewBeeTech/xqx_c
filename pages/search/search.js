@@ -9,17 +9,17 @@ var initdata = function (that) {
   }
   console.log(list)
   that.setData({ list: list })
-  
 }
 
 Page({
   data: {
-    delBtnWidth: 360,//删除按钮宽度单位（rpx） 
+    delBtnWidth: 180,//删除按钮宽度单位（rpx） 
     list: [],
     searchContent: "",
     types: 0,
     page: 0,
     isSearch:false,
+    canMove:1,
     
   },
   removeRecordTap: function () {
@@ -28,9 +28,15 @@ Page({
       list: []
     })
     appData.searchData = [];
+    wx.removeStorageSync("searchData");
+    wx.setStorageSync("searchData", appData.searchData);
   },
   onLoad: function (options) {
-      var list = appData.searchData
+    appData.searchData = wx.getStorageSync("searchData");
+    if (!appData.searchData){
+      appData.searchData = [];
+    }
+    var list = appData.searchData;
       for (var i = 0; i < list.length; i++) {
           list[i].txtStyle = "";
           list[i].textStyle = ""
@@ -41,6 +47,7 @@ Page({
     });
     // 页面初始化 options为页面跳转所带来的参数 
     // 页面显示 
+    
 
 
   },
@@ -74,15 +81,8 @@ Page({
       list: []
     });
   },
-  touchS: function (e) {
-    if (e.touches.length == 1) {
-      this.setData({
-        //设置触摸起始点水平方向位置 
-        startX: e.touches[0].clientX
-      });
-    }
-  },
   searchData: function (e) {
+    var that = this;
     this.setData({
       isSearch: true
     })
@@ -114,6 +114,7 @@ Page({
         searchContent: e.detail.value
       });
       initdata(self);
+      that.setData({ canMove: 0 })
     })
       .catch(function (error) {
         console.log(error);
@@ -133,7 +134,8 @@ Page({
       console.log(appData.searchData.length);
       if (appData.searchData.length == 0) {
         appData.searchData.push(info);
-        
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       } else {
         var temp = new Array(appData.searchData);
         temp.forEach(function (item) {
@@ -141,6 +143,8 @@ Page({
           if (item.id != info.id) {
             appData.searchData.push(info);
             console.log(appData.searchData);
+            wx.removeStorageSync("searchData");
+            wx.setStorageSync("searchData", appData.searchData);
             return;
           }
         });
@@ -151,9 +155,19 @@ Page({
       url: '../MerchantDetails/MerchantDetails?id=' + info.id,
     })
   },
+  touchS: function (e) {
+
+    if (e.touches.length == 1) {
+      this.setData({
+        //设置触摸起始点水平方向位置 
+        startX: e.touches[0].clientX
+      });
+    }
+  },
   touchM: function (e) {
+    if (this.data.canMove == 1) {
     var that = this
-    
+    console.log("......");
     if (e.touches.length == 1) {
       //手指移动时水平方向位置 
       var moveX = e.touches[0].clientX;
@@ -162,16 +176,14 @@ Page({
       var delBtnWidth = this.data.delBtnWidth;
       var txtStyle = "";
       var textStyle = "";
+      console.log(disX);
       if (disX == 0 || disX < 0) {//如果移动距离小于等于0，文本层位置不变 
-        txtStyle = "left:0px";
-        textStyle = "left:0px";
+        txtStyle = "right:-80px";
       } else if (disX > 0) {//移动距离大于0，文本层left值等于手指移动距离 
-        txtStyle = "left:-" + disX + "px";
-        textStyle = "left:" + disX + "px";
-        if (disX >= delBtnWidth) {
+        txtStyle = "right:" + (disX - 80) + "px";
+        if ((disX - 73) >= 0) {
           //控制手指移动距离最大值为删除按钮的宽度 
-          txtStyle = "left:-" + delBtnWidth + "px";
-          textStyle = "left:" + delBtnWidth + "px";
+          txtStyle = "right:0";
         }
       }
       //获取手指触摸的是哪一项 
@@ -179,39 +191,50 @@ Page({
       // var list = this.data.isSearch ? appData.searchData:that.data.list;
       var list = that.data.list;
       list[index].txtStyle = txtStyle;
-      list[index].textStyle = textStyle;
+      // list[index].textStyle = textStyle;
       //更新列表的状态 
       this.setData({
         list: list
       });
       if (!this.data.isSearch) {
         appData.searchData = list;
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       }
+    }
     }
   },
 
   touchE: function (e) {
+    if (this.data.canMove == 1) {
+    console.log("......");
     if (e.changedTouches.length == 1) {
+      
       //手指移动结束后水平位置 
       var endX = e.changedTouches[0].clientX;
       //触摸开始与结束，手指移动的距离 
       var disX = this.data.startX - endX;
       var delBtnWidth = this.data.delBtnWidth;
       //如果距离小于删除按钮的1/2，不显示删除按钮 
-      var txtStyle = disX > delBtnWidth / 2 ? "left:-" + delBtnWidth + "px" : "left:0px";
-      var textStyle = disX > delBtnWidth / 2 ? "left:" + delBtnWidth + "px" : "left:0px";
+      var txtStyle = (disX - 80) > -(80 / 2) ? "right:0" : "right:-80px";
+      
+      console.log(txtStyle);
+      // var textStyle = disX > 73 / 2 ? "right:" + delBtnWidth + "px" : "right:0px";
       //获取手指触摸的是哪一项 
       var index = e.target.dataset.index;
       var list = this.data.list;
       list[index].txtStyle = txtStyle;
-      list[index].textStyle = textStyle;
+      // list[index].textStyle = textStyle;
       //更新列表的状态 
       this.setData({
         list: list
       });
       if (!this.data.isSearch){
         appData.searchData = list;
+        wx.removeStorageSync("searchData");
+        wx.setStorageSync("searchData", appData.searchData);
       }
+    }
     }
   },
   //获取元素自适应后的实际宽度 
@@ -253,6 +276,8 @@ Page({
           });
           if (!that.data.isSearch) {
             appData.searchData = list;
+            wx.removeStorageSync("searchData");
+            wx.setStorageSync("searchData", appData.searchData);
           }
         } else {
           initdata(that)
@@ -300,14 +325,6 @@ Page({
   a: function (e) {
     var z = 6.8;//打折
     var nu = e.detail.value;
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function (options) {
-      this.setData({
-          delBtnWidth:180
-      })
-  },
+  }
 
 }) 

@@ -72,9 +72,33 @@ Page({
   },
   //跳转下载
   ytgTap: function () {
-      wx.navigateTo({
-          url: '../webApp/webApp',
-      })
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.model)
+        var isiOS = !!res.model.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        console.log("是不是iOS", isiOS)
+        var url = "";
+        if (isiOS == true) {
+          url = "https://itunes.apple.com/cn/app/id1237657075?mt=8"
+        } else {
+          url = "http://a.app.qq.com/o/simple.jsp?pkgname=com.denong.doluck"
+        }
+        wx.showModal({
+          title: '提示',
+          content: "即将前往应用市场，下载小确幸app",
+          confirmText: "立即前往",
+          success: function (e) {
+            if (e.confirm) {
+              wx.navigateTo({
+                url: "../webApp/webApp?url=" + url
+              })
+            }
+
+          }
+        })
+      }
+    })
+
   },
   //
   dqxjTap:function(){

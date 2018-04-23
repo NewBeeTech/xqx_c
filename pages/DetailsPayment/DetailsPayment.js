@@ -1,4 +1,5 @@
 // pages/DetailsPayment/DetailsPayment.js
+var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
 Page({
@@ -8,13 +9,23 @@ Page({
    */
   data: {
       xqObj:{},
-      su:''
+      su:'',
+      id:'',
+      onekey:'0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      id:options.id
+    })
+    if (options.onekey){
+      this.setData({
+        onekey: options.onekey
+      })
+    }
       this.loadData(options.id);
   },
   loadData: function (id) {
@@ -51,30 +62,42 @@ Page({
               su:su
           })
 
-          var receive_time = res.data.receive_time - Date.now();
+          var deadLine = res.data.deadLine - Date.now();
           var dsq = function () {
-              if (receive_time-1000 > 0) {
+            if (deadLine-1000 >= 0) {
+              var showTime = DateTool.toHHMMSS(res.data.deadLine);
                   that.setData({
-                      'xqObj.receive_time': fnItem(receive_time - 1000)
+                    'xqObj.deadLine': showTime
                   })
               } else {
                   clearInterval(dsq);
                   return
                };
-              function fnItem(t) {
-                  var s = ~~(t / 60 / 60 / 1000);
-                  var f = ~~((t - s * 60 * 60 * 1000) / 60 / 1000);
-                  var m = ~~((t - s * 60 * 60 * 1000 - f * 60 * 1000) / 1000);
-                  return (s < 10 ? '0' + s : s) + ':' + (f < 10 ? '0' + f : f) + ':' + (m < 10 ? '0' + m : m);
-              };
           };
           setInterval(dsq, 1000)
+          var create_time = DateTool.toHHMMSS2(res.data.create_time);
+          that.setData({
+            'xqObj.create_time': res.data.create_time
+          })
+
+          that.setData({
+            'xqObj.group_name': res.data.group_name
+          })
+          that.setData({
+            'xqObj.serial_number': res.data.serial_number
+          })
+
       }).catch(function (err) {
           wx.hideLoading();
           console.log(err)
       });
   },
-
+  onekey:function(){
+    var that = this;
+  wx.navigateTo({
+    url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + that.data.xqObj.goods_group_id + '&create_person_id=' + that.data.xqObj.person_id + '&id=' + that.data.xqObj.joinList.id,
+  })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -116,11 +139,29 @@ Page({
   onReachBottom: function () {
   
   },
-
   /**
-   * 用户点击右上角分享
-   */
+    * 用户点击右上角分享
+    */
   onShareAppMessage: function () {
-  
-  }
+  var that=this;
+    return {
+      title: '快来帮我拼团吧',
+      path: 'pages/DetailsPayment/DetailsPayment?id='+this.data.id+'&onekey=1',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功")
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败")
+      }
+    }
+  },
+  gotoNotice: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '../notice/notice'
+    })
+  },
 })

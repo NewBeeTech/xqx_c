@@ -2,7 +2,7 @@
 <scroll-view scroll-y='true' style='height:100%;' bindscroll='pageScroll' bindscrolltolower='shjiaz'>
 
   <view class='wrap1'>
-    <image class='wrap1_img' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg'></image>
+    <image class='wrap1_img' src='http://mpic.denong.com/Fldie9epU5B0hZ87Po03OROoMPe4'></image>
     <view class='wrap1_box' bindtap='toWaring'>
       <image class='wrap1_img' src='../../images/icon/weh.png'></image>
       <text>拼团须知</text>
@@ -41,7 +41,7 @@
     <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
       <view class='Popup_box'>
         <scroll-view class='Popup_box_scroll' scroll-y='true'>
-          <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+          <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金金额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
             <view>{{item.name}}</view>
           </view>
         </scroll-view>

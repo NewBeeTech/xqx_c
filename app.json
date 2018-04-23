@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/spellGroupHome/spellGroupHome",
     "pages/bargainOwnPage/bargainOwnPage",
     "pages/bargainGivenPage/bargainGivenPage",
     "pages/bargainHomePage/bargainHomePage",
     "pages/bargainSuccessPage/bargainSuccessPage",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
     "pages/bargainRulePage/bargainRulePage",
-    "pages/spellGroupHome/spellGroupHome",
     "pages/homePage/homePage",
     "pages/Album/Album",
     "pages/AlbumDetail/AlbumDetail",
@@ -52,8 +52,12 @@
     "pages/webApp/webApp",
     "pages/h5/h5",
     "pages/DetailsPayment2/DetailsPayment2",
+    "pages/kanjia/kanjia",
+    "pages/miaosha/miaosha",
+    "pages/learnOurs/learnOurs",
     "pages/BargainDetails/BargainDetails",
-    "pages/MyBargain/MyBargain"
+    "pages/MyBargain/MyBargain",
+    "pages/notice/notice"
   ],
   "window": {
     "backgroundTextStyle": "light",

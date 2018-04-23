@@ -81,15 +81,16 @@ Page({
     //取消订单
     qxdTap:function(e){
         var that = this;
+        var data = e;
         wx.showModal({
             title:'提示',
             content:'是否取消订单',
             success:function(e){
                 if (e.confirm){
                     var obj = {
-                        orderId: e.currentTarget.dataset.id,
-                        goods_group_id: e.currentTarget.dataset.goods_group_id,
-                        group_buy_id: e.currentTarget.dataset.group_buy_id
+                      orderId: data.currentTarget.dataset.id,
+                      goods_group_id: data.currentTarget.dataset.goods_group_id,
+                      group_buy_id: data.currentTarget.dataset.group_buy_id
                     }
                     appData.Tool.cancelGroupOrder(obj).then(function (res) {
                         console.log(res)

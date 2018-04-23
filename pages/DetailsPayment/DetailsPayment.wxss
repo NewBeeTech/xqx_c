@@ -58,6 +58,7 @@
     height: 130rpx;
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
 }
 .wrap2_rey>view{
     width: 78rpx;
