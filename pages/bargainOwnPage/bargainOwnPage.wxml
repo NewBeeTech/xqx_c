@@ -5,7 +5,7 @@
   <view class="bargain_rule" bindtap='goBargainRule'>活动规则</view>
   <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
-    <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ barginOwnData.cut_price }}</span>元  还差<span class="bargin_own_info2">20</span>元</view>
+    <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ barginOwnData.cut_price / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.price -  barginOwnData.cut_price) / 100 }}</span>元</view>
     <button bindtap="showModalBtn" class="bargin_share_btn">喊朋友砍一刀</button>
     <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>
