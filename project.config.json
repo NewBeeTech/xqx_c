@@ -8,9 +8,13 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "1.9.91",
 	"appid": "wx54d2f780ab825ea7",
-	"projectname": "%E5%B0%8F%E7%A1%AE%E5%B9%B8%E5%AE%A2%E6%88%B7",
+	"projectname": "c%E7%AB%AF%E5%B0%8F%E7%A1%AE%E5%B9%B8news",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,7 +29,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -237,36 +240,51 @@
 				},
 				{
 					"id": 34,
-					"name": "拼团须知调试",
-					"pathName": "pages/DetailsPayment/DetailsPayment",
-					"query": "id=226",
-					"scene": "1008"
-				},
-				{
-					"id": -1,
-					"name": "PaymentCompletion2",
-					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
+					"name": "砍价免费拿",
+					"pathName": "pages/bargainHomePage/bargainHomePage",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "支付成功跳转",
-					"pathName": "pages/DetailsPayment/DetailsPayment",
-					"query": "id=226",
-					"scene": "1008"
+					"name": "砍价成功",
+					"pathName": "pages/bargainSuccessPage/bargainSuccessPage",
+					"query": ""
 				},
 				{
-					"id": 37,
-					"name": "拼团须知",
-					"pathName": "pages/notice/notice",
-					"query": "",
-					"scene": "1008"
+					"id": -1,
+					"name": "砍价支付",
+					"pathName": "pages/bargainConfirmOrder/bargainConfirmOrder",
+					"query": ""
 				},
 				{
-					"id": 38,
-					"name": "detailsPayment",
-					"pathName": "pages/DetailsPayment/DetailsPayment",
-					"query": "id=226&onekey=1"
+					"id": -1,
+					"name": "砍价商品详情",
+					"pathName": "pages/BargainDetails/BargainDetails",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "帮朋友砍价",
+					"pathName": "pages/bargainGivenPage/bargainGivenPage",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "砍价详情",
+					"pathName": "pages/BargainDetails/BargainDetails",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "我的砍价商品",
+					"pathName": "pages/MyBargain/MyBargain",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价",
+					"pathName": "pages/bargainOwnPage/bargainOwnPage",
+					"query": ""
 				}
 			]
 		}

@@ -134,7 +134,7 @@ Default.INVITE_INFO = "userInfov20/getInviteInfo";
 
 /**
  * 支付
- * 
+ *
  * money	String	是	实际支付金额
  * session	String	是	session
  * token	String	是	token
@@ -146,16 +146,16 @@ Default.INVITE_INFO = "userInfov20/getInviteInfo";
 Default.CREATE_PAY = "xcxwechatpay/createPay";
 
 /**
- * 
+ *
  * 商户信息含折扣信息
  * cnd	String	是	商户id
  */
 Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
 /**
- * 
+ *
  * 开团列表
- * 
+ *
  */
 Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
 
@@ -198,5 +198,25 @@ Default.COMMIT_RECEIVE_GOODS = "xcxgroupbuy/commitReceiveGoods";
  * 取消订单
  */
 Default.CANCEL_GROUP_ORDER = "xcxgroupbuy/cancelGroupOrder";
+
+/**
+ * 获取砍价详情
+ */
+Default.GET_BARGAIN_DETAILS = "xcxcutprice/getGoodsCutPriceInfoXCX";
+
+// 砍价首页
+Default.GET_BARGAIN_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
+
+// 砍价详情
+Default.GET_BARGAIN_INFO = "xcxcutprice/createCutPriceXCX";
+
+// 获取收获地址列表
+Default.GET_ADDRESS_LIST = "xcxcutprice/getPersonAddressInfoXCX";
+
+// 分享接口
+Default.SHARE_BARGAIN = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
+
+// 获取我的砍价商品
+Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
 module.exports = Default;
