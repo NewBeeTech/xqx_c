@@ -7,21 +7,21 @@ var appData = app.globalData;
 Page({
   data: {
     list: [
-      {
-        id:'账单id',
-        group_buy_id:'1',
-        goods_group_id: '砍价商品id',
-        merchant_name: '商户名称',
-        store_logo: '商户logo',
-        name: '商品名称',
-        img_url: '../../images/img/dui.png',
-        deadLine: '12314231223',
-        group_price:133,
-        price:4555,
-        now_price: 200,
-        ratio: '返金比例',
-        order_state: '账单状态'
-      }
+      // {
+        // id:'账单id',
+        // group_buy_id:'1',
+        // goods_group_id: '砍价商品id',
+        // merchant_name: '商户名称',
+        // store_logo: '商户logo',
+        // name: '商品名称',
+        // img_url: '../../images/img/dui.png',
+        // deadLine: '12314231223',
+        // group_price:133,
+        // price:4555,
+        // now_price: 200,
+        // ratio: '返金比例',
+        // order_state: '账单状态'
+      // }
     ],
     wxTimerList: {},
     page: 1
@@ -49,51 +49,24 @@ Page({
   },
   loadData: function () {
       var self = this;
-      console.log(self.data.id);
       var config = { page: self.data.page, rows: 10 };
       appData.Tool.getMyBargains(config).then(function (result) {
-        // wx.hideLoading();
+          wx.hideLoading();
           console.log(result);
-          // self.setData({
-          //     obj: result.data,
-          //     likes: result.data.reducedList.length > 2 ? [result.data.reducedList[0], result.data.reducedList[1]] : result.data.reducedList,
-          //     allLikes: result.data.reducedList,
-          //     markers: [{
-          //         latitude: result.data.latitude,
-          //         longitude: result.data.longitude
-          //     }],
-          //     allServices: result.data.service
-          // });
-          //
-          // if (result.data.service && result.data.service.length >= 8) {
-          //   self.setData({
-          //     services: result.data.service.slice(0,8),
-          //     minServices: result.data.service.slice(0, 8)
-          //   });
-          //
-          // } else {
-          //   self.setData({
-          //     services: result.data.service
-          //   });
-          // }
-          //
-          // console.log(self.data.services);
-          // self.setData({
-          //   currentLikes: self.data.likes
-          // });
-          // console.log(self.data.currentLikes);
-          // if (result.data.storePics.length>=4){
-          //   for(var i=0;i<4;i++){
-          //     self.data.pics.push(result.data.storePics[i]);
-          //   }
-          // }else{
-          //     self.setData({
-          //       pics: result.data.storePics
-          //     });
-          // }
-          // wx.setNavigationBarTitle({
-          //   title: result.data.name
-          // })
+          const list = result.data.list
+          self.setData({
+              list,
+          });
+          list.map((item) => {
+            var wxTimer = new timer({
+                beginTime:item.deadLine,
+                name: `wxTimer${item.id}`,
+                // complete:function(){
+                //     console.log("完成了")
+                // }
+            })
+            wxTimer.start(self);
+          })
 
       })
           .catch(function (error) {
@@ -125,7 +98,7 @@ Page({
       this.setData({
         id: options.id
       });
-      // this.loadData(this.page);
+      this.loadData(this.page);
 
   },
   toNextPage: function (e) {

@@ -14,7 +14,6 @@ var wxTimer = function (initObj){
 wxTimer.prototype = {
 	//开始
 	start:function(self){
-			console.log(this.beginTime, new Date().getTime());
 			var seconds = this.beginTime - new Date().getTime()
 		  // this.endTime = new Date("1970/01/01 "+this.beginTime).getTime();//1970年1月1日的00：00：00的字符串日期
 		  // this.endSystemTime = new Date(Date.now() + this.endTime);
@@ -36,22 +35,22 @@ wxTimer.prototype = {
 			        parseInt(tmpTime/1000 % 60), // 秒
 			    ]
         	.join(":")
-        	.replace(/\b(\d)\b/g, "0$1");;
+        	.replace(/\b(\d)\b/g, "0$1");
 
 					//更新计时器数组
 					wxTimerList[that.name] = {
-						wxTimer:tmpTimeStr,
-			      wxTimerHour,
-						wxTimerMin,
-						wxTimerSecond
+						wxTimer: tmpTime >= 0 ? tmpTimeStr : '00:00:00',
+			      wxTimerHour: tmpTime >= 0 ? wxTimerHour : '00',
+						wxTimerMin: tmpTime >= 0 ? wxTimerMin : '00',
+						wxTimerSecond: tmpTime >= 0 ? wxTimerSecond : '00'
 					}
 
 	        self.setData({
-	            wxTimer:tmpTimeStr,
-							wxTimerHour,
-							wxTimerMin,
-							wxTimerSecond,
-							wxTimerList
+						wxTimer: tmpTime >= 0 ? tmpTimeStr : '00:00:00',
+						wxTimerHour: tmpTime >= 0 ? wxTimerHour : '00',
+						wxTimerMin: tmpTime >= 0 ? wxTimerMin : '00',
+						wxTimerSecond: tmpTime >= 0 ? wxTimerSecond : '00',
+						wxTimerList
 	        });
 	        //时间间隔执行函数
 	        if( 0 == (Number(count)-1) % that.interval && that.intervalFn){
