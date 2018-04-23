@@ -16,7 +16,8 @@
             还差 <text>{{(item.group_price - item.now_price) / 100}}</text> 元
           </view>
         </view>
-        <view class='wrap3_btn' bindtap='toGroupDetail' data-id='{{item.id}}'>砍价10元得</view>
+        <view wx:if="item.group_price - item.now_price > 0" class='wrap3_btn' bindtap='toBarginDetail' data-id='{{item.id}}'>继续砍价</view>
+        <view wx:else class='wrap3_btn' bindtap='toGroupDetail' data-id='{{item.id}}'>立即支付</view>
       </view>
     </view>
   </scroll-view>

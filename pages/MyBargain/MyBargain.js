@@ -26,6 +26,12 @@ Page({
     wxTimerList: {},
     page: 1
   },
+  toBarginDetail: function (e) {
+    const id = e.currentTarget.dataset.id;
+    wx.redirectTo({
+        url: `../BargainDetails/BargainDetails?id=${id}`,
+    })
+  },
   pageScroll: function (e) {
       var bil = e.detail.scrollWidth / 375; //单位换算适应屏幕
       var top = e.detail.scrollTop;

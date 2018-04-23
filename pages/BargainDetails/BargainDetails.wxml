@@ -1,13 +1,13 @@
 <!--pages/BargainDetails/BargainDetails.wxml-->
 <view class='ta' class='ta' style='display:{{isShow}}'></view>
 <view class='Swipr_wrap'>
-    <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
+    <!-- <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
         <block wx:for='{{obj.carousel_figure}}' wx:key='{{index}}'>
-            <swiper-item>
-                <image bindtap='tpTap' src='{{item.image}}' data-id='{{id}}' mode='aspectFill'></image>
-            </swiper-item>
+            <swiper-item> -->
+                <image src='{{obj.img_url}}' mode='aspectFill'></image>
+            <!-- </swiper-item>
         </block>
-    </swiper>
+    </swiper> -->
      <!-- <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view> -->
 </view>
 
@@ -19,7 +19,7 @@
             <!-- {{~~(goodsInfo.group_price*100*goodsInfo.ratio/100)?~~(goodsInfo.group_price*100*goodsInfo.ratio/100)/100:0.01}} -->
             <view>已23人成功砍价</view>
         </view>
-        <text class='Md_top_right' bindtap='mdTap'>分享给好友</text>
+        <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
     </view>
     <view class='Md_mid'>
         {{obj.name}}
@@ -63,7 +63,7 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{goodsInfo.id}}' data-group_buy_id='{{goodsInfo.group_buy_id}}' data-create_person_id='{{goodsInfo.create_person_id}}'>
+    <view class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view>立即支付</view>
         </view>
