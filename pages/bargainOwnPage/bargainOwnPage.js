@@ -9,6 +9,8 @@ Page({
   data: {
     showModal: true,
     closeIcon: '../../images/icon/close.png',
+    nowTime: new Date().getTime(),
+    deadTime: '',
     barginOwnData: {
       // userPortrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
       // userName: '丽丽',
@@ -52,10 +54,10 @@ Page({
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       if (result.code === 0) {
-        self.setData({ barginOwnData: result.data });
+        self.setData({ barginOwnData: result.data, deadTime: new Date(result.data.deadLine).getTime()});
 
         var wxTimer = new timer({
-            beginTime: result.data.deadLine - new Date().getTime(),
+            beginTime: new Date(result.data.deadLine).getTime(),
             name: 'wxTimer1',
             complete:function(){
                 console.log("完成了")
