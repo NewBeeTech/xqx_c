@@ -14,14 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      // const orderId = options.orderId
+      const orderId = '956'
       this.getAddress();
-      this.getGoodInfo();
+      this.getGoodInfo(orderId);
   },
-  getGoodInfo: function () {
+  getGoodInfo: function (orderId) {
       // 获取支付详情
       const obj = {
         token: wx.getStorageSync('token'),
-        cnd: '327' // 订单ID
+        cnd: orderId // 订单ID
       }
       const that = this;
       appData.Tool.getBargainInfo(obj).then(function (res) {
