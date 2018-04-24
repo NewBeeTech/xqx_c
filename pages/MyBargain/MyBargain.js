@@ -29,19 +29,19 @@ Page({
   toBarginDetail: function (e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-        url: `../BargainDetails/BargainDetails?id=${id}`,
+        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
     })
   },
   toPayment: function (e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-        url: `../bargainConfirmOrder/bargainConfirmOrder?orderId=${id}`,
+        url: `/pages/bargainConfirmOrder/bargainConfirmOrder?orderId=${id}`,
     })
   },
   toBarginOwn: function (e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-        url: `../bargainOwnPage/bargainOwnPage?id=${id}`,
+        url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
     })
   },
   pageScroll: function (e) {

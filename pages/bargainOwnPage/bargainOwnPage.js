@@ -64,6 +64,8 @@ Page({
             }
         })
         wxTimer.start(self);
+      } else if (result.code == -3) {
+        wx.navigateBack();
       }
       wx.hideLoading();
     }).catch(function (error) {
@@ -82,7 +84,7 @@ Page({
     const self = this;
     return {
       title: '砍价',
-      path: `../bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
+      path: `/pages/bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({

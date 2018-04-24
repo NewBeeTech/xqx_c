@@ -5,7 +5,7 @@
   <view class="bargain_rule" bindtap='goBargainRule'>活动规则</view>
   <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
-    <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ barginOwnData.cut_price / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.price -  barginOwnData.cut_price) / 100 }}</span>元</view>
+    <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ (barginOwnData.price - barginOwnData.now_price) / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.now_price -  barginOwnData.group_price) / 100 }}</span>元</view>
     <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:if="{{ deadTime > nowTime }}">喊朋友砍一刀</button>
     <button class="bargin_share_btn" wx:else>已结束</button>
     <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
@@ -23,8 +23,8 @@
       </view>
   </view>
   <!-- 弹窗 -->
-  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-  <view class="modal-dialog" wx:if="{{showModal && (deadTime > nowTime) }}">
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal && barginOwnData.showFlag != 1 }}"></view>
+  <view class="modal-dialog" wx:if="{{showModal && (deadTime > nowTime) && barginOwnData.showFlag != 1 }}">
      <view class="modal-close-img" bindtap="hideModal"><image src="{{ closeIcon }}"/></view>
      <view class="modal-dialog-content">
          <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
