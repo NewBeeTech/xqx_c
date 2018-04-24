@@ -75,7 +75,7 @@ Page({
     toGroupDetail: function (e) {
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
-          url: `../bargainOwnPage/bargainOwnPage?id=${id}`,
+          url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
       })
     },
     PopupF: function () {
@@ -157,8 +157,8 @@ Page({
 
     },
     backHome: function (e) {
-      wx.redirectTo({
-          url: '../spellGroupHome/spellGroupHome',
+      wx.reLaunch({
+        url: '/pages/spellGroupHome/spellGroupHome'
       })
     },
     returnType: function () {

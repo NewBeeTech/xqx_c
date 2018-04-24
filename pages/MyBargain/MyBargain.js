@@ -34,12 +34,14 @@ Page({
   },
   toPayment: function (e) {
     const id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-        url: `/pages/bargainConfirmOrder/bargainConfirmOrder?orderId=${id}`,
-    })
+    console.log(id);
+    // wx.navigateTo({
+    //     url: `/pages/bargainConfirmOrder/bargainConfirmOrder?orderId=${id}`,
+    // })
   },
   toBarginOwn: function (e) {
     const id = e.currentTarget.dataset.id;
+    console.log(id);
     wx.navigateTo({
         url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
     })

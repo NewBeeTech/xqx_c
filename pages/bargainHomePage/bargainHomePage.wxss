@@ -227,10 +227,10 @@ page {
     align-items: center;
     justify-content: center;
 }
-.cont_title>view:nth-child(1){
+/* .cont_title>view:nth-child(1){
     border-right: solid 1rpx #c7c7c7;
 
-}
+} */
 .cont_title>view>image{
     width: 24rpx;
     height: 14rpx;

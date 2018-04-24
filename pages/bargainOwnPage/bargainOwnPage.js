@@ -113,8 +113,11 @@ Page({
     })
   },
   backHome: function () {
-    wx.redirectTo({
-        url: '../spellGroupHome/spellGroupHome',
-    })
+    // wx.redirectTo({
+    //     url: '../spellGroupHome/spellGroupHome',
+    // })
+    wx.reLaunch({
+      url: '/pages/spellGroupHome/spellGroupHome'
+    });
   }
 })
