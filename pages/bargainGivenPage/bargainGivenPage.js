@@ -46,6 +46,8 @@ Page({
     // 请求数据
     const id = options.id;
     const intPara =  options.intPara;
+    alert(id)
+    alert(intPara)
     // const id = '5087f119-96d7-4453-85d6-4cb87970561b';
     // const intPara = '279';
     this.loadData(id, intPara);
