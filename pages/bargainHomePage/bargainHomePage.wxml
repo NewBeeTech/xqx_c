@@ -55,17 +55,21 @@
         <image class='wrap3_img' src='{{item.img_url}}'></image>
         <view class='wrap3_box'>
           <view class='wrap3_box_name'>{{item.name}}</view>
-          <view class='wrap3_box_jig'>
-            <view>
-              <text>原价：￥</text>{{item.price / 100.0}}</view>
+          <view class="price-detail">
+            <view class='price-detail-number'>
+              <view>
+                <text>原价：￥</text>{{item.price / 100.0}}
+              </view>
+              <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
+            </view>
+            <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
           </view>
-          <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
           <view class='wrap3_box_shl'>
             <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
             <text>已售出：{{item.group_person_num || 0}}件</text>
           </view>
         </view>
-        <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
+
       </view>
     </view>
   </scroll-view>

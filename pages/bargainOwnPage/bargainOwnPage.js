@@ -9,6 +9,8 @@ Page({
   data: {
     showModal: true,
     closeIcon: '../../images/icon/close.png',
+    nowTime: new Date().getTime(),
+    deadTime: '',
     barginOwnData: {
       // userPortrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
       // userName: '丽丽',
@@ -40,8 +42,8 @@ Page({
    */
   onLoad: function (options) {
     // 请求数据
-    // console.log(options.id)
-    const id = 'asdfeere00';
+    console.log('options.id:', options.id)
+    const id = options.id;
     this.loadData(id);
   },
   loadData: function (id) {
@@ -52,10 +54,10 @@ Page({
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       if (result.code === 0) {
-        self.setData({ barginOwnData: result.data });
+        self.setData({ barginOwnData: result.data, deadTime: new Date(result.data.deadLine).getTime()});
 
         var wxTimer = new timer({
-            beginTime: result.data.deadLine - new Date().getTime(),
+            beginTime: new Date(result.data.deadLine).getTime(),
             name: 'wxTimer1',
             complete:function(){
                 console.log("完成了")
@@ -76,40 +78,11 @@ Page({
   hideModal: function () {
     this.setData({ showModal: false });
   },
-  shareBtn: function (e) {
-    // 分享
-    // const orderId = e.currentTarget.dataset.orderId;
-    // console.log('orderId', orderId)
-    // var self = this;
-    // const params = {
-    //   token: wx.getStorageSync('token'),
-    //   cnd: orderId
-    // };
-    // appData.Tool.shareBargain(params).then(function (result) {
-    //   if (result.code === 0) {
-    //     self.setData({ barginOwnData: result.data });
-    //
-    //     var wxTimer = new timer({
-    //         beginTime: result.data.deadLine,
-    //         name: 'wxTimer1',
-    //         complete:function(){
-    //             console.log("完成了")
-    //         }
-    //     })
-    //     wxTimer.start(self);
-    //   }
-    //   wx.hideLoading();
-    // }).catch(function (error) {
-    //     console.log(error);
-    //     wx.hideLoading()
-    //
-    // });
-  },
   onShareAppMessage: function () {
     const self = this;
     return {
-      title: '自定义转发标题',
-      path: '/page/user?id=123',
+      title: '砍价',
+      path: `../bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({
@@ -129,7 +102,7 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '../bargainRulePage/bargainRulePage',
+        url: '../MyBargain/MyBargain'
     })
   },
   goBargainRule: function () {
