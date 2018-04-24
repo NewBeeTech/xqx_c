@@ -39,7 +39,7 @@
         </view>
         <view>
             <view>额外奖励：</view>
-            <text class='wrap3_cont_he_sc'>{{goodInfo.group_price/100*goodInfo.ratio/100}}小金</text>
+            <text class='wrap3_cont_he_sc'>{{goodInfo.extra}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>
