@@ -1,7 +1,7 @@
 <view class="bargin_bg">
   <scroll-view class="bargin_list" scroll-y="true" bindscroll='pageScroll' bindscrolltolower='shjiaz'>
     <view class='wrap3'>
-      <view wx:for='{{list}}' wx:key='{{index}}'>
+      <view wx:for='{{list}}' wx:key='{{index}}' bindtap="toBarginDetail">
         <image class='wrap3_img' src='{{item.img_url}}'></image>
         <view class='wrap3_box'>
           <view class='wrap3_box_name'>{{item.name}}</view>
@@ -13,10 +13,10 @@
           </view>
           <view class='wrap3_box_ewj'>距离低购买价</view>
           <view class='wrap3_box_jig'>
-            还差 <text>{{(item.group_price - item.now_price) / 100}}</text> 元
+            还差 <text>{{(item.now_price - item.group_price) / 100}}</text> 元
           </view>
         </view>
-        <view wx:if="item.group_price - item.now_price > 0" class='wrap3_btn' bindtap='toBarginDetail' data-id='{{item.id}}'>继续砍价</view>
+        <view wx:if="{{item.now_price > item.group_price}}" class='wrap3_btn' bindtap='toBarginOwn' data-id='{{item.id}}'>继续砍价</view>
         <view wx:else class='wrap3_btn' bindtap='toBarginDetail' data-id='{{item.id}}'>立即支付</view>
       </view>
     </view>

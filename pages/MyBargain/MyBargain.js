@@ -28,8 +28,14 @@ Page({
   },
   toBarginDetail: function (e) {
     const id = e.currentTarget.dataset.id;
-    wx.redirectTo({
+    wx.navigateTo({
         url: `../BargainDetails/BargainDetails?id=${id}`,
+    })
+  },
+  toBarginOwn: function (e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+        url: `../bargainOwnPage/bargainOwnPage?id=${id}`,
     })
   },
   pageScroll: function (e) {
