@@ -74,7 +74,7 @@ Page({
     },
     toGroupDetail: function (e) {
       const id = e.currentTarget.dataset.id;
-      wx.redirectTo({
+      wx.navigateTo({
           url: `../bargainOwnPage/bargainOwnPage?id=${id}`,
       })
     },
