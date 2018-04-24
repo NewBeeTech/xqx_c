@@ -73,7 +73,11 @@ Page({
       appData.Tool.getMyBargains(config).then(function (result) {
           wx.hideLoading();
           const oldList = self.data.list
+          result.data.list.map((item) => {
+            item.chazhi = (item.now_price - item.group_price > 0 ? ((item.now_price - item.group_price) / 100) : 0).toFixed(2)
+          })
           const list = oldList.concat(result.data.list);
+
           self.setData({
               list,
           });

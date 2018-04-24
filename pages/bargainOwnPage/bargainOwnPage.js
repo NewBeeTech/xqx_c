@@ -8,6 +8,7 @@ Page({
    */
   data: {
     showModal: true,
+    showRuleModal: false,
     closeIcon: '../../images/icon/close.png',
     nowTime: new Date().getTime(),
     deadTime: '',
@@ -46,13 +47,9 @@ Page({
     this.setData({
       id: options.id
     })
-    // console.log(options.id);
-    // console.log(this.data.id);
-    // const id = this.data.id || options.id;
-    // this.loadData(id);
   },
   onShow: function() {
-    this.loadData(this.data.id || options.id);
+    this.loadData(this.data.id);
   },
   loadData: function (id) {
     var self = this;
@@ -114,6 +111,12 @@ Page({
   hideModal: function () {
     this.setData({ showModal: false });
   },
+  showRuleModal: function () {
+    this.setData({ showRuleModal: true });
+  },
+  hideRuleModal: function () {
+    this.setData({ showRuleModal: false });
+  },
   onShareAppMessage: function () {
     console.log('id:', this.data.barginOwnData.goods_group_id);
       console.log('intPara:', this.data.barginOwnData.group_buy_id);
@@ -144,9 +147,12 @@ Page({
     })
   },
   goBargainRule: function () {
-    wx.navigateTo({
-        url: '/pages/bargainRulePage/bargainRulePage',
+    this.setData({
+      showRuleModal: true
     })
+    // wx.navigateTo({
+    //     url: '/pages/bargainRulePage/bargainRulePage',
+    // })
   },
   backHome: function () {
     // wx.redirectTo({

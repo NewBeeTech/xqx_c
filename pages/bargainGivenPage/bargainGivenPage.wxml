@@ -21,9 +21,29 @@
          <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
          <view class="modal-dialog-title">谢谢你帮我砍了{{ barginOwnData.cut_price/100 }}元</view>
          <view class="modal-dialog-text">对该商品您再砍 {{ cutPrice }} 元就可以0元拿</view>
+<<<<<<< HEAD
+         <button bindtap="shareBtn" class="modal-dialog-button">立即分享，我也要砍价</button>
+         <view class="modal-dialog-text2">本次砍价您已经获得3.00元养老金</view>
+         <!-- <view class="modal-dialog-text2"><text>下载小确幸app立即领取</text></view> -->
+     </view>
+  </view>
+  <view class="modal-mask" bindtap="hideRuleModal" catchtouchmove="preventTouchMove" wx:if="{{showRuleModal}}"></view>
+  <view class="modal-dialog modal-dialog-rule" wx:if="{{showRuleModal}}">
+     <view class="modal-close-img" bindtap="hideRuleModal"><image src="{{ closeIcon }}"/></view>
+     <view class="rule">
+      <view class="rule-title">活动规则</view>
+       <view>1、邀请好友一起砍价。最低砍价到0元免费领取商品；</view>
+       <view>2、对于同一个砍价，只能砍价一次；</view>
+       <view>3、每次砍价金额随机，参与好友越多越容易成功；</view>
+       <view>4、下载并注册APP，得3元养老金，砍价加倍，砍价更容易成功。</view>
+       <view>5、每天最多可以帮助三个好友砍价；</view>
+       <view>6、砍价完成后需三天内在砍价页完善收货信息，逾期失效；</view>
+       <view>7、小确幸可在法律法规允许范围内对活动规则作出解释</view>
+=======
          <!-- <button bindtap="shareBtn" class="modal-dialog-button">立即分享，我也要砍价</button> -->
          <view class="modal-dialog-text2">本次砍价您已经获得3.00元养</view>
          <view class="modal-dialog-text2">老金</view>
+>>>>>>> 4ff3c45cb186ef3d5880240e9b172a00f185ad7a
      </view>
   </view>
 </view>

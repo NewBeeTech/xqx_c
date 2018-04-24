@@ -8,6 +8,7 @@ Page({
    */
   data: {
     showModal: false,
+    showRuleModal: false,
     closeIcon: '../../images/icon/close.png',
     cutPrice: 0,
     hasPrice: 0,
@@ -114,12 +115,21 @@ Page({
   showModalBtn: function () {
     this.setData({ showModal: true });
   },
+  hideRuleModal: function () {
+    this.setData({ showRuleModal: true });
+  },
   hideModal: function () {
     this.setData({ showModal: false });
   },
+  hideRuleModal: function () {
+    this.setData({ showRuleModal: false });
+  },
   goBargainRule: function () {
-    wx.navigateTo({
-        url: '/pages/bargainRulePage/bargainRulePage',
+    this.setData({
+      showRuleModal: true
     })
+    // wx.navigateTo({
+    //     url: '/pages/bargainRulePage/bargainRulePage',
+    // })
   }
 })
