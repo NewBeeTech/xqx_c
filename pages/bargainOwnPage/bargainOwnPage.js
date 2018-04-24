@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal: false,
+    showModal: true,
     closeIcon: '../../images/icon/close.png',
     nowTime: new Date().getTime(),
     deadTime: '',
