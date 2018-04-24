@@ -19,6 +19,9 @@ Page({
       this.getAddress();
       this.getGoodInfo(orderId);
   },
+  onShow: function () {
+    this.getAddress();
+  },
   getGoodInfo: function (orderId) {
       // 获取支付详情
       const obj = {
@@ -51,9 +54,16 @@ Page({
   //编辑地址
   bjAddress:function(){
       var obj = this.data.addressInfo;
-      wx.navigateTo({
-          url: '../WriteAddress/WriteAddress?address_id=' + obj.address_id + '&create_person_id=' + obj.person_id + '&group_buy_id=' + 0 + '&a1=' + obj.name + '&a2=' + obj.phone + '&a3=' + obj.address
-      })
+      if (obj.id) {
+        wx.navigateTo({
+            url: '../WriteAddress/WriteAddress?address_id=' + obj.id + '&create_person_id=' + obj.person_id + '&group_buy_id=' + 0 + '&a1=' + obj.name + '&a2=' + obj.phone + '&a3=' + obj.address
+        })
+      }else {
+        wx.navigateTo({
+            url: '../WriteAddress/WriteAddress?address_id=' + '' + '&create_person_id=' + '' + '&group_buy_id=' + '' + '&a1=' + '' + '&a2=' + '' + '&a3=' + ''
+        })
+      }
+
   },
   //立即支付
   toPay: function () {
@@ -118,7 +128,7 @@ Page({
         wx.hideLoading();
         if (res.code === 0) {
            that.setData({
-             addressInfo: res.data
+             addressInfo: res.data || {}
            })
         } else {
           wx.showToast({

@@ -1,7 +1,7 @@
 <import src="../../components/bargainGoodsInfo/bargainGoodsInfo.wxml"/>
 <import src="../../components/barginUserList/barginUserList.wxml"/>
 
-<view>
+<view class="own-content">
   <view class="bargain_rule" bindtap='goBargainRule'>活动规则</view>
   <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">

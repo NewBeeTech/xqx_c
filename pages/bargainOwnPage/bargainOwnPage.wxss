@@ -1,6 +1,11 @@
 @import "../../components/barginUserList/barginUserList.wxss";
 @import "../../components/bargainGoodsInfo/bargainGoodsInfo.wxss";
 
+.own-content {
+  height: calc(100vh - 90rpx);
+  overflow-y: scroll;
+}
+
 .bargin_own_info {
   position: relative;
   top: -90rpx;
