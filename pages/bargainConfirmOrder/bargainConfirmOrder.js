@@ -56,11 +56,11 @@ Page({
       var obj = this.data.addressInfo;
       if (obj.id) {
         wx.navigateTo({
-            url: '../WriteAddress/WriteAddress?address_id=' + obj.id + '&create_person_id=' + obj.person_id + '&group_buy_id=' + 0 + '&a1=' + obj.name + '&a2=' + obj.phone + '&a3=' + obj.address
+            url: '/pages/WriteAddress/WriteAddress?address_id=' + obj.id + '&create_person_id=' + obj.person_id + '&group_buy_id=' + 0 + '&a1=' + obj.name + '&a2=' + obj.phone + '&a3=' + obj.address
         })
       }else {
         wx.navigateTo({
-            url: '../WriteAddress/WriteAddress?address_id=' + '' + '&create_person_id=' + '' + '&group_buy_id=' + '' + '&a1=' + '' + '&a2=' + '' + '&a3=' + ''
+            url: '/pages/WriteAddress/WriteAddress?address_id=' + '' + '&create_person_id=' + '' + '&group_buy_id=' + '' + '&a1=' + '' + '&a2=' + '' + '&a3=' + ''
         })
       }
 

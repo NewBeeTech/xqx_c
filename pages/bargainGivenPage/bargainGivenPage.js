@@ -134,8 +134,14 @@ Page({
     this.setData({
       showRuleModal: true
     })
-    // wx.navigateTo({
+    // wx.navigateTo(
     //     url: '/pages/bargainRulePage/bargainRulePage',
     // })
   }
+  ,
+  goBackHome: function() {
+    wx.reLaunch({
+      url: '/pages/bargainHomePage/bargainHomePage'
+    });
+  },
 })
