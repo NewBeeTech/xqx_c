@@ -75,12 +75,14 @@ Page({
     });
   },
   showModalBtn: function () {
-    this.setData({ showModal: true });
+    // this.setData({ showModal: true });
   },
   hideModal: function () {
     this.setData({ showModal: false });
   },
   onShareAppMessage: function () {
+    console.log('id:', this.data.barginOwnData.goods_group_id);
+      console.log('intPara:', this.data.barginOwnData.group_buy_id);
     const self = this;
     return {
       title: '砍价',

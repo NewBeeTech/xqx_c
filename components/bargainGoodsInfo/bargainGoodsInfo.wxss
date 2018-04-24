@@ -26,13 +26,20 @@
   align-items: center;
   z-index: 999;
 }
-.bargain_portrait > image {
+
+.bargain_portrait1 {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
 }
 
-.bargain_portrait > view {
+.bargain_portrait1 > image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.bargain_portrait2 {
   font-size: 26rpx;
   color: #333;
   margin-top: 23rpx;
