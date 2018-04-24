@@ -32,7 +32,7 @@ Page({
           // goodInfo.group_price/100*goodInfo.ratio/100).toFixed(2)
            that.setData({
              goodInfo: res.data,
-             'goodInfo.extra': (res.data.group_price/100*res.data.ratio/100).toFixed(5)
+             'goodInfo.extra': (res.data.group_price/100*res.data.ratio/100).toFixed(2)
            })
         } else {
           wx.showToast({
