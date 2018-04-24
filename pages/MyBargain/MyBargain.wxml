@@ -1,13 +1,13 @@
 <view class="bargin_bg">
   <scroll-view class="bargin_list" scroll-y="true" bindscroll='pageScroll' bindscrolltolower='shjiaz'>
     <view class='wrap3'>
-      <view wx:for='{{list}}' wx:key='{{index}}'data-id='{{item.id}}' bindtap="toBarginDetail">
-        <view class="merchant">
+      <view wx:for='{{list}}' wx:key='{{index}}'>
+        <view class="merchant" data-id='{{item.id}}' bindtap="toBarginDetail">
           {{item.merchant_name}}
         </view>
         <view>
-          <image class='wrap3_img' src='{{item.img_url}}'></image>
-          <view class='wrap3_box'>
+          <image data-id='{{item.id}}' bindtap="toBarginDetail" class='wrap3_img' src='{{item.img_url}}'></image>
+          <view class='wrap3_box' data-id='{{item.id}}' bindtap="toBarginDetail">
             <view class='wrap3_box_name'>{{item.name}}</view>
             <view class="timer">
               <view>{{ wxTimerList['wxTimer'+item.id].wxTimerHour }}</view><text>:</text>

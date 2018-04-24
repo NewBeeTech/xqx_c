@@ -123,7 +123,7 @@ Page({
     console.log(e);
 
     var pageIndex = e.currentTarget.dataset.page;
-    var pages = ["../homePage/homePage", "../FightGroups/FightGroups", "../search/search", '../goodDetail/goodDetail']
+    var pages = ["/pages/homePage/homePage", "/pages/FightGroups/FightGroups", "/pages/search/search", '/pages/goodDetail/goodDetail']
     wx.navigateTo({
       url: pages[pageIndex],
     })
