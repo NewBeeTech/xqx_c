@@ -127,52 +127,20 @@ Page({
       currentLikes: this.data.currentLikes.length == this.data.likes.length ? this.data.allLikes : this.data.likes
     });
   },
-    loadData: function () {
-        var self = this;
-        console.log(self.data.id);
+  loadData: function () {
+      var self = this;
+      console.log(self.data.id);
 
-        appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
-            wx.hideLoading();
-            console.log(result);
-            self.setData({
-                obj: result.data
-                // 'obj.imgList': result.data.explain_img_url.split(',')
-            });
-            //
-            // if (result.data.service && result.data.service.length >= 8) {
-            //   self.setData({
-            //     services: result.data.service.slice(0,8),
-            //     minServices: result.data.service.slice(0, 8)
-            //   });
-            //
-            // } else {
-            //   self.setData({
-            //     services: result.data.service
-            //   });
-            // }
-            //
-            // console.log(self.data.services);
-            // self.setData({
-            //   currentLikes: self.data.likes
-            // });
-            // console.log(self.data.currentLikes);
-            // if (result.data.storePics.length>=4){
-            //   for(var i=0;i<4;i++){
-            //     self.data.pics.push(result.data.storePics[i]);
-            //   }
-            // }else{
-            //     self.setData({
-            //       pics: result.data.storePics
-            //     });
-            // }
-            // wx.setNavigationBarTitle({
-            //   title: result.data.name
-            // })
-
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
+      appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
+          wx.hideLoading();
+          self.setData({
+              obj: result.data,
+              'obj.imgList': result.data.explain_img_url.split('[')[1].split(']')[0].split(',')
+          });
+      })
+          .catch(function (error) {
+              console.log(error);
+          });
     },
     showAll:function(){
 
