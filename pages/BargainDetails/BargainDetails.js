@@ -75,6 +75,11 @@ Page({
         url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
     })
   },
+  toBarginOwn: function (e){
+    wx.navigateTo({
+        url: '../bargainOwnPage/bargainOwnPage?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+    })
+  },
   onShareAppMessage: function () {
     const self = this;
     return {

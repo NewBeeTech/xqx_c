@@ -140,7 +140,7 @@
 }
 .modal-dialog-text2>text {
   font-size: 30rpx;
-  color: blue;
+  color: #4f7bdf;
   width: 400rpx;
 }
 
