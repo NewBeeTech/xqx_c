@@ -14,8 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      // const orderId = options.orderId
-      const orderId = '956'
+      const orderId = options.orderId
+      // const orderId = '956'
       this.getAddress();
       this.getGoodInfo(orderId);
   },
@@ -29,7 +29,11 @@ Page({
       appData.Tool.getBargainInfo(obj).then(function (res) {
         wx.hideLoading();
         if (res.code === 0) {
-           that.setData({ goodInfo: res.data })
+          // goodInfo.group_price/100*goodInfo.ratio/100).toFixed(2)
+           that.setData({
+             goodInfo: res.data,
+             'goodInfo.extra': (res.data.group_price/100*res.data.ratio/100).toFixed(5)
+           })
         } else {
           wx.showToast({
               title: res.message,

@@ -15,7 +15,7 @@
     <view class='Md_top'>
         <view class='Md_top_left'>
             <view><text>￥</text>{{obj.group_price}} <text class="price">￥{{obj.price}}</text></view>
-            <view>已累计贡献小金：{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}} 0.5小金</view>
+            <view>已累计贡献小金：{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}} 小金</view>
 
             <view>已23人成功砍价</view>
         </view>
@@ -64,7 +64,7 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view wx:if="{{obj.now_price <= obj.group}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.now_price <= obj.group_price}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view >立即支付</view>
         </view>

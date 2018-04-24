@@ -17,8 +17,15 @@ page{
 .wrap3>view{
     border-bottom: solid 1rpx #dadada;
     padding: 40rpx 0 38rpx;
-    display: flex;
     overflow: hidden;
+}
+.wrap3>view>view{
+    margin-top: 20rpx;
+    display: flex;
+}
+.merchant {
+  font-size: 32rpx;
+  color: #666;
 }
 .wrap3>view:last-child{
     border: none;
@@ -28,11 +35,11 @@ page{
     height: 165rpx;
     border-radius:8rpx;
     display: block;
-    margin-right: 40rpx;
+    margin-right: 30rpx;
     /* border: solid 1rpx #dadada; */
 }
 .wrap3_box_name{
-    width: 350rpx;
+    width: 340rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -54,9 +61,10 @@ page{
     margin-top: 20rpx;
 }
 .wrap3_btn{
+    width: 150rpx;
     height: 70rpx;
     line-height: 70rpx;
-    padding: 0 20rpx;
+    text-align: center;
     text-align: center;
     border-radius: 35rpx;
     color: #fff;

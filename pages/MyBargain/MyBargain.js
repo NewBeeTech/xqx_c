@@ -32,6 +32,12 @@ Page({
         url: `../BargainDetails/BargainDetails?id=${id}`,
     })
   },
+  toPayment: function (e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+        url: `../bargainConfirmOrder/bargainConfirmOrder?orderId=${id}`,
+    })
+  },
   toBarginOwn: function (e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -64,8 +70,8 @@ Page({
       var config = { page: self.data.page, rows: 10 };
       appData.Tool.getMyBargains(config).then(function (result) {
           wx.hideLoading();
-          console.log(result);
-          const list = result.data.list
+          const oldList = self.data.list
+          const list = oldList.concat(result.data.list);
           self.setData({
               list,
           });
