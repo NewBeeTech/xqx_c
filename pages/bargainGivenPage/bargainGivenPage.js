@@ -137,6 +137,7 @@ Page({
     // wx.navigateTo(
     //     url: '/pages/bargainRulePage/bargainRulePage',
     // })
+  }
   ,
   goBackHome: function() {
     wx.reLaunch({
