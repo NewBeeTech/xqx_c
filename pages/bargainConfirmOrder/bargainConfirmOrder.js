@@ -32,7 +32,9 @@ Page({
           // goodInfo.group_price/100*goodInfo.ratio/100).toFixed(2)
            that.setData({
              goodInfo: res.data,
-             'goodInfo.extra': (res.data.group_price/100*res.data.ratio/100).toFixed(5)
+             'goodInfo.extra': parseInt(res.data.group_price*res.data.ratio/100) > 1 ? (res.data.group_price/100*res.data.ratio/100).toFixed(2) : 0.01
+             // res.data.group_price/100*res.data.ratio/100
+            // 'goodInfo.extra': parseInt(self.groupPrice*100 * self.ratio) > 1 ? parseInt(self.groupPrice*100 * self.ratio) : 1
            })
         } else {
           wx.showToast({
@@ -84,7 +86,7 @@ Page({
                'paySign': data.paySign,
                'success':function(res){
                  wx.redirectTo({
-                     url: `../bargainSuccessPage/bargainSuccessPage?orderId=${this.data.goodInfo.orderId}`
+                     url: `/pages/bargainSuccessPage/bargainSuccessPage?orderId=${that.data.goodInfo.orderId}`
                  });
                },
                'fail':function(res){

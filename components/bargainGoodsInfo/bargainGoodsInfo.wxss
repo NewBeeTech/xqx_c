@@ -70,6 +70,7 @@
 }
 
 .bargain_right_name {
+  width: 65vw;
   font-size: 30rpx;
   height: 80rpx;
   line-height: 40rpx;

@@ -60,7 +60,12 @@ Page({
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       if (result.code === 0) {
         wx.hideLoading();
-        self.setData({ barginOwnData: result.data, deadTime: new Date(result.data.deadLine).getTime()});
+        self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
+        if (resulte.data.showFlag == 0) {
+          self.setData({
+            showModal: false,
+          });
+        }
 
         const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
         const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
@@ -77,7 +82,7 @@ Page({
 
 
         var wxTimer = new timer({
-            beginTime: new Date(result.data.deadLine).getTime(),
+            beginTime: result.data.deadLine,
             name: 'wxTimer1',
             complete:function(){
                 console.log("完成了")
