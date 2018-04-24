@@ -11,17 +11,17 @@
   <view class='cont'>
     <view class='{{positionType}}'>
       <view class='cont_title'>
-        <view bindtap='shTap'>
+        <!-- <view bindtap='shTap'>
           <text>{{types}}</text>
           <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
-        </view>
+        </view> -->
         <view bindtap='unionidTap'>
           <text>{{orderType}}</text>
           <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
         </view>
       </view>
       <!-- 筛选_弹窗 -->
-      <view class='Popup left_container' wx:if='{{PopupIf}}'>
+      <!-- <view class='Popup left_container' wx:if='{{PopupIf}}'>
         <view class='Popup_box'>
           <scroll-view class='Popup_box_scroll' scroll-y='true'>
             <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
@@ -35,7 +35,7 @@
           </scroll-view>
         </view>
         <view style='height:100%' bindtap='PopupF'></view>
-      </view>
+      </view> -->
       <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
         <view class='Popup_box'>
           <scroll-view class='Popup_box_scroll' scroll-y='true'>
