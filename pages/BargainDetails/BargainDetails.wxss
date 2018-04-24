@@ -47,7 +47,18 @@ page{
     display: flex;
     align-items: center;
 }
-
+.detaileTitle{
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+  line-height: 50px;
+  margin: 0 30rpx;
+}
+.detailContent{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin: 0 15px;
+}
 .Md_top .Md_top_left {
     width: 528rpx;
     margin-bottom: 10rpx;

@@ -40,8 +40,8 @@ Page({
    */
   onLoad: function (options) {
     // 请求数据
-    // console.log(options.id)
-    const id = 'asdfeere00';
+    console.log('options.id:', options.id)
+    const id = options.id;
     this.loadData(id);
   },
   loadData: function (id) {

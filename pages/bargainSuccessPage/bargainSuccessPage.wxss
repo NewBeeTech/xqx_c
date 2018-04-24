@@ -23,13 +23,13 @@
     font-size:26rpx;
     text-align: center;
     margin-top: 50rpx;
-    padding-bottom: 90rpx;
+    padding-bottom: 68rpx;
 }
 .reward_price{
   font-size: 30rpx;
   color: #000;
   text-align: center;
-  padding-bottom: 35rpx;
+  padding-bottom: 80rpx;
 }
 .bill_details{
     font-size: 26rpx;
@@ -118,6 +118,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-right: 10rpx;
 }
 .notice>view>text{
     margin-right: 20rpx;

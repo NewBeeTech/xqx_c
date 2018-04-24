@@ -3,74 +3,105 @@
 var app = getApp();
 var appData = app.globalData;
 Page({
-
-    data: {
-      icon: '../../images/img/dui.png',
-      isShow: 'none',
+  data: {
+    icon: '../../images/img/dui.png',
+    isShow: 'none',
+    alertTop: 0,
+    gonlList: [],
+    id: 0,
+    obj: {},
+    types:[],
+    markers: [{
+      iconPath: "https://activity.denong.com/dw.png",
+        id: 0,
+        latitude: 23.099994,
+        longitude: 113.324520,
+        width: 50,
+        height: 50
+    }],
+    allLikes:[],
+    likes:[],
+    currentLikes: [],
+    services:[],
+    allServices:[],
+    minServices: [],
+    pics:[]
+  },
+  showAlert:function(){
+    this.setData({
+      alertTop:50,
+      isShow:"block"
+    });
+  },
+  close:function(){
+    this.setData({
       alertTop: 0,
-      gonlList: [],
-      id: 0,
-      obj: {},
-      types:[],
-      markers: [{
-        iconPath: "https://activity.denong.com/dw.png",
-          id: 0,
-          latitude: 23.099994,
-          longitude: 113.324520,
-          width: 50,
-          height: 50
-      }],
-      allLikes:[],
-      likes:[],
-      currentLikes: [],
-      services:[],
-      allServices:[],
-      minServices: [],
-      pics:[]
-    },
-    showAlert:function(){
-      this.setData({
-        alertTop:50,
-        isShow:"block"
-      });
-    },
-    close:function(){
-      this.setData({
-        alertTop: 0,
-        isShow: "none"
-      });
-    },
-    ddhua:function(e){
-      const phoneNumber = e.currentTarget.dataset.store_phone;
-      wx.makePhoneCall({
-          phoneNumber,
-      })
-    },
-    shop_list_btn:function(e){
+      isShow: "none"
+    });
+  },
+  ddhua:function(e){
+    const phoneNumber = e.currentTarget.dataset.store_phone;
+    wx.makePhoneCall({
+        phoneNumber,
+    })
+  },
+  shop_list_btn:function(e){
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
+    wx.navigateTo({
+      url: '../coupon/coupon?id='+id
+    })
+  },
+  tpTap: function (e) {
+
       var id = e.currentTarget.dataset.id;
-      console.log(id);
+
       wx.navigateTo({
-        url: '../coupon/coupon?id='+id
+        url: '../Album/Album?id=' + id
       })
-    },
-    tpTap: function (e) {
+  },
+  //
+  mdTap: function (e) {
 
-        var id = e.currentTarget.dataset.id;
+  },
 
-        wx.navigateTo({
-          url: '../Album/Album?id=' + id
+  callPhone:function(e){
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
+  },
+  oneKeyGroup: function (e){
+    wx.navigateTo({
+        url: '../ConfirmationOrder/ConfirmationOrder?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+    })
+  },
+  onShareAppMessage: function () {
+    const self = this;
+    return {
+      title: self.data.obj.name,
+      path: `/page/BargainDetails/BargainDetails?id=${self.data.obj.id}`,
+      success: function(res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          duration: 2000
         })
-    },
-    //
-    mdTap: function (e) {
-
-    },
-    //
-    callPhone:function(e){
-      wx.makePhoneCall({
-        phoneNumber: e.currentTarget.dataset.phone
-      })
-    },
+        self.setData({ showModal: false })
+      },
+      fail: function(res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          duration: 2000
+        })
+      }
+    }
+  },
+  backHome: function (e) {
+    wx.switchTab({
+        url: '../spellGroupHome/spellGroupHome',
+    })
+  },
   navToMap:function(e){
     console.log(e);
     var lat = e.currentTarget.dataset.info.latitude;
@@ -96,18 +127,11 @@ Page({
         console.log(self.data.id);
 
         appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
-            // wx.hideLoading();
+            wx.hideLoading();
             console.log(result);
-            // self.setData({
-            //     obj: result.data,
-            //     likes: result.data.reducedList.length > 2 ? [result.data.reducedList[0], result.data.reducedList[1]] : result.data.reducedList,
-            //     allLikes: result.data.reducedList,
-            //     markers: [{
-            //         latitude: result.data.latitude,
-            //         longitude: result.data.longitude
-            //     }],
-            //     allServices: result.data.service
-            // });
+            self.setData({
+                obj: result.data,
+            });
             //
             // if (result.data.service && result.data.service.length >= 8) {
             //   self.setData({
