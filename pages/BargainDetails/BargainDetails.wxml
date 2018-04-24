@@ -54,8 +54,8 @@
     </view>
     <view>
         <view class='detaileTitle'>商品详情</view>
-        <!-- <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image> -->
-        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix'  src='{{obj.explain_img_url}}'></image>
+        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
+        <!-- <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix'  src='{{obj.explain_img_url}}'></image> -->
     </view>
 </view>
 <!-- 底部功能件 -->
