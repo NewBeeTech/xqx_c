@@ -49,7 +49,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     console.log(id);
     wx.navigateTo({
-      url: '../coupon/coupon?id='+id
+      url: '/pages/coupon/coupon?id='+id
     })
   },
   tpTap: function (e) {
@@ -57,7 +57,7 @@ Page({
       var id = e.currentTarget.dataset.id;
 
       wx.navigateTo({
-        url: '../Album/Album?id=' + id
+        url: '/pages/Album/Album?id=' + id
       })
   },
   //
@@ -72,19 +72,19 @@ Page({
   },
   oneKeyGroup: function (e){
     wx.navigateTo({
-        url: '../bargainConfirmOrder/bargainConfirmOrder?orderId=' + e.currentTarget.dataset.id
+        url: '/pages/bargainConfirmOrder/bargainConfirmOrder?orderId=' + e.currentTarget.dataset.id
     })
   },
   toBarginOwn: function (e){
     wx.navigateTo({
-        url: '../bargainOwnPage/bargainOwnPage?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+        url: '/pages/bargainOwnPage/bargainOwnPage?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
     })
   },
   onShareAppMessage: function () {
     const self = this;
     return {
       title: self.data.obj.name,
-      path: `/page/BargainDetails/BargainDetails?id=${self.data.obj.id}`,
+      path: `/pages/BargainDetails/BargainDetails?id=${self.data.obj.id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({
@@ -104,7 +104,7 @@ Page({
   },
   backHome: function (e) {
     wx.switchTab({
-        url: '../spellGroupHome/spellGroupHome',
+        url: '/pages/spellGroupHome/spellGroupHome',
     })
   },
   navToMap:function(e){
@@ -214,7 +214,7 @@ Page({
       console.log(e);
 
       var pageIndex = e.currentTarget.dataset.page;
-      var pages = ["../homePage/homePage", "../FightGroups/FightGroups", "../search/search", '../goodDetail/goodDetail']
+      var pages = ["/pages/homePage/homePage", "/pages/FightGroups/FightGroups", "/pages/search/search", '/pages/goodDetail/goodDetail']
       wx.navigateTo({
         url: pages[pageIndex],
       })
