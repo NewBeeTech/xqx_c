@@ -1,4 +1,5 @@
 .bargain_content {
+  top: 40rpx;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -50,7 +51,7 @@
   padding: 130rpx 32rpx 32rpx;
   width: calc(90vw - 64rpx);
   position: relative;
-  top: -160rpx;
+  top: -150rpx;
   box-shadow: 0 0 1em #ccc;
   display: flex;
   justify-content: flex-start;

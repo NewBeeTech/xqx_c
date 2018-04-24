@@ -3,7 +3,7 @@
 
 .bargin_own_info {
   position: relative;
-  top: -120rpx;
+  top: -90rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,6 +98,7 @@
 
 }
 
+
 .modal-user-img > image{
   width: 100rpx;
   height: 100rpx;
@@ -140,10 +141,29 @@
 }
 
 .bargain_rule {
-  width: 94vw;
+  width: 90vw;
+  margin: 0 auto;
   height: 74rpx;
   line-height: 74rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #6e6e6e;
   text-align: right;
+}
+.rule-title {
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.modal-dialog-rule {
+  height: 600rpx;
+}
+.modal-dialog-rule>view {
+  text-align: justify;
+}
+.rule{
+  width: 550rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  font-size: 24rpx;
 }

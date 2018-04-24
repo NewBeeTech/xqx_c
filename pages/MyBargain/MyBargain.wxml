@@ -17,11 +17,11 @@
             </view>
             <view class='wrap3_box_ewj'>距离最低购买价</view>
             <view class='wrap3_box_jig'>
-              还差 <text> {{item.now_price - item.group_price > 0 ? ((item.now_price - item.group_price) / 100) : 0}} </text> 元
+              还差 <text> {{ item.chazhi }} </text> 元
             </view>
           </view>
           <view wx:if="{{item.now_price > item.group_price}}" class='wrap3_btn' bindtap='toBarginOwn' data-id='{{item.goods_group_id}}'>继续砍价</view>
-          <view wx:else class='wrap3_btn' bindtap='toPayment' data-id='{{item.id}}'>立即支付</view>
+          <view wx:if="{{item.now_price <= item.group_price && item.order_state == 0}}" class='wrap3_btn' bindtap='toPayment' data-id='{{item.id}}'>立即支付</view>
         </view>
       </view>
     </view>
