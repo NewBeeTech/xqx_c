@@ -15,7 +15,7 @@
               <view>{{ wxTimerList['wxTimer'+item.id].wxTimerSecond }}</view>
               后结束
             </view>
-            <view class='wrap3_box_ewj'>距离低购买价</view>
+            <view class='wrap3_box_ewj'>距离最低购买价</view>
             <view class='wrap3_box_jig'>
               还差 <text> {{item.now_price - item.group_price > 0 ? ((item.now_price - item.group_price) / 100) : 0}} </text> 元
             </view>
