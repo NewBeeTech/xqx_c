@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal: true,
+    showModal: false,
     closeIcon: '../../images/icon/close.png',
     nowTime: new Date().getTime(),
     deadTime: '',
@@ -64,6 +64,11 @@ Page({
       if (result.code === 0) {
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: new Date(result.data.deadLine).getTime()});
+        if (resulte.data.showFlag == 0) {
+          self.setData({
+            showModal: false,
+          });
+        }
 
         const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
         const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
