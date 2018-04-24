@@ -57,6 +57,9 @@ Page({
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       if (result.code === 0) {
         self.setData({ barginOwnData: result.data });
+        if (result.data.showFlag == 0) {
+          self.setData({ showModal: false });
+        }
 
         var wxTimer = new timer({
             beginTime: result.data.deadLine - new Date().getTime(),
