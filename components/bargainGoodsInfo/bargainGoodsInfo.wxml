@@ -1,8 +1,8 @@
 <template name="bargainGoodsInfo">
   <view class="bargain_content">
      <view class="bargain_portrait">
-        <image src="{{ barginOwnData.userPortrait }}"/>
-        <view>{{ barginOwnData.userName }}</view>
+        <view class="bargain_portrait1"><image src="{{ barginOwnData.userPortrait }}"/></view>
+        <view class="bargain_portrait2"> {{ barginOwnData.userName }}</view>
      </view>
      <view class="bargain_good_info">
        <view class="bargain_img"><image src="{{ barginOwnData.img_url }}"/></view>
