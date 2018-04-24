@@ -23,7 +23,7 @@
          <view class="modal-dialog-text">对该商品您再砍 {{ cutPrice }} 元就可以0元拿</view>
          <button bindtap="shareBtn" class="modal-dialog-button">立即分享，我也要砍价</button>
          <view class="modal-dialog-text2">本次砍价您已经获得3.00元养</view>
-         <view class="modal-dialog-text2">老金，<text>下载小确幸app立即领取</text></view>
+         <view class="modal-dialog-text2">老金</view>
      </view>
   </view>
 </view>
