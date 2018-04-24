@@ -46,6 +46,8 @@ Page({
     // 请求数据
     const id = options.id;
     const intPara =  options.intPara;
+    alert(id)
+    alert(intPara)
     // const id = '5087f119-96d7-4453-85d6-4cb87970561b';
     // const intPara = '279';
     this.loadData(id, intPara);
@@ -87,8 +89,17 @@ Page({
             }
         })
         wxTimer.start(self);
+        wx.hideLoading();
+      } else if (result.code == -3) {
+        wx.showToast({
+          title: '该商品已下架',
+          icon: 'none',
+          duration: 20000,
+        });
+        setTimeout(function () {
+          wx.navigateBack();
+        }, 2000);
       }
-      wx.hideLoading();
     }).catch(function (error) {
         console.log(error);
         wx.hideLoading()
