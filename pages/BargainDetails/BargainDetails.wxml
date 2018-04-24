@@ -58,7 +58,7 @@
     </view>
 </view>
 <!-- 底部功能件 -->
-<view class='bottomBtn'>
+<view class='bottomBtn' wx:if="{{obj.order_state != 1}}">
     <view class='backHome' bindtap='backHome'>
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
