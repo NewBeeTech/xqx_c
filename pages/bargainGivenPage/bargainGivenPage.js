@@ -87,8 +87,17 @@ Page({
             }
         })
         wxTimer.start(self);
+        wx.hideLoading();
+      } else if (result.code == -3) {
+        wx.showToast({
+          title: '该商品已下架',
+          icon: 'none',
+          duration: 20000,
+        });
+        setTimeout(function () {
+          wx.navigateBack();
+        }, 2000);
       }
-      wx.hideLoading();
     }).catch(function (error) {
         console.log(error);
         wx.hideLoading()
