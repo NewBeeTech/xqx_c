@@ -11,6 +11,7 @@ Page({
     closeIcon: '../../images/icon/close.png',
     nowTime: new Date().getTime(),
     deadTime: '',
+    id: '',
     barginOwnData: {
       // userPortrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
       // userName: '丽丽',
@@ -42,9 +43,16 @@ Page({
    */
   onLoad: function (options) {
     // 请求数据
-    console.log('options.id:', options.id)
-    const id = options.id;
-    this.loadData(id);
+    this.setData({
+      id: options.id
+    })
+    // console.log(options.id);
+    // console.log(this.data.id);
+    // const id = this.data.id || options.id;
+    // this.loadData(id);
+  },
+  onShow: function() {
+    this.loadData(this.data.id || options.id);
   },
   loadData: function (id) {
     var self = this;
@@ -106,7 +114,7 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '../MyBargain/MyBargain'
+        url: '/pages/MyBargain/MyBargain'
     })
   },
   goBargainRule: function () {

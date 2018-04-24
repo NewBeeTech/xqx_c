@@ -1,10 +1,10 @@
 <!--pages/BargainDetails/BargainDetails.wxml-->
 <view class='ta' class='ta' style='display:{{isShow}}'></view>
-<view class='Swipr_wrap'>
+<view class='Swipr'>
     <!-- <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
         <block wx:for='{{obj.carousel_figure}}' wx:key='{{index}}'>
             <swiper-item> -->
-                <image src='{{obj.img_url}}' mode='aspectFill'></image>
+                <image class='' src='{{obj.img_url}}' mode='aspectFill'></image>
             <!-- </swiper-item>
         </block>
     </swiper> -->
