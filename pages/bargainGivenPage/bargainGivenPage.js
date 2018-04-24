@@ -39,6 +39,7 @@ Page({
       // create_person_id: 11
     },
     yanglao: '',
+    groupPrice: '',
     wxTimerList: {}
   },
   /**
@@ -80,6 +81,7 @@ Page({
         const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
         const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
         const yanglao = (result.data.not_deposite / 100 + result.data.depositing / 100).toFixed(2)
+        const groupPrice = (result.data.group_price / 100).toFixed(2)
 
         console.log(cutPrice, totalCutPrice, hasPrice)
         self.setData({
@@ -88,6 +90,7 @@ Page({
           hasPrice,
           'barginOwnData.xiaojin': xiaojin,
           yanglao,
+          groupPrice
         })
 
         var wxTimer = new timer({
