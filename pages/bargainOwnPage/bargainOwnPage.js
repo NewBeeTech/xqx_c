@@ -120,12 +120,12 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '../MyBargain/MyBargain'
+        url: '/pages/MyBargain/MyBargain'
     })
   },
   goBargainRule: function () {
     wx.navigateTo({
-        url: '../bargainRulePage/bargainRulePage',
+        url: '/pages/bargainRulePage/bargainRulePage',
     })
   },
   backHome: function () {
