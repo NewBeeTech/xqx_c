@@ -64,7 +64,7 @@ Page({
       if (result.code === 0) {
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
-        if (resulte.data.showFlag == 0) {
+        if (result.data.showFlag == 0) {
           self.setData({
             showModal: false,
           });
