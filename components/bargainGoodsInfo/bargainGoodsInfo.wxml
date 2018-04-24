@@ -14,7 +14,7 @@
              </view>
              <view class="bargain_right_money2">{{  barginOwnData.low_price_num }}人已{{ barginOwnData.group_price / 100 }}元拿</view>
            </view>
-          <view class="bargain_right_money4">砍价购买成功额外奖励{{ barginOwnData.price / 100 * barginOwnData.ratio / 100}}元小金</view>
+          <view class="bargain_right_money4">砍价购买成功额外奖励{{ barginOwnData.xiaojin }}元小金</view>
       </view>
     </view>
   </view>
