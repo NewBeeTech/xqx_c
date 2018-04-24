@@ -44,10 +44,10 @@ Page({
    */
   onLoad: function (options) {
     // 请求数据
-    // const id = options.id;
-    // const intPara =  options.intPara;
-    const id = 'bb4cf16f-689a-45f0-b964-9d5f1ab9736b';
-    const intPara = '276';
+    const id = options.id;
+    const intPara =  options.intPara;
+    // const id = '5087f119-96d7-4453-85d6-4cb87970561b';
+    // const intPara = '279';
     this.loadData(id, intPara);
   },
   loadData: function (id, intPara) {
@@ -66,13 +66,17 @@ Page({
           self.setData({ showModal: true });
         }
 
-        const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(3)
-        const totalCutPrice = ((barginOwnData.price - barginOwnData.now_price) / 100).toFixed(3)
-        const hasPrice = ((barginOwnData.now_price -  barginOwnData.group_price) / 100).toFixed(3)
-        this.setData({
+        const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+        const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
+        const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
+        const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+
+        console.log(cutPrice, totalCutPrice, hasPrice)
+        self.setData({
           cutPrice,
           totalCutPrice,
-          hasPrice
+          hasPrice,
+          'barginOwnData.xiaojin': xiaojin
         })
 
         var wxTimer = new timer({

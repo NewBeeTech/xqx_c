@@ -62,7 +62,22 @@ Page({
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       if (result.code === 0) {
+        wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: new Date(result.data.deadLine).getTime()});
+
+        const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+        const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
+        const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
+        const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+
+        console.log(cutPrice, totalCutPrice, hasPrice)
+        self.setData({
+          cutPrice,
+          totalCutPrice,
+          hasPrice,
+          'barginOwnData.xiaojin': xiaojin
+        })
+
 
         var wxTimer = new timer({
             beginTime: new Date(result.data.deadLine).getTime(),
@@ -73,9 +88,15 @@ Page({
         })
         wxTimer.start(self);
       } else if (result.code == -3) {
-        wx.navigateBack();
+        wx.showToast({
+          title: '该商品已下架',
+          icon: 'none',
+          duration: 20000,
+        });
+        setTimeout(function () {
+          wx.navigateBack();
+        }, 2000);
       }
-      wx.hideLoading();
     }).catch(function (error) {
         console.log(error);
         wx.hideLoading()
@@ -119,7 +140,7 @@ Page({
   },
   goBargainRule: function () {
     wx.navigateTo({
-        url: '../bargainRulePage/bargainRulePage',
+        url: '/pages/bargainRulePage/bargainRulePage',
     })
   },
   backHome: function () {
