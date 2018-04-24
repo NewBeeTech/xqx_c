@@ -84,7 +84,7 @@ Page({
                'paySign': data.paySign,
                'success':function(res){
                  wx.redirectTo({
-                     url: `../bargainSuccessPage/bargainSuccessPage?orderId=${this.data.goodInfo.orderId}`
+                     url: `/pages/bargainSuccessPage/bargainSuccessPage?orderId=${this.data.goodInfo.orderId}`
                  });
                },
                'fail':function(res){
