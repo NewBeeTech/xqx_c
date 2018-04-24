@@ -166,9 +166,16 @@
   height: 30rpx;
 }
 
-.bargain_rule {
-  width: 90vw;
-  margin: 0 auto;
+.top_rule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx 30rpx;
+}
+.bargain_rule1 {
+  /* width: 90vw; */
+  /* margin: 0 auto; */
   height: 74rpx;
   line-height: 74rpx;
   font-size: 28rpx;
