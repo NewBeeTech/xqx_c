@@ -135,7 +135,8 @@ Page({
             wx.hideLoading();
             console.log(result);
             self.setData({
-                obj: result.data,
+                obj: result.data
+                // 'obj.imgList': result.data.explain_img_url.split(',')
             });
             //
             // if (result.data.service && result.data.service.length >= 8) {
