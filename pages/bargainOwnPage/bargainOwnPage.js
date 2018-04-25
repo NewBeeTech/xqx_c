@@ -71,7 +71,7 @@ Page({
         const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
         const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
         // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
-        const xiaojin = result.data.group_price * result.data.ratio / 100;
+        const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
 
         console.log(cutPrice, totalCutPrice, hasPrice)
         self.setData({
