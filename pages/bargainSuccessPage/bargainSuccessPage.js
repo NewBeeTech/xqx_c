@@ -11,7 +11,8 @@ Page({
       ratio: 0,
       name: '',
       join_time: ''
-    }
+    },
+    orderId: 0
   },
 
   /**
@@ -20,6 +21,7 @@ Page({
   onLoad: function (options) {
      console.log('options.orderId:', options.orderId)
      this.getInfo(options.orderId)
+     this.setData({ orderId: options.orderId})
   },
 
   /**
@@ -60,8 +62,8 @@ Page({
   },
   // TODO: 跳转到详情
   goToGoodInfo: function () {
-    // wx.navigateTo({
-    //     url: '/pages/BargainDetails/BargainDetails?id='
-    // })
+    wx.navigateTo({
+        url: `/pages/BargainDetails/BargainDetails?id=${this.data.orderId}`
+    })
   }
 })
