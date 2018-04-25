@@ -1,0 +1,84 @@
+<view class="page public_grey_bg">
+    <!--头部-->
+    <view class='header'>
+      <view class='money_header' wx:if="{{name}}">
+        <image src='{{getTradeDetail.logo?getTradeDetail.logo:""}}' class='logo' mode='aspectFit'></image><view class='name' >{{getTradeDetail.merchant_name?getTradeDetail.merchant_name:''}}</view>
+      </view> 
+      <view class='money_headerTo' wx:else>
+        <image src='{{getTradeDetail.logo?getTradeDetail.logo:""}}' class='logoTo' mode='aspectFill'></image><view class='nameTo' >{{getTradeDetail.merchant_name?getTradeDetail.merchant_name:''}}</view>
+      </view>
+      <view class='money {{name?"":"moneyTo"}}'>{{getTradeDetail.currency}}</view>
+      <view class='hint_text'>{{schedule}}</view>
+      <view class='schedule'>
+
+          <view class='scheduleTo_lf'>
+            <view class='list'>
+              <image src='/pages/images/icon1.png' class='icon1'  mode='aspectFill' ></image>
+              <view class='list_lf color linH50'>获得小金</view>
+              <view class='list_rf linH50'>{{getTradeDetail.trade_time}}</view>
+            </view>
+            <view class='schedule_info'>
+              <view class='schedule_info_list'>
+              
+                <view class='list_lf '>获金方式</view>
+                <view class='list_rf'>{{getTradeDetail.gold_pathway}}</view>
+              </view>
+              <view class='schedule_info_list' wx:if="{{cur_ratio}}">
+               
+                <view class='list_lf '>消费金额</view>
+                <view class='list_rf'>{{getTradeDetail.real_charge}}元</view>
+              </view>
+              <view class='schedule_info_list' wx:if="{{cur_ratio}}">
+                
+                <view class='list_lf '>返金比例</view>
+                <view class='list_rf'>{{getTradeDetail.cur_ratio}}%</view>
+              </view>
+              <view class='schedule_info_list'>
+               
+                <view class='list_lf '>流水号</view>
+                <view class='list_rf'>{{getTradeDetail.serial_number}}</view>
+              </view>
+            </view>
+
+            <view class='list two'>
+              <image src='/pages/images/icon1.png' class='icon1To'  mode='aspectFill' ></image>
+              <view class='list_lf color linH40'>结算到账</view>
+              <view class='list_rf linH40'>{{getTradeDetail.trade_time}}</view>
+            </view>
+            <view class='schedule_info {{addClass?"":"gray"}}'>
+              <view class='schedule_info_list'>
+               
+              </view>
+             
+            </view>
+            <view class='list three'>
+              <image src='/pages/images/icon2.png' class='icon2'  mode='aspectFill' wx:if="{{!addClass}}"></image>
+              <image src='/pages/images/icon1.png' class='icon2'  mode='aspectFill' wx:else></image>
+              <view class='list_lf linH40 {{addClass?"colorTo":""}}'>托管入账工商银行</view>
+              <view class='list_rf linH40'  wx:if="{{idcard_state}}">预计{{getTradeDetail.inAccount_time}}</view>
+              <view class='list_rf linH40 idcard_state' wx:else>（未开户）</view>
+              
+            </view>
+          </view>
+      </view>
+    </view>
+
+    <!--附近的商家  初始化默认-->
+     <view class='nearby_merchant'  bindtap='goMerchantList'>
+      <view class='box_if' wx:if="{{list_img.length > 0}}">
+        <view class='merchant'>
+          <view class='nearby_title'>附近有{{cnt}}家返金商户</view>
+          <view class='nearby_info'>最高返金比{{maxRatio}}%</view>
+        </view>
+        <view class='merchant_icon'>
+          <image wx:for="{{list_img}}" wx:key="{{item.id}}" src='{{item.iconPath}}' class='merchant_img' mode='aspectFill'></image>
+          <image src='/pages/images/arrows.png' class='arrowsTo' mode='aspectFill' ></image> 
+          <image src='/pages/images/more.png' class='merchant_imgTo' mode='aspectFill'  wx:if="{{nearbyTo}}"></image>
+        </view>
+      </view>
+      <view class='nearby_titleTo' wx:else>当前地区暂无合作商户，敬请期待～</view> 
+    </view>  
+
+    <!--返回首页-->
+    <!-- <view class='Goindex' bindtap='Goindex'>返回首页</view> -->
+</view>

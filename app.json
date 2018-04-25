@@ -8,6 +8,7 @@
     "pages/bargainHomePage/bargainHomePage",
     "pages/bargainRulePage/bargainRulePage",
     "pages/homePage/homePage",
+    "pages/qr_code/pay/pay",
     "pages/Album/Album",
     "pages/pintuan/pintuan",
     "pages/AlbumDetail/AlbumDetail",

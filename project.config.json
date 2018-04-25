@@ -291,6 +291,12 @@
 					"name": "bargainGivenPage/bargainGivenPage",
 					"pathName": "pages/bargainGivenPage/bargainGivenPage",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "扫码支付",
+					"pathName": "pages/qr_code/pay/pay",
+					"query": ""
 				}
 			]
 		}

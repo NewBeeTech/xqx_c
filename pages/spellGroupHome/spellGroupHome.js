@@ -88,11 +88,13 @@ Page({
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
-    var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '../goodDetail/goodDetail', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     var url = pages[pageIndex];
-    if (pages[pageIndex] =="../goodDetail/goodDetail"){
+    if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
       url += "?id=" + e.currentTarget.dataset.id
     }
+    console.log(e.currentTarget.dataset.id);
+    console.log(url);
     wx.navigateTo({
       url: url,
     })

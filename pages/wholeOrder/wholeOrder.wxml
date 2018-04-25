@@ -3,19 +3,19 @@
 
 <view class='coupOrder'>
     <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
-        <view class='order_status'>  
+        <view class='order_status'>
             <view>
                 <text class='shop_name'>{{item.merchant_name}}</text>
                 <image src='../../images/icon/jit2.png'></image>
             </view>
 
             <text wx:if="{{item.order_state==-1||item.order_state==-2||item.order_state==-3}}">已取消</text>
-            <text wx:elif="{{item.order_state==0||item.order_state==1}}">待支付</text>
-            <text wx:elif="{{item.order_state==2}}">待收货</text>
+            <text wx:elif="{{item.order_state==0}}">待支付</text>
+            <text wx:elif="{{item.order_state==1}}">待收货</text>
             <text wx:elif='{{item.order_state==3}}'>已收货</text>
-            <text wx:elif='{{item.order_state==4}}'>待发货</text>
-            
-        </view> 
+            <text wx:elif='{{item.order_state==2}}'>待发货</text>
+
+        </view>
         <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
             <image src="{{item.img_url}}"></image>
             <view class='price_info'>
@@ -24,7 +24,7 @@
                     <view>
                         <text class='symbol'>￥</text>{{item.group_price}}<text class='original_price'>￥{{item.price}}</text>
                     </view>
-                    <view class='fight_group'>拼团</view>
+                    <view class='fight_group'>砍价</view>
                 </view>
             </view>
         </view>
@@ -33,7 +33,7 @@
             <block wx:else>
                 <block wx:if="{{item.order_state==1}}">
                     <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>
-                    <button class='sharing_friends_btn identical' open-type="share" bindtap='fxIndex' data-id='{{item.goods_group_id}}'>分享好友</button>
+                    <!-- <button class='sharing_friends_btn identical' open-type="share" bindtap='fxIndex' data-id='{{item.goods_group_id}}'>分享好友</button> -->
                 </block>
                 <block wx:if="{{item.order_state==0}}">
                     <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>

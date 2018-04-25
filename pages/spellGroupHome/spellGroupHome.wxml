@@ -42,7 +42,7 @@
   </view>
 
   <view class='goods'>
-    <view class='title'>热门拼团</view>
+    <view class='title'>热门</view>
     <view class='good_list'>
       <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>
         <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
@@ -56,11 +56,11 @@
             <text>{{~~(item.group_price*100*item.ratio/100)?~~(item.group_price*100*item.ratio/100)/100:0.01}}</text>小金
           </view>
           <view class='group'>
-            <text class='group_num'>{{item.group_person_num}}人团</text>
-            <text class='group_out'>已团出：{{item.group_num}}件</text>
+            <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
+            <text class='group_out'>已售出：{{item.group_num}}件</text>
           </view>
         </view>
-        <view class='right_button'>去开团</view>
+        <view class='right_button'>去砍价</view>
       </view>
     </view>
   </view>

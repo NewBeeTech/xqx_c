@@ -9,7 +9,7 @@
   <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ totalCutPrice }}</span>元  还差<span class="bargin_own_info2">{{ hasPrice }}</span>元</view>
-    <button bindtap="showModalBtn" class="bargin_share_btn">帮朋友砍一刀</button>
+    <button bindtap="cutClick" class="bargin_share_btn">帮朋友砍一刀</button>
     <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>
   <view class="bargain_own_list">

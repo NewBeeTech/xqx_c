@@ -157,7 +157,7 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
  * 开团列表
  *
  */
-Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+Default.GOODS_GROUP_BUY_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
 
 /**
  * 获取拼团详情

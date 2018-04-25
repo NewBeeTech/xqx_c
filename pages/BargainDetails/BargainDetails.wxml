@@ -15,7 +15,7 @@
     <view class='Md_top'>
         <view class='Md_top_left'>
             <view><text>￥</text>{{obj.group_price / 100}} <text class="price">￥{{obj.price / 100}}</text></view>
-            <view>已累计贡献小金：{{ obj.xiaojin }} 小金</view>
+            <view>砍价成功额外奖励小金：{{ obj.xiaojin }} </view>
 
             <view>已{{ obj.low_price_num }}人成功砍价</view>
         </view>
@@ -43,16 +43,16 @@
             <view class='address_info' wx:if="{{obj.address}}">{{obj.address}}</view>
         </view>
     </view>
-    <view class='address_tel_rig'>
+    <view wx:if="{{obj.store_phone}}" class='address_tel_rig'>
         <image bindtap='ddhua' data-store_phone='{{obj.store_phone}}' src='../../images/img/phone.png'></image>
     </view>
 </view>
 <view class='goodDetails bg_white' wx:if="{{obj.explain_content||obj.explain_img_url}}">
-    <view>
+    <!-- <view>
         <view class='detaileTitle'>商品描述</view>
         <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
-    </view>
-    <view>
+    </view> -->
+    <view wx:if="{{imgList}}">
         <view class='detaileTitle'>商品详情</view>
         <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
     </view>

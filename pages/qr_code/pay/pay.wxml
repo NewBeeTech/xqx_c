@@ -1,0 +1,75 @@
+<!--扫码支付-->
+<view class="page public_grey_bg">
+    <view class="pay_box">
+        <!-- <view class='merchant_name public_omit_one'>{{MerchantInfoFor.name}}</view>
+        <view class='pay_money'>
+          <input class='pay_input' placeholder='请填写付款金额' focus="true" type='digit' bindinput="bindKeyInput"></input>
+          <view class='pay_text'>元</view>
+        </view> 
+        <view class='payBox' wx:if="{{column}}">
+          <view class='pay'>实际支付金额：{{pay}}</view>
+          <view class='pay_text'>元</view>
+        </view>
+        <view class='payBox' >
+          <view class='pay'>返金比例：{{MerchantInfoFor.ratio}}</view>
+          <view class='pay_text'>%</view>
+        </view> -->
+        <!-- <view class='payBox'>
+          <view class='pay'>返回小金：{{}}</view>
+          <view class='pay_text'>元</view>
+        </view>
+        <view class='info lf'>返金比例：</view>
+        <view class='info rf'>元</view> -->
+        <view class='merchant_name'>
+           <view class='merchant_box' wx:if="{{name}}">
+              <image class='merchant_toux' src='{{MerchantInfoFor.storeLogo}}' mode=''></image>
+              <view class='name'>{{MerchantInfoFor.name}}</view>
+          </view> 
+          <view class='merchant_boxTo' wx:else>
+              <image class='merchant_touxTo' src='{{MerchantInfoFor.storeLogo}}' mode=''></image>
+              <view class='nameTo'>{{MerchantInfoFor.name}}</view>
+          </view>
+        </view>
+
+        <view class='merchant_info'>
+          <view class='pay_input'>
+              <view class='pay_title'>消费金额（元）</view>
+              <input class='pay_inp' focus="true" type='digit' bindinput="bindKeyInput"></input>
+          </view>
+          <!--优惠活动-->
+          <view class='pay_moneyOff' wx:if ="{{whether_discount == 'MD'}}">
+              <view class='pay_moneyOff_title'>优惠活动：</view>
+              <view class='activity_list'>
+                <view class='act_box' wx:for="{{money_Off_List}}" wx:key="{{item.id}}">
+                    <view class='act_list'>{{item.title}}</view>
+                </view>
+                
+              </view>
+              <view class='act_rflist' wx:if="{{value== ''}}"></view>
+              <view class='act_rflist' wx:elif="{{subtract_money== 0}}">不可用</view>
+              <view class='act_rflist' wx:else>- ¥{{subtract_money/100}}</view>
+          </view>
+          <!--优惠活动-->
+          <view class='pay_moneyOff' wx:if ="{{whether_discount == 'MR'}}">
+              <view class='pay_moneyOff_title'>优惠活动：</view>
+              <view class='activity_list'>
+                <view class='act_box'>
+                    <view class='act_list'>{{ratio}}折</view>
+                </view>
+                
+              </view>
+               <view class='act_rflist' wx:if="{{subtract_money== '' || subtract_money == 0 || subtract_money == NaN}}"></view>
+              <view class='act_rflist' wx:else>- ¥{{subtract_money/100}}</view>
+          </view>
+          
+           <view class='pay_input' wx:if="{{MerchantInfoFor.discountMode}}">
+              <view class='pay_title'>实付金额（元）</view>
+              <view class='pay_text' wx:if="{{value== '' || value== '.' || value== 0}}"></view>
+              <view class='pay_text' wx:else>{{pay}}</view>
+          </view>
+        </view>
+    </view>
+    
+     <view class='fan_money'>本单预计可返 <text>{{return_money}}</text> 小金  </view> 
+    <button class='pay_btn' style='background:#F5A623;width:678rpx' type="primary" size='default' disabled='{{disabled}}' bindtap='payBtn'>确认买单</button>
+</view>

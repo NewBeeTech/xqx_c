@@ -40,7 +40,9 @@ Page({
     },
     yanglao: '',
     groupPrice: '',
-    wxTimerList: {}
+    wxTimerList: {},
+    id: '',
+    intPara: '',
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,6 +53,10 @@ Page({
     const intPara =  options.intPara;
     console.warn(id)
     console.warn(intPara)
+    this.setData({
+      id,
+      intPara,
+    })
     wx.showToast({
       title: 'id: ' + id + ' intPara: ' + intPara,
       icon: 'success',
@@ -58,7 +64,7 @@ Page({
     })
     // const id = '5087f119-96d7-4453-85d6-4cb87970561b';
     // const intPara = '279';
-    this.loadData(id, intPara);
+    // this.loadData(id, intPara);
   },
   loadData: function (id, intPara) {
     var self = this;
@@ -117,6 +123,10 @@ Page({
         wx.hideLoading()
 
     });
+  },
+  cutClick: function () {
+    this.loadData(this.id, this.intPara);
+    this.setData({ showModal: true });
   },
   showModalBtn: function () {
     this.setData({ showModal: true });
