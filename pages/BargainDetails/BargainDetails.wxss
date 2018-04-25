@@ -234,6 +234,10 @@ margin: 0 26rpx 0 34rpx;
   align-items: center;
   justify-content: space-between;
 }
+.beginBtnGrey{
+  background: #ccc;
+  color: white;
+}
 .beginBtn view {
   text-align: center;
 }

@@ -63,12 +63,17 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view wx:if="{{obj.now_price <= obj.group_price}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view >立即支付</view>
         </view>
     </view>
-    <view wx:else class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.order_state == 1 || obj.order_state == 2 || obj.order_state == 3 || obj.order_state == 4}}" class='beginBtn beginBtnGrey' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>已购买</view>
+        </view>
+    </view>
+    <view wx:if="{{obj.now_price > obj.group_price && obj.order_state == 0}}" class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view>继续砍价</view>
         </view>
