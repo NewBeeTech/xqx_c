@@ -58,9 +58,10 @@ Page({
         console.log(err)
     });
   },
+  // TODO: 跳转到详情
   goToGoodInfo: function () {
-    wx.navigateTo({
-        url: ''
-    })
+    // wx.navigateTo({
+    //     url: '/pages/BargainDetails/BargainDetails?id='
+    // })
   }
 })
