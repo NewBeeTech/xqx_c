@@ -182,7 +182,7 @@ Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuyXCX";
 /**
  * 获取用户拼团订单列表
  */
-Default.GET_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getGoodsGroupOrderListXCX";
+Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
 /**
  * 获取拼团订单详情
@@ -192,12 +192,12 @@ Default.GET_GOODS_GROUP_ORDER_INFO = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
 /**
  * 确认收货
  */
-Default.COMMIT_RECEIVE_GOODS = "xcxgroupbuy/commitReceiveGoods";
+Default.COMMIT_RECEIVE_GOODS = "xcxcutprice/commitReceiveGoods";
 
 /**
  * 取消订单
  */
-Default.CANCEL_GROUP_ORDER = "xcxgroupbuy/cancelGroupOrder";
+Default.CANCEL_GROUP_ORDER = "xcxcutprice/cancelGroupOrder";
 
 /**
  * 获取砍价详情

@@ -35,7 +35,7 @@ Page({
     getDdList: function () {
         console.log(1111)
         var that = this;
-        appData.Tool.getGoodsGroupOrderListXCX({ page: that.data.page, rows: 10 }).then(function (res) {
+        appData.Tool.getGoodsGroupOrderListXCX({ page: that.data.page, rows: 10, intPara: 'KJ' }).then(function (res) {
             console.log(res)
             wx.hideLoading();
             var arr = res.data.list;
@@ -121,7 +121,7 @@ Page({
                 }
             }
         })
-        
+
     },
     //确认收货
     qrsTap: function (e) {

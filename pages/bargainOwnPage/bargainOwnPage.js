@@ -70,7 +70,8 @@ Page({
         const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
         const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
         const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
-        const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+        // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+        const xiaojin = result.data.group_price * result.data.ratio / 100;
 
         console.log(cutPrice, totalCutPrice, hasPrice)
         self.setData({
