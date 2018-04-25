@@ -14,10 +14,10 @@
 <view class='Md'>
     <view class='Md_top'>
         <view class='Md_top_left'>
-            <view><text>￥</text>{{obj.group_price}} <text class="price">￥{{obj.price}}</text></view>
-            <view>已累计贡献小金：{{~~(obj.group_price*100*obj.ratio/100)?~~(obj.group_price*100*obj.ratio/100)/100:0.01}} 小金</view>
+            <view><text>￥</text>{{obj.group_price / 100}} <text class="price">￥{{obj.price / 100}}</text></view>
+            <view>已累计贡献小金：{{ obj.xiaojin }} 小金</view>
 
-            <view>已23人成功砍价</view>
+            <view>已{{ obj.low_price_num }}人成功砍价</view>
         </view>
         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
     </view>

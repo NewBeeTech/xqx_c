@@ -135,7 +135,8 @@ Page({
           wx.hideLoading();
           self.setData({
               obj: result.data,
-              'obj.imgList': result.data.explain_img_url.split('[')[1].split(']')[0].split(',')
+              'obj.imgList': result.data.explain_img_url.split('[')[1].split(']')[0].split(','),
+              'obj.xiaojin': result.data.currency/100
           });
       })
           .catch(function (error) {
