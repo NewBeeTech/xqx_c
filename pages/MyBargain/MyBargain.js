@@ -108,22 +108,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var wxTimer = new timer({
-          beginTime:"1524402355724",
-          name: 'wxTimer1',
-          complete:function(){
-              console.log("完成了")
-          }
-      })
-      console.log(wxTimer);
-      wxTimer.start(this);
-      // wxTimer.stop();
-      console.log(options);
       this.setData({
         id: options.id
       });
       this.loadData(this.page);
-
   },
   toNextPage: function (e) {
     console.log(e);
