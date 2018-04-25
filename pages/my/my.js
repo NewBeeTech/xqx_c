@@ -56,7 +56,7 @@ Page({
             console.log(result);
 
 
-        
+
         })
     },
     //我的累计金
@@ -107,9 +107,9 @@ Page({
           console.log("是不是iOS",isiOS)
           var url = "";
           if (isiOS == true) {
-            url = "https://itunes.apple.com/cn/app/id1237657075?mt=8"
+            url = "https://bmini.xqx.com/download/success.html"
           } else {
-            url = "http://a.app.qq.com/o/simple.jsp?pkgname=com.denong.doluck"
+            url = "https://bmini.xqx.com/download/success.html"
           }
           wx.showModal({
             title: '提示',
@@ -127,12 +127,12 @@ Page({
         }
       })
 
-    
+
     },
     //保存到相册
     downloadTap: function () {
       var self = this;
-      
+
       wx.getSetting({
         success(res) {
           if (!res.authSetting['scope.writePhotosAlbum']) {
@@ -147,7 +147,7 @@ Page({
           }
         }
       })
-        
+
     },
     download:function(){
 
@@ -163,7 +163,7 @@ Page({
                 icon: 'success',
                 duration: 2000
               })
-              
+
             },
             fail(err) {
               console.log(err);
@@ -204,7 +204,7 @@ Page({
               obj: result.data,
               xiaojin: temp
             });
-           
+
         })
             .catch(function (error) {
                 console.log(error);
@@ -217,8 +217,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        
-        
+
+
     },
 
     /**

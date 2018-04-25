@@ -34,10 +34,10 @@
 </view>
 
  <view class='order_list'>
-    <view class='order_status'>  
+    <view class='order_status'>
         <text class='shop_name'>{{xqObj.merchant_name}}</text>
         <image src='../../images/icon/jit2.png'></image>
-    </view> 
+    </view>
     <view class='order_info'>
         <image src="{{xqObj.img_url}}"></image>
         <view class='price_info'>
@@ -47,7 +47,7 @@
                     <text class='symbol'>￥</text>{{xqObj.group_price}}<text class='original_price'>￥{{xqObj.price}}</text>
                 </view>
             </view>
-        </view> 
+        </view>
     </view>
 </view>
 <view class='order_detailed'>
@@ -57,18 +57,18 @@
     </view>
     <view wx:if="{{xqObj.express_number}}">
         <view>订单编号</view>
-        <text>{{xqObj.express_number}}</text>//?
+        <text>{{xqObj.serial_number}}</text>
     </view>
     <view wx:if="{{xqObj.serial_number}}">
         <view>快递单号</view>
-        <text>{{xqObj.serial_number}}</text>
+        <text>{{xqObj.express_number}}</text>
     </view>
     <view wx:if="{{xqObj.explain_content}}">
         <view>拼团须知</view>
         <view class='notice'>
             <view>{{xqObj.explain_content}}</view>
             <image src='../../images/icon/right_arrow2.png'></image>
-        </view>     
+        </view>
     </view>
 </view>
 <view class='btn_bar'>
@@ -96,7 +96,7 @@
 <!-- 弹窗 -->
 <view class='popup' wx:if='{{qxdd}}'>
     <view>
-         <!-- <view class='popup_box'>         
+         <!-- <view class='popup_box'>
             <text>退款提示</text>
          </view>  -->
          <view class='explain'>
