@@ -9,6 +9,7 @@
     "pages/bargainRulePage/bargainRulePage",
     "pages/homePage/homePage",
     "pages/Album/Album",
+    "pages/pintuan/pintuan",
     "pages/AlbumDetail/AlbumDetail",
     "pages/boundNumber/boundNumber",
     "pages/problem/problem",

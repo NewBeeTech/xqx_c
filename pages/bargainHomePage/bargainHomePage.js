@@ -30,6 +30,7 @@ Page({
         goods: [],
         a1:'',
         a2:'',
+        imgURL: '',
         hasMore: true
     },
     /**
@@ -51,11 +52,15 @@ Page({
             console.log(result);
             var temp = [{ name: "全部", id: 0 }].concat(result.data.catalogList);
 
+            let topPics = result.data.topPics;
+            topPics = topPics && topPics.filter(item => item.activity_type == 2);
+            const imgURL = topPics && topPics[0] && topPics[0].img_url;
             self.setData({
                 subList: [{ name: "不限", id: null }],
                 obj: result.data,
                 list: result.data.merchantList,
-                typeList: temp
+                typeList: temp,
+                imgURL,
             });
             // self.data.typeList.unshift({name:"全部",id:0});
             console.log(self.data.typeList);

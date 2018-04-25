@@ -88,7 +88,7 @@ Page({
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
-    var pages = ["../homePage/homePage", "../FightGroups/FightGroups", "../search/search", '../goodDetail/goodDetail', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '../goodDetail/goodDetail', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     var url = pages[pageIndex];
     if (pages[pageIndex] =="../goodDetail/goodDetail"){
       url += "?id=" + e.currentTarget.dataset.id
