@@ -300,3 +300,6 @@ margin: 0 26rpx 0 34rpx;
   width: 39rpx;
   height: 39rpx;
 }
+.margin-detail {
+  margin-bottom: 100rpx;
+}

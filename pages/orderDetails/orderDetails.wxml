@@ -11,6 +11,7 @@
         <text wx:elif="{{xqObj.order_state==4}}">待商家发货，请耐心等待</text>
         <text wx:elif="{{xqObj.order_state==2}}">商家已发货，请耐心等待</text>
         <text wx:elif="{{xqObj.order_state==3}}">已完成收货</text>
+        <text wx:if="{{xqObj.order_state==3}}">本单已获得 {{xqObj.currency/100}} 小金 </text>
     </view>
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
 </view>
@@ -23,15 +24,15 @@
     <text>{{xqObj.receive_address}}</text>
 </view>
 
-<view class='fight_info' wx:if='{{xqObj.order_state==2||xqObj.order_state==3||xqObj.order_state==4}}'>
+<!-- <view class='fight_info' wx:if='{{xqObj.order_state==2||xqObj.order_state==3||xqObj.order_state==4}}'>
     <view class='fight_icon'>
-        <!-- <image src='../../images/icon/waitFor.png'></image> -->
+        <image src='../../images/icon/waitFor.png'></image>
         <text>拼团成功</text>
     </view>
     <view class='headPor'>
         <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{item.portrait}}'></image>
     </view>
-</view>
+</view> -->
 
  <view class='order_list'>
     <view class='order_status'>

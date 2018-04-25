@@ -47,14 +47,11 @@
         <image bindtap='ddhua' data-store_phone='{{obj.store_phone}}' src='../../images/img/phone.png'></image>
     </view>
 </view>
-<view class='goodDetails bg_white' wx:if="{{obj.explain_content||obj.explain_img_url}}">
-    <!-- <view>
-        <view class='detaileTitle'>商品描述</view>
-        <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
-    </view> -->
-    <view wx:if="{{imgList}}">
+<view class='goodDetails bg_white margin-detail' wx:if="{{obj.explain_content||(obj.explain_img_url !== '' && obj.explain_img_url !== '[]')}}">
+    <view>
         <view class='detaileTitle'>商品详情</view>
-        <image style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{imgList}}" wx:key='{{index}}' src='{{item}}'></image>
+        <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
+        <image  wx:if="{{obj.imgList}}" style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{obj.imgList}}" wx:key='{{index}}' src='{{item}}'></image>
     </view>
 </view>
 <!-- 底部功能件 -->
@@ -63,7 +60,7 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.orderId}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view >立即支付</view>
         </view>

@@ -1,5 +1,5 @@
 //app.js
-var getSession = "/app_person/XCXController/get3rdSession";   //获取sessionKey
+var getSession = "/xcx-person/XCXController/get3rdSession";   //获取sessionKey
 
 var tool = require("Tools/HTTPOpertion.js");
 var QQMapWX = require('Tools/qqmap-wx-jssdk.min.js');

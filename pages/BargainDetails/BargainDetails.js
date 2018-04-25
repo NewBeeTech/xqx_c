@@ -71,13 +71,20 @@ Page({
     })
   },
   oneKeyGroup: function (e){
+    // console.log(e.currentTarget.dataset.id);
     wx.navigateTo({
         url: '/pages/bargainConfirmOrder/bargainConfirmOrder?orderId=' + e.currentTarget.dataset.id
     })
   },
   toBarginOwn: function (e){
+    // wx.navigateTo({
+    //     url: '/pages/bargainOwnPage/bargainOwnPage?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+    // })
+    const id = e.currentTarget.dataset.id;
+    // console.warn(`/pages/bargainOwnPage/bargainOwnPage?id=${id}`);
+    // console.log(id);
     wx.navigateTo({
-        url: '/pages/bargainOwnPage/bargainOwnPage?cnd=' + e.currentTarget.dataset.id + '&create_person_id=' + e.currentTarget.dataset.create_person_id + '&group_buy_id=' + e.currentTarget.dataset.group_buy_id
+        url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
     })
   },
   onShareAppMessage: function () {
@@ -133,11 +140,18 @@ Page({
 
       appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
           wx.hideLoading();
+          let explain_img_url = result.data.explain_img_url;
+          if (explain_img_url) {
+            explain_img_url = JSON.parse(explain_img_url);
+          } else {
+            explain_img_url = "";
+          }
           self.setData({
               obj: result.data,
-              'obj.imgList': result.data.explain_img_url.split('[')[1].split(']')[0].split(','),
+              'obj.imgList': explain_img_url,
               'obj.xiaojin': result.data.currency/100
           });
+          console.warn(explain_img_url);
       })
           .catch(function (error) {
               console.log(error);

@@ -9,6 +9,9 @@ Page({
     data: {
         xqObj: {}
     },
+    navToOrderDetail: function() {
+
+    },
     loadData: function (id) {
         var that = this;
         appData.Tool.getGoodsGroupOrderInfoXCX({ cnd: id }).then(function (res) {
@@ -77,7 +80,7 @@ Page({
                 duration: 2000
               });
             }
-            
+
           }).catch(function (err) { wx.hideLoading();});
     },
     //售后
