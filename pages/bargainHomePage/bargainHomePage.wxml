@@ -1,6 +1,6 @@
 <!--pages/MerchantList/MerchantList.wxml-->
 <div class="bargain_content">
-  <scroll-view class="bargin_list" scroll-y="true" bindscroll='pageScroll' bindscrolltolower='shjiaz'>
+  <scroll-view class="bargin_list" scroll-y="true" bindscrolltolower='shjiaz'>
     <view class='wrap1'>
       <image class='wrap1_img' src='{{imgURL}}'></image>
       <view class='wrap1_box' bindtap='toWaring'>
