@@ -35,10 +35,10 @@
       <image src='../../images/home/xianshi.png'></image>
       <view>限时秒杀</view>
     </view>
-    <view class='item' bindtap='toNextPage' data-page='{{2}}'>
+    <!-- <view class='item' bindtap='toNextPage' data-page='{{2}}'>
       <image src='../../images/home/sousuo.png'></image>
       <view>搜索</view>
-    </view>
+    </view> -->
   </view>
 
   <view class='goods'>

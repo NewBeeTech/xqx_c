@@ -16,7 +16,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getDdList();
+      // this.data.Ddarr = [];
+      // this.data.page = 1;
+      //   this.getDdList();
     },
     //详情
     gmTap: function (e) {

@@ -2,7 +2,7 @@
 * @time 2018/1/2
 * @class yzp
 * @CCPP 支付页面
-* @modification Time 
+* @modification Time
 * @modification class
 */
 const app = getApp()
@@ -47,9 +47,9 @@ Page({
           })
           that.getMerchantInfoForWeb(res.data)
           //that.getMerchantInfoForWeb(res.data)
-         
+
         },
-      
+
       })
       that.getMerchantInfoForWeb('12007')
     }else{
@@ -76,7 +76,7 @@ Page({
         })
       }
     })
-    
+
   },
   // 获取商家信息
   getMerchantInfoForWeb: function (cnd) {
@@ -113,7 +113,7 @@ Page({
             money_Off_List: info
           })
         }
-        
+
         if (res.data.data.name.length > 9){
           that.setData({
             name: false,
@@ -160,9 +160,9 @@ Page({
     if (that.data.whether_discount == "MR") {
       that.ratio(that.data.ratio);//折扣
     } else if (that.data.whether_discount == "MD") { //满减
-      let value = that.data.value * 100;  
-      let fullTo = []; 
-      let subtractTo = []; 
+      let value = that.data.value * 100;
+      let fullTo = [];
+      let subtractTo = [];
       for (let i = 0; i < that.data.full.length; i++) {
         for (let j = i + 1; j < that.data.full.length; j++) {
           if (that.data.full[i] > that.data.full[j]) {
@@ -200,12 +200,12 @@ Page({
           that.moneyOff(that.data.full[0], that.data.subtract[0]);
         } else if (value < that.data.full[0]) {
           that.moneyOff(that.data.full[0], that.data.subtract[0]);
-          
+
         } else if (value < that.data.full[1]) {
           that.moneyOff(that.data.full[1], that.data.subtract[1]);
         } else if (value >= that.data.full[1] && value < that.data.full[2]) {
           that.moneyOff(that.data.full[1], that.data.subtract[1]);
-          
+
         } else if (value < that.data.full[1]) {
           that.moneyOff(that.data.full[2], that.data.subtract[2]);
         } else if (value >= that.data.full[2]) {
@@ -270,7 +270,7 @@ Page({
     // console.log(moneys);
     // console.log(full);
     if (moneys >= full) {
-      
+
       money = moneys - subtract;
       let return_money = (money / 100) * ratioTo;
       if (return_money > 1) {
@@ -365,13 +365,13 @@ Page({
           'paySign': res.data.paySign,
           'success': function (res) {
             wx.redirectTo({
-              url: '/pages/qr_code/getMoney/getMoney?id=' + id,
+              url: '/pages/DetailsOfTheBill/DetailsOfTheBill?id=' + id,
             })
           },
           'fail': function (res) {
           }
         })
-     
+
     })
   }
 })

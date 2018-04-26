@@ -40,7 +40,7 @@
         <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
           <view class='Popup_box'>
             <scroll-view class='Popup_box_scroll' scroll-y='true'>
-              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金金额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
                 <view>{{item.name}}</view>
               </view>
             </scroll-view>

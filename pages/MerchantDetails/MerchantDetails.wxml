@@ -7,7 +7,7 @@
             </swiper-item>
         </block>
     </swiper>
-     <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view> 
+     <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view>
 </view>
 
 <view class='Md'>
@@ -18,15 +18,15 @@
             <text>{{obj.business_ind_name}} | 已累计贡献小金：{{obj.total_currency}}</text>
         </view>
     </view>
-    <view class='Md_bottom'>
-        <view>
-            <view>买单</view>
-            <text style='padding-right:0.5rem' wx:if='{{obj.discountMode=="MR"}}'>{{"打"+obj.rebate+"折"}}</text>
+    <!-- <view class='Md_bottom'> -->
+        <!-- <view> -->
+            <!-- <view>买单</view> -->
+            <!-- <text style='padding-right:0.5rem' wx:if='{{obj.discountMode=="MR"}}'>{{"打"+obj.rebate+"折"}}</text> -->
             <!--wx:for="{{obj.mInfo}}"  -->
-            <text style='padding-right:0.5rem' wx:if="{{obj.mInfo.length>0}}">{{obj.mInfo.length>1?"有"+obj.mInfo.length+"个活动信息":obj.mInfo[0].title}}</text>
-        </view>
-        <text bindtap='mdTap' data-discountMode='{{obj.discountMode}}' data-rebate='{{obj.rebate}}' data-full='{{obj.mInfo[0].full}}' data-subtract='{{obj.mInfo[0].subtract}}' data-id='{{obj.id}}' data-name='{{obj.name}}' data-logo='{{obj.store_logo}}' data-ratio='{{obj.ratio}}'>买单</text>
-    </view>
+            <!-- <text style='padding-right:0.5rem' wx:if="{{obj.mInfo.length>0}}">{{obj.mInfo.length>1?"有"+obj.mInfo.length+"个活动信息":obj.mInfo[0].title}}</text> -->
+        <!-- </view> -->
+        <!-- <text bindtap='mdTap' data-discountMode='{{obj.discountMode}}' data-rebate='{{obj.rebate}}' data-full='{{obj.mInfo[0].full}}' data-subtract='{{obj.mInfo[0].subtract}}' data-id='{{obj.id}}' data-name='{{obj.name}}' data-logo='{{obj.store_logo}}' data-ratio='{{obj.ratio}}'>买单</text> -->
+    <!-- </view> -->
 </view>
 
 <view class='details'>
@@ -35,7 +35,7 @@
             <image src='https://activity.denong.com/dw.png' ></image>
             <view>{{obj.detail_address}}</view>
         </view>
-        
+
         <image src='https://activity.denong.com/dt.jpg' style="width: 162rpx; height: 92rpx"></image>
     </view>
      <view class='details_box1 details_box2'>
@@ -47,7 +47,7 @@
             <text>{{obj.store_phone}}</text>
             <image src='https://activity.denong.com/b.png'></image>
         </view>
-    </view> 
+    </view>
     <view class='details_box1' style='border:none'>
         <view>
             <image src='https://activity.denong.com/ti.png'></image>
@@ -71,7 +71,7 @@
     <view class='shop_btn'>
         <text>查看其它3张劵</text>
         <image src='../../images/icon/b.png'></image>
-    </view> 
+    </view>
 </view> -->
   <view class='goods'>
     <view class='good_list' wx:for='{{obj.grouplist}}' wx:key='{{index}}'>
@@ -139,17 +139,17 @@
             <image src='https://activity.denong.com/shxx1.png'></image>
             <text>商户介绍</text>
         </view>
-        <image src='https://activity.denong.com/b.png'></image> 
+        <image src='https://activity.denong.com/b.png'></image>
     </view>
     <view wx:if="{{obj.pid}}"class='shxx_cont2' bindtap='fdTap' data-pid='{{obj.pid}}'>
         <view>
             <image src='https://activity.denong.com/shxx2.png'></image>
             <text>分店</text>
         </view>
-        <image src='https://activity.denong.com/b.png'></image> 
+        <image src='https://activity.denong.com/b.png'></image>
     </view>
 </view>
- 
+
 <view class='gonl' wx:if="{{services.length>0}}">
     <view  wx:for='{{services}}' wx:key='{{index}}'>
         <image src='{{item.material_url}}' mode='aspectFill'></image>
@@ -160,7 +160,7 @@
         <text>{{services.length<=8?"查看更多":"收起"}}</text>
         <image src='{{services.length<=8?"https://activity.denong.com/b.png":"https://activity.denong.com/up.png"}}'></image>
     </view>
-</view> 
+</view>
 
 <view wx:if="{{pics.length>0}}">
     <view class='img_title'>照片</view>
@@ -168,4 +168,4 @@
         <image wx:for='{{pics}}' wx:key='{{index}}' src='{{item.url}}'bindtap='tpTap' data-id='{{id}}' mode='aspectFill'></image>
         <image wx:if="{{obj.storePics.length>4}}" src='https://activity.denong.com/gd.png'  bindtap='tpTap' data-id='{{id}}'></image>
     </scroll-view>
-</view> 
+</view>
