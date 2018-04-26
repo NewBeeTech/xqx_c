@@ -19,13 +19,13 @@ Page({
           return reg.test(str) ? true : false;
       }
       var f = checktel(e.detail.value);
-    if (f) {
-      wx.showToast({
-        title: '请输入正确的手机号',
-        icon: 'none',
-        duration: 2000
-      })
-    }
+    // if (f) {
+    //   wx.showToast({
+    //     title: '请输入正确的手机号',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
   },
   toAgree: function () {
     console.log("....");
@@ -64,7 +64,7 @@ Page({
             url: '../spellGroupHome/spellGroupHome'
           })
         }
-        
+
       }).catch(function (error) {
         wx.hideLoading();
         wx.showToast({
@@ -88,14 +88,14 @@ Page({
     })
   },
   codeDone: function (e) {
-    if (this.data.code.length < 6) {
-      wx.showToast({
-        title: '请输入正确的验证码',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
+    // if (this.data.code.length < 6) {
+    //   wx.showToast({
+    //     title: '请输入正确的验证码',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // }
     this.setData({
       code: e.detail.value
     })
@@ -127,13 +127,21 @@ Page({
     appData.Tool.checkLoginNameV1({ loginName: this.data.phoneNumber }).then(function (res) {
       wx.hideLoading();
       console.log(res);
-      self.setData({
-        code: res.data.code
-      });
-      wx.showToast({
-        title: '已发送验证码',
-        duration:2000
-      })
+      if (res.code == 1) {
+        self.setData({
+          code: res.data.code
+        });
+        wx.showToast({
+          title: '已发送验证码',
+          duration:2000
+        });
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration:2000
+        });
+      }
     }).catch(function (error) {
       wx.hideLoading();
       wx.showToast({
@@ -153,31 +161,43 @@ Page({
     //   })
     //   return;
     // }
-    appData.Tool.getToLocation("session").then(function (session) {
-      console.log(session);
-      appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
-        wx.hideLoading();
-        console.log(res);
-        if (res.code == 3) {
-          wx.showToast({
-            title: '用户已注册',
-          })
-          return
-        }
-        wx.reLaunch({
-          url: '../spellGroupHome/spellGroupHome'
-        })
+    console.warn(self.data.phoneNumber);
+    console.warn(self.data.code);
 
-      }).catch(function (error) {
-        console.log(error);
-        wx.hideLoading();
-        wx.showToast({
-          title: error.message,
-          icon: 'none',
-          duration: 2000
-        })
+    if (self.data.phoneNumber && self.data.code) {
+      appData.Tool.getToLocation("session").then(function (session) {
+        console.log(session);
+        appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
+          wx.hideLoading();
+          console.log(res);
+          if (res.code == 3) {
+            wx.showToast({
+              title: res.message,
+            })
+            return
+          } else if (res.code == 1) {
+            wx.reLaunch({
+              url: '../spellGroupHome/spellGroupHome'
+            })
+          }
+        }).catch(function (error) {
+          console.log(error);
+          wx.hideLoading();
+          wx.showToast({
+            title: error.message,
+            icon: 'none',
+            duration: 2000
+          })
+        });
       });
-    });
+    } else {
+      wx.showToast({
+        title: '请填写正确的手机号和验证码',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+
 
   },
   /**

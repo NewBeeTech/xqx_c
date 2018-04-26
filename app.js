@@ -12,70 +12,70 @@ App({
     //console.log(q.path);
     var that = this;
     //this.globalData.path = q.path;
-    var path = q.path;
-    wx.login({
-      success: res => {
-        // console.log("在这")
-        this.globalData.code = res.code;
-        wx.setStorage({
-          key: "code",
-          data: res.code
-        })
-        // 获取用户信息
-        wx.getSetting({
-          success: result => {
-            // console.log("在获取用户信息")
-            // console.log(result)
-            wx.getUserInfo({
-              success: data => {
-                // console.log("走到这")
-                let url = this.globalData.host + getSession;
-                let param = {
-                  code: res.code,
-                  iv: data.iv,
-                  encryptedData: data.encryptedData
-                }
-                this.postRequest(url, this.jsonToString(param), function (res) {
-                  // console.log("正确运行")
-                  that.globalData.userid = res;
-                  that.globalData.session = res.data.session;
-                  // 数据缓存session
-                  wx.setStorage({
-                    key: "session",
-                    data: res.data.session
-                  })
-                  wx.setStorage({
-                    key: "userid",
-                    data: res.data.userId
-                  })
-                  // console.log(path)
-                  if (res.data.needRegister == true) {
-                    if (path == 'pages/index/index') {
-                      wx.redirectTo({
-                        url: '/pages/login/login',
-                      })
-                    } else if (path == 'pages/qr_code/pay/pay') {
-                      wx.redirectTo({
-                        url: '/pages/login/loginTo/loginTo',
-                      })
-                    }
-
-                  } else {
-                    that.getPromission();
-                  }
-                })
-                if (result.authSetting['scope.userInfo']) {
-
-                }
-              },
-              fail: data => { }
-            })
-
-
-          },
-        })
-      }
-    })
+    // var path = q.path;
+    // wx.login({
+    //   success: res => {
+    //     // console.log("在这")
+    //     this.globalData.code = res.code;
+    //     wx.setStorage({
+    //       key: "code",
+    //       data: res.code
+    //     })
+    //     // 获取用户信息
+    //     wx.getSetting({
+    //       success: result => {
+    //         // console.log("在获取用户信息")
+    //         // console.log(result)
+    //         wx.getUserInfo({
+    //           success: data => {
+    //             // console.log("走到这")
+    //             let url = this.globalData.host + getSession;
+    //             let param = {
+    //               code: res.code,
+    //               iv: data.iv,
+    //               encryptedData: data.encryptedData
+    //             }
+    //             this.postRequest(url, this.jsonToString(param), function (res) {
+    //               // console.log("正确运行")
+    //               that.globalData.userid = res;
+    //               that.globalData.session = res.data.session;
+    //               // 数据缓存session
+    //               wx.setStorage({
+    //                 key: "session",
+    //                 data: res.data.session
+    //               })
+    //               wx.setStorage({
+    //                 key: "userid",
+    //                 data: res.data.userId
+    //               })
+    //               // console.log(path)
+    //               if (res.data.needRegister == true) {
+    //                 if (path == 'pages/index/index') {
+    //                   wx.redirectTo({
+    //                     url: '/pages/login/login',
+    //                   })
+    //                 } else if (path == 'pages/qr_code/pay/pay') {
+    //                   wx.redirectTo({
+    //                     url: '/pages/login/loginTo/loginTo',
+    //                   })
+    //                 }
+    //
+    //               } else {
+    //                 that.getPromission();
+    //               }
+    //             })
+    //             if (result.authSetting['scope.userInfo']) {
+    //
+    //             }
+    //           },
+    //           fail: data => { }
+    //         })
+    //
+    //
+    //       },
+    //     })
+    //   }
+    // })
   },
   getUserLocation: function (callback) {
 
@@ -247,64 +247,64 @@ App({
   },
   onShow: function() {
     let that = this;
-    wx.login({
-      success: res => {
-        wx.setStorage({
-          key: "code",
-          data: res.code
-        })
-        // 获取用户信息
-        wx.getSetting({
-          success: result => {
-            if (result.authSetting['scope.userInfo']) {
-              wx.getUserInfo({
-                success: data => {
-                  this.globalData.code = res.code;
-                  let url = this.globalData.host + getSession;
-                  let param = {
-                    code: res.code,
-                    iv: data.iv,
-                    encryptedData: data.encryptedData
-                  }
-                  this.postRequest(url, this.jsonToString(param), function (res) {
-                    that.globalData.userid = res;
-                    that.globalData.session = res.data.session;
-                    // 数据缓存session
-                    wx.setStorage({
-                      key: "session",
-                      data: res.data.session
-                    })
-                    wx.setStorage({
-                      key: "userid",
-                      data: res.data.userId
-                    })
-                    //console.log(path)
-                    if (res.data.needRegister == true) {
-                      if (path == 'pages/index/index') {
-                        wx.redirectTo({
-                          url: '/pages/login/login',
-                        })
-                      } else if (path == 'pages/qr_code/pay/pay') {
-                        wx.redirectTo({
-                          url: '/pages/login/loginTo/loginTo',
-                        })
-                      }
-                    }
-                  })
-                },
-                fail: data => { }
-              })
-            }
-
-          },
-          fail: result => {
-            this.getPromission();
-          }
-        })
-
-
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     wx.setStorage({
+    //       key: "code",
+    //       data: res.code
+    //     })
+    //     // 获取用户信息
+    //     wx.getSetting({
+    //       success: result => {
+    //         if (result.authSetting['scope.userInfo']) {
+    //           wx.getUserInfo({
+    //             success: data => {
+    //               this.globalData.code = res.code;
+    //               let url = this.globalData.host + getSession;
+    //               let param = {
+    //                 code: res.code,
+    //                 iv: data.iv,
+    //                 encryptedData: data.encryptedData
+    //               }
+    //               this.postRequest(url, this.jsonToString(param), function (res) {
+    //                 that.globalData.userid = res;
+    //                 that.globalData.session = res.data.session;
+    //                 // 数据缓存session
+    //                 wx.setStorage({
+    //                   key: "session",
+    //                   data: res.data.session
+    //                 })
+    //                 wx.setStorage({
+    //                   key: "userid",
+    //                   data: res.data.userId
+    //                 })
+    //                 //console.log(path)
+    //                 if (res.data.needRegister == true) {
+    //                   if (path == 'pages/index/index') {
+    //                     wx.redirectTo({
+    //                       url: '/pages/login/login',
+    //                     })
+    //                   } else if (path == 'pages/qr_code/pay/pay') {
+    //                     wx.redirectTo({
+    //                       url: '/pages/login/loginTo/loginTo',
+    //                     })
+    //                   }
+    //                 }
+    //               })
+    //             },
+    //             fail: data => { }
+    //           })
+    //         }
+    //
+    //       },
+    //       fail: result => {
+    //         this.getPromission();
+    //       }
+    //     })
+    //
+    //
+    //   }
+    // })
   },
   globalData: {
     Tool: tool,
