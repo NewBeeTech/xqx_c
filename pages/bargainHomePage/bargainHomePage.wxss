@@ -383,7 +383,7 @@ width: 50%;
 }
 
 .bargin_list {
-  height: calc(100vh - 345rpx - 90rpx - 100rpx);
+  height: calc(100vh - 100rpx);
   overflow-y: scroll;
 }
 
