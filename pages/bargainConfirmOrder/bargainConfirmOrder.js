@@ -108,7 +108,18 @@ Page({
                  })
                }
             })
-          } else {
+          } else if (res.code === 2) {
+            wx.showToast({
+                title: res.message,
+                icon: 'none',
+                duration: 2000
+            });
+            setTimeout(function () {
+              wx.reLaunch({
+                url: '/pages/spellGroupHome/spellGroupHome'
+              });
+            }, 2000);
+          }else {
             wx.showToast({
                 title: res.message,
                 icon: 'none',
