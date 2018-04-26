@@ -384,7 +384,6 @@ width: 50%;
 
 .bargin_list {
   height: calc(100vh - 100rpx);
-  overflow-y: scroll;
 }
 
 .bottomBtn{

@@ -325,19 +325,19 @@ Page({
         });
     },
     //页面滚动
-    pageScroll: function (e) {
-        var bil = e.detail.scrollWidth / 375; //单位换算适应屏幕
-        var top = e.detail.scrollTop;
-        if (top > bil * 345 / 2) {
-            this.setData({
-                julIf: true
-            })
-        } else {
-            this.setData({
-                julIf: false
-            })
-        }
-    },
+    // pageScroll: function (e) {
+    //     var bil = e.detail.scrollWidth / 375; //单位换算适应屏幕
+    //     var top = e.detail.scrollTop;
+    //     if (top > bil * 345 / 2) {
+    //         this.setData({
+    //             julIf: true
+    //         })
+    //     } else {
+    //         this.setData({
+    //             julIf: false
+    //         })
+    //     }
+    // },
     //上滑加载
     shjiaz: function () {
       if (this.data.hasMore) {
