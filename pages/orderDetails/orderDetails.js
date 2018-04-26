@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      id: '',
         xqObj: {}
     },
     navToOrderDetail: function() {
@@ -44,11 +45,13 @@ Page({
     qusTap: function () {
         var that = this;
         appData.Tool.commitReceiveGoods({
-            orderId: that.data.id,
+            orderId: that.data.xqObj.orderId,
             goods_group_id: that.data.xqObj.goods_group_id,
             group_buy_id: that.data.xqObj.group_buy_id
         }).then(function (res) {
             console.log(res)
+            wx.hideLoading();
+            that.loadData(that.id);
         }).catch(function (err) { });
     },
     //取消订单
@@ -62,8 +65,14 @@ Page({
         qxdd: !this.data.qxdd
       })
         var that = this;
+        console.warn(that.data);
+        console.warn('参数：', {
+          orderId: that.data.xqObj.orderId,
+          goods_group_id: that.data.xqObj.goods_group_id,
+          group_buy_id: that.data.xqObj.group_buy_id
+        })
         appData.Tool.cancelGroupOrder({
-            orderId: that.data.id,
+            orderId: that.data.xqObj.orderId,
             goods_group_id: that.data.xqObj.goods_group_id,
             group_buy_id: that.data.xqObj.group_buy_id
         }).then(function (res) {
@@ -79,6 +88,7 @@ Page({
                 title: "取消成功",
                 duration: 2000
               });
+              that.loadData(that.id);
             }
 
           }).catch(function (err) { wx.hideLoading();});
@@ -151,6 +161,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.id = options.id;
         this.loadData(options.id);
     },
 

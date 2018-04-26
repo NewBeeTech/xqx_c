@@ -92,6 +92,7 @@ Page({
                       goods_group_id: data.currentTarget.dataset.goods_group_id,
                       group_buy_id: data.currentTarget.dataset.group_buy_id
                     }
+                    console.warn('参数：', obj);
                     appData.Tool.cancelGroupOrder(obj).then(function (res) {
                         console.log(res)
                         wx.hideLoading();
@@ -180,7 +181,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      this.data.Ddarr = [];
+      this.data.page = 1;
+      this.getDdList();
     },
 
     /**

@@ -2,8 +2,8 @@ function Default() { }
 /**
  * 主机地址
  */
-Default.HOST = "http://ccpp.denong.com/app_person/";
-// Default.HOST = "http://mini.xqx.com/app_person/";
+// Default.HOST = "http://ccpp.denong.com/app_person/";
+Default.HOST = "http://mini.xqx.com/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
 
@@ -187,7 +187,7 @@ Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 /**
  * 获取拼团订单详情
  */
-Default.GET_GOODS_GROUP_ORDER_INFO = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
+Default.GET_GOODS_GROUP_ORDER_INFO = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
 
 /**
  * 确认收货

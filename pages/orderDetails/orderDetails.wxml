@@ -93,6 +93,9 @@
         <view class='customer_service_btn' bindtap='shohTap'>售后</view>
         <view class='confirmation_receipt_btn identical' bindtap='qusTap'>确认收货</view>
     </block>
+    <block wx:elif="{{xqObj.order_state==-2||xqObj.order_state==-1}}">
+        <view class='customer_service_btn' bindtap='shohTap'>售后</view>
+    </block>
 
 </view>
 <!-- 弹窗 -->
