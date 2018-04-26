@@ -2,18 +2,18 @@
 
 
 
-<view class='title'>新用户绑定手机号可得3小金哦！</view>
+<!-- <view class='title'>新用户绑定手机号可得3小金哦！</view> -->
 
-<button class='btnB' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+<!-- <button class='btnB' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
     <image src='https://activity.denong.com/a.png'></image>
     <text>一键绑定</text>
-</button>
+</button> -->
 
-<view class='Ts'>
+<!-- <view class='Ts'>
     <text></text>
     <view>或手动绑定手机号码</view>
     <text></text>
-</view>
+</view> -->
 
 <view class='Sj'>
     <text>手机号</text>
@@ -22,9 +22,9 @@
 
 <view class='Yz'>
 <input type='number'  placeholder="请输入验证码" placeholder-style='font-size:15.5px' style='font-size:30rpx' bindblur="codeDone" ></input>
-    
+
     <text bindtap='getCode'>获取验证码</text>
-    
+
 </view>
 
 <view class='Tk'>

@@ -1,5 +1,5 @@
 <!--pages/homePage/homePage.wxml-->
- <view class='container'> 
+ <view class='container'>
   <scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight-44}}' bindscrolltolower='onReachBottom'>
 
     <view>
@@ -9,7 +9,7 @@
         <input placeholder='搜索商户'></input>
       </view>
     </view>
-<!-- 
+<!--
     <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400' wx:if='{{obj.topPics.length}}'>
       <block wx:for='{{obj.topPics}}' wx:key='{{index}}'>
         <swiper-item>
@@ -77,7 +77,7 @@
             </view>
         </scroll-view>
           </view>
-           <view style='height:100%' bindtap='PopupF'></view> 
+           <view style='height:100%' bindtap='PopupF'></view>
         </view>
 
         <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
@@ -88,7 +88,7 @@
               </view>
             </scroll-view>
           </view>
-           <view style='height:100%' bindtap='PopupF'></view> 
+           <view style='height:100%' bindtap='PopupF'></view>
         </view>
       </view>
       <scroll-view wx:if='{{obj.merchantList.length}}' scroll-y='{{sonSroll}}' class='scroll' style='height:{{windowHeight - 44}}px' bindscrolltoupper='sonLower'>
@@ -101,7 +101,7 @@
               <view  wx:if="{{item.business_ind_name}}">{{item.business_ind_name}}</view>
               <view wx:if="{{item.ratio!=0&&item.ratio}}">获金{{item.ratio}}%</view>
             </view>
-            <view class='list_box_y' wx:if="{{item.total_currency}}">已累计贡献小金{{item.total_currency}}</view>
+            <view class='list_box_y' wx:if="{{item.total_currency}}">已累计贡献小金{{item.total_currency / 100}}</view>
             <view class='list_box_j' >
               <view wx:if="{{item.qFlag}}">劵</view>
               <text class='list_box_j_l' wx:if="{{item.qFlag}}">售优惠劵</text>
@@ -118,4 +118,4 @@
     </view>
 
   </scroll-view>
- </view> 
+ </view>

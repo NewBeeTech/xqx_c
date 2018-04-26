@@ -66,9 +66,12 @@ Page({
   },
   //弹窗
   ytgTapTc:function(){
-        this.setData({
-            ytgIf: !this.data.ytgIf
-      })
+      //   this.setData({
+      //       ytgIf: !this.data.ytgIf
+      // })
+      wx.navigateTo({
+        url: "/pages/download_app/download_app"
+      });
   },
   //跳转下载
   ytgTap: function () {

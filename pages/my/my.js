@@ -100,32 +100,35 @@ Page({
     //   this.setData({
     //     downloadIf: !this.data.downloadIf
     //   })
-      wx.getSystemInfo({
-        success: function (res) {
-          console.log(res.model)
-          var isiOS = !!res.model.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-          console.log("是不是iOS",isiOS)
-          var url = "";
-          if (isiOS == true) {
-            url = "https://bmini.xqx.com/download/success.html"
-          } else {
-            url = "https://bmini.xqx.com/download/success.html"
-          }
-          wx.showModal({
-            title: '提示',
-            content: "即将前往应用市场，下载小确幸app",
-            confirmText: "立即前往",
-            success: function (e) {
-              if (e.confirm) {
-                wx.navigateTo({
-                  url: "../webApp/webApp?url=" + url
-                })
-              }
-
-            }
-          })
-        }
-      })
+    wx.navigateTo({
+      url: "/pages/download_app/download_app"
+    })
+      // wx.getSystemInfo({
+      //   success: function (res) {
+      //     console.log(res.model)
+      //     var isiOS = !!res.model.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+      //     console.log("是不是iOS",isiOS)
+      //     var url = "";
+      //     if (isiOS == true) {
+      //       url = "https://bmini.xqx.com/download/success.html"
+      //     } else {
+      //       url = "https://bmini.xqx.com/download/success.html"
+      //     }
+      //     wx.showModal({
+      //       title: '提示',
+      //       content: "即将前往应用市场，下载小确幸app",
+      //       confirmText: "立即前往",
+      //       success: function (e) {
+      //         if (e.confirm) {
+      //           wx.navigateTo({
+      //             url: "../webApp/webApp?url=" + url
+      //           })
+      //         }
+      //
+      //       }
+      //     })
+      //   }
+      // })
 
 
     },

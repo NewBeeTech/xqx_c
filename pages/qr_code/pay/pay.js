@@ -34,6 +34,7 @@ Page({
     let merchantId;
     //that.getUserInfo();
     console.log(options)
+
     // 获取商户id
     console.log(options.q);
     if (options.q == undefined){
@@ -51,6 +52,7 @@ Page({
         },
 
       })
+      console.log('000')
       that.getMerchantInfoForWeb('12007')
     }else{
       //console.log(options.q);
@@ -80,11 +82,12 @@ Page({
   },
   // 获取商家信息
   getMerchantInfoForWeb: function (cnd) {
+    console.warn(cnd);
     let that = this;
     let cndTo = String(cnd);
     let param = {
-      // cnd: String(cndTo)
-      cnd:'12007'
+      cnd: String(cndTo)
+      // cnd:'12007'
     }
     app.postRequest(getMerchantInfoForWeb, app.jsonToString(param), function (res) {
       if (res.data.code == 0) {

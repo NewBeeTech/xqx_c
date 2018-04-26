@@ -1,0 +1,7 @@
+<view>
+  <view class="container">
+    <image class="download-app-icon" src="/images/download-app.png" />
+    <view class="download-app-desc">https://mini.xqx.com/app_person_addition/download/success.html 点击复制按钮，在手机浏览器打开进行下载或者在各大应用市场搜索下载！</view>
+    <view class="download-app-btn" bindtap="copyLink">复制链接</view>
+  </view>
+</view>

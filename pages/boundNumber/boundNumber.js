@@ -57,7 +57,7 @@ Page({
           })
           return;
         }
-        if (res.code == 0){
+        if (res.code == 1){
           appData.Tool.saveToLocation("tocken", res.data.tocken);
           appData.Tool.saveToLocation("userId", res.data.userId);
           wx.reLaunch({

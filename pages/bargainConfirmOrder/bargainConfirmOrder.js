@@ -78,7 +78,8 @@ Page({
       var obj ={
           cnd: that.data.goodInfo.orderId,
           address_id: that.data.addressInfo.id,
-          token: wx.getStorageSync('token')
+          token: wx.getStorageSync('token'),
+          session: wx.getStorageSync('session'),
       };
       appData.Tool.bargainPay(obj).then(function (res) {
           console.log(res)
