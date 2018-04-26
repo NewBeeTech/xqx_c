@@ -36,8 +36,16 @@ HTTPManager.post = function (url, parm) {
     title: '加载中',
   });
   parm.token = wx.getStorageSync('token');
-  parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
-  console.log(parm,wx.getStorageSync('token'));
+  let session = wx.getStorageSync('session') || "";
+  // parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
+  // if(!parm.session) {
+  //   wx.showToast({
+  //     title: 'session' + parm.session,
+  //     icon: 'success',
+  //     duration: 2000
+  //   });
+  // }
+  // console.log(parm,wx.getStorageSync('token'));
   wx.getStorage({
     key: 'token',
     success: function(res) {
