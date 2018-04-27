@@ -103,50 +103,52 @@ Page({
     })
   },
   getCode: function () {
-    if (this.data.phoneNumber.length < 11) {
-      wx.showToast({
-        title: '请输入正确的手机号',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
-    this.setData({
-      canGetCode: false,
-    });
+    // if (this.data.phoneNumber.length < 11) {
+    //   wx.showToast({
+    //     title: '请输入正确的手机号',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // }
+
 
     var self = this;
-    this.timer = setInterval(function(){
-      self.setData({
-        time: --self.data.time <= 0 ? 0 : self.data.time
-      });
-      self.setData({
-        isAgree: self.data.time < -0 ? true : false,
-        canGetCode: self.data.time < -0 ? true : false
-      });
-      if (self.data.time <= 0){
-        self.setData({
-          canGetCode: true,
-          isAgree: false,
-          time:60,
-        })
-        clearInterval(self.timer);
-      }
-    },1000);
+
 
     // var self = this;
     console.log(this.data.phoneNumber);
     appData.Tool.checkLoginNameV1({ loginName: this.data.phoneNumber }).then(function (res) {
       wx.hideLoading();
       console.log(res);
-      if (res.code == 1) {
+      if (res.code == 0) {
         self.setData({
-          code: res.data.code
+          code: res.code
         });
         wx.showToast({
           title: '已发送验证码',
           duration:2000
         });
+        self.setData({
+          canGetCode: false,
+        });
+        self.timer = setInterval(function(){
+          self.setData({
+            time: --self.data.time <= 0 ? 0 : self.data.time
+          });
+          self.setData({
+            isAgree: self.data.time < -0 ? true : false,
+            canGetCode: self.data.time < -0 ? true : false
+          });
+          if (self.data.time <= 0){
+            self.setData({
+              canGetCode: true,
+              isAgree: false,
+              time:60,
+            })
+            clearInterval(self.timer);
+          }
+        },1000);
       } else {
         wx.showToast({
           title: res.message,
@@ -182,15 +184,15 @@ Page({
         appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
           wx.hideLoading();
           console.log(res);
-          if (res.code == 3) {
+          if (res.code == 0) {
+            wx.reLaunch({
+              url: '../spellGroupHome/spellGroupHome'
+            })
+          } else {
             wx.showToast({
               title: res.message,
             })
             return
-          } else if (res.code == 1) {
-            wx.reLaunch({
-              url: '../spellGroupHome/spellGroupHome'
-            })
           }
         }).catch(function (error) {
           console.log(error);
