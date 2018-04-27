@@ -33,9 +33,9 @@ Page({
     var info = e.currentTarget.dataset.info;
     console.log(info);
     if (info.url==""){
-      wx.navigateTo({
-        url: '../goodDetail/goodDetail?id='+info.id,
-      })
+      // wx.navigateTo({
+      //   url: '../goodDetail/goodDetail?id='+info.id,
+      // })
     }else{
       wx.navigateTo({
         // url: '../h5/h5?url='+info.url,

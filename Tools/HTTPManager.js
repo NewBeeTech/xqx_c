@@ -1,3 +1,6 @@
+// var app = getApp();
+// var appData = app.globalData;
+
 
 function HTTPManager() { }
 HTTPManager.get = function (url, parm) {
@@ -37,6 +40,7 @@ HTTPManager.post = function (url, parm) {
   });
   parm.token = wx.getStorageSync('token');
   let session = wx.getStorageSync('session') || "";
+  parm.session = session;
   // parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
   // if(!parm.session) {
   //   wx.showToast({
