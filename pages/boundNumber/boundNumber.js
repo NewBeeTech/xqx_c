@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canGetCode: true,
     phoneNumber: "",
     code: "",
     isAgree: false,
@@ -81,12 +82,13 @@ Page({
       phoneNumber: e.detail.value
     })
   },
-  getCode: function (e) {
-    console.log(e);
-    this.setData({
-      code: e.detail.value
-    })
-  },
+  // getCode: function (e) {
+  //   console.log(e);
+  //   this.setData({
+  //     // code: e.detail.value
+  //     canGetCode: false,
+  //   });
+  // },
   codeDone: function (e) {
     // if (this.data.code.length < 6) {
     //   wx.showToast({
@@ -101,28 +103,38 @@ Page({
     })
   },
   getCode: function () {
+    if (this.data.phoneNumber.length < 11) {
+      wx.showToast({
+        title: '请输入正确的手机号',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    this.setData({
+      canGetCode: false,
+    });
 
     var self = this;
-    // timer = setInterval(function(){
-    //   self.setData({
-    //     time: --self.data.time <= 0 ? 0 : self.data.time
-    //   });
-    //   self.setData({
-    //     isAgree: this.data.time < -0 ? true : false
-    //   });
-    //   if (self.data.time<-0){
-    //     clearInterval(timer);
-    //   }
-    // },1000);
-    // if (this.data.phoneNumber.length < 11) {
-    //   wx.showToast({
-    //     title: '请输入正确的手机号',
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    //   return;
-    // }
-    var self = this;
+    this.timer = setInterval(function(){
+      self.setData({
+        time: --self.data.time <= 0 ? 0 : self.data.time
+      });
+      self.setData({
+        isAgree: self.data.time < -0 ? true : false,
+        canGetCode: self.data.time < -0 ? true : false
+      });
+      if (self.data.time <= 0){
+        self.setData({
+          canGetCode: true,
+          isAgree: false,
+          time:60,
+        })
+        clearInterval(self.timer);
+      }
+    },1000);
+
+    // var self = this;
     console.log(this.data.phoneNumber);
     appData.Tool.checkLoginNameV1({ loginName: this.data.phoneNumber }).then(function (res) {
       wx.hideLoading();
@@ -225,7 +237,15 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(this.timer);
+    this.setData({
+      canGetCode: true,
+      phoneNumber: "",
+      code: "",
+      isAgree: false,
+      time:60,
+      timer:null
+    })
   },
 
   /**

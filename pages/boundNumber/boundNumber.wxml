@@ -23,7 +23,8 @@
 <view class='Yz'>
 <input type='number'  placeholder="请输入验证码" placeholder-style='font-size:15.5px' style='font-size:30rpx' bindblur="codeDone" ></input>
 
-    <text bindtap='getCode'>获取验证码</text>
+    <text wx:if="{{canGetCode}}" bindtap='getCode'>获取验证码</text>
+    <text wx:elif="{{time > 0}}" style="color: #999">{{time}}秒</text>
 
 </view>
 
