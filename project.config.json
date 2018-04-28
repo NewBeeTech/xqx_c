@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 45,
 			"list": [
 				{
 					"id": 0,
@@ -303,6 +303,12 @@
 					"name": "下载",
 					"pathName": "pages/download_app/download_app",
 					"query": "q=10099"
+				},
+				{
+					"id": -1,
+					"name": "附件商户",
+					"pathName": "pages/homePage/homePage",
+					"query": ""
 				}
 			]
 		}

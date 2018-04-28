@@ -3,12 +3,12 @@
   <scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight-44}}' bindscrolltolower='onReachBottom'>
 
     <view>
-    <view class='Input' style='margin-bottom: {{obj.catalogList.length>0?15:0}}rpx;'>
+    <!-- <view class='Input' style='margin-bottom: {{obj.catalogList.length>0?15:0}}rpx;'>
       <view bindtap='inputTap'>
         <icon type='search' size='14' color='#848484'></icon>
         <input placeholder='搜索商户'></input>
       </view>
-    </view>
+    </view> -->
 <!--
     <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400' wx:if='{{obj.topPics.length}}'>
       <block wx:for='{{obj.topPics}}' wx:key='{{index}}'>
@@ -53,7 +53,7 @@
 
     <view class='cont'>
       <view class='{{positionType}}'>
-        <view class='cont_title'>
+        <!-- <view class='cont_title'>
           <view bindtap='shTap'>
             <text>{{types}}</text>
             <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
@@ -62,7 +62,7 @@
             <text>{{orderType}}</text>
             <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
           </view>
-        </view>
+        </view> -->
         <!-- 筛选_弹窗 -->
         <view class='Popup left_container' wx:if='{{PopupIf}}'>
           <view class='Popup_box'>
