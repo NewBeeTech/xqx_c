@@ -111,7 +111,7 @@ Page({
       this.setData({
         id: options.id
       });
-      this.loadData(this.page);
+      // this.loadData(this.page);
   },
   toNextPage: function (e) {
     console.log(e);
@@ -134,7 +134,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      list: [
+      ],
+      wxTimerList: {},
+      page: 1,
+    });
+    this.loadData(this.page);
   },
 
   /**
@@ -148,6 +154,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    console.log('timer',timer)
 
   },
 

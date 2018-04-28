@@ -37,8 +37,39 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.loadMainData();
-        this.loadData(1);
+
+    },
+    onShow: function() {
+      this.setData({
+        page: 1,
+        julIf: false,
+        popupIf: false,
+        index: -1,
+        windowHeight: 1200,
+        Popup_inde: 0,
+        Popup_inde2: 0,
+        PopupIf: false,
+        unionidPopupIf: false,
+        name: '',
+        windowHeight: '',
+        list: [],
+        className: "",
+        scrollHeight: 0,
+        positionType: "nor",
+        subList: [],
+        typeList: [],
+        Popup_index_right: 0,
+        types: "全部分类",
+        orderType: "智能排序",
+        superID: 0,
+        goods: [],
+        a1:'',
+        a2:'',
+        imgURL: '',
+        hasMore: true
+      })
+      this.loadMainData();
+      this.loadData(1);
     },
 
     loadMainData: function () {

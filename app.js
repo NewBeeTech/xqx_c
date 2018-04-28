@@ -310,7 +310,7 @@ App({
     Tool: tool,
     session: '',
     userid: '',
-    host: "http://mini.xqx.com",
+    host: "https://mini.xqx.com",
     searchData:[],
     photos:[]
   },
