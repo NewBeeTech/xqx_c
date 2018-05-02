@@ -47,7 +47,7 @@
       <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>
         <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
         <view class='item_detail right_des'>
-          <view class='title '>{{item.name}}</view>
+          <view class='title'>{{item.name}}</view>
           <view>
             <text><text class='money_symbol'>￥</text><text class='min_price'>{{item.group_price}}</text></text>
             <text class='orange_price'>￥{{item.price}}</text>
