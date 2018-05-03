@@ -1,5 +1,5 @@
 //app.js
-var getSession = "/xcx-person/XCXController/get3rdSession";   //获取sessionKey
+var getSession = "/app_person/XCXController/get3rdSession";   //获取sessionKey
 
 var tool = require("Tools/HTTPOpertion.js");
 var QQMapWX = require('Tools/qqmap-wx-jssdk.min.js');
@@ -310,7 +310,8 @@ App({
     Tool: tool,
     session: '',
     userid: '',
-    host: "https://mini.xqx.com",
+    // host: "https://mini.xqx.com",
+    host: "http://ccpp.denong.com",
     searchData:[],
     photos:[]
   },

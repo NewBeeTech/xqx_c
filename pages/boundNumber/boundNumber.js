@@ -178,7 +178,7 @@ Page({
     console.warn(self.data.phoneNumber);
     console.warn(self.data.code);
 
-    if (self.data.phoneNumber && self.data.code) {
+    // if (self.data.phoneNumber && self.data.code) {
       appData.Tool.getToLocation("session").then(function (session) {
         console.log(session);
         appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
@@ -204,13 +204,13 @@ Page({
           })
         });
       });
-    } else {
-      wx.showToast({
-        title: '请填写正确的手机号和验证码',
-        icon: 'none',
-        duration: 2000
-      });
-    }
+    // } else {
+    //   wx.showToast({
+    //     title: '请填写正确的手机号和验证码',
+    //     icon: 'none',
+    //     duration: 2000
+    //   });
+    // }
 
 
   },
