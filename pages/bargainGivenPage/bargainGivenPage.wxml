@@ -6,7 +6,7 @@
     <view class="bargain_rule1" bindtap='goBackHome'>返回</view>
     <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view>
   </view>
-  <template  data="{{ barginOwnData }}" is="bargainGoodsInfo" />
+  <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ totalCutPrice }}</span>元  还差<span class="bargin_own_info2">{{ hasPrice }}</span>元</view>
     <button bindtap="showModalBtn" class="bargin_share_btn">帮朋友砍一刀</button>

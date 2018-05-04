@@ -66,6 +66,13 @@ Page({
     // const intPara = '279';
     this.loadData(id, intPara);
   },
+  navToGoodDetail: function() {
+    console.log('click', this.data);
+    const id = this.data.barginOwnData.orderId;
+    wx.navigateTo({
+        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+    })
+  },
   loadData: function (id, intPara) {
     var self = this;
     const params = {
