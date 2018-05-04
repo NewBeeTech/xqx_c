@@ -16,13 +16,20 @@
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
 </view>
 
-<view class='position_info'>
+<view wx:if="xqObj.delivery_method == 2" class='position_info'>
+    <view>
+        <text class='buyers_name'>到店自提</text>
+    </view>
+    <text>{{xqObj.detail_address}}</text>
+</view>
+<view wx:else class='position_info'>
     <view>
         <text class='buyers_name'>{{xqObj.receive_name}}</text>
         <text>{{xqObj.receive_phone}}</text>
     </view>
     <text>{{xqObj.receive_address}}</text>
 </view>
+
 
 <!-- <view class='fight_info' wx:if='{{xqObj.order_state==2||xqObj.order_state==3||xqObj.order_state==4}}'>
     <view class='fight_icon'>

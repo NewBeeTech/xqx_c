@@ -57,7 +57,7 @@
           </view>
           <view class='good_detail_bottom'>
             <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
-            <view style="color: #fff; " class='wrap3_btn'>去砍价</view>
+            <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view>
           </view>
         </view>
 
