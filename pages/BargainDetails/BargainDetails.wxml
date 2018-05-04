@@ -39,7 +39,7 @@
     <view class='address' bindtap='dpzy'>
         <image src='{{obj.store_logo}}'></image>
         <view>
-            <text class='shop_name'>{{obj.merchant_name}}</text>
+            <text bindtap="toShop" class='shop_name' data-id="{{obj.merchant_id}}">{{obj.merchant_name}}</text>
             <view class='address_info' wx:if="{{obj.address}}">{{obj.address}}</view>
         </view>
     </view>

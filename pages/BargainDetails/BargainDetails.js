@@ -88,6 +88,12 @@ Page({
         url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
     })
   },
+  toShop: function (e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+        url: `/pages/MerchantDetails/MerchantDetails?id=${id}`,
+    })
+  },
   onShareAppMessage: function () {
     const self = this;
     return {
@@ -140,7 +146,6 @@ Page({
       console.log(self.data.id);
       console.log('self.data',self.data);
       if (self.data.from == 'banner') {
-        console.warn('hello1');
         appData.Tool.getBargainInfo1({ cnd: self.data.id }).then(function (result) {
             wx.hideLoading();
             let explain_img_url = result.data.explain_img_url;
@@ -160,7 +165,6 @@ Page({
                 console.log(error);
             });
       } else {
-        console.warn('hello');
         appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
             wx.hideLoading();
             let explain_img_url = result.data.explain_img_url;
