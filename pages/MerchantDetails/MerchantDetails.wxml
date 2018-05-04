@@ -38,7 +38,7 @@
 
         <image src='https://activity.denong.com/dt.jpg' style="width: 162rpx; height: 92rpx"></image>
     </view>
-     <view class='details_box1 details_box2'>
+     <view class='details_box1 details_box2' wx:if="{{obj.store_phone}}">
         <view>
             <image src='https://activity.denong.com/dh.png'></image>
             <view>电话</view>

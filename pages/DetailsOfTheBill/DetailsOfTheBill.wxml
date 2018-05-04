@@ -35,6 +35,11 @@
             <view>返金比例</view>
             <text>{{obj.cur_ratio}}%</text>
         </view>
+        <view wx:if="{{obj.manage_cost > 0}}">
+            <view>扣除会员服务费</view>
+            <text>-{{obj.manage_cost}}</text>
+        </view>
+
         <view>
             <view>流水号</view>
             <text>{{obj.serial_number}}</text>

@@ -43,37 +43,39 @@ Page({
   getPhoneNumber: function (res) {
     console.log(res);
     wx.hideLoading();
-    appData.Tool.getToLocation("session").then(function (session) {
-      console.log(session);
-      appData.Tool.info({ session: session, iv: res.detail.iv, encryptedData: res.detail.encryptedData }).then(function (res) {
-        wx.hideLoading();
-        console.log(res);
+    var session = wx.getStorageSync('session');
+    appData.Tool.info({ session: session, iv: res.detail.iv, encryptedData: res.detail.encryptedData }).then(function (res) {
+      wx.hideLoading();
+      console.log(res);
 
-        if (res.code == 2) {
-          wx.hideLoading();
-          wx.showToast({
-            title: "授权失败请重新一键授权",
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        }
-        if (res.code == 0){
-          appData.Tool.saveToLocation("tocken", res.data.tocken);
-          appData.Tool.saveToLocation("userId", res.data.userId);
-          wx.reLaunch({
-            url: '../spellGroupHome/spellGroupHome'
-          })
-        }
-
-      }).catch(function (error) {
+      if (res.code == 2) {
         wx.hideLoading();
         wx.showToast({
-          title: error.message,
-          duration:2000
+          title: "授权失败请重新一键授权",
+          icon: 'none',
+          duration: 2000
         })
-      });
+        return;
+      }
+      if (res.code == 0){
+        res.data.token && wx.setStorageSync('token', res.data.token);
+        res.data.userId && wx.setStorageSync('userId', res.data.userId);
+        wx.reLaunch({
+          url: '../spellGroupHome/spellGroupHome'
+        })
+      }
+
+    }).catch(function (error) {
+      wx.hideLoading();
+      wx.showToast({
+        title: error.message,
+        duration:2000
+      })
     });
+    // appData.Tool.getToLocation("session").then(function (session) {
+    //   console.log(session);
+    //
+    // });
 
   },
   getPhone: function (e) {
@@ -179,33 +181,36 @@ Page({
     console.warn(self.data.code);
 
     // if (self.data.phoneNumber && self.data.code) {
-      appData.Tool.getToLocation("session").then(function (session) {
-        console.log(session);
-        appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
-          wx.hideLoading();
-          console.log(res);
-          if (res.code == 0) {
-            console.warn(res);
-            res.data.token && appData.Tool.saveToLocation("token", res.data.token);
-            wx.reLaunch({
-              url: '../spellGroupHome/spellGroupHome'
-            })
-          } else {
-            wx.showToast({
-              title: res.message,
-            })
-            return
-          }
-        }).catch(function (error) {
-          console.log(error);
-          wx.hideLoading();
-          wx.showToast({
-            title: error.message,
-            icon: 'none',
-            duration: 2000
-          })
-        });
-      });
+    var session = wx.getStorageSync('session');
+    appData.Tool.register({ loginName: self.data.phoneNumber, smsCode: self.data.code+"", session: session, registerFlag: "sms" }).then(function (res) {
+      wx.hideLoading();
+      console.log(res);
+      if (res.code == 0) {
+        console.warn(res);
+        res.data.token && wx.setStorageSync('token', res.data.token);
+        // res.data.token && appData.Tool.saveToLocation("token", res.data.token);
+        wx.reLaunch({
+          url: '../spellGroupHome/spellGroupHome'
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+        })
+        return
+      }
+    }).catch(function (error) {
+      console.log(error);
+      wx.hideLoading();
+      wx.showToast({
+        title: error.message,
+        icon: 'none',
+        duration: 2000
+      })
+    });
+      // appData.Tool.getToLocation("session").then(function (session) {
+        // console.log(session);
+
+      // });
     // } else {
     //   wx.showToast({
     //     title: '请填写正确的手机号和验证码',

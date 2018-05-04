@@ -244,9 +244,12 @@ Page({
         appData.Tool.login().then(function (res) {
             console.log(res);
             wx.hideLoading()
-            appData.Tool.saveToLocation("userId", res.userId);
-            appData.Tool.saveToLocation("token", res.token);
-            appData.Tool.saveToLocation("session", res.session);
+            res.userId && wx.setStorageSync('userId', res.userId);
+            res.token && wx.setStorageSync('userId', res.token);
+            res.session && wx.setStorageSync('userId', res.session);
+            // appData.Tool.saveToLocation("userId", res.userId);
+            // appData.Tool.saveToLocation("token", res.token);
+            // appData.Tool.saveToLocation("session", res.session);
             var session = res.session;
 
             if (res.needRegister) {

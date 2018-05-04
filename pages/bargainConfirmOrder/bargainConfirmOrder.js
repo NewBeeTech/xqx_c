@@ -24,10 +24,14 @@ Page({
   },
   getGoodInfo: function (orderId) {
       // 获取支付详情
+      const token = wx.getStorageSync('token');
       const obj = {
-        token: wx.getStorageSync('token'),
         cnd: orderId // 订单ID
       }
+      if (token) {
+        obj.token = token;
+      }
+
       const that = this;
       appData.Tool.getBargainInfo(obj).then(function (res) {
         wx.hideLoading();

@@ -33,7 +33,6 @@ HTTPManager.get = function (url, parm) {
 }
 
 HTTPManager.post = function (url, parm) {
-  console.log("URL:",url,"parms:", parm);
   wx.hideLoading();
   wx.showLoading({
     title: '加载中',
@@ -56,6 +55,7 @@ HTTPManager.post = function (url, parm) {
       console.log(res);
     },
   })
+  console.log("URL:",url,"parms:", parm, "token: ", parm.token);
   return new Promise(function (success, fail) {
     wx.request({
       url: url,

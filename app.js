@@ -58,9 +58,12 @@ App({
     tool.login().then(function (res) {
       console.log(res);
       wx.hideLoading()
-      tool.saveToLocation("userId", res.userId);
-      tool.saveToLocation("token", res.token);
-      tool.saveToLocation("session", res.session);
+      // tool.saveToLocation("userId", res.userId);
+      // tool.saveToLocation("token", res.token);
+      // tool.saveToLocation("session", res.session);
+      res.userId && wx.setStorageSync('userId', res.userId);
+      res.token && wx.setStorageSync('userId', res.token);
+      res.session && wx.setStorageSync('userId', res.session);
       wx.getStorage({
         key: 'token',
         success: function(res) {
