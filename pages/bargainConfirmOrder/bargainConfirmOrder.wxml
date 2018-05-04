@@ -1,11 +1,11 @@
-<view class='wrap1' wx:if='{{addressInfo.delivery_method == 2}}' bindtap='bjAddress'>
+<view class='wrap1' wx:if='{{goodInfo.delivery_method == 2}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
       <view>到店自提</view>
-      <view>{{ addressInfo.detail_address }}</view>
+      <view>{{ goodInfo.detail_address }}</view>
     </view>
     <image class='wrap1_icon' src='../../images/icon/jit2.png'></image>
 </view>
-<view class='wrap1' wx:if='{{addressInfo.id}}' bindtap='bjAddress'>
+<view class='wrap1' wx:elif='{{addressInfo.id}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
       <view>{{ addressInfo.name }} {{ addressInfo.phone }}</view>
       <view>{{ addressInfo.address }}</view>
