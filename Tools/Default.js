@@ -48,7 +48,7 @@ Default.MERCHANT_INFO = "merchantv20/getMerchantInfo";
 /**
  * 获取子商户列表信息
  */
-Default.SUBMERCHANT = "merchantv20/getSubMerchant";
+Default.SUBMERCHANT = "merchantv20/getIndustryMerchantv24XCX";
 
 
 /**

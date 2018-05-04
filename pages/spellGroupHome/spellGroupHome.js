@@ -32,16 +32,28 @@ Page({
     // })
     var info = e.currentTarget.dataset.info;
     console.log(info);
-    if (info.url==""){
-      // wx.navigateTo({
-      //   url: '../goodDetail/goodDetail?id='+info.id,
-      // })
-    }else{
+    // 0:h5链接 1:拼团 2:砍价 3:秒杀'
+    if (info.activity_type == 0) {
       wx.navigateTo({
         // url: '../h5/h5?url='+info.url,
         url:"../learnOurs/learnOurs"
+      });
+    } else if (info.activity_type == 2) {
+      const id = info.activity_id;
+      wx.navigateTo({
+          url: `/pages/BargainDetails/BargainDetails?id=${id}`,
       })
     }
+    // if (info.url==""){
+    //   // wx.navigateTo({
+    //   //   url: '../goodDetail/goodDetail?id='+info.id,
+    //   // })
+    // }else{
+    //   wx.navigateTo({
+    //     // url: '../h5/h5?url='+info.url,
+    //     url:"../learnOurs/learnOurs"
+    //   })
+    // }
 
   },
   loadOpenedGroup:function(page){

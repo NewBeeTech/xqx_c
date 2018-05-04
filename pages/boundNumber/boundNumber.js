@@ -58,7 +58,7 @@ Page({
           })
           return;
         }
-        if (res.code == 1){
+        if (res.code == 0){
           appData.Tool.saveToLocation("tocken", res.data.tocken);
           appData.Tool.saveToLocation("userId", res.data.userId);
           wx.reLaunch({
@@ -185,6 +185,8 @@ Page({
           wx.hideLoading();
           console.log(res);
           if (res.code == 0) {
+            console.warn(res);
+            res.data.token && appData.Tool.saveToLocation("token", res.data.token);
             wx.reLaunch({
               url: '../spellGroupHome/spellGroupHome'
             })

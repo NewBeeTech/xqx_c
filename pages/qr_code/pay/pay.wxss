@@ -1,174 +1,130 @@
-.pay_box{
-  width: 100%;
-  padding: 0 0 0 38rpx;
-  box-sizing: border-box;
-  /* overflow: hidden; */
-  /* background-color: #fff; */
+/* pages/check/check.wxss */
+.wrap{
+    background: #f0f0f0;
 }
-.merchant_name{
-  width: 678rpx;
-  height: 120rpx;
-  border-bottom: 1rpx solid #dedede;
-  line-height: 89rpx;
-  font-size: 30rpx;
-  color: #000;
-  background-color: #fff;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.50);
-  border-radius: 8rpx;
-  margin-top: 30rpx;
-  position: relative;
+.topHead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 34rpx 0;
 }
-.merchant_toux{
-  width: 72rpx;
-  height: 72rpx;
-  display: block;
-  border-radius: 100%;
-  float: left;
-  margin-right: 28rpx;
-  margin-top: 24rpx;
+.topHead>image{
+    width: 74rpx;
+    height: 74rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
 }
-.merchant_box{
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%,0);
+.topHead>view{
+    /* width: 340rpx; */
+    max-width: 340rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
-.name{
-  float: left;
-  line-height: 120rpx;
+.topHead>view>text{
+    width: 100%;
+    font-size: 15px;
+    color: #000;
 }
-.pay_money{
-  height: 89rpx;
-  line-height: 89rpx;
-  border-bottom: 1rpx solid #dedede;
+.consAmount{
+    margin-top:13rpx;
+    background: #fff;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 104rpx;
+    padding: 0 34rpx;
 }
-.merchant_boxTo{
-  overflow: hidden;
-  padding: 0 44rpx;
-  box-sizing: border-box;
+.consAmount .consTit{
+    font-size: 16px;
+    color: #333;
 }
-.merchant_touxTo{
-  width: 72rpx;
-  height: 72rpx;
-  display: block;
-  border-radius: 100%;
-  float: left;
-  margin-right: 28rpx;
-  margin-top: 24rpx;
+.consAmount .consNum{
+    font-size: 17px;
+    color: #292929;
 }
-
-.nameTo{
-  width: 490rpx;
-  float: left;
-  line-height: 40rpx;
-  padding-top: 20rpx;
+.discountActive{
+    background: #fff;
+    margin-top: 13rpx;
+    padding-top: 50rpx;
 }
-/* .pay_input{
-  
-} */
-.pay_text{
-  float: right;
-  text-align: right;
-  width: 25%;
-  
-  font-size: 30rpx;
-  color: #000;
-  height: 96rpx;
-  line-height: 96rpx;
+.discountActive>.discontent{
+    width: calc(100% - 68rpx);
+    background: #fff;
+    margin-top: 13rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1rpx solid #f0f0f0;
 }
-.pay_btn{
-  width: 690rpx;
-  /* margin-top: 280rpx; */
-  background: #F5A623;
-
+.discountActive>.discontent>view{
+     width: calc(100% - 158rpx);
 }
-.pay{
-  width: 74%;
-  height: 89rpx;
-  line-height: 89rpx;
-  font-size:30rpx;
-  color:#000;
-  float: left;
+.discountActive>.discontent>text{
+    width:158rpx;
+    font-size: 16px;
+    color: #333;
 }
-.payBox{
-  overflow: hidden;
-  border-bottom: 1px solid #dedede;
+.discountActive>.discontent>view>view{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
-.info{
-  font-size: 30rpx;
-  color: #000;
-  line-height: 89rpx;
-  border-bottom: 1px solid #dedede;
+.fullCut>view{
+    margin-bottom: 40rpx;
 }
-.merchant_info{
-  width: 678rpx;
-  overflow: hidden;
-  /* margin: 0 auto; */
-  background: #FFFFFF;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.50);
-  border-radius: 8rpx;
-  margin-top:24rpx; 
-  padding: 0 36rpx;
-  box-sizing: border-box;
+.fullCut>view>.fullCutCond{
+    font-size: 16px;
+    color: #333;
+    margin-left: 20rpx;
 }
-.pay_input{
-  width: 100%;
-  height: 96rpx;
+.nor {
+  background: white;
 }
-.pay_title{
-  line-height: 96rpx;
-  float: left;
-  font-size: 28rpx;
-  color: #000000;
+.action {
+  background: gray;
 }
-.pay_inp{
-  float: right;
-  height: 87rpx;
-  margin-top: 9rpx;
-  font-size: 30rpx;
-  color: #000;
-  width: 64%;
-  text-align: right;
+.fullCut>view>.fullCutCond{
+    font-size: 16px;
+    color: #333;
 }
-.fan_money{
-  text-align: center;
-  font-size: 28rpx;
-  color: #949394;
-  margin: 24rpx 0 60rpx;
+.fullCut>view>.discountNum{
+    font-size: 17px;
+    color: #ffa300;
 }
-.fan_money text{
-  color: #F5A623;
+.fullCut>view>.insufficient{
+    color: #bdbdbd;
 }
-.pay_moneyOff{
-  width: 100%;
-  padding-top: 28rpx;
-  border-top: 1px solid #ededed;
-  overflow: hidden;
-  padding-bottom: 20rpx;
-  border-bottom: 1px solid #ededed;
+.consPaid{
+    margin-top: 0;
 }
-.pay_moneyOff_title{
-  font-size: 28rpx;
-  color: #000000;
-  float: left;
+.confirmPay{
+    margin-top: 13rpx;
+    background: #fff;
 }
-.act_box{
-  width: 68%;
-  overflow: hidden;
-  float: left;
+.confirmPay{
+    padding-top: 50rpx;
 }
-.activity_list{
-  float: left;
-  width: 56%;
-  
+.confirmPay>view{
+    margin: 0 34rpx;
 }
-.act_list{
-  font-size: 28rpx;
-  color: #000000;
-  padding-bottom: 8rpx;
-  float: left;
+.confirmPay>view>.estimate{
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 34rpx;
 }
-.act_rflist{
-  float: right;
-  font-size: 24rpx;
-  color: #F5A623;
+.confirmPay>view>.estimate>text{
+    color: #ffa300;
+}
+.confirmPay>view>.confirOrder{
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: #ffa300;
+    border-radius: 8rpx;
+    height: 90rpx;
+    line-height: 90rpx;
 }

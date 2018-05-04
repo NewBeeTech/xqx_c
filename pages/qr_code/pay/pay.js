@@ -1,380 +1,465 @@
-/**
-* @time 2018/1/2
-* @class yzp
-* @CCPP 支付页面
-* @modification Time
-* @modification class
-*/
-const app = getApp()
-const getMerchantInfoForWeb = app.globalData.host + "/xcx-person/merchantv20/getMerchantDiscountInfo";//获取商户信息
-const createPay = app.globalData.host + "/xcx-person/wechatpay/createPay";//调取微信支付
+// pages/check/check.js
+var app = getApp();
+var appData = app.globalData;
+
+
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    disabled: true,
-    value: '',
-    pay: '0',//实际支付金额
-    merchantId: '',
-    MerchantInfoFor: [],
-    column: false,//是否显示实际支付栏目
-    whether_discount: '',//是否打折11465  MR折扣  MD满减30808
-    ratio: '',//返金比例
-    subtract_money:'',//已减价金额
-    full: '',//满减条件
-    mInfo_title: '',//满减标题
-    subtract: '',//满减多少钱
-    code: '',
-    mrId: '',
-    rebate:'',
-    return_money:'0',//返多少钱
-    name:true, //判断商家名字字数  变换布局
-    money_Off_List:[],
+    obj: {},
+    info: {},
+    money: 0,
+    resultMoney: 0,
+    ratio: 0.00,
+    isChoose: "nor",
+    resultRatio:"0.00",
+    merchantId:'',
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
+    console.warn(options);
+    // 判断用户是不是新用户
+    var id = options.q.split("merchantId%3D")[1];
+    console.warn('res', id);
     let that = this;
-    let merchantId;
-    //that.getUserInfo();
-    console.log(options)
-
-    // 获取商户id
-    console.log(options.q);
-    if (options.q == undefined){
-      console.log(options.q)
-      wx.getStorage({
-        key: 'merchantId',
-        success: function (res) {
-          //console.log(res);
-          that.setData({
-            merchantId: res.data
-          })
-          that.getMerchantInfoForWeb(res.data)
-          //that.getMerchantInfoForWeb(res.data)
-
-        },
-
-      })
-      console.log('000')
-      that.getMerchantInfoForWeb('12007')
-    }else{
-      //console.log(options.q);
-      let link = decodeURIComponent(options.q);//乱码转换正常
-      let paramArr = link.split('=');//区分 并且放入数组
-      merchantId = paramArr[1];//获取商户id
-      console.log(merchantId);
-      that.setData({
-        merchantId: merchantId
-      })
-      wx.setStorage({
-        key: "merchantId",
-        data: merchantId
-      })
-      that.getMerchantInfoForWeb(merchantId)
-    }
-    // 缓存取出Code
-    wx.getStorage({
-      key: 'code',
-      success: function (res) {
-        that.setData({
-          code: res.data
-        })
-      }
-    })
-
-  },
-  // 获取商家信息
-  getMerchantInfoForWeb: function (cnd) {
-    console.warn(cnd);
-    let that = this;
-    let cndTo = String(cnd);
-    let param = {
-      cnd: String(cndTo)
-      // cnd:'12007'
-    }
-    app.postRequest(getMerchantInfoForWeb, app.jsonToString(param), function (res) {
-      if (res.data.code == 0) {
-        let info;
-        if (res.data.data.discountMode == "MR") {
-          info = JSON.parse(res.data.data.mInfo)
-          that.setData({
-            whether_discount: res.data.data.discountMode,
-            ratio: info.rebate, //折扣
-            mrId: info.mrId,
-          })
-        } else if (res.data.data.discountMode == "MD") {
-          info = JSON.parse(res.data.data.mInfo)
-          let full = [];
-          let subtract = [];
-          for (let i = 0; i < info.length; i++){
-            full.push(info[i].full);
-            subtract.push(info[i].subtract);
-          }
-          that.setData({
-            whether_discount: res.data.data.discountMode,
-            full: full, //满减条件
-            subtract: subtract, //满减金额
-          })
-          that.setData({
-            money_Off_List: info
-          })
-        }
-
-        if (res.data.data.name.length > 9){
-          that.setData({
-            name: false,
-          })
-        }else{
-          that.setData({
-            name: true,
-          })
-        }
-        that.setData({
-          MerchantInfoFor: res.data.data,
-        })
-        if (res.data.data.discountMode != null && res.data.data.discountMode != "") {
-          that.setData({
-            column: true
-          })
-        }
-      } else {
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none',
-          duration: 2000,
-        })
-      }
-
-    })
-  },
-  bindKeyInput: function (e) {
-    // 输入是就获取金额
-    let that = this;
-    let value = e.detail.value;
     that.setData({
-      value: value
+      merchantId: id
     })
-    if (value != "") {
-      that.setData({
-        disabled: false,
-      })
-    } else {
-      that.setData({
-        disabled: true,
-      })
-    }
-    if (that.data.whether_discount == "MR") {
-      that.ratio(that.data.ratio);//折扣
-    } else if (that.data.whether_discount == "MD") { //满减
-      let value = that.data.value * 100;
-      let fullTo = [];
-      let subtractTo = [];
-      for (let i = 0; i < that.data.full.length; i++) {
-        for (let j = i + 1; j < that.data.full.length; j++) {
-          if (that.data.full[i] > that.data.full[j]) {
-            let tmp = that.data.full[i];
-            that.data.full[i] = that.data.full[j];
-            that.data.full[j] = tmp;
-          }
-        }
-      }
-      for (let i = 0; i < that.data.subtract.length; i++) {
-        for (let j = i + 1; j < that.data.subtract.length; j++) {
-          if (that.data.subtract[i] > that.data.subtract[j]) {
-            let tmp = that.data.subtract[i];
-            that.data.subtract[i] = that.data.subtract[j];
-            that.data.subtract[j] = tmp;
-          }
-        }
-      }
-      if (that.data.full.length == 1 ){
-        if (value >= that.data.full[0]) {
-          that.moneyOff(that.data.full[0], that.data.subtract[0]);
-        } else if (value < that.data.full[0]) {
-          that.moneyOff(that.data.full[0], that.data.subtract[0]);
-        }
-      } else if (that.data.full.length == 2  ){
-        if (value >= that.data.full[0] && value < that.data.full[1] || value < that.data.full[0]) {
-          that.moneyOff(that.data.full[0], that.data.subtract[0]);
-        }else if (value >= that.data.full[1]) {
-          that.moneyOff(that.data.full[1], that.data.subtract[1]);
-        } else if (value < that.data.full[1]) {
-          that.moneyOff(that.data.full[1], that.data.subtract[1]);
-        }
-      } else if (that.data.full.length == 3) {
-        if (value >= that.data.full[0] && value < that.data.full[1]) {
-          that.moneyOff(that.data.full[0], that.data.subtract[0]);
-        } else if (value < that.data.full[0]) {
-          that.moneyOff(that.data.full[0], that.data.subtract[0]);
+    wx.login({
+      success: res => {
+        // console.log("在这")
+       console.log(res)
+        // 获取用户信息
+        wx.getSetting({
+          success: result => {
+            // console.log("在获取用户信息")
+            // console.log(result)
 
-        } else if (value < that.data.full[1]) {
-          that.moneyOff(that.data.full[1], that.data.subtract[1]);
-        } else if (value >= that.data.full[1] && value < that.data.full[2]) {
-          that.moneyOff(that.data.full[1], that.data.subtract[1]);
+            wx.getUserInfo({
+              success: data => {
+                // console.log("走到这")
+                let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                let param = {
+                  code: res.code,
+                  iv: data.iv,
+                  encryptedData: data.encryptedData
+                }
+                wx.request({
+                  url: url,
+                  data: app.jsonToString(param),
+                  method: 'post',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  success: function (res) {
+                    if (res.data.needRegister == true) {
+                      wx.reLaunch({
+                        url: '/pages/boundNumber/boundNumber?page=check'
+                      })
+                      wx.setStorage({
+                        key: 'session',
+                        data: res.data.session
+                      })
+                      wx.setStorage({
+                        key: 'token',
+                        data: res.data.token
+                      })
+                    }else{
+                      wx.setStorage({
+                        key: 'session',
+                        data: res.data.session
+                      })
+                      wx.setStorage({
+                        key: 'token',
+                        data: res.data.token
+                      })
+                      if (options.q) {
+                        console.log(options.q);
+                        // http%3A%2F%2Fmini.xqx.com%2Fapp_person%2F%3FmerchantId%3D10099
+                        var res = options.q.split("%2Fapp_person%2F%3FmerchantId%3D")[1];
+                        console.log(res);
+                        // that.loadInfo(res);
+                      }
+                      that.loadInfo(options.id);
+                      // that.loadInfo('10099');
+                    }
+                  },
+                  fail: function (res) {
 
-        } else if (value < that.data.full[1]) {
-          that.moneyOff(that.data.full[2], that.data.subtract[2]);
-        } else if (value >= that.data.full[2]) {
-          that.moneyOff(that.data.full[2], that.data.subtract[2]);
-        }
+                  },
+
+                })
+                // this.postRequest(url, param, function (res) {
+
+                // })
+                if (result.authSetting['scope.userInfo']) {
+
+                }
+              },
+              fail: data => { }
+            })
+
+
+          },
+        })
       }
-    }else{
-      let subtract = that.data.value;
-      let ratioTo = that.data.MerchantInfoFor.ratio;
-      let return_money = subtract * ratioTo;
-      let return_moneyTo;
-      if (return_money > 1) {
-        return_moneyTo = Math.round(return_money);
-      } else if (return_money == 0) {
-        return_moneyTo = 0.00;
-      } else {
-        return_moneyTo = 1;
-      }
-      that.setData({
-        return_money: return_moneyTo / 100 //应返小金
-      })
-    }
+    })
+
+    // console.log(options);
+
+
+
+
   },
-  // 折扣
-  ratio: function (ratio) {
-    let that = this;
-    let moneys = that.data.value;
-    let ratios = ratio / 10;
-    let pays = app.accmul(moneys * ratios, '100');
-    let pay = Math.ceil(pays)
-    let subtract = pay / 100;
-    let subtract_accmul = Math.ceil((moneys * 100) - (subtract * 100));
-    let subtract_money = subtract_accmul;
-    let ratioTo = that.data.MerchantInfoFor.ratio;
-    let return_money = subtract * ratioTo;
-    //console.log(moneys);
-    let return_moneyTo;
-    if ( return_money > 1 ){
-      return_moneyTo = Math.round(return_money);
-    } else if (return_money == 0){
-      return_moneyTo = 0.00;
-    }else{
-      return_moneyTo = 1;
-    }
-    // console.log(return_money)
-    // console.log(pay);
-    //return_money:返多少小金
-    that.setData({
-      pay: pay / 100, //应付多少元
-      subtract_money:subtract_money, //减多少元
-      return_money: return_moneyTo / 100 //应返小金
+  choose: function () {
+
+  },
+  inputMoney: function (e) {
+    this.setData({
+      resultRatio: "0.00"
     });
-  },
-  // 满减
-  moneyOff: function (full, subtract) {
-    let that = this;
-    let moneys = app.accmul(that.data.value, '100');
-    let money;
-    let subtract_money;
-    let ratioTo = that.data.MerchantInfoFor.ratio;
-    let return_moneyTo;
-    // console.log(moneys);
-    // console.log(full);
-    if (moneys >= full) {
+    var self = this;
+    // if (self.data.money > 999999.99) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
+    // if (self.data.money < 0.01) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
+    if (this.data.info.discountMode == "MR") {
+      this.setData({
+        money: e.detail.value,
+        resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
+      });
 
-      money = moneys - subtract;
-      let return_money = (money / 100) * ratioTo;
-      if (return_money > 1) {
-        return_moneyTo = Math.round(return_money);
-      } else if (return_money == 0) {
-        return_moneyTo = 0.00;
-      } else {
-        return_moneyTo = 1;
-      }
-      that.setData({
-        pay: money / 100,
-        subtract_money:subtract,
-        return_money: return_moneyTo / 100 //应返小金
-      })
-    } else if (moneys < full) {
-      let return_money = (moneys / 100) * ratioTo;
-      if (return_money > 1) {
-        return_moneyTo = Math.round(return_money);
-      } else if (return_money == 0) {
-        return_moneyTo = 0.00;
-      } else {
-        return_moneyTo = 1;
-      }
-      //console.log(return_moneyTo);tha
-      that.setData({
-        pay: moneys / 100,
-        subtract_money: '0',
-        return_money: return_moneyTo / 100 //应返小金
-      })
+    }
+    if (this.data.info.discountMode == "MD") {
+      console.log(this.data.info.mInfo);
+      var self = this;
+
+      var result = e.detail.value;
+      self.setData({
+        money: parseFloat(e.detail.value),
+        resultMoney: result
+      });
+      this.data.info.mInfo.forEach(function (item) {
+
+        if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
+
+          result = result > parseFloat(e.detail.value) - parseFloat(item.subtract / 100) || result == 0 ? parseFloat(e.detail.value) - parseFloat(item.subtract / 100) : result;
+
+          self.setData({
+            money: parseFloat(e.detail.value),
+            resultMoney: result
+          });
+
+        }
+      });
+    }
+    if (this.data.info.discountMode == 'undefined' || this.data.info.discountMode == 'null' || !this.data.info.discountMode) {
+      this.setData({
+        money: parseFloat(e.detail.value),
+        resultMoney: parseFloat(e.detail.value) //减去 减满
+      });
+      console.log(this.data.resultMoney);
     }
 
-  },
-  payBtn: function () {
-    let that = this;
-    let money = '';//原价
-    const pointLen = that.data.value.split('.')[1];
-    if (pointLen && pointLen.length > 2) {
-      wx.showToast({
-        title: '输入格式错误,小数点后最多2位',
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
+    var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
+
+    console.log(this.data.resultMoney);
+
+    resultM = Math.ceil(resultM * 1000) / 1000;
+    resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
+
+    resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
+    var resultMStr = resultM + "";
+
+    if (resultMStr.split(".").length > 1) {
+      if (resultMStr.split(".")[1].length < 2) {
+        resultMStr = resultM + "0";
+      }
     }
-    money = app.accmul(that.data.value, '100');
-    let payTo;
-    if (that.data.pay * 100 != 0){
-      payTo = that.data.pay * 100
+    this.setData({
+      resultMoney:resultMStr
+    });
+
+    var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
+    r = Math.round(r * 1000)/1000;
+    r = Math.round(Math.round(r * 1000) / 10) / 100;
+    console.log(Math.round(r * 1000)/10);
+    console.log(r );
+
+    var str = r+"";
+
+    if (str.split(".").length>1){
+      if (str.split(".")[1].length < 2 ){
+        str = r+"0";
+      }
     }else{
-      payTo = that.data.value * 100
+      r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
+      str = r+"";
     }
-    if (String(payTo) == 0 || String(that.data.value * 100) == 0 || String(payTo) == 'NaN'){
+    console.log(str);
+    this.setData({
+      resultRatio: str
+    });
+    if (this.data.info.ratio){
+      if (r < 0.01){
+        this.setData({
+          resultRatio: 0.01
+        });
+      }
+    }
+
+  },
+
+  //
+  inputFinish: function (e) {
+    // var self = this;
+    // if (self.data.money != '' &&(self.data.money == 0 || self.data.money >= 999999.99)) {
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    // }
+  },
+  qrmdTap: function () {
+
+    var self = this;
+
+    /**
+     * money	String	是	实际支付金额
+session	String	是	session
+token	String	是	token
+merchantId	String	是	商户id
+origionPrice	String	是	原始价格
+discountId	String	是	折扣id 打折id 满减此项为空
+discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户详情mInfo
+     */
+    // var decimal = (self.data.money).toString().split('.');
+    // if (self.data.money == '' && (self.data.money < 0.01 || self.data.money >= 999999.99) || decimal[1].length > 2) {
+    //     console.log(1111)
+    //   wx.showToast({
+    //     title: "请输入0.01-999999.99的金额",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // }
+    // console.log(self.data.money2)
+    // if (self.data.money2 <= 0 || self.data.money2 >= 999999.99) {
+        // wx.showToast({
+        //     title: "请输入0.01-999999.99的金额",
+        //     icon: 'none',
+        //     duration: 2000
+        // })
+        // return;
+    // }
+    console.log(self.data.money);
+    if (parseFloat(self.data.money) < 0.01 || parseFloat(self.data.money) > 999999.99){
       wx.showToast({
-        title: '请输入正确的金额',
+        title: "请输入0.01-999999.99的金额",
         icon: 'none',
         duration: 2000
       })
-      return false;
-    }
-    // 最大金额限制
-    if (String(payTo) / 100 > 100000 || String(that.data.value) > 100000 ){
-      wx.showToast({
-        title: '最大金额不能超过100000元',
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
-    }
-    let param = {
-      merchantName: that.data.MerchantInfoFor.name, //名字
-      ratio: that.data.MerchantInfoFor.ratio,
-      merchantId: that.data.MerchantInfoFor.id,//商户id
-      session: app.globalData.session,
-      money: String(payTo), //实际支付金额
-      origionPrice: String(that.data.value * 100),//应付金额
-      discountId: that.data.mrId,
-      discountInfo: that.data.MerchantInfoFor.mInfo,
-    }
-    console.log(app.globalData.session)
-    app.postRequest(createPay, app.jsonToString(param), function (res) {
-        let id = res.data.tradeId ;
-        wx.showToast({
-            title: '正在支付...',
-            icon: 'loading',
-            mask: true
-        })
+      return;
+}
+
+    appData.Tool.getToLocation("session").then(function (session) {
+      console.log(session);
+      var config = { merchantName: self.data.info.name, money: self.data.resultMoney * 100 + "", session: session, origionPrice: self.data.money * 100+"", merchantId: self.data.info.id, ratio: self.data.info.ratio ? self.data.info.ratio : "0" };
+      console.log(config);
+      appData.Tool.createPay(config).then(function (result) {
+        wx.hideLoading()
+        console.log(result);
         wx.requestPayment({
-          'timeStamp': res.data.timeStamp,
-          'nonceStr': res.data.nonceStr,
-          'package': res.data.package,
+          'timeStamp': result.timeStamp,
+          'nonceStr': result.nonceStr,
+          'package': result.package,
           'signType': 'MD5',
-          'paySign': res.data.paySign,
+          'paySign': result.paySign,
           'success': function (res) {
-            wx.redirectTo({
-              url: '/pages/DetailsOfTheBill/DetailsOfTheBill?id=' + id,
+            console.log(res);
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              duration: 2000
+            })
+            wx.navigateTo({
+              url: '../PaymentSuccess/PaymentSuccess?tradeId=' + result.tradeId,
             })
           },
           'fail': function (res) {
+            console.log(res);
+            wx.showToast({
+              title: '支付失败',
+              icon: 'none',
+              duration: 2000
+            })
           }
         })
-
+      }).catch(function (error) {
+        console.log(error);
+      });
     })
+
+  },
+  loadInfo: function (id) {
+    var self = this;
+    appData.Tool.getMerchantDiscountInfo({ cnd: id }).then(function (result) {
+      wx.hideLoading()
+
+      self.setData({
+        info: result.data,
+        ratio: parseFloat(result.data.ratio)
+
+      });
+      console.log(self.data.info);
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    let that = this;
+    wx.login({
+      success: res => {
+        // console.log("在这")
+        console.log(res)
+        // 获取用户信息
+        wx.getSetting({
+          success: result => {
+            // console.log("在获取用户信息")
+            // console.log(result)
+
+            wx.getUserInfo({
+              success: data => {
+                // console.log("走到这")
+                let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                let param = {
+                  code: res.code,
+                  iv: data.iv,
+                  encryptedData: data.encryptedData
+                }
+                wx.request({
+                  url: url,
+                  data: app.jsonToString(param),
+                  method: 'post',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  success: function (res) {
+                    if (res.data.needRegister == true) {
+                      wx.reLaunch({
+                        url: '/pages/boundNumber/boundNumber?page=check'
+                      })
+                      wx.setStorage({
+                        key: 'session',
+                        data: res.data.session
+                      })
+                      wx.setStorage({
+                        key: 'token',
+                        data: res.data.token
+                      })
+                    } else {
+                      wx.setStorage({
+                        key: 'session',
+                        data: res.data.session
+                      })
+                      wx.setStorage({
+                        key: 'token',
+                        data: res.data.token
+                      })
+                      if (that.data.merchantId) {
+                        // console.log(options.q);
+                        // http%3A%2F%2Fmini.xqx.com%2Fapp_person%2F%3FmerchantId%3D10099
+                        // var res = options.q.split("%2Fapp_person%2F%3FmerchantId%3D")[1];
+                        // console.log(res);
+                        // that.loadInfo(res);
+                      }
+                      that.loadInfo(that.data.merchantId);
+                      // that.loadInfo('10099');
+                    }
+                  },
+                  fail: function (res) {
+
+                  },
+
+                })
+                // this.postRequest(url, param, function (res) {
+
+                // })
+                if (result.authSetting['scope.userInfo']) {
+
+                }
+              },
+              fail: data => { }
+            })
+
+
+          },
+        })
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })
+/*赶出来的代码，*一样的代码*/

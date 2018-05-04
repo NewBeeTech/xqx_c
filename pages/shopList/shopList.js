@@ -57,7 +57,7 @@ Page({
 
     var self = this;
     var id = typeof e !== "object" ? e : e.currentTarget.dataset.id;
-    
+
     if (id == 0) {
       self.setData({
         subList: [],
@@ -68,16 +68,16 @@ Page({
       this.returnType();
       return;
     }
-     
+
     self.setData({
       superID:e.currentTarget.dataset.id,
       Popup_index_right: 0
     });
     console.log(id);
     appData.Tool.getSubCatelog({ intPara: id, intPara2: wx.getStorageSync("city"), level: wx.getStorageSync("level"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude")}).then(function (result) {
-      
+
       var temp = [{ name: "不限", id: 0 }].concat(result.data.list);
-      
+
       self.setData({
         subList: temp,
         Popup_inde: e.currentTarget.dataset.index,
@@ -170,7 +170,7 @@ Page({
       orderID: e.currentTarget.dataset.id
     })
     var self = this;
-    
+
     var parm = self.data.typeID ? { intPara2: wx.getStorageSync("level"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), unionid: e.currentTarget.dataset.id, intPara: self.data.typeID } : { latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), unionid: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level")}
     appData.Tool.getIndustryMerchantV24(parm).then(function (result) {
       console.log(result);
@@ -217,7 +217,7 @@ Page({
     this.returnType();
   },
   PopupF: function () {
-    
+
     this.setData({
       PopupIf: false,
       unionidPopupIf: false
@@ -259,7 +259,7 @@ Page({
         name:e.name,
         id: e.id
     });
- 
+
     this.windowHeight();
 
     var self = this;
@@ -270,13 +270,13 @@ Page({
         list: result.data.list,
         Popup_inde: e.index
       });
-      
+
     })
       .catch(function (error) {
         console.log(error);
       });
-    
-    
+
+
   },
   windowHeight:function(){
       var windowHeight = wx.getStorageSync('windowHeight');
@@ -297,7 +297,7 @@ Page({
     })
   },
   //
- 
+
 
 
   //
@@ -332,28 +332,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
@@ -374,7 +374,7 @@ Page({
     appData.Tool.getSubMerchant({ cnd: self.data.merchantID, latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), page: self.data.page }).then(function (result) {
       console.log(result);
       self.setData({
-        list: self.data.list.concat(result.data.subMerchants)
+        list: self.data.list.concat(result.data.list)
       });
 
       console.log(self.data.typeList);
@@ -386,7 +386,7 @@ Page({
           duration: 2000
         })
       }
-      
+
       wx.stopPullDownRefresh();
     })
       .catch(function (error) {
@@ -400,6 +400,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

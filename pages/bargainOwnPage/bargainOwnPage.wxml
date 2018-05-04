@@ -24,14 +24,14 @@
   </view>
   <!-- 弹窗 -->
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal && barginOwnData.showFlag != 1 }}"></view>
-  <view class="modal-dialog" wx:if="{{showModal && barginOwnData.showFlag != 1 }}">
+  <!-- <view class="modal-dialog" wx:if="{{showModal && barginOwnData.showFlag != 1 }}">
      <view class="modal-close-img" bindtap="hideModal"><image src="{{ closeIcon }}"/></view>
      <view class="modal-dialog-content">
          <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
          <view class="modal-dialog-text">您已经砍{{ barginOwnData.cut_price / 100.0  || 0}} 元，听说分享次数越多，砍价成功的机会越大～</view>
          <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
      </view>
-  </view>
+  </view> -->
   <view class="modal-mask" bindtap="hideRuleModal" catchtouchmove="preventTouchMove" wx:if="{{showRuleModal}}"></view>
   <view class="modal-dialog modal-dialog-rule" wx:if="{{showRuleModal}}">
      <view class="modal-close-img" bindtap="hideRuleModal"><image src="{{ closeIcon }}"/></view>

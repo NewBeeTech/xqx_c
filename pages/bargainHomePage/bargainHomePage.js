@@ -31,6 +31,7 @@ Page({
         a1:'',
         a2:'',
         imgURL: '',
+        topPic: {},
         hasMore: true
     },
     /**
@@ -66,6 +67,7 @@ Page({
         a1:'',
         a2:'',
         imgURL: '',
+        topPic: {},
         hasMore: true
       })
       this.loadMainData();
@@ -85,12 +87,14 @@ Page({
 
             let topPics = result.data.topPics;
             topPics = topPics && topPics.filter(item => item.activity_type == 2);
+            const topPic = topPics && topPics[0];
             const imgURL = topPics && topPics[0] && topPics[0].img_url;
             self.setData({
                 subList: [{ name: "不限", id: null }],
                 obj: result.data,
                 list: result.data.merchantList,
                 typeList: temp,
+                topPic,
                 imgURL,
             });
             // self.data.typeList.unshift({name:"全部",id:0});
@@ -107,6 +111,13 @@ Page({
         wx.navigateTo({
             url: '../bargainRulePage/bargainRulePage',
         })
+    },
+    bannerLink: function() {
+      const topPic = this.data.topPic;
+      const id = topPic.activity_id;
+      id && wx.navigateTo({
+          url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+      })
     },
     toGroupDetail: function (e) {
       const id = e.currentTarget.dataset.id;

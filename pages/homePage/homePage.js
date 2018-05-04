@@ -430,7 +430,7 @@ Page({
         appData.Tool.getSubMerchant({ latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), page: self.data.page }).then(function (result) {
             console.log(result);
             self.setData({
-                list: self.data.list.concat(result.data.subMerchants)
+                list: self.data.list.concat(result.data.list)
             });
 
             console.log(self.data.typeList);

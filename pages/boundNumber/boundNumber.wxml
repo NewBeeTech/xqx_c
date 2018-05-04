@@ -17,11 +17,11 @@
 
 <view class='Sj'>
     <text>手机号</text>
-    <input type='number'  placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone' bindblur="inputDone" style='font-size:30rpx'></input>
+    <input type='number'  placeholder='请输入手机号' placeholder-style='font-size:15.5px' bindinput='getPhone'  style='font-size:30rpx'></input>
 </view>
 
 <view class='Yz'>
-<input type='number'  placeholder="请输入验证码" placeholder-style='font-size:15.5px' style='font-size:30rpx' bindblur="codeDone" ></input>
+<input type='number'  placeholder="请输入验证码" placeholder-style='font-size:15.5px' style='font-size:30rpx' bindinput="codeDone" ></input>
 
     <text wx:if="{{canGetCode}}" bindtap='getCode'>获取验证码</text>
     <text wx:elif="{{time > 0}}" style="color: #999">{{time}}秒</text>
