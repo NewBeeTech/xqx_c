@@ -1,8 +1,8 @@
 <!--pages/MerchantList/MerchantList.wxml-->
 <div class="bargain_content">
   <scroll-view class="bargin_list" scroll-y="true" bindscrolltolower='shjiaz'>
-    <view class='wrap1' bindtap="bannerLink">
-      <image class='wrap1_img' src='{{imgURL}}'></image>
+    <view class='wrap1' >
+      <image bindtap="bannerLink" class='wrap1_img' src='{{imgURL}}'></image>
       <view class='wrap1_box' bindtap='toWaring'>
         <image class='wrap1_img' src='../../images/icon/weh.png'></image>
         <text>砍价说明</text>
@@ -63,11 +63,12 @@
               </view>
               <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
             </view>
-            <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
+            <!-- <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view> -->
           </view>
           <view class='wrap3_box_shl'>
             <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
-            <text>已售出：{{item.group_person_num || 0}}件</text>
+            <!-- <text>已售出：{{item.group_person_num || 0}}件</text> -->
+            <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
           </view>
         </view>
 

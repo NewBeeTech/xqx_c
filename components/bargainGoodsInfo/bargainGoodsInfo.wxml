@@ -1,5 +1,5 @@
 <template name="bargainGoodsInfo">
-  <view class="bargain_content">
+  <view class="bargain_content" bindtap="navToGoodDetail">
      <view class="bargain_portrait">
         <view class="bargain_portrait1"><image src="{{ barginOwnData.userPortrait }}"/></view>
         <view class="bargain_portrait2"> {{ barginOwnData.userName }}</view>
@@ -8,6 +8,7 @@
        <view class="bargain_img"><image src="{{ barginOwnData.img_url }}"/></view>
        <view class="bargain_right_info">
           <view class="bargain_right_name">{{ barginOwnData.name }}</view>
+          <view class="bargain_detail">查看详情 > </view>
           <view  class="bargain_right_money">
              <view  class="bargain_right_money3">
                <span class="bargain_right_money1">¥</span>{{ barginOwnData.price / 100  }}

@@ -203,6 +203,7 @@ Default.CANCEL_GROUP_ORDER = "xcxcutprice/cancelGroupOrder";
  * 获取砍价详情
  */
 Default.GET_BARGAIN_DETAILS = "xcxcutprice/getGoodsCutPriceInfoXCX";
+Default.GET_BARGAIN_DETAILS1 = "xcxcutprice/getGoodsInfoXCX";
 
 // 砍价首页
 Default.GET_BARGAIN_LIST = "xcxcutprice/getGoodsCutPriceListXCX";

@@ -56,14 +56,15 @@ page {
   position: relative;
 }
 .goods .left_icon{
-  display: block;
-  width: 166rpx;
-  height: 166rpx;
-  border-radius: 10rpx;
+  display: flex;
+  flex-shrink: 0;
+  width: 228rpx;
+  height: 228rpx;
 }
 .goods .right_des {
   padding-left: 40rpx;
   text-align: left;
+  height: 228rpx;
 }
 
 .title {
@@ -71,6 +72,14 @@ page {
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+.good_title {
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 50rpx;
+  font-size: 30rpx;
 }
 .goods .right_des .title{
   font-size: 32rpx;
@@ -118,6 +127,29 @@ page {
 }
 .goods .group {
   padding-top: 10rpx;
+}
+.wrap3_btn {
+  height: 70rpx;
+  min-width: 163rpx;
+  line-height: 70rpx;
+  padding: 0 10rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: #fff;
+  background: #ff9a00;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.good_detail_bottom {
+  margin-top: 10rpx;
+  width: 400rpx;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .goods .group_num {
   display: inline-block;

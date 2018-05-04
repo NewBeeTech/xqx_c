@@ -48,6 +48,13 @@ Page({
       id: options.id
     })
   },
+  navToGoodDetail: function() {
+    console.log('click', this.data);
+    const id = this.data.barginOwnData.orderId;
+    wx.navigateTo({
+        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+    })
+  },
   onShow: function() {
     this.loadData(this.data.id);
   },

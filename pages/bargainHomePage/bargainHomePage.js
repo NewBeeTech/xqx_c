@@ -116,7 +116,7 @@ Page({
       const topPic = this.data.topPic;
       const id = topPic.activity_id;
       id && wx.navigateTo({
-          url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+          url: `/pages/BargainDetails/BargainDetails?id=${id}&from=banner`,
       })
     },
     toGroupDetail: function (e) {

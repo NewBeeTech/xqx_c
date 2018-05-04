@@ -41,7 +41,7 @@ Page({
     } else if (info.activity_type == 2) {
       const id = info.activity_id;
       wx.navigateTo({
-          url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+          url: `/pages/BargainDetails/BargainDetails?id=${id}&from=banner`,
       })
     }
     // if (info.url==""){

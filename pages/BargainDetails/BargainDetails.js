@@ -4,6 +4,7 @@ var app = getApp();
 var appData = app.globalData;
 Page({
   data: {
+    from: '',
     icon: '../../images/img/dui.png',
     isShow: 'none',
     alertTop: 0,
@@ -137,25 +138,48 @@ Page({
   loadData: function () {
       var self = this;
       console.log(self.data.id);
-
-      appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
-          wx.hideLoading();
-          let explain_img_url = result.data.explain_img_url;
-          if (explain_img_url) {
-            explain_img_url = JSON.parse(explain_img_url);
-          } else {
-            explain_img_url = "";
-          }
-          self.setData({
-              obj: result.data,
-              'obj.imgList': explain_img_url,
-              'obj.xiaojin': result.data.currency/100
-          });
-          console.warn(explain_img_url);
-      })
-          .catch(function (error) {
-              console.log(error);
-          });
+      console.log('self.data',self.data);
+      if (self.data.from == 'banner') {
+        console.warn('hello1');
+        appData.Tool.getBargainInfo1({ cnd: self.data.id }).then(function (result) {
+            wx.hideLoading();
+            let explain_img_url = result.data.explain_img_url;
+            if (explain_img_url) {
+              explain_img_url = JSON.parse(explain_img_url);
+            } else {
+              explain_img_url = "";
+            }
+            self.setData({
+                obj: result.data,
+                'obj.imgList': explain_img_url,
+                'obj.xiaojin': result.data.currency/100
+            });
+            console.warn(explain_img_url);
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+      } else {
+        console.warn('hello');
+        appData.Tool.getBargainInfo({ cnd: self.data.id }).then(function (result) {
+            wx.hideLoading();
+            let explain_img_url = result.data.explain_img_url;
+            if (explain_img_url) {
+              explain_img_url = JSON.parse(explain_img_url);
+            } else {
+              explain_img_url = "";
+            }
+            self.setData({
+                obj: result.data,
+                'obj.imgList': explain_img_url,
+                'obj.xiaojin': result.data.currency/100
+            });
+            console.warn(explain_img_url);
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+      }
     },
     showAll:function(){
 
@@ -171,7 +195,8 @@ Page({
 
         console.log(options);
         this.setData({
-          id: options.id
+          id: options.id,
+          from: options.from,
         });
         this.loadData();
 

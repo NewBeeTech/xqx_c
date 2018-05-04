@@ -543,6 +543,20 @@ HTTPOpertion.getBargainInfo = function (parm) {
 }
 
 /**
+ * 获取砍价商品详情
+ *
+ * token	String	是	token
+ * userId	String	否	userId
+ * cnd	String	是	商户id
+ */
+HTTPOpertion.getBargainInfo1 = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.GET_BARGAIN_DETAILS1, parm || {});
+
+}
+
+
+/**
  * 获取我的砍价商品
  *
  * token	String	是	token
