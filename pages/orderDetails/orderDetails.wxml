@@ -16,7 +16,7 @@
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
 </view>
 
-<view wx:if="xqObj.delivery_method == 2" class='position_info'>
+<view wx:if="{{xqObj.delivery_method == 2}}" class='position_info'>
     <view>
         <text class='buyers_name'>到店自提</text>
     </view>
