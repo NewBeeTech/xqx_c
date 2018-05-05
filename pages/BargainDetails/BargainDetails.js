@@ -4,7 +4,7 @@ var app = getApp();
 var appData = app.globalData;
 Page({
   data: {
-    userid: '',
+    userId: '',
     from: '',
     icon: '../../images/img/dui.png',
     isShow: 'none',
@@ -155,6 +155,7 @@ Page({
             } else {
               explain_img_url = "";
             }
+            console.warn('create_person_id：',result.data.create_person_id,'userId: ', self.data.userId, 'obj: ', result.data);
             self.setData({
                 obj: result.data,
                 'obj.imgList': explain_img_url,
@@ -174,6 +175,7 @@ Page({
             } else {
               explain_img_url = "";
             }
+            console.warn('create_person_id：',result.data.create_person_id,'userId: ', self.data.userId, 'obj: ', result.data);
             self.setData({
                 obj: result.data,
                 'obj.imgList': explain_img_url,

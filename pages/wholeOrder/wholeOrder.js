@@ -2,6 +2,24 @@
 var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
+var _lastTime = null
+function throttle(fn, gapTime) {
+    if (gapTime == null || gapTime == undefined) {
+        gapTime = 1500
+    }
+
+    // let _lastTime = null
+
+    // 返回新的函数
+    return function () {
+        let _nowTime = + new Date()
+        console.log(_nowTime, _lastTime, gapTime);
+        if (_nowTime - _lastTime > gapTime || !_lastTime) {
+            fn.apply(this, arguments)   //将this和参数传给原函数
+            _lastTime = _nowTime
+        }
+    }
+}
 Page({
 
     /**
@@ -134,21 +152,25 @@ Page({
             goods_group_id: e.currentTarget.dataset.goods_group_id,
             group_buy_id: e.currentTarget.dataset.group_buy_id
         }
-        appData.Tool.commitReceiveGoods(obj).then(function (res) {
-            console.log(res)
-            wx.hideLoading();
-            that.data.Ddarr = [];
-            that.data.page = 1;
-            that.getDdList();
-        })
-            .catch(function (err) {
-                wx.hideLoading();
-                console.log(err)
-                wx.showToast({
-                    title: err.message,
-                    duration: 2000
-                })
-            })
+        throttle(function() {
+          appData.Tool.commitReceiveGoods(obj).then(function (res) {
+              console.log(res)
+              wx.hideLoading();
+              that.data.Ddarr = [];
+              that.data.page = 1;
+              that.getDdList();
+          })
+              .catch(function (err) {
+                  wx.hideLoading();
+                  console.log(err)
+                  wx.showToast({
+                      title: err.message,
+                      duration: 2000
+                  })
+              })
+        }, 10000)();
+
+
     },
 
     onShareAppMessage: function (res) {

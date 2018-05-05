@@ -1,6 +1,24 @@
 // pages/orderDetails/orderDetails.js
 var app = getApp();
 var appData = app.globalData;
+var _lastTime = null
+function throttle(fn, gapTime) {
+    if (gapTime == null || gapTime == undefined) {
+        gapTime = 1500
+    }
+
+    // let _lastTime = null
+
+    // 返回新的函数
+    return function () {
+        let _nowTime = + new Date()
+        console.log(_nowTime, _lastTime, gapTime);
+        if (_nowTime - _lastTime > gapTime || !_lastTime) {
+            fn.apply(this, arguments)   //将this和参数传给原函数
+            _lastTime = _nowTime
+        }
+    }
+}
 Page({
 
     /**
@@ -44,15 +62,18 @@ Page({
     //确认收货
     qusTap: function () {
         var that = this;
-        appData.Tool.commitReceiveGoods({
-            orderId: that.data.xqObj.orderId,
-            goods_group_id: that.data.xqObj.goods_group_id,
-            group_buy_id: that.data.xqObj.group_buy_id
-        }).then(function (res) {
-            console.log(res)
-            wx.hideLoading();
-            that.loadData(that.id);
-        }).catch(function (err) { });
+        throttle(function() {
+          appData.Tool.commitReceiveGoods({
+              orderId: that.data.xqObj.orderId,
+              goods_group_id: that.data.xqObj.goods_group_id,
+              group_buy_id: that.data.xqObj.group_buy_id
+          }).then(function (res) {
+              console.log(res)
+              wx.hideLoading();
+              that.loadData(that.id);
+          }).catch(function (err) { });
+        }, 10000)();
+
     },
     //取消订单
     sqtkTap:function(){
