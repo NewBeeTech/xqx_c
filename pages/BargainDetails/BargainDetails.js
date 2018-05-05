@@ -4,6 +4,7 @@ var app = getApp();
 var appData = app.globalData;
 Page({
   data: {
+    userid: '',
     from: '',
     icon: '../../images/img/dui.png',
     isShow: 'none',
@@ -198,9 +199,11 @@ Page({
     onLoad: function (options) {
 
         console.log(options);
+        const userId = wx.getStorageSync('userId');
         this.setData({
           id: options.id,
           from: options.from,
+          userId: userId,
         });
         this.loadData();
 

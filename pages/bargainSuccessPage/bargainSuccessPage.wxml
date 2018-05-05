@@ -3,9 +3,10 @@
         <image src='../../images/icon/complete.png'></image>
         <text>砍价成功</text>
    </view>
-   <view class='status_describe'>商家正在努力发货，请耐心等待!</view>
+   <view wx:if="{{pageInfo.deliveryMethod == 2}}" class='status_describe'>商家已发货，请耐心等待!</view>
+   <view wx:else class='status_describe'>商家正在努力发货，请耐心等待!</view>
    <view class='fight_reward'>
-        <view class='reward_price'>确认收货后额外奖励： {{ pageInfo.xiaojin }}小金</view>
+        <view class='reward_price'>确认收货后额外奖励： {{ pageInfo.currency / 100 }}小金</view>
    </view>
 </view>
 <view class='order_detailed'>

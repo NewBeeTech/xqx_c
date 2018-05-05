@@ -53,7 +53,7 @@
             <text class='orange_price'>￥{{item.price}}</text>
           </view>
           <view class='xiaojin'>额外奖励:
-            <text>{{~~(item.group_price*100*item.ratio/100)?~~(item.group_price*100*item.ratio/100)/100:0.01}}</text>小金
+            <text>{{item.currency / 100}}</text>小金
           </view>
           <view class='good_detail_bottom'>
             <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>

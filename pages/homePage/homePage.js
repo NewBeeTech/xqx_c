@@ -245,8 +245,8 @@ Page({
             console.log(res);
             wx.hideLoading()
             res.userId && wx.setStorageSync('userId', res.userId);
-            res.token && wx.setStorageSync('userId', res.token);
-            res.session && wx.setStorageSync('userId', res.session);
+            res.token && wx.setStorageSync('token', res.token);
+            res.session && wx.setStorageSync('session', res.session);
             // appData.Tool.saveToLocation("userId", res.userId);
             // appData.Tool.saveToLocation("token", res.token);
             // appData.Tool.saveToLocation("session", res.session);

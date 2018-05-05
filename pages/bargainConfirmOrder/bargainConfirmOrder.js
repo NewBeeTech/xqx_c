@@ -39,7 +39,7 @@ Page({
           // goodInfo.group_price/100*goodInfo.ratio/100).toFixed(2)
            that.setData({
              goodInfo: res.data,
-             'goodInfo.extra': parseInt(res.data.group_price*res.data.ratio/100) > 1 ? (res.data.group_price/100*res.data.ratio/100).toFixed(2) : 0.01
+             'goodInfo.extra': parseInt(res.data.currency/100) > 1 ? (res.data.currency/100).toFixed(2) : 0.01
              // res.data.group_price/100*res.data.ratio/100
             // 'goodInfo.extra': parseInt(self.groupPrice*100 * self.ratio) > 1 ? parseInt(self.groupPrice*100 * self.ratio) : 1
            })

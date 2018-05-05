@@ -48,8 +48,8 @@ Page({
       wx.hideLoading();
       if (res.code === 0) {
          that.setData({ pageInfo: res.data })
-         const xiaojin = (res.data.money * res.data.ratio / 100) > 1 ? (res.data.money * res.data.ratio / 10000).toFixed(2) : 0.01;
-         that.setData({ "pageInfo.xiaojin": xiaojin})
+         // const xiaojin = (res.data.currency / 100) > 1 ? (res.data.money * res.data.ratio / 10000).toFixed(2) : 0.01;
+         // that.setData({ "pageInfo.xiaojin": xiaojin})
       } else {
         wx.showToast({
             title: res.message,

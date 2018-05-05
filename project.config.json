@@ -266,7 +266,7 @@
 					"id": 38,
 					"name": "帮朋友砍价",
 					"pathName": "pages/bargainGivenPage/bargainGivenPage",
-					"query": "id=f6f0411d-9d04-4eb9-9d3a-37b2b9dba5f4&intPara=318"
+					"query": "id=93&intPara=318"
 				},
 				{
 					"id": 39,
