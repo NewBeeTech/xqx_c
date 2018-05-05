@@ -105,7 +105,7 @@ HTTPManager.login = function(){
               var config = { code: code, encryptedData: res.encryptedData, iv: res.iv };
               console.log(config);
               HttpManager
-                .post("http://mini.xqx.com/app_person/" + "XCXController/get3rdSession", config).then(function (result) {
+                .post("https://mini.xqx.com/app_person/" + "XCXController/get3rdSession", config).then(function (result) {
                 console.log(result);
                 wx.hideLoading();
                 success(result);

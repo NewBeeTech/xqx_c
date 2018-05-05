@@ -44,7 +44,8 @@ Page({
             wx.getUserInfo({
               success: data => {
                 // console.log("走到这")
-                let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                // let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                let url = 'https://mini.xqx.com/app_person/XCXController/get3rdSession';
                 let param = {
                   code: res.code,
                   iv: data.iv,
@@ -359,7 +360,8 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
             wx.getUserInfo({
               success: data => {
                 // console.log("走到这")
-                let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                // let url = 'http://ccpp.denong.com/app_person/XCXController/get3rdSession';
+                let url = 'https://mini.xqx.com/app_person/XCXController/get3rdSession';
                 let param = {
                   code: res.code,
                   iv: data.iv,
