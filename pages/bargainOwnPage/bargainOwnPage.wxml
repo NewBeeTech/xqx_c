@@ -6,7 +6,8 @@
   <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ (barginOwnData.price - barginOwnData.now_price) / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.now_price -  barginOwnData.group_price) / 100 }}</span>元</view>
-    <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:if="{{ deadTime > nowTime }}">喊朋友砍一刀</button>
+    <button bindtap="navToGoodDetail" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:if="{{ deadTime > nowTime && barginOwnData.now_price <= barginOwnData.group_price }}">砍价成功，去支付</button>
+    <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:elif="{{ deadTime > nowTime }}">喊朋友砍一刀</button>
     <button class="bargin_share_btn" wx:else>已结束</button>
     <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>

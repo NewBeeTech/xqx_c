@@ -101,7 +101,7 @@
               <view  wx:if="{{item.business_ind_name}}">{{item.business_ind_name}}</view>
               <view wx:if="{{item.ratio!=0&&item.ratio}}">获金{{item.ratio}}%</view>
             </view>
-            <view class='list_box_y' wx:if="{{item.total_currency}}">已累计贡献小金{{item.total_currency / 100}}</view>
+            <view class='list_box_y' wx:if="{{item.total_currency}}">已累计贡献小金{{item.total_currency / 100 || '0.00'}}</view>
             <view class='list_box_j' >
               <view wx:if="{{item.qFlag}}">劵</view>
               <text class='list_box_j_l' wx:if="{{item.qFlag}}">售优惠劵</text>

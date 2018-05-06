@@ -87,6 +87,7 @@ App({
                   })
 
       }else {
+      console.log('hahah3');
         wx.getSetting({
           success(res) {
             if (!res.authSetting['scope.userInfo']) {
@@ -120,8 +121,8 @@ App({
     Tool: tool,
     session: '',
     userid: '',
-    host: "https://mini.xqx.com",
-    // host: "http://ccpp.denong.com",
+    // host: "https://mini.xqx.com",
+    host: "http://ccpp.denong.com",
     searchData:[],
     photos:[]
   },
