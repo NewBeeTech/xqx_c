@@ -47,7 +47,7 @@
         <image bindtap='ddhua' data-store_phone='{{obj.store_phone}}' src='../../images/img/phone.png'></image>
     </view>
 </view>
-<view class='goodDetails bg_white margin-detail' wx:if="{{obj.explain_content||(obj.explain_img_url !== '' && obj.explain_img_url !== '\"[]\"')}}">
+<view class='goodDetails bg_white margin-detail' wx:if="{{obj.explain_content||(obj.explain_img_url !== '' && obj.explain_img_url !== '[]' && obj.explain_img_url !== '\"[]\"')}}">
     <view>
         <view class='detaileTitle'>商品详情</view>
         <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
