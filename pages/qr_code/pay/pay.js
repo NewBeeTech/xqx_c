@@ -121,6 +121,11 @@ Page({
   choose: function () {
 
   },
+  goBackHome: function() {
+    wx.reLaunch({
+      url: '/pages/spellGroupHome/spellGroupHome'
+    });
+  },
   inputMoney: function (e) {
     this.setData({
       resultRatio: "0.00"

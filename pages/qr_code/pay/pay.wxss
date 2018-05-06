@@ -1,4 +1,21 @@
 /* pages/check/check.wxss */
+.top_rule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 30rpx;
+  background: #fff;
+}
+.bargain_rule1 {
+  /* width: 90vw; */
+  /* margin: 0 auto; */
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #6e6e6e;
+  text-align: right;
+}
 .wrap{
     background: #f0f0f0;
 }

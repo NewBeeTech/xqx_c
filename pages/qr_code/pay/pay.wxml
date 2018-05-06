@@ -1,5 +1,9 @@
 <!--pages/check/check.wxml-->
 <view class='wrap'>
+  <view class="top_rule">
+    <view class="bargain_rule1" bindtap='goBackHome'>返回主页</view>
+    <!-- <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view> -->
+  </view>
     <view class='topHead'>
         <image src='{{info.storeLogo}}'></image>
         <view>

@@ -2,9 +2,26 @@
 page{
     border-top: solid 1rpx #e4e4e4;
 }
+.top_rule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 30rpx;
+  background: #fff;
+}
+.bargain_rule1 {
+  /* width: 90vw; */
+  /* margin: 0 auto; */
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #6e6e6e;
+  text-align: right;
+}
 
 .name{
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +44,7 @@ page{
     margin-left: 5rpx;
 }
 .name>view{
-    max-width: 180rpx; 
+    max-width: 180rpx;
     font-size: 15px;
     overflow: hidden;
     white-space: nowrap;

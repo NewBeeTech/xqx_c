@@ -1,5 +1,10 @@
 <!--pages/DetailsOfTheBill/DetailsOfTheBill.wxml-->
+<view class="top_rule">
+  <view class="bargain_rule1" bindtap='goBackHome'>返回主页</view>
+  <!-- <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view> -->
+</view>
 <view class='name' wx:if="{{obj.gold_pathway_info==64}}">
+
     <image class='name_t' src='{{obj.targetPortrait}}'></image>
     <view>{{obj.targetName}}</view>
 </view>

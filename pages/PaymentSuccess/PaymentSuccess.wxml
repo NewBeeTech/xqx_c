@@ -1,9 +1,13 @@
 <!--pages/PaymentSuccess/PaymentSuccess.wxml-->
 <view>
+<view class="top_rule">
+  <view class="bargain_rule1" bindtap='goBackHome'>返回主页</view>
+  <!-- <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view> -->
+</view>
     <icon class='icon' type='success' size='48' color='1bb100'></icon>
     <view class='ck'>付款成功</view>
     <view class='nub'><text>￥</text>{{info.real_charge}}</view>
-    <view class='nub2'>￥{{info.real_charge}}</view> 
+    <view class='nub2'>￥{{info.real_charge}}</view>
 </view>
 <view class='cont'>
     <view>
