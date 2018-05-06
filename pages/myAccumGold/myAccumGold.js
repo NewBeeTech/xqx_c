@@ -170,6 +170,13 @@ Page({
                       scope: 'scope.writePhotosAlbum',
                       success() {
                           self.download();
+                      },
+                      fail(err) {
+                        wx.showToast({
+                          title: '很遗憾，因为授权失败，您将无法正常使用小程序。请到设置里（右上角 - 关于 - 右上角 - 设置）重新授权。',
+                          icon: 'none',
+                          duration: 5000,
+                        });
                       }
                   })
               } else {

@@ -296,7 +296,7 @@
 					"id": 43,
 					"name": "扫码支付",
 					"pathName": "pages/qr_code/pay/pay",
-					"query": "q=10099"
+					"query": "q=merchantId%3D10099"
 				},
 				{
 					"id": -1,

@@ -301,7 +301,7 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
               duration: 2000
             })
             wx.navigateTo({
-              url: '../PaymentSuccess/PaymentSuccess?tradeId=' + result.tradeId,
+              url: '/pages/PaymentSuccess/PaymentSuccess?tradeId=' + result.tradeId,
             })
           },
           'fail': function (res) {

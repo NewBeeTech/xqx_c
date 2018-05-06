@@ -65,12 +65,12 @@
             <view >已结束</view>
         </view>
     </view>
-    <view wx:if="{{obj.status == 4}}" class='beginBtn beginBtnGrey'>
+    <view wx:elif="{{obj.status == 4}}" class='beginBtn beginBtnGrey'>
         <view class='beginBtn_lef'>
             <view >已下架</view>
         </view>
     </view>
-    <view wx:if="{{obj.order_state == 1 || obj.order_state == 2 || obj.order_state == 3 }}" class='beginBtn beginBtnGrey' class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:elif="{{obj.order_state == 1 || obj.order_state == 2 || obj.order_state == 3 }}" class='beginBtn beginBtnGrey' class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view>发起砍价</view>
         </view>
