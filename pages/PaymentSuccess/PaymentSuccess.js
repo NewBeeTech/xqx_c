@@ -32,7 +32,8 @@ Page({
         info:res.data
       });
       const info = res.data;
-      self.info.curR = ~~(info.real_charge * 100 * info.cur_ratio / 100) ? ~~(info.real_charge * 100 * info.cur_ratio / 100) / 100 : 0.01;
+      // self.info.curR = ~~(info.real_charge * 100 * info.cur_ratio / 100) ? ~~(info.real_charge * 100 * info.cur_ratio / 100) / 100 : 0.01;
+      self.info.curR = info.currency;
     }).catch(function(err){
       console.warn(err);
       wx.hideLoading();
@@ -41,6 +42,11 @@ Page({
       //   duration:2000
       // })
     });
+  },
+  goH5: function() {
+    wx.navigateTo({
+        url: "/pages/h5/h5?url="+this.data.info.advertisement.url, 
+     })
   },
   //
   toNext: function () {
