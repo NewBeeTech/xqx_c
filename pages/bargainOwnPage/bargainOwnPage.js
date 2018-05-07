@@ -48,6 +48,15 @@ Page({
       id: options.id
     })
   },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    console.warn('hide');
+    this.setData({
+      wxTimerList: {}
+    })
+  },
   navToGoodDetail: function() {
     console.log('click', this.data);
     const id = this.data.barginOwnData.orderId;
@@ -56,6 +65,9 @@ Page({
     })
   },
   onShow: function() {
+    this.setData({
+      wxTimerList: {}
+    })
     this.loadData(this.data.id);
   },
   loadData: function (id) {

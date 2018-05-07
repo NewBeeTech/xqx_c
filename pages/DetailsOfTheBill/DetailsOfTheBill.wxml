@@ -32,7 +32,7 @@
             <view>获得方式</view>
             <text>{{obj.gold_pathway}}</text>
         </view>
-        <view>
+        <view wx:if="{{obj.real_charge}}">
             <view>消费金额</view>
             <text>{{obj.real_charge}}</text>
         </view>

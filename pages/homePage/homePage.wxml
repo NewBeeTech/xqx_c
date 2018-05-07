@@ -105,7 +105,7 @@
             <view class='list_box_j' >
               <view wx:if="{{item.qFlag}}">劵</view>
               <text class='list_box_j_l' wx:if="{{item.qFlag}}">售优惠劵</text>
-              <text wx:if="{{item.distance}}">距离{{item.distance?item.distance:100}}米</text>
+              <text wx:if="{{item.distance}}">距离{{item.distance}}</text>
             </view>
           </view>
         </view>
