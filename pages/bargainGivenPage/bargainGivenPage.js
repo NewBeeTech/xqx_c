@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId: '',
     showModal: false,
     showRuleModal: false,
     closeIcon: '../../images/icon/close.png',
@@ -56,6 +57,7 @@ Page({
     this.setData({
       id,
       intPara,
+      userId: wx.getStorageSync('userId'),
     })
     // wx.showToast({
     //   title: 'id: ' + id + ' intPara: ' + intPara,
@@ -133,8 +135,39 @@ Page({
 
     });
   },
+  onShareAppMessage: function () {
+    console.log('id:', this.data.barginOwnData.goods_group_id);
+      console.log('intPara:', this.data.barginOwnData.group_buy_id);
+    const self = this;
+    return {
+      title: '砍价',
+      path: `/pages/bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
+      success: function(res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          duration: 2000
+        })
+        self.setData({ showModal: false })
+      },
+      fail: function(res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          duration: 2000
+        })
+      }
+    }
+  },
   showModalBtn: function () {
+    console.log('showModalBtn');
     this.setData({ showModal: true });
+    // 谢谢你帮我砍了{{ barginOwnData.cut_price/100 }}元
+    wx.showToast({
+      title: '谢谢你帮我砍了'+ this.data.barginOwnData.cut_price/100 + '元',
+      icon: 'none',
+      duration: 2000
+    })
   },
   hideRuleModal: function () {
     this.setData({ showRuleModal: true });

@@ -91,7 +91,7 @@
            <view style='height:100%' bindtap='PopupF'></view>
         </view>
       </view>
-      <scroll-view wx:if='{{obj.merchantList.length}}' scroll-y='{{sonSroll}}' class='scroll' style='height:{{windowHeight - 44}}px' bindscrolltoupper='sonLower'>
+      <scroll-view wx:if='{{list.length}}' scroll-y='{{sonSroll}}' class='scroll' style='height:{{windowHeight - 44}}px' bindscrolltoupper='sonLower'>
         <view style='padding-top:{{paddingTop}}rpx'>
         <view wx:for="{{list}}" wx:key='{{index}}' class='list' bindtap='shopTap' data-id='{{item.id}}' data-qFlag='{{item.qFlag}}'>
           <image src='{{item.store_logo}}' mode='aspectFill'></image>

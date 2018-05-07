@@ -7,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        page: 0,
+        page: 1,
         obj: {},
         windowHeight: 1200,
         Popup_inde: 0,
@@ -174,11 +174,13 @@ Page({
             self.setData({
                 subList: [{ name: "不限", id: null }],
                 obj: result.data,
-                list: result.data.merchantList,
+                // list: result.data.merchantList,
                 typeList: temp
             });
             // self.data.typeList.unshift({name:"全部",id:0});
             console.log(self.data.typeList);
+            self.loadList(1);
+
             wx.hideLoading();
             wx.stopPullDownRefresh();
         })
@@ -217,7 +219,7 @@ Page({
                     console.log(result);
                     self.loadData();
                     self.windowHeight();
-                    self.PopupBoxLeftChoose(0);
+                    // self.PopupBoxLeftChoose(0);
                 })
                     .catch(function (err) {
                         console.log(err);
@@ -360,7 +362,7 @@ Page({
         appData.Tool.getIndustryMerchantV24(config).then(function (result) {
             console.log(result);
             self.setData({
-                list: result.data.list,
+                list: result.data.list || [],
                 PopupIf: !self.data.PopupIf,
                 unionidPopupIf: false
             });
@@ -397,7 +399,7 @@ Page({
         appData.Tool.getIndustryMerchantV24({ latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), unionid: e.currentTarget.dataset.id, intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), intPara: self.data.classID }).then(function (result) {
             console.log(result);
             self.setData({
-                list: result.data.list,
+                list: result.data.list || [],
                 PopupIf: false,
                 unionidPopupIf: !self.data.unionidPopupIf
             });
@@ -439,14 +441,15 @@ Page({
         var self = this;
         appData.Tool.getSubMerchant({ latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude"), page: self.data.page }).then(function (result) {
             console.log(result);
+            console.warn(self.data.list);
             self.setData({
-                list: self.data.list.concat(result.data.list)
+                list: self.data.list && self.data.list.concat(result.data.list)
             });
 
             console.log(self.data.typeList);
             wx.hideLoading();
             wx.stopPullDownRefresh();
-            if (result.data.subMerchants.length == 0) {
+            if (result.data.list.length == 0) {
                 wx.showToast({
                     title: '没有更多数据',
                     icon: 'success',
