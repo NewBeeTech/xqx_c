@@ -68,7 +68,7 @@ HTTPManager.post = function (url, parm) {
         console.log(res);
         if (res.data.code === 2) {
           wx.reLaunch({
-            url: '../boundNumber/boundNumber',
+            url: '/pages/spellGroupHome/spellGroupHome',
           })
 
           return;
@@ -106,6 +106,7 @@ HTTPManager.login = function(){
               console.log(config);
               HttpManager
                 .post("https://mini.xqx.com/app_person/" + "XCXController/get3rdSession", config).then(function (result) {
+                // .post("http://ccpp.denong.comm/app_person/" + "XCXController/get3rdSession", config).then(function (result) {
                 console.log(result);
                 wx.hideLoading();
                 success(result);

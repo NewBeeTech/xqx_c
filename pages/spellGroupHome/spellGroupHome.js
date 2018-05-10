@@ -101,6 +101,7 @@ Page({
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
     var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    // var pages = ["../homePage/homePage", "/pages/FightGroups/FightGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     var url = pages[pageIndex];
     if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
       url += "?id=" + e.currentTarget.dataset.id
@@ -113,21 +114,21 @@ Page({
   },
   loadUserStatus:function(){
       var self = this;
-    app.getUserLocation(function (addr) {
+    // app.getUserLocation(function (addr) {
       app.login(function () {
         wx.hideLoading();
         console.log(wx.getStorageSync("token"));
-        appData.Tool.getAddressData({ location: addr }).then(function (result) {
-          wx.hideLoading();
-          wx.setStorageSync("city", result.data.id);
-          wx.setStorageSync("level", result.data.level);
+        // appData.Tool.getAddressData({ location: addr }).then(function (result) {
+          // wx.hideLoading();
+          // wx.setStorageSync("city", result.data.id);
+          // wx.setStorageSync("level", result.data.level);
           self.loadOpenedGroup(1);
-        })
-          .catch(function (err) {
-            console.log(err);
-          });
+        // })
+        //   .catch(function (err) {
+        //     console.log(err);
+        //   });
       });
-    })
+    // })
   },
   //上拉加载
   wrapList:function(){

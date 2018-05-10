@@ -127,108 +127,124 @@ Page({
     });
   },
   inputMoney: function (e) {
-    this.setData({
-      resultRatio: "0.00"
-    });
-    var self = this;
-    // if (self.data.money > 999999.99) {
-    //   wx.showToast({
-    //     title: "请输入0.01-999999.99的金额",
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    // }
-    // if (self.data.money < 0.01) {
-    //   wx.showToast({
-    //     title: "请输入0.01-999999.99的金额",
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    // }
-    if (this.data.info.discountMode == "MR") {
+    if (e.detail.value <= 999999.99) {
       this.setData({
-        money: e.detail.value,
-        resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
+        resultRatio: "0.00"
       });
-
-    }
-    if (this.data.info.discountMode == "MD") {
-      console.log(this.data.info.mInfo);
       var self = this;
-
-      var result = e.detail.value;
-      self.setData({
-        money: parseFloat(e.detail.value),
-        resultMoney: result
-      });
-      this.data.info.mInfo.forEach(function (item) {
-
-        if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
-
-          result = result > parseFloat(e.detail.value) - parseFloat(item.subtract / 100) || result == 0 ? parseFloat(e.detail.value) - parseFloat(item.subtract / 100) : result;
-
-          self.setData({
-            money: parseFloat(e.detail.value),
-            resultMoney: result
-          });
-
-        }
-      });
-    }
-    if (this.data.info.discountMode == 'undefined' || this.data.info.discountMode == 'null' || !this.data.info.discountMode) {
-      this.setData({
-        money: parseFloat(e.detail.value),
-        resultMoney: parseFloat(e.detail.value) //减去 减满
-      });
-      console.log(this.data.resultMoney);
-    }
-
-    var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
-
-    console.log(this.data.resultMoney);
-
-    resultM = Math.ceil(resultM * 1000) / 1000;
-    resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
-
-    resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
-    var resultMStr = resultM + "";
-
-    if (resultMStr.split(".").length > 1) {
-      if (resultMStr.split(".")[1].length < 2) {
-        resultMStr = resultM + "0";
-      }
-    }
-    this.setData({
-      resultMoney:resultMStr
-    });
-
-    var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
-    r = Math.round(r * 1000)/1000;
-    r = Math.round(Math.round(r * 1000) / 10) / 100;
-    console.log(Math.round(r * 1000)/10);
-    console.log(r );
-
-    var str = r+"";
-
-    if (str.split(".").length>1){
-      if (str.split(".")[1].length < 2 ){
-        str = r+"0";
-      }
-    }else{
-      r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
-      str = r+"";
-    }
-    console.log(str);
-    this.setData({
-      resultRatio: str
-    });
-    if (this.data.info.ratio){
-      if (r < 0.01){
+      // if (self.data.money > 999999.99) {
+      //   wx.showToast({
+      //     title: "请输入0.01-999999.99的金额",
+      //     icon: 'none',
+      //     duration: 2000
+      //   })
+      // }
+      // if (self.data.money < 0.01) {
+      //   wx.showToast({
+      //     title: "请输入0.01-999999.99的金额",
+      //     icon: 'none',
+      //     duration: 2000
+      //   })
+      // }
+      if (this.data.info.discountMode == "MR") {
         this.setData({
-          resultRatio: 0.01
+          money: e.detail.value,
+          resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
+        });
+
+      }
+      if (this.data.info.discountMode == "MD") {
+        console.log(this.data.info.mInfo);
+        var self = this;
+
+        var result = e.detail.value;
+        self.setData({
+          money: parseFloat(e.detail.value),
+          resultMoney: result
+        });
+        this.data.info.mInfo.forEach(function (item) {
+
+          if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
+
+            result = result > parseFloat(e.detail.value) - parseFloat(item.subtract / 100) || result == 0 ? parseFloat(e.detail.value) - parseFloat(item.subtract / 100) : result;
+
+            self.setData({
+              money: parseFloat(e.detail.value),
+              resultMoney: result
+            });
+
+          }
         });
       }
+      if (this.data.info.discountMode == 'undefined' || this.data.info.discountMode == 'null' || !this.data.info.discountMode) {
+        this.setData({
+          money: parseFloat(e.detail.value),
+          resultMoney: parseFloat(e.detail.value) //减去 减满
+        });
+        console.log(this.data.resultMoney);
+      }
+
+      var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
+
+      console.log(this.data.resultMoney);
+
+      resultM = Math.ceil(resultM * 1000) / 1000;
+      resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
+
+      resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
+      var resultMStr = resultM + "";
+
+      if (resultMStr.split(".").length > 1) {
+        if (resultMStr.split(".")[1].length < 2) {
+          resultMStr = resultM + "0";
+        }
+      }
+      this.setData({
+        resultMoney:resultMStr
+      });
+
+      let resultRatio = parseFloat(resultMStr) * this.data.ratio / 100;
+      console.warn(resultRatio);
+      if (resultRatio < 0.01) {
+        this.setData({
+          resultRatio: 0.01,
+        });
+      } else {
+        resultRatio = resultRatio && resultRatio.toFixed && resultRatio.toFixed(2)
+        this.setData({
+          resultRatio: resultRatio,
+        });
+      }
+
+      // var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
+      // r = Math.round(r * 1000)/1000;
+      // r = Math.round(Math.round(r * 1000) / 10) / 100;
+      // console.log(Math.round(r * 1000)/10);
+      // console.log(r );
+      //
+      // var str = r+"";
+      //
+      // if (str.split(".").length>1){
+      //   if (str.split(".")[1].length < 2 ){
+      //     str = r+"0";
+      //   }
+      // }else{
+      //   r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
+      //   str = r+"";
+      // }
+      // console.log(str);
+      // this.setData({
+      //   resultRatio: str
+      // });
+      // if (this.data.info.ratio){
+      //   if (r < 0.01){
+      //     this.setData({
+      //       resultRatio: 0.01
+      //     });
+      //   }
+      // }
     }
+
 
   },
 
