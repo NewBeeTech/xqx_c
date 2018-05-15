@@ -5,7 +5,7 @@
       <image bindtap="bannerLink" class='wrap1_img' src='{{imgURL}}'></image>
       <view class='wrap1_box' bindtap='toWaring'>
         <image class='wrap1_img' src='../../images/icon/weh.png'></image>
-        <text>砍价说明</text>
+        <text>拼团须知</text>
       </view>
     </view>
 
@@ -53,23 +53,35 @@
 
     <view class='wrap3 {{julIf && "wrap3_jul"}}'>
       <view wx:for='{{goods}}' wx:key='{{ item.id }}' bindtap='toGroupDetail' data-id="{{item.id}}" >
-        <image class='wrap3_img' src='{{item.img_url}}'></image>
+        <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
         <view class='wrap3_box'>
           <view class='wrap3_box_name'>{{item.name}}</view>
-          <view class="price-detail">
+          <view class="make_group_info">
+            <view>
+              <view>
+                <text class="group_person_num">{{item.group_person_num}}人团</text>
+                <text class="group_num">已团{{item.group_num}}件</text>
+              </view>
+              <view class='wrap3_box_ewj'>奖励：{{ item.currency / 100.0 }}小金</view>
+              <view>
+                <text class="group_price">￥{{item.group_price / 100.0}}</text>
+                <text class="price">￥{{item.price / 100.0}}</text>
+              </view>
+            </view>
+            <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去拼团</view>
+          </view>
+          <!-- <view class="price-detail">
             <view class='price-detail-number'>
               <view>
                 <text>原价：￥</text>{{item.price / 100.0}}
               </view>
               <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
             </view>
-            <!-- <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view> -->
           </view>
           <view class='wrap3_box_shl'>
             <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
-            <!-- <text>已售出：{{item.group_person_num || 0}}件</text> -->
-            <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
-          </view>
+            <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去砍价</view>
+          </view> -->
         </view>
 
       </view>
@@ -82,7 +94,7 @@
           <view>首页</view>
       </view>
       <view class='bargainBtn' bindtap='oneKeyGroup'>
-          我的砍价商品
+          我的拼团商品
       </view>
   </view>
 </div>

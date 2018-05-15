@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/spellGroupHome/spellGroupHome",
+    "pages/makeGroups/makeGroups",
     "pages/download_app/download_app",
     "pages/bargainConfirmOrder/bargainConfirmOrder",
     "pages/bargainSuccessPage/bargainSuccessPage",

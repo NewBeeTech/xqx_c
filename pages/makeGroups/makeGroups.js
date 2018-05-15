@@ -330,7 +330,7 @@ Page({
             var config = { page: page, rows: 10, token: wx.getStorageSync('token') };
             if (intPara) { config.intPara = intPara }
             if (intPara2) { config.intPara2 = intPara2 }
-            appData.Tool.getBargainList(config).then(function (res) {
+            appData.Tool.getGoodsGroupBuyListXCX(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
                   if (page === 1) {
