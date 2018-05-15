@@ -100,8 +100,9 @@ Page({
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
-    var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    // var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     // var pages = ["../homePage/homePage", "/pages/FightGroups/FightGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    var pages = ["../homePage/homePage", "/pages/makeGroups/makeGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     var url = pages[pageIndex];
     if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
       url += "?id=" + e.currentTarget.dataset.id

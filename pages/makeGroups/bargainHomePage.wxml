@@ -1,0 +1,88 @@
+<!--pages/MerchantList/MerchantList.wxml-->
+<div class="bargain_content">
+  <scroll-view class="bargin_list" scroll-y="true" bindscrolltolower='shjiaz'>
+    <view class='wrap1' >
+      <image bindtap="bannerLink" class='wrap1_img' src='{{imgURL}}'></image>
+      <view class='wrap1_box' bindtap='toWaring'>
+        <image class='wrap1_img' src='../../images/icon/weh.png'></image>
+        <text>砍价说明</text>
+      </view>
+    </view>
+
+    <view class='cont'>
+      <view class='{{positionType}}'>
+        <view class='cont_title'>
+          <!-- <view bindtap='shTap'>
+            <text>{{types}}</text>
+            <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view> -->
+          <view bindtap='unionidTap'>
+            <text>{{orderType}}</text>
+            <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
+        </view>
+        <!-- 筛选_弹窗 -->
+        <!-- <view class='Popup left_container' wx:if='{{PopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+            <scroll-view class='Popup_box_scroll' scroll-y='true' style='background: #fff;'>
+              <view class='Popup_box_left Popup_box_right {{index==Popup_index_right&&"Popup_co"}}' wx:for='{{subList}}' wx:key='{{index}}' bindtap='PopupBoxLeft' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+          </view>
+          <view style='height:100%' bindtap='PopupF'></view>
+        </view> -->
+        <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金金额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+          </view>
+          <view style='height:100%' bindtap='PopupF'></view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class='wrap3 {{julIf && "wrap3_jul"}}'>
+      <view wx:for='{{goods}}' wx:key='{{ item.id }}' bindtap='toGroupDetail' data-id="{{item.id}}" >
+        <image class='wrap3_img' src='{{item.img_url}}'></image>
+        <view class='wrap3_box'>
+          <view class='wrap3_box_name'>{{item.name}}</view>
+          <view class="price-detail">
+            <view class='price-detail-number'>
+              <view>
+                <text>原价：￥</text>{{item.price / 100.0}}
+              </view>
+              <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
+            </view>
+            <!-- <view class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view> -->
+          </view>
+          <view class='wrap3_box_shl'>
+            <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
+            <!-- <text>已售出：{{item.group_person_num || 0}}件</text> -->
+            <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>砍价{{ item.group_price / 100.0 }}元得</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class='bottomBtn'>
+      <view class='backHome' bindtap='backHome'>
+          <image src='../../images/tabBar/a2.png'></image>
+          <view>首页</view>
+      </view>
+      <view class='bargainBtn' bindtap='oneKeyGroup'>
+          我的砍价商品
+      </view>
+  </view>
+</div>
