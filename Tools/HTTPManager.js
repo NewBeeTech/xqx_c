@@ -68,7 +68,7 @@ HTTPManager.post = function (url, parm) {
         console.log(res);
         if (res.data.code === 2) {
           wx.reLaunch({
-            url: '/pages/spellGroupHome/spellGroupHome',
+            url: '/pages/boundNumber/boundNumber',
           })
 
           return;
