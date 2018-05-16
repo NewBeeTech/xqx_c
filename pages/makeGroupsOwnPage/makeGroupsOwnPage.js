@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal: true,
+    showModal: false,
     showRuleModal: false,
     closeIcon: '../../images/icon/close.png',
     nowTime: new Date().getTime(),
@@ -68,15 +68,16 @@ Page({
     this.setData({
       wxTimerList: {}
     })
-    this.loadData(this.data.id);
+    // this.loadData(this.data.id);
   },
   loadData: function (id) {
     var self = this;
     const params = {
       token: wx.getStorageSync('token'),
+      intPara: 0,
       cnd: id
     };
-    appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
+    appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
       if (result.code === 0) {
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});

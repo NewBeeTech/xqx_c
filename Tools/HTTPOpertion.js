@@ -508,6 +508,16 @@ HTTPOpertion.getGoodsGroupOrderListXCX = function (parm) {
 
 };
 /**
+token	String	是
+page	Integer	是	页码
+rows	Integer	是	页面大小
+ */
+HTTPOpertion.getGroupGoodsGroupOrderListXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GET_GROUP_GOODS_GROUP_ORDER_LIST, parm || {});
+
+};
+
+/**
 token	String	是	token
 cnd	String	是	账单id
  */
@@ -515,6 +525,11 @@ HTTPOpertion.getGoodsGroupOrderInfoXCX = function (parm) {
     return HttpManager.post(Default.HOST + Default.GET_GOODS_GROUP_ORDER_INFO, parm || {});
 
 };
+HTTPOpertion.getGroupGoodsGroupOrderInfoXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GET_GOODS_GROUP_ORDER_INFO1, parm || {});
+
+};
+
 /**
  * token	String	是	token
  * orderId	String	是	账单ID

@@ -99,7 +99,7 @@ Page({
     const self = this;
     return {
       title: self.data.obj.name,
-      path: `/pages/BargainDetails/BargainDetails?id=${self.data.obj.id}`,
+      path: `/pages/makeGroupsDetails/makeGroupsDetails?id=${self.data.obj.id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({
@@ -151,15 +151,13 @@ Page({
         wx.hideLoading();
         console.warn('result: ', result);
         if (result.code == 0) {
-          wx.showToast({
-            title: '开团成功',
-            duration: 1000,
+          // wx.showToast({
+          //   title: '开团成功',
+          //   duration: 1000,
+          // });
+          wx.navigateTo({
+            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+self.data.id+'&create_person_id='+group_buy_id+'&create_person_id='+create_person_id,
           });
-          setTimeout(function () {
-            wx.navigateTo({
-              url: '/pages/makeGroupsOwnPage/makeGroupsOwnPage?intPara=1&id='+self.data.id,
-            });
-          }, 1000);
         }
     })
     .catch(function (error) {

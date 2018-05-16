@@ -412,7 +412,7 @@ Page({
     },
     oneKeyGroup: function () {
       wx.navigateTo({
-          url: '../MyBargain/MyBargain'
+          url: '../makeGroupsMy/makeGroupsMy'
       })
     }
 

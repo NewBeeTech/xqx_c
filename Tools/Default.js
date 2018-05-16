@@ -177,7 +177,7 @@ Default.OPERATE_PERSON_ADDRESS = "xcxgroupbuy/operatePersonAddress";
 /**
  * 确认一键开团/参团
  */
-Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuyXCX";
+Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuy";
 
 /**
  * 获取用户拼团订单列表
@@ -185,9 +185,18 @@ Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuyXCX";
 Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
 /**
+ * 获取用户拼团订单列表
+ */
+Default.GET_GROUP_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getGoodsGroupOrderListXCX";
+
+/**
  * 获取拼团订单详情
  */
 Default.GET_GOODS_GROUP_ORDER_INFO = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
+/**
+ * 获取拼团订单详情1
+ */
+Default.GET_GOODS_GROUP_ORDER_INFO1 = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
 
 /**
  * 确认收货

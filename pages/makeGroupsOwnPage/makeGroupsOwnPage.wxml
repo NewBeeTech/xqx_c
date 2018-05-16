@@ -2,7 +2,6 @@
 <import src="../../components/barginUserList/barginUserList.wxml"/>
 
 <view class="own-content">
-  <view class="bargain_rule" bindtap='goBargainRule'>活动规则</view>
   <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ (barginOwnData.price - barginOwnData.now_price) / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.now_price -  barginOwnData.group_price) / 100 }}</span>元</view>
