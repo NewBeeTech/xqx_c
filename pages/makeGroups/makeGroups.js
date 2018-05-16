@@ -86,7 +86,7 @@ Page({
             var temp = [{ name: "全部", id: 0 }].concat(result.data.catalogList);
 
             let topPics = result.data.topPics;
-            topPics = topPics && topPics.filter(item => item.activity_type == 2);
+            topPics = topPics && topPics.filter(item => item.activity_type == 1);
             const topPic = topPics && topPics[0];
             const imgURL = topPics && topPics[0] && topPics[0].img_url;
             self.setData({
@@ -122,7 +122,7 @@ Page({
     toGroupDetail: function (e) {
       const id = e.currentTarget.dataset.id;
       wx.navigateTo({
-          url: `/pages/bargainOwnPage/bargainOwnPage?id=${id}`,
+          url: `/pages/makeGroupsDetails/makeGroupsDetails?id=${id}`,
       })
     },
     PopupF: function () {

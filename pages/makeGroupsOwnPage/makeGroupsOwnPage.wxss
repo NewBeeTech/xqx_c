@@ -1,0 +1,174 @@
+@import "../../components/barginUserList/barginUserList.wxss";
+@import "../../components/bargainGoodsInfo/bargainGoodsInfo.wxss";
+
+.own-content {
+  height: calc(100vh - 90rpx);
+  overflow-y: scroll;
+}
+
+.bargin_own_info {
+  position: relative;
+  top: -90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 10rpx solid #eee;
+  padding-bottom: 30rpx;
+}
+
+.bargain_own_list {
+  position: relative;
+  top: -70rpx;
+}
+
+.bargin_own_info1 {
+  font-size: 24rpx;
+  color: #6e6e6e;
+}
+
+.bargin_own_info2 {
+  font-size: 30rpx;
+  color: #f39800;
+}
+
+.bargin_own_info3 {
+  font-size: 24rpx;
+  color:  #a5a5a5;
+}
+
+.bottomBtn{
+  height: 90rpx;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.backHome{
+  width: 90rpx;
+  padding: 0 30rpx;
+  text-align: center;
+}
+.backHome image{
+    width: 18px;
+    height: 18px;
+}
+.bargainBtn{
+  width: calc(100vw - 90rpx);
+  height: 100%;
+  background: #ff9c00;
+  color: white;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+}
+
+.bargin_share_btn {
+  width: 464rpx;
+  background-color: #f39800;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+}
+
+/* 弹窗 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 650rpx;
+  height: 550rpx;
+  border-radius: 6rpx;
+  position: fixed;
+  top: 20%;
+  left: 50rpx;
+  z-index: 9999;
+  background: #f9f9f9;
+
+}
+
+
+.modal-user-img > image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-top: 18rpx;
+}
+
+.modal-dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dialog-text {
+  font-size: 30rpx;
+  color: #000;
+  padding: 30rpx 30rpx 46rpx;
+  line-height: 60rpx;
+}
+
+.modal-dialog-button {
+  border: 1rpx solid #f39800;
+  color: #f39800;
+  height: 86rpx;
+  width: 470rpx;
+  font-size: 30rpx;
+  border-radius: 43rpx;
+}
+
+.modal-close-img {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 42rpx;
+  padding-right: 35rpx;
+}
+.modal-close-img > image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.bargain_rule {
+  width: 90vw;
+  margin: 0 auto;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #6e6e6e;
+  text-align: right;
+}
+.rule-title {
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.modal-dialog-rule {
+  height: 600rpx;
+}
+.modal-dialog-rule>view {
+  text-align: justify;
+}
+.rule{
+  width: 550rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
