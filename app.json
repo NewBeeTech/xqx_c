@@ -2,6 +2,7 @@
   "pages": [
     "pages/spellGroupHome/spellGroupHome",
     "pages/makeGroups/makeGroups",
+    "pages/makeGroupsOrder/makeGroupsOrder",
     "pages/makeGroupsMy/makeGroupsMy",
     "pages/makeGroupsDetails/makeGroupsDetails",
     "pages/makeGroupsOwnPage/makeGroupsOwnPage",

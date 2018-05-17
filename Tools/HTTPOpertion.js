@@ -512,6 +512,15 @@ token	String	是
 page	Integer	是	页码
 rows	Integer	是	页面大小
  */
+HTTPOpertion.getGoodsGroupOrderList = function (parm) {
+    return HttpManager.post(Default.HOST + Default.GET_GOODS_GROUP_ORDER_LIST1, parm || {});
+
+};
+/**
+token	String	是
+page	Integer	是	页码
+rows	Integer	是	页面大小
+ */
 HTTPOpertion.getGroupGoodsGroupOrderListXCX = function (parm) {
     return HttpManager.post(Default.HOST + Default.GET_GROUP_GOODS_GROUP_ORDER_LIST, parm || {});
 

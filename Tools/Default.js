@@ -183,6 +183,10 @@ Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuy";
  * 获取用户拼团订单列表
  */
 Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
+/**
+ * 获取用户拼团订单列表
+ */
+Default.GET_GOODS_GROUP_ORDER_LIST1 = "xcxgroupbuy/getGoodsGroupOrderListXCX";
 
 /**
  * 获取用户拼团订单列表
