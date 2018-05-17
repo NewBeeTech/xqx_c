@@ -45,7 +45,8 @@ Page({
   onLoad: function (options) {
     // 请求数据
     this.setData({
-      id: options.id
+      id: options.id,
+      from: options.from,
     })
   },
   /**
@@ -59,9 +60,9 @@ Page({
   },
   navToGoodDetail: function() {
     console.log('click', this.data);
-    const id = this.data.barginOwnData.orderId;
+    const id = this.data.barginOwnData.goods_group_id;
     wx.navigateTo({
-        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+        url: `/pages/makeGroupsDetails/makeGroupsDetails?id=${id}`,
     })
   },
   onShow: function() {
@@ -72,11 +73,14 @@ Page({
   },
   loadData: function (id) {
     var self = this;
-    const params = {
+    let params = {
       token: wx.getStorageSync('token'),
       intPara: 0,
       cnd: id
     };
+    if (this.data.from == 'share') {
+      params.intPara = 1;
+    }
     appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
       if (result.code === 0) {
         wx.hideLoading();
@@ -144,7 +148,7 @@ Page({
     const self = this;
     return {
       title: '拼团',
-      path: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
+      path: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?from=share&id=${this.data.barginOwnData.id}&intPara=${this.data.barginOwnData.group_buy_id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({

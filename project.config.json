@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 49,
+			"current": 52,
 			"list": [
 				{
 					"id": 0,
@@ -345,6 +345,12 @@
 					"name": "拼团订单",
 					"pathName": "pages/makeGroupsOrder/makeGroupsOrder",
 					"query": "id=4225"
+				},
+				{
+					"id": 52,
+					"name": "拼团分享",
+					"pathName": "pages/makeGroupsOwnPage/makeGroupsOwnPage",
+					"query": "id=4226&from=1"
 				}
 			]
 		}

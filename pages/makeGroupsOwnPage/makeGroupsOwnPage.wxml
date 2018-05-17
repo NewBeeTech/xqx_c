@@ -22,10 +22,15 @@
   </view>
   <view class="group_own_info">
     <view class="bargin_own_info3">剩余{{barginOwnData.avail_num}}人拼成，{{ wxTimerList['wxTimer1'].wxTimer }}后结束</view>
-    <!-- <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ (barginOwnData.price - barginOwnData.now_price) / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.now_price -  barginOwnData.group_price) / 100 }}</span>元</view> -->
-    <button bindtap="navToGoodDetail" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:if="{{ deadTime > nowTime && barginOwnData.now_price <= barginOwnData.group_price }}">砍价成功，去支付</button>
-    <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:elif="{{ deadTime > nowTime }}">喊朋友砍一刀</button>
-    <button class="bargin_share_btn" wx:else>已结束</button>
+
+    <view class="makegroup-portraits">
+      <view wx:for="{{barginOwnData.joinList}}">
+        <image class="makegroup-portrait" src="{{item.portrait}}" />
+      </view>
+    </view>
+
+    <button wx:if="{{from}}"  data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn">一键参团</button>
+    <button wx:else bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn">邀请好友参团</button>
     <view>分享到3个群后，成团率高达98%</view>
   </view>
   <view class="makeGroups_info">

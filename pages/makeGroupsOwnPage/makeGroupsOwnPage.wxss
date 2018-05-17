@@ -370,3 +370,14 @@
   line-height:19rpx;
   margin: 15rpx 0;
 }
+.makegroup-portrait {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 74rpx;
+  margin: 10rpx 20rpx;
+}
+.makegroup-portraits {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
