@@ -35,6 +35,19 @@
         </view>
     </view>
 </view>
+<view wx:if="{{obj.joinList.length > 0}}" class="cantuan-list">
+  <view class="cantuan-header">正在开团，可直接参与</view>
+  <view wx:for="{{obj.joinList}}" class="cantuan-cell">
+    <view class="cantuan-cell-left">
+      <image class="cantuan-portrait" src="{{item.portrait}}" />
+      <view>{{item.name}}</view>
+    </view>
+    <view class="cantuan-cell-left">
+      <view>还差{{item.avail_num}}人拼成</view>
+      <view class="joinBtn">去参团</view>
+    </view>
+  </view>
+</view>
 <view class='address_tel'>
     <view class='address' bindtap='dpzy'>
         <image src='{{obj.store_logo}}'></image>

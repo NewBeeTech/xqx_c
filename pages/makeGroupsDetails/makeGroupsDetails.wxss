@@ -2,6 +2,8 @@
 
 page{
   box-sizing: border-box;
+  margin-bottom: 100rpx;
+  padding-bottom: 100rpx;
 }
 
 .ta{
@@ -302,4 +304,51 @@ margin: 0 26rpx 0 34rpx;
 }
 .margin-detail {
   margin-bottom: 100rpx;
+}
+.cantuan-list{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:40rpx;
+  margin: 0px 30rpx;
+}
+.cantuan-header {
+  height:80rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:80rpx;
+}
+.cantuan-cell {
+  border-top: 0.5rpx solid #DADADA;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 140rxp;
+  padding: 20rpx 0;
+}
+.cantuan-portrait {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+.cantuan-cell-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.joinBtn {
+  width:140rpx;
+  height:60rpx;
+  background:linear-gradient(-90deg,rgba(255,201,0,1),rgba(255,160,0,1));
+  box-shadow: 0px 5px 11px 0px rgba(248,180,32,0.5);
+  margin-left: 20rpx;
+  line-height: 60rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  border-radius: 8rpx;
 }
