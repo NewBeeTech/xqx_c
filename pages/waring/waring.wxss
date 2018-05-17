@@ -1,0 +1,9 @@
+/* pages/waring/waring.wxss */
+
+.container {
+  padding: 40rpx;
+  font-size: 24rpx;
+}
+.container > view {
+  margin-bottom: 20rpx;
+}

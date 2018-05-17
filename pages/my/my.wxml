@@ -1,0 +1,111 @@
+<!--pages/myAccumGold/myAccumGold.wxml-->
+<view class='main'>
+    <!--用户头部信息-->
+    <view class="user_title">
+        <view class="user_header">
+            <image src="{{obj.portrait}}"></image>
+        </view>
+        <view class="user_top_word">
+            <view class="user_top_name">{{obj.nick_name}}</view>
+        </view>
+    </view>
+
+    <view class="user_warp">
+        <view class="warp_sub" bindtap='myjinTap'>
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myGold.png'></image>
+                <text class="sub_tit">我的累计金</text>
+            </view>
+            <view class='arrowOnfo'>
+                <text class='priceInfo'>￥{{xiaojin}}</text>
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <!-- <view class='line'></view> -->
+        <view class="warp_sub" bindtap='wdsfTap' data-loginname='{{obj.app_loginname}}'>
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myCode.png'></image>
+                <view class="sub_tit">我的身份码</view>
+            </view>
+            <view class='arrowOnfo'>
+                <!-- <text class='priceInfo'>30</text> -->
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <view class='line'></view>
+        <view class="warp_sub clearBorder" bindtap='wdyhTap'>
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myCoupon.png'></image>
+                <view class="sub_tit">我的订单</view>
+            </view>
+            <view class='arrowOnfo'>
+                <!-- <text class='priceInfo'>未开户</text> -->
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <!-- <view class='wrap_colorT'></view> -->
+        <!-- <view class='line'></view> -->
+        <!-- <view class="warp_sub clearBorder" bindtap='yqTap'> -->
+            <!-- <view class='leftIcon'> -->
+                <!-- <image class='arrow sub_icon' src='https://activity.denong.com/myInvitation.png'></image> -->
+                <!-- <view class="sub_tit">邀请奖励</view> -->
+            <!-- </view> -->
+            <!-- <view class='arrowOnfo'> -->
+                <!-- <text class='priceInfo'>未开户</text> -->
+                <!-- <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image> -->
+            <!-- </view> -->
+        <!-- </view> -->
+        <view class='wrap_colorT'></view>
+        <view class="warp_sub" bindtap='cjwtTap'>
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myProblem.png'></image>
+                <view class="sub_tit">常见问题</view>
+            </view>
+            <view class='arrowOnfo'>
+                <!-- <text class='priceInfo'>未开户</text> -->
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <view class="warp_sub clearBorder" wx:if="{{false}}">
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myCustomer.png'></image>
+                <!-- open-type="contact" -->
+                <!-- <text class="sub_tit contact">咨询客服</text> -->
+                <contact-button wx:if="{{false}}">咨询客服</contact-button>
+            </view>
+            <view class='arrowOnfo'>
+                <!-- <text class='priceInfo'>未开户</text> -->
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <view class='wrap_colorT'></view>
+        <view class="warp_sub clearBorder" wx:if="{{false}}">
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myLuck.png'></image>
+                <view class="sub_tit">小确幸商家小程序</view>
+            </view>
+            <view class='arrowOnfo'>
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
+        <!-- <view class='wrap_colorT'></view> -->
+        <view class="warp_sub warp_sub2 clearBorder" wx:if="{{true}}">
+            <view class="moreExp">更多获金体验，请下载小确幸app</view>
+            <view class='btnDlone' bindtap='close'>点击下载</view>
+        </view>
+         <!-- <view class='wrap_colorT'></view>  -->
+        <!-- <view class="warp_sub"></view> -->
+    </view>
+</view>
+<view class='popup' wx:if='{{downloadIf}}'>
+    <view>
+        <view class='explain'>
+            <text class='describeInfo'>请打开app\tstore\应用市场搜索下载小确幸app或保存下方二维码到相册,用微信扫描即可下载小确幸app</text>
+        </view>
+        <image src='https://activity.denong.com/che.png' class='code'></image>
+        <view class='preservation' bindtap='downloadTap'>保存到相册</view>
+        <view class='close'>
+            <image bindtap='close' src='https://activity.denong.com/close.png'></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,64 @@
+<!--pages/DetailsOfTheBill/DetailsOfTheBill.wxml-->
+<view class="top_rule">
+  <view class="bargain_rule1" bindtap='goBackHome'>返回主页</view>
+  <!-- <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view> -->
+</view>
+<view class='name' wx:if="{{obj.gold_pathway_info==64}}">
+
+    <image class='name_t' src='{{obj.targetPortrait}}'></image>
+    <view>{{obj.targetName}}</view>
+</view>
+<view class='name'  wx:else>
+    <image class='name_t' src='{{obj.logo}}'></image>
+    <view>{{obj.merchant_name}}</view>
+    <image wx:if="{{obj.merchant_id!='denong'}}" class='name_icon' src='https://activity.denong.com/b.png'></image>
+</view>
+
+<view class='money'>
+    <view>+{{obj.currency}}</view>
+    <text>小金已到账，待托管工商银行</text>
+</view>
+
+<view class='cont'>
+    <view class='cont_title'>进度</view>
+    <view class='cont_box'>
+        <icon class='cont_box_icon1' type='success' size='25' color='#fea400'></icon>
+        <icon class='cont_box_icon2' type='success' size='25' color='#fea400'></icon>
+        <view>
+            <view>获得小金</view>
+            <text>{{obj.generate_time}}</text>
+        </view>
+        <view>
+            <view>获得方式</view>
+            <text>{{obj.gold_pathway}}</text>
+        </view>
+        <view wx:if="{{obj.real_charge}}">
+            <view>消费金额</view>
+            <text>{{obj.real_charge}}</text>
+        </view>
+        <view wx:if="{{obj.cur_ratio}}">
+            <view>返金比例</view>
+            <text>{{obj.cur_ratio}}%</text>
+        </view>
+        <view wx:if="{{obj.manage_cost > 0}}">
+            <view>扣除会员服务费</view>
+            <text>-{{obj.manage_cost}}</text>
+        </view>
+
+        <view>
+            <view>流水号</view>
+            <text>{{obj.serial_number}}</text>
+        </view>
+        <view class='cont_box_zh'>
+            <view>商家结算到账</view>
+            <text>{{obj.trade_time}}</text>
+        </view>
+    </view>
+    <view class='cont_box cont_box2'>
+        <icon class='cont_box_icon2' type='waiting' size='25' color='#e3e3e3'></icon>
+        <view>
+            <view>托管入账工商银行</view>
+            <text>{{obj.TMDtime}}</text>
+        </view>
+    </view>
+</view>

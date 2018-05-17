@@ -1,0 +1,29 @@
+/* pages/businessIntr/businessIntr.wxss */
+.describeInfo{
+    margin: 44rpx 30rpx;  
+}
+.describeInfo>text{
+  font-size: 14px;
+  color: #333;
+  text-align: justify; 
+}
+.describeInfo>image{
+  width: 687rpx;
+  height: 383rpx;
+  display: block;
+  margin: 0 auto 30rpx;
+}
+
+.scrollNo{
+    text-align: center;
+    color: #7e7e7e;
+    position: relative;
+    top: 232rpx;
+    font-size: 32rpx;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx; 
+    display: block;
+    margin: 100rpx auto 50rpx;
+}

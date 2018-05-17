@@ -1,0 +1,142 @@
+/* pages/details/details.wxss */
+page{
+  background: #f0f0f0;
+}
+.wrap{
+    width: 100%;
+    background: #f0f0f0;
+}
+.blockArea{
+    width: 100%;
+    background: #fff;
+}
+.blockArea>image{
+    width: 100%;
+    height: 418rpx;
+}
+.wordArea{
+    padding: 0 34rpx;
+    margin-top: 48rpx;
+    margin-bottom: 48rpx;
+}
+.wordArea>text{
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
+.wordArea>.wordInfo{
+    margin-top: 32rpx;
+    font-size: 13px;
+    color: #666;
+    line-height: 20px;
+}
+.detailsTime{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28rpx;
+    margin-bottom: 40rpx;
+}
+.detailsTime>text{
+    font-size: 13px;
+    color: #bababa;
+}
+.detailsTime>view{
+    width: 122rpx;
+    height: 60rpx;
+    border:1rpx solid #c7c7c7;
+    border-radius: 50rpx;
+    font-size: 13px;
+    text-align: center;
+    line-height: 60rpx;
+}
+
+/*列表内容样式*/
+.coupOrder{
+  margin:30rpx 34rpx;
+  padding-bottom: 35rpx;
+  padding-top: 33rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.coupOrder>text{
+  font-size: 15px;
+  color: #000;
+  margin-left: 36rpx;
+}
+.coupOrder>.listInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 33rpx;
+}
+.coupOrder>view>view{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.mealInfo{
+    margin-bottom: 10rpx;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.priceInfo{
+    margin-bottom: 10rpx;
+}
+.discountPrice{
+  font-size: 15px;
+  color: #333;
+  margin-right: 20rpx;
+}
+.oriPrice{
+  text-decoration: line-through;
+  color: #979797;
+  font-size: 12px;
+  margin-right: 20rpx;
+}
+.discount{
+  border:#fcaa01 1rpx solid;
+  border-radius: 10rpx;
+  font-size: 13px;
+  color: #fcaa01;
+  padding:5rpx 10rpx;
+}
+.imgInfo{
+    margin: 0 32rpx 0 36rpx;
+}
+.imgInfo>image{
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 10rpx;
+}
+.saleInfo>text{
+    color: #6e6e6e;
+    font-size: 13px;
+}
+.couponInfo>view{
+    width: 120rpx;
+    height: 60rpx;
+    border-radius: 50rpx;
+    background: #ffa300;
+    color: #fff;
+    text-align: center;
+    line-height: 60rpx;
+}
+.shopInfo{
+    margin-left: 180rpx;
+    
+}
+.shopInfo>text{
+    color: #666;
+    font-size: 13px;
+}

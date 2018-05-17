@@ -1,0 +1,6 @@
+<view>
+  <view class='scrollNo'>
+    <image src='https://activity.denong.com/w.png'></image>
+    <text>敬请期待！</text>
+  </view>
+</view>

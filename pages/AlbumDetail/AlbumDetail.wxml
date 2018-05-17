@@ -1,0 +1,16 @@
+<!--pages/AlbumDetail/AlbumDetail.wxml-->
+
+
+<!-- <image src='{{imageUrl}}' class='showImage' mode='aspectFill'></image> -->
+
+<swiper indicator-dots="{{true}}" class='showImage' current='{{inde}}'>
+  
+    <swiper-item wx:for="{{images}}" wx:key='{{index}}'>
+      <image class='showImage' src='{{item.url}}' mode='aspectFill'></image>
+    </swiper-item>
+  
+</swiper>
+
+<!-- 
+<view class='close' bindtap='close'>X</view> -->
+

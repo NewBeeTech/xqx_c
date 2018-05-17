@@ -1,0 +1,45 @@
+/* pages/problem/problem.wxss */
+.title{
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 52rpx;
+    background: #f0f0f0;
+    font-size: 15px;
+    color: #666;
+}
+
+.scroll{
+    width: 100%;
+    height: calc(100% - 80rpx);
+}
+.list{
+    padding: 0 40rpx;
+}
+.list_title{
+    height: 108rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1rpx #dadada;
+}
+.list_title>text{
+    font-size: 15px;
+    font-weight: bold;
+}
+.list_title>image{
+    width: 19rpx;
+    height: 11rpx;
+    margin-right: 20rpx;
+}
+.list_title_icon{
+    transform:rotate(180deg);
+}
+.list_cont{
+    padding: 30rpx;
+    margin: 30rpx 0;
+    background: #f4f4f4;
+    border-radius: 8rpx;
+    color: #333;
+    font-size: 15px;
+    line-height: 40rpx;
+}

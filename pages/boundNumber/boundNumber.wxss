@@ -1,0 +1,112 @@
+/* pages/boundNumber/boundNumber.wxss */
+page{
+    border-top: solid 1rpx #e4e4e4;
+}
+
+.title{
+    font-size: 16px;
+    margin-top: 138rpx;
+    text-align: center;
+}
+
+.btnB{
+    width: 686rpx;
+    height: 90rpx;
+    border-radius: 8rpx;
+    margin: 63rpx auto 0;
+    background: #05b00f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnB>image{
+    width: 46rpx;
+    height: 46rpx;
+}
+.btnB>text{
+    color: #fff;
+    font-size: 16px;
+    margin-left: 16rpx;
+}
+.Ts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 153rpx;
+}
+.Ts>text{
+    width: 156rpx;
+    border-top: solid 1rpx #e7e7e7;
+}
+.Ts>view{
+    color: #9e9e9e;
+    font-size: 14px;
+    margin: 0 13rpx;
+}
+
+.Sj{
+    padding: 100rpx 0 0 40rpx;
+    display: flex;
+    align-items: center;
+}
+.Sj>text{
+    font-size: 17px;
+    color: #515151;
+}
+.Sj>input{
+    width: 400rpx;
+    height: 60rpx;
+    margin-left: 130rpx;
+}
+
+.Yz{
+    height: 118rpx;
+    width: calc(100% - 80rpx);
+    margin: 34rpx auto 0;
+    border-top: solid 1rpx #eeeeee;
+    border-bottom: solid 1rpx #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Yz>input{
+    width: 300rpx;
+    height: 60rpx;
+}
+.Yz>text{
+    color: #fea601;
+    font-size: 16.5px;
+}
+
+.Tk{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 162rpx;
+}
+.Tk>view{
+    width: 38rpx;
+    height: 38rpx;
+    border: solid 1rpx #b5b5b5;
+    border-radius: 50%;
+}
+.Tk>text{
+    font-size: 11.5px;
+    color: #9e9e9e;
+    margin-left: 16rpx;
+}
+.Tk>text text{
+    color: #3caeff;
+}
+
+.btnQ{
+    width: 686rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    background: #fea400;
+    color: #fff;
+    font-size: 15px;
+    margin: 0 auto;
+}

@@ -1,0 +1,12 @@
+<!--pages/setUp/setUp.wxml-->
+<view class='setUpSwtich'>
+    <text>允许小程序使用我的</text>
+</view>
+<view class='setUpSwtich setUpSwtich2'>
+    <text>用户信息</text>
+    <switch type="switch" checked="true" />
+</view>
+<view class='setUpSwtich setUpSwtich2'>
+    <text>地理位置</text>
+    <switch type="switch" checked="true" />
+</view>

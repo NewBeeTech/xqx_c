@@ -1,0 +1,52 @@
+<view class='wrap1' wx:if='{{goodInfo.delivery_method == 2}}'>
+    <view class='wrap1_box'>
+      <view>到店自提</view>
+      <view>{{ goodInfo.detail_address }}</view>
+    </view>
+    <!-- <image class='wrap1_icon' src='../../images/icon/jit2.png'></image> -->
+</view>
+<view class='wrap1' wx:elif='{{addressInfo.id}}' bindtap='bjAddress'>
+    <view class='wrap1_box'>
+      <view>{{ addressInfo.name }} {{ addressInfo.phone }}</view>
+      <view>{{ addressInfo.address }}</view>
+    </view>
+    <image class='wrap1_icon' src='../../images/icon/jit2.png'></image>
+</view>
+<view class='wrap1' wx:else bindtap='bjAddress'>
+    <view class='wrap1_box2'>
+        <image src='../../images/icon/ja.png'></image>
+        <view >手动添加地址</view>
+    </view>
+    <image class='wrap1_icon wrap1_icon2' src='../../images/icon/jit2.png'></image>
+</view>
+
+<view class='wrap2'>
+    <view class='wrap2_title'>
+        <image src='{{goodInfo.store_logo}}'></image>
+        <text>{{goodInfo.merchant_name}}</text>
+    </view>
+    <view class='wrap2_shop'>
+        <image class='wrap2_shop_img' src='{{goodInfo.img_url}}'></image>
+        <view>
+            <view class='wrap2_shop_name'>{{goodInfo.name}}</view>
+            <view class='wrap2_shop_jig'>
+                <view><text>￥</text>{{goodInfo.group_price/100}}</view>
+                <text>￥{{goodInfo.price/100}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='wrap3'>
+    <view class='wrap3_cont'>
+        <view class='wrap3_cont_he'>
+            <view>付款金额：</view>
+            <text class='wrap3_cont_he_sc'>￥{{goodInfo.group_price/100}}</text>
+        </view>
+        <view>
+            <view>额外奖励：</view>
+            <text class='wrap3_cont_he_sc'>{{goodInfo.extra}}小金</text>
+        </view>
+    </view>
+    <view class='wrap3_btn' bindtap='toPay'>立即支付</view>
+</view>

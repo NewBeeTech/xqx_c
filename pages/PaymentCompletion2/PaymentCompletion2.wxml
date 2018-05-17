@@ -1,0 +1,54 @@
+<!--pages/PaymentCompletion/PaymentCompletion.wxml-->
+<view class='wrap1'>
+    <view class='wrap1_shop'>
+        <image class='wrap1_shop_img' src='{{}}'></image>
+        <view>
+            <view class='wrap1_shop_name'>名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字名字</view>
+            <block>
+                <view class='wrap1_shop_shl'>
+                    <view>6人团</view>
+                    <text>已团： 333件</text>
+                </view>
+                <view class='wrap1_shop_jig'>
+                    <view><text>￥</text>200</view>
+                    <text>￥12.5</text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class='discount  bg_white' bindtap='showAlert'>
+      <view>
+        <image src='../../images/img/dui.png'></image>
+        <text>全场包邮</text>
+      </view>
+      <view>
+        <image src='../../images/img/dui.png'></image>
+        <text>48小时内发货</text>
+      </view>
+      <view>
+        <image src='../../images/img/dui.png'></image>
+        <text>消费即得养老金</text>
+      </view>
+      <image class='rightImg' src='https://activity.denong.com/right_arrow.png'></image>
+    </view>
+</view>
+
+<view class='wrap2'>
+    <view class='wrap2_title'>本次拼团成功预计奖励：0.5小金</view>
+    <view class='wrap2_rey'>
+        <view wx:for='{{[1,2,3,4,5,6]}}' wx:key='{{index}}'>
+            <image src='../../images/icon/wu.png'></image>
+            <view wx:if='{{index==0}}'>团长</view>
+        </view>
+    </view>
+    <view class='wrap2_mie' wx:if='{{true}}'>仅剩一个名额,23:23:23后结束</view>
+    <view class='wrap2_mie' wx:elif='{{false}}'>当前人数已满，可重新开团</view>
+    <view class='wrap2_mie' wx:else>当前活动已失效，点击查看其它活动</view>
+    <view class='wrap2_btn' wx:if='{{true}}' bindtap='qurBtn'>一键参团</view>
+    <view class='wrap2_btn' wx:else>拼团</view>
+</view>
+
+<view class='wrap3'>
+    <view>拼团须知</view>
+    <text>好友参团 | 人满发货 | 人不满退款</text>
+</view>

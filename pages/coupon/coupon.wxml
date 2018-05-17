@@ -1,0 +1,71 @@
+<!--pages/coupon/coupon.wxml-->
+<view class='wrap'>
+    <view class='topWrap'>
+        <view class='coupOrder'>
+            <view class='imgInfo'>
+                <image src='{{info.url}}'></image>
+            </view>
+            <view>
+                <view class='mealInfo'>
+                    <view>{{info.material_name}}</view>
+                    <text>{{info.name}}</text>
+                </view>
+                <view class='priceInfo'> 
+                    <text class='discountPrice'>￥45</text>
+                    <text class='oriPrice'>￥45</text>
+                    <text class='discount'>9折</text>
+                </view> 
+                <view class='saleInfo'>
+                    <text>已售:432份\t|\t</text>
+                    <text>返0.45小金\t|\t</text>
+                    <text>距离100米</text>
+                </view>
+            </view>
+        </view>
+        <view class='condInfo'>
+            <text>随时退\t|\t</text>
+            <text>可叠加\t|\t</text>
+            <text>过期自动退</text>
+        </view>
+        <view class='addNum'>
+            <view class='reduce' bindtap='leftTap'>
+                <image src='{{nub>1?"https://activity.denong.com/reduceIcon2.png":"https://activity.denong.com/reduceIcon.png"}}'></image>
+            </view>
+            <text>{{nub}}</text>
+            <view class='plus' bindtap='rightTap'>
+                <image src='https://activity.denong.com/plusIcon.png'></image>
+            </view>
+        </view>
+        <view class='immShopping'>立即购买</view>
+    </view>
+    <view class='shopCoupon'>
+        <text>商家信息</text>
+        <view class='shopInfo' bindtap='navToBus'>
+            <view>
+                <image class='logo' src='{{info.url}}'></image>
+                <text>{{info.material_name}}</text>
+            </view>
+            <view>
+                <image src='https://activity.denong.com/right_arrow.png'></image>
+            </view>
+        </view>
+        <view class='finiteTime'>
+            <text>有效期限</text>
+            <view>
+                2018.2.22-2018.2.24
+            </view>
+        </view>
+        <view class='finiteTime'>
+            <text>返金说明</text>
+            <view>
+               优惠券到店核销使用后,返还的小金才会到账哦
+            </view>
+        </view>
+        <view class='finiteTime'>
+            <text>使用说明</text>
+            <view>
+               1、到店即可兑换奖品
+            </view>
+        </view>
+    </view>
+</view>

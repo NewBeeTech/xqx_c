@@ -1,0 +1,10 @@
+/* pages/customerService/customerService.wxss */
+.customer_problem{
+    width: 100%;
+    padding: 30rpx 34rpx;
+}
+.tel{
+    width:calc(100% - 68rpx);
+    text-align: right;
+    padding: 0 34rpx; 
+}

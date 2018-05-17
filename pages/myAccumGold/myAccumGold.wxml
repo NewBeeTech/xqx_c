@@ -1,0 +1,85 @@
+<!--pages/myAccumGold/myAccumGold.wxml-->
+<view class='main'>
+      <!--用户头部信息-->
+      <view class="user_title">
+            <view class="user_header">
+                  <image src="{{obj.portrait}}"></image>
+            </view>
+            <view class="user_top_word">
+                  <view class="user_top_name">{{obj.nick_name}}</view>
+                  <text>目前累计金：￥{{xiaojin}}</text>
+            </view>
+      </view>
+
+      <view class="user_warp">
+            <view class="warp_sub" bindtap='daijie' wx:if="{{obj.priorRemain}}">
+                  <view class="sub_tit">待商家结算小金</view>
+                  <view class='arrowOnfo'>
+                    <text class='priceInfo'>{{obj.priorRemain}}</text>
+                    <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
+                  </view>
+            </view>
+            <view class="warp_sub" bindtap='dqxjTap'>
+                  <view class="sub_tit">当前小金</view>
+                  <view class='arrowOnfo'>
+                  <text class='priceInfo'>{{obj.not_deposite}}</text>
+                  <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
+                  </view>
+            </view>
+            <view class="warp_sub" bindtap='ytgTapTc'>
+                  <view class="sub_tit">已托管消费养老金</view>
+                  <view class='arrowOnfo'>
+                    <text class='priceInfo' wx:if="{{obj.idcard_state==0}}">{{obj.idcard_state==0?"未实名认证":"已认证"}}</text>
+                    <image src="https://activity.denong.com/right_arrow.png" class="sub_icon sub_right arrow"></image>
+                  </view>
+            </view>
+            <view class="warp_sub"></view>
+      </view>   
+</view>
+<view class='popup' wx:if='{{daijieIf || ytgIf}}'>
+    <view wx:if='{{false}}'>
+         <view class='popup_box'>         
+            <text>提示</text>
+         </view> 
+         <view class='explain'>
+            <view class='describeTit'>什么叫待商家结算小金？</view>
+            <text class='describeInfo'>商家向你返回的消费养老金,在商家还未结算到你的小确幸平台小金账户之前，称作“待商家结算小金”。\n下载小确幸APP，即可查看账户详情。</text>
+         </view>
+         <view class='close' bindtap='daijie'>知道了</view>
+    </view>
+    <view wx:if='{{obj.accountState==0}}'>
+    <icon class='qxtc' type='cancel' size='25' color='#dadada' bindtap='ytgTapTc'></icon>
+         <view class='popup_box'>         
+            <text>已托管消费养老金</text>
+         </view> 
+         <view class='explain'>
+            <!-- <view class='describeTit'>什么叫待商家结算小金2？</view> -->
+            <text class='describeInfo'>已缴存托管到您的工商银行消费养老金账户的养老金称作已托管消费养老金。\n下载小确幸APP，即可查看账户详情。</text>
+         </view>
+         <view class='close' bindtap='ytgTap'>点击下载</view>
+    </view>
+    <view wx:if='{{obj.accountState==1}}' style='position: relative'>
+        <icon class='qxtc' type='cancel' size='25' color='#dadada' bindtap='ytgTapTc'></icon>
+         <view class='popup_box'>
+            <text>提示</text>           
+         </view> 
+         <view class='explain'>
+            <!-- <view class='describeTit'>什么叫待商家结算小金3？</view> -->
+            <text class='describeInfo'>您还未开通工商银行消费养老金账户，下载“小确幸app”，即可立即开通专属个人消费养老金账户，获得的小金才能托管到您的工商银行个人消费养老金账户内</text>
+         </view>
+         <view class='close' bindtap='ytgTap'>点击下载</view>
+    </view>
+</view>
+
+<view class='popup2' wx:if='{{downloadIf}}'>
+    <view>
+        <view class='explain'>
+            <text class='describeInfo'>请打开app\tstore\应用市场搜索下载小确幸app或保存下方二维码到相册,用微信扫描即可下载小确幸app</text>
+        </view>
+        <image src='https://activity.denong.com/che.png' class='code'></image>
+        <view class='preservation' bindtap='downloadTap'>保存到相册</view>
+        <view class='close'>
+            <image bindtap='close' src='https://activity.denong.com/close.png'></image>
+        </view>
+    </view>
+</view>

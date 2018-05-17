@@ -1,0 +1,50 @@
+<!--pages/exploreExperience/exploreExperience.wxml-->
+
+<web-view src="https://mini.xqx.com/app_person_addition/jd/jd.html"></web-view>
+<!-- 
+<view class='wrap' wx:if="{{false}}">
+    <view class='blockArea' bindtap='xqTap'>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254969&di=203880142892af7789969ac26cd7cd53&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F4a36acaf2edda3ccd53548ea0be93901203f9223.jpg'></image>
+        <view class='wordArea'>
+            <text>2018苹果春季发布会的三个看点和一个悬念三个看点和一个悬念</text>
+            <view class='wordInfo'>
+                重前几年高高在上的故宫博物馆院到前几天引起的“俏格格“,故宫近几年的改变一直备受关注\如何改
+            </view>
+            <view class='detailsTime'>
+                <text>2.18-03-31 13.28</text>
+                <view>详情</view>
+            </view>
+        </view>
+    </view>
+    <view class='blockArea' bindtap='xqTap'>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254968&di=8d0525d5088871438079f3f5fb31b5eb&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fbf096b63f6246b60553a62a0e1f81a4c510fa22a.jpg'></image>
+        <view class='wordArea'>
+            <text>2018苹果春季发布会的三个看点和一个悬念三个看点和一个悬念</text>
+            <view class='wordInfo'>
+                重前几年高高在上的故宫博物馆院到前几天引起的“俏格格“,故宫近几年的改变一直备受关注\如何改
+            </view>
+            <view class='detailsTime'>
+                <text>2.18-03-31 13.28</text>
+                <view >详情</view>
+            </view>
+        </view>
+    </view>
+    <view class='blockArea' bindtap='xqTap'>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523077254968&di=1a1bfcddec8e19c7ae566f2c9c1cbeda&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F0df431adcbef7609c64a714b24dda3cc7dd99ea5.jpg'></image>
+        <view class='wordArea'>
+            <text>2018苹果春季发布会的三个看点和一个悬念三个看点和一个悬念</text>
+            <view class='wordInfo'>
+                重前几年高高在上的故宫博物馆院到前几天引起的“俏格格“,故宫近几年的改变一直备受关注\如何改
+            </view>
+            <view class='detailsTime'>
+                <text>2.18-03-31 13.28</text>
+                <view>详情</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{true}}" class='scrollNo'>
+      <image src='https://activity.denong.com/w.png'></image>
+      <text>正在努力更新中，敬请期待</text>
+    </view> -->

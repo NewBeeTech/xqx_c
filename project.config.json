@@ -1,0 +1,316 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wx98072aa3f02d25d3",
+	"projectname": "C",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
+			"list": [
+				{
+					"id": 0,
+					"name": "2",
+					"pathName": "pages/customerService/customerService",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "3",
+					"pathName": "pages/problem/problem",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "pages/Kim/Kim",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "5",
+					"pathName": "pages/Branch/Branch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "6",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "7",
+					"pathName": "pages/about/about",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "8",
+					"pathName": "pages/homePage/homePage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "9",
+					"pathName": "pages/shopList/shopList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "10",
+					"pathName": "pages/MerchantDetails/MerchantDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的养老金",
+					"pathName": "pages/myAccumGold/myAccumGold",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "11",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webApp",
+					"pathName": "pages/webApp/webApp",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "PaymentSuccess",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "exploreExperience",
+					"pathName": "pages/exploreExperience/exploreExperience",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "DetailsOfTheBill",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拼团",
+					"pathName": "pages/spellGroup/spellGroup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/spellGroupHome/spellGroupHome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "spellGroup",
+					"pathName": "pages/spellGroup/spellGroup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "orderList",
+					"pathName": "pages/orderList/orderList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "orderDetails",
+					"pathName": "pages/orderDetails/orderDetails",
+					"query": ""
+				},
+				{
+					"id": 22,
+					"name": "customerService",
+					"pathName": "pages/spellGroupHome/spellGroupHome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "wholeOrder",
+					"pathName": "pages/wholeOrder/wholeOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "paymentCompletion",
+					"pathName": "pages/paymentCompletion/paymentCompletion",
+					"query": ""
+				},
+				{
+					"id": 25,
+					"name": "3",
+					"pathName": "pages/WriteAddress/WriteAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "pages/orderList/orderList",
+					"query": ""
+				},
+				{
+					"id": 28,
+					"name": "5",
+					"pathName": "pages/orderDetails/orderDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "DetailsOfTheBill",
+					"pathName": "pages/DetailsOfTheBill/DetailsOfTheBill",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "PaymentSuccess",
+					"pathName": "pages/PaymentSuccess/PaymentSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "boundNumber",
+					"pathName": "pages/boundNumber/boundNumber",
+					"query": ""
+				},
+				{
+					"id": 31,
+					"name": "注册",
+					"pathName": "pages/boundNumber/boundNumber",
+					"query": ""
+				},
+				{
+					"id": 32,
+					"name": "2",
+					"pathName": "pages/DetailsPayment/DetailsPayment",
+					"query": ""
+				},
+				{
+					"id": 33,
+					"name": "3",
+					"pathName": "pages/PaymentCompletion2/PaymentCompletion2",
+					"query": ""
+				},
+				{
+					"id": 34,
+					"name": "砍价免费拿",
+					"pathName": "pages/bargainHomePage/bargainHomePage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价成功",
+					"pathName": "pages/bargainSuccessPage/bargainSuccessPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价支付",
+					"pathName": "pages/bargainConfirmOrder/bargainConfirmOrder",
+					"query": ""
+				},
+				{
+					"id": 37,
+					"name": "砍价商品详情",
+					"pathName": "pages/BargainDetails/BargainDetails",
+					"query": "id=388"
+				},
+				{
+					"id": 38,
+					"name": "帮朋友砍价",
+					"pathName": "pages/bargainGivenPage/bargainGivenPage",
+					"query": "id=d5ae7721-bf7a-4c8e-a6d6-966aa13fbaae&intPara=877"
+				},
+				{
+					"id": 39,
+					"name": "砍价详情",
+					"pathName": "pages/BargainDetails/BargainDetails",
+					"query": "id=379"
+				},
+				{
+					"id": -1,
+					"name": "我的砍价商品",
+					"pathName": "pages/MyBargain/MyBargain",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价",
+					"pathName": "pages/bargainOwnPage/bargainOwnPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bargainGivenPage/bargainGivenPage",
+					"pathName": "pages/bargainGivenPage/bargainGivenPage",
+					"query": ""
+				},
+				{
+					"id": 43,
+					"name": "扫码支付",
+					"pathName": "pages/qr_code/pay/pay",
+					"query": "q=merchantId%3D10099"
+				},
+				{
+					"id": -1,
+					"name": "下载",
+					"pathName": "pages/download_app/download_app",
+					"query": "q=10099"
+				},
+				{
+					"id": -1,
+					"name": "附件商户",
+					"pathName": "pages/homePage/homePage",
+					"query": ""
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,8 @@
+/* pages/notice/notice.wxss */
+view{
+ padding-left: 20rpx;
+}
+text{
+  font-size: 15px;
+  color: #000;
+}

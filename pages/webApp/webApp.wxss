@@ -1,0 +1,21 @@
+/* pages/webApp/webApp.wxss */
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.scrollNo{
+    text-align: center;
+    color: #7e7e7e;
+    position: relative;
+    top: 232rpx;
+    font-size: 32rpx;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx; 
+    display: block;
+    margin: 100rpx auto 50rpx;
+}

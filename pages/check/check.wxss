@@ -1,0 +1,130 @@
+/* pages/check/check.wxss */
+.wrap{
+    background: #f0f0f0;
+}
+.topHead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 34rpx 0;
+}
+.topHead>image{
+    width: 74rpx;
+    height: 74rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+.topHead>view{
+    /* width: 340rpx; */
+    max-width: 340rpx;
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.topHead>view>text{
+    width: 100%;
+    font-size: 15px;
+    color: #000;
+}
+.consAmount{
+    margin-top:13rpx; 
+    background: #fff;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 104rpx;
+    padding: 0 34rpx;
+}
+.consAmount .consTit{
+    font-size: 16px;
+    color: #333;
+}
+.consAmount .consNum{
+    font-size: 17px;
+    color: #292929;
+}
+.discountActive{
+    background: #fff;
+    margin-top: 13rpx;
+    padding-top: 50rpx;
+}
+.discountActive>.discontent{
+    width: calc(100% - 68rpx);
+    background: #fff;
+    margin-top: 13rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+.discountActive>.discontent>view{
+     width: calc(100% - 158rpx); 
+}
+.discountActive>.discontent>text{
+    width:158rpx;
+    font-size: 16px;
+    color: #333;
+}
+.discountActive>.discontent>view>view{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.fullCut>view{
+    margin-bottom: 40rpx;
+}
+.fullCut>view>.fullCutCond{
+    font-size: 16px;
+    color: #333;
+    margin-left: 20rpx;
+}
+.nor {
+  background: white;
+}
+.action {
+  background: gray;
+}
+.fullCut>view>.fullCutCond{
+    font-size: 16px;
+    color: #333;
+}
+.fullCut>view>.discountNum{
+    font-size: 17px;
+    color: #ffa300;
+}
+.fullCut>view>.insufficient{
+    color: #bdbdbd;
+}
+.consPaid{
+    margin-top: 0;
+}
+.confirmPay{
+    margin-top: 13rpx;
+    background: #fff;
+}
+.confirmPay{
+    padding-top: 50rpx;
+}
+.confirmPay>view{
+    margin: 0 34rpx;
+}
+.confirmPay>view>.estimate{
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 34rpx;
+}
+.confirmPay>view>.estimate>text{
+    color: #ffa300;
+}
+.confirmPay>view>.confirOrder{
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: #ffa300;
+    border-radius: 8rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+}

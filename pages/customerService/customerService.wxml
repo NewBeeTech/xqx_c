@@ -1,0 +1,5 @@
+<!--pages/customerService/customerService.wxml-->
+<view class='customer_problem'>
+    亲，如有售后问题请联系商家电话
+</view>
+<!-- <view class='tel' bindtap='ddh'>{{dh}}</view> -->

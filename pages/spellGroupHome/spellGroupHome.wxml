@@ -1,0 +1,86 @@
+<scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
+<view class='bannerbox'>
+  <swiper class='top_banner' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
+
+    <swiper-item wx:for="{{banners}}" wx:key='{{index}}'>
+      <!-- <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+        width="355" height="150" /> -->
+        <image src="{{item.img_url}}" class="slide-image" data-info='{{item}}' bindtap='link'/>
+    </swiper-item>
+    <!-- <swiper-item>
+        <image src="../../images/img/banner.png" class="slide-image" width="355" height="150" />
+    </swiper-item>
+    <swiper-item>
+        <image src="../../images/img/banner.png" class="slide-image" width="355" height="150" />
+    </swiper-item>
+    <swiper-item>
+        <image src="../../images/img/banner.png" class="slide-image" width="355" height="150" />
+    </swiper-item> -->
+
+      
+
+  </swiper>
+  <!-- 城市选择按钮 -->
+      <view class='citybox' bindtap='choiseCity'>
+          <text>{{city}}</text>
+          <image src='../../images/cityChoise/Shape.png'></image>
+      </view>
+</view>
+
+<!-- 授权 -->
+         <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>          -->
+
+  <view class='nav'>
+    <view class='item' bindtap='toNextPage' data-page='{{0}}'>
+      <image src='../../images/home/fujin.png'></image>
+      <text>附近</text>
+    </view>
+    <view class='item' bindtap='toNextPage' data-page='{{1}}'>
+      <image src='../../images/home/pintuan.png'></image>
+      <text>拼团</text>
+    </view>
+    <view class='item' bindtap='toNextPage' data-page='{{4}}'>
+      <image src='../../images/home/kanjia.png'></image>
+      <text>砍价</text>
+    </view>
+    <view class='item' bindtap='toNextPage'  data-page='{{5}}'>
+      <image src='../../images/home/xianshi.png'></image>
+      <view>限时秒杀</view>
+    </view>
+    <!-- <view class='item' bindtap='toNextPage' data-page='{{2}}'>
+      <image src='../../images/home/sousuo.png'></image>
+      <view>搜索</view>
+    </view> -->
+  </view>
+
+  <view class='goods'>
+    <view class='title'>热门</view>
+    <view class='good_list'>
+      <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>
+        <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
+        <view class='item_detail right_des'>
+          <view class='good_title'>{{item.name}}</view>
+          <view>
+            <text><text class='money_symbol'>￥</text><text class='min_price'>{{item.group_price}}</text></text>
+            <text class='orange_price'>￥{{item.price}}</text>
+          </view>
+          <view class='xiaojin'>额外奖励:
+            <text>{{item.currency / 100}}</text>小金
+          </view>
+          <view class='good_detail_bottom'>
+            <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
+            <!-- <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view> -->
+            <view style="color: #fff; " class='wrap3_btn'>去砍价</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+</scroll-view>

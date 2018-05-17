@@ -1,0 +1,64 @@
+<!--pages/wholeOrder/wholeOrder.wxml-->
+<scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+
+<view class='coupOrder'>
+    <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+        <view class='order_status'>
+            <view>
+                <text class='shop_name'>{{item.merchant_name}}</text>
+                <image src='../../images/icon/jit2.png'></image>
+            </view>
+
+            <text wx:if="{{item.order_state==-1||item.order_state==-2||item.order_state==-3}}">已取消</text>
+            <text wx:elif="{{item.order_state==0}}">待支付</text>
+            <text wx:elif="{{item.order_state==1}}">待发货</text>
+            <text wx:elif='{{item.order_state==3}}'>已收货</text>
+            <text wx:elif='{{item.order_state==2}}'>已发货</text>
+
+        </view>
+        <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+            <image src="{{item.img_url}}"></image>
+            <view class='price_info'>
+                <view class='shop_info'>{{item.name}}</view>
+                <view class='present_price'>
+                    <view>
+                        <text class='symbol'>￥</text>{{item.group_price}}<text class='original_price'>￥{{item.price}}</text>
+                    </view>
+                    <view class='fight_group'>砍价</view>
+                </view>
+            </view>
+        </view>
+        <view class='order_btn_bar'>
+            <view class='customer_service_btn' wx:if='{{item.order_state==3}}' bindtap='sohTap'>售后</view>
+            <block wx:else>
+                <block wx:if="{{item.order_state==1}}">
+                    <!-- <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view> -->
+                    <view class='customer_service_btn' bindtap='sohTap'>售后</view>
+                    <!-- <button class='sharing_friends_btn identical' open-type="share" bindtap='fxIndex' data-id='{{item.goods_group_id}}'>分享好友</button> -->
+                </block>
+                <block wx:if="{{item.order_state==0}}">
+                    <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>
+                    <!-- <button class='sharing_friends_btn identical'  bindtap='gmTap' data-id='{{item.id}}'>立即支付</button> -->
+                </block>
+                <block wx:elif="{{item.order_state==2}}">
+                    <view class='customer_service_btn' bindtap='sohTap'>售后</view>
+                    <view class='confirmation_receipt_btn identical' bindtap='qrsTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>确认收货</view>
+                </block>
+                <block wx:elif="{{item.order_state==4}}">
+                    <view class='customer_service_btn' bindtap='sohTap'>售后</view>
+                    <view class='confirmation_receipt_btn identical'>确认发货</view>
+                </block>
+                <block wx:elif="{{item.order_state==-1}}">
+                    <view class='customer_service_btn' bindtap='sohTap'>售后</view>
+                </block>
+            </block>
+        </view>
+    </view>
+</view>
+
+</scroll-view>
+
+<view wx:else class='scrollNo'>
+    <image src='https://activity.denong.com/w.png'></image>
+    <view>暂无数据</view>
+</view>

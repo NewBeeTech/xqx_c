@@ -1,0 +1,79 @@
+<view style='height:{{scrollHeight+100}}px'>
+<scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight+100}}px'>
+<!--pages/homePage/homePage.wxml-->
+<view class='Input'>
+    <view bindtap='inputTap'>
+        <icon type='search' size='14' color='#848484'></icon>
+        <input placeholder='搜索商户'></input>
+    </view>
+</view>
+<view class='cont'>
+      <view class='{{positionType}}'>
+        <view class='cont_title'>
+          <view bindtap='shTap'>
+            <text>{{name}}</text>
+            <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
+          <view bindtap='unionidTap'>
+            <text>{{orderType}}</text>
+            <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
+        </view>
+        <!-- 筛选_弹窗 -->
+        <view class='Popup left_container' wx:if='{{PopupIf}}'>
+          <view class='Popup_box'>
+
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+
+            <scroll-view class='Popup_box_scroll' scroll-y='true' style='background: #fff;'>
+            <view class='Popup_box_left Popup_box_right {{index==Popup_index_right&&"Popup_co"}}' wx:for='{{subList}}' wx:key='{{index}}' bindtap='PopupBoxLeft' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+            </view>
+        </scroll-view>
+            
+          </view>
+           <view style='height:100%' bindtap='PopupF'></view> 
+        </view>
+
+        <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额",id: "" }, { name: "返金比例", id: "2" }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-type='{{item.name}}'>
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+          </view>
+           <view style='height:100%' bindtap='PopupF'></view> 
+        </view>
+      </view>
+      <scroll-view wx:if='{{list.length}}' scroll-y='{{sonSroll}}' class='scroll' style='height:{{windowHeight}}px' bindscrolltoupper='sonLower'>
+        <view style='padding-top:{{paddingTop}}rpx'>
+        <view wx:for="{{list}}" wx:key='{{index}}' class='list' bindtap='shopTap' data-id='{{item.id}}' data-index='{{item.index}}'>
+          <image src='{{item.store_logo}}'></image>
+          <view class='list_box'>
+            <view class='list_box_name'>{{item.name}}</view>
+            <view class='list_box_btn'>
+              <view>{{item.business_ind_name}}</view>
+              <view>获金{{item.ratio}}%</view>
+            </view>
+            <view class='list_box_y'>已累计贡献小金{{item.total_currency}}</view>
+            <view class='list_box_j'>
+              <view>劵</view>
+              <text class='list_box_j_l'>售优惠劵</text>
+              <text>距离{{item.distance?item.distance:100}}米</text>
+            </view>
+          </view>
+        </view>
+        </view>
+      </scroll-view>
+      <view wx:else class='scrollNo'>
+        <image src='https://activity.denong.com/w.png'></image>
+        <text>亲，您当前所在城市暂无特约商户，\n我们正在努力拓展商户中，敬请期待哦</text>
+      </view>
+    </view>
+</scroll-view>
+</view>

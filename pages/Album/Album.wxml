@@ -1,0 +1,11 @@
+<!--pages/Album/Album.wxml-->
+<view class='nav'>
+    <view wx:for='{{navList}}' wx:key='{{index}}' class='navList {{index==navIndex && "navList_color"}}' bindtap='navList' data-index='{{item.id}}' data-i='{{index}}'>{{item.name}}</view>
+</view>
+
+<view class='img'>
+    <view wx:for='{{imgList}}' wx:key='{{index}}'>
+        <!-- <view>温泉温泉温泉温泉</view> -->
+        <image mode='aspectFill' bindtap='showMax' data-index='{{index}}' src='{{item.url}}'/>
+    </view>
+</view>

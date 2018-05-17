@@ -1,0 +1,97 @@
+<scroll-view>
+  <view class='top_banner'>
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}">
+
+      <swiper-item>
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+          width="355" height="150" />
+      </swiper-item>
+      <swiper-item>
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+          width="355" height="150" />
+      </swiper-item>
+      <swiper-item>
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+          width="355" height="150" />
+      </swiper-item>
+      <swiper-item>
+        <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg" class="slide-image"
+          width="355" height="150" />
+      </swiper-item>
+    </swiper>
+    <view class='waring'>
+      <image src='../../images/tabBar/a.png'></image>
+      <text>拼团须知</text>
+    </view>
+  </view>
+
+
+  <view class='type_nav'>
+    <view class='{{positionType}}'>
+      <view class='cont_title'>
+        <view bindtap='shTap'>
+          <text>类型</text>
+          <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+        </view>
+        <view bindtap='unionidTap'>
+          <text>排序</text>
+          <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+        </view>
+      </view>
+      <!-- 筛选_弹窗 -->
+      <view class='Popup left_container' wx:if='{{PopupIf}}'>
+        <view class='Popup_box'>
+          <scroll-view class='Popup_box_scroll' scroll-y='true'>
+            <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+              <view>{{item.name}}</view>
+            </view>
+          </scroll-view>
+          <scroll-view class='Popup_box_scroll' scroll-y='true' style='background: #fff;'>
+            <view class='Popup_box_left Popup_box_right {{index==Popup_index_right&&"Popup_co"}}' wx:for='{{subList}}' wx:key='{{index}}' bindtap='PopupBoxLeft' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+              <view>{{item.name}}</view>
+            </view>
+          </scroll-view>
+        </view>
+        <view style='height:100%' bindtap='PopupF'></view>
+      </view>
+
+      <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
+        <view class='Popup_box'>
+          <scroll-view class='Popup_box_scroll' scroll-y='true'>
+            <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额",id: "" }, { name: "返金比例", id: "2" }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+              <view>{{item.name}}</view>
+            </view>
+          </scroll-view>
+        </view>
+        <view style='height:100%' bindtap='PopupF'></view>
+      </view>
+    </view>
+  </view>
+
+  <view class='goods'>
+    <view class='title'>热门拼团</view>
+    <view class='good_list'>
+      <view class='item'>
+        <image class='item_detail left_icon' src='../../images/tabBar/a.png'></image>
+        <view class='item_detail right_des'>
+          <view class='title'>商品名称</view>
+          <view>
+            <text>￥6.00</text>
+            <text>￥14.00</text>
+          </view>
+          <view>
+            额外奖励:
+            <text>2.00</text>小金
+          </view>
+          <view>
+            <text>6人团</text>
+            <text>已团出:333件</text>
+          </view>
+        </view>
+        <button class='right_button'>去开团</button>
+      </view>
+    </view>
+  </view>
+
+
+</scroll-view>

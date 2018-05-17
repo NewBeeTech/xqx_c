@@ -1,0 +1,119 @@
+<!--pages/DetailsPayment/DetailsPayment.wxml-->
+<view class='wrap1'>
+    <view class='wrap1_shop'>
+        <image class='wrap1_shop_img' src='{{xqObj.img_url}}'></image>
+        <view>
+            <view class='wrap1_shop_name'>{{xqObj.name}}</view>
+            <block wx:if='{{xqObj.joinList[0].id!=tzid}}'>
+                <view class='wrap1_shop_shl'>
+                    <view>{{xqObj.group_person_num}}人团</view>
+                    <text>已团： {{}}件</text>
+                </view>
+                <view class='wrap1_shop_jig'>
+                    <view><text>￥</text>{{xqObj.group_price}}</view>
+                    <text>￥{{xqObj.price}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class='wrap1_biq' wx:if='{{xqObj.joinList[0].id==tzid}}'>
+        <view>
+            <view>即时立省</view>
+            <text>98%</text>
+        </view>
+        <view>
+            <text>￥{{xqObj.group_price}}</text>
+            <view class='wrap1_biq_yas'>￥{{xqObj.price}}</view>
+        </view>
+    </view>
+    <view class='wrap1_biq2' wx:else>
+        <view>
+            <image src='../../images/icon/success.png'></image>
+            <text>全场包邮</text>
+        </view>
+        <view>
+            <image src='../../images/icon/success.png'></image>
+            <text>48小时发货</text>
+        </view>
+        <view>
+            <image src='../../images/icon/success.png'></image>
+            <text>消费即得养老金</text>
+            <image class='wrap1_biq_icon' src='https://activity.denong.com/b.png'></image>
+        </view>
+    </view>
+</view>
+
+<view class='wrap2'>
+    <view class='wrap2_title'>本次拼团成功预计奖励：{{~~(xqObj.group_price*100*xqObj.ratio/100)?~~(xqObj.group_price*100*xqObj.ratio/100)/100:0.01}}小金</view>
+    <view class='wrap2_rey'>
+        <view wx:for='{{xqObj.joinList}}' wx:key='{{index}}'>
+            <image src='{{item.portrait?item.portrait:"../../images/icon/wu.png"}}'></image>
+            <view wx:if='{{index==0}}'>团长</view>
+        </view>
+    </view>
+    
+      <!-- <block wx:if='{{xqObj.joinList[0].id==tzid}}'>
+        <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.receive_time}}后结束</button>
+        <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
+    </block>
+    <block wx:elif='{{deadLine <=0}}'>
+        <view class='wrap2_mie2'>当前活动已失效，点击查看其它活动</view>
+        <view class='wrap2_btn'>拼团</view>
+    </block> -->
+
+    <block wx:if='{{ onekey ==1}}'>
+           <view class='wrap2_btn' bindtap='onekey'>一键参团</view>
+    </block>
+    <block wx:else>
+          <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>
+          <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
+    </block>
+  
+
+    <block wx:if='{{xqObj.deadLine <=0}}'>
+        <view class='wrap2_mie2'>当前活动已失效，点击查看其它活动</view>
+        <view class='wrap2_btn'>拼团</view>
+    </block>
+    <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num <=0}}'>
+        <view class='wrap2_mie2'>当前人数已满，可重新开团</view>
+        <view class='wrap2_btn'>拼团</view>
+    </block>
+    <block wx:elif='{{xqObj.deadLine >0 && xqObj.avail_num >0}}'>
+        <view class='wrap2_mie2'>仅剩{{su}}个名额，{{xqObj.deadLine}}后结束</view>
+           <!-- <view class='wrap2_btn'>一键参团</view> -->
+    </block>
+    
+
+    
+</view>
+
+<view class='wrap3' wx:if='{{xqObj.joinList[0].id==tzid}}'>
+    <view>拼团须知</view>
+    <text>好友参团 | 人满发货 | 人不满退款</text>
+</view>
+
+<view class='order_detailed' wx:else>
+    <view>
+        <view>商品名称</view>
+        <view class='notice'>
+            <view>{{xqObj.group_name}}</view>
+            <image src='../../images/icon/jit2.png'></image>
+        </view>
+    </view>
+    <view>
+        <view>参团时间</view>
+        <text>{{xqObj.create_time}}</text>
+    </view>
+    <view>
+        <view>订单编号</view>
+        <text>{{xqObj.serial_number}}</text>
+    </view>
+    <view>
+        <view bindtap='gotoNotice'>拼团须知</view>
+        <view class='notice' bindtap='gotoNotice'>
+            <view>更多</view>
+            <image src='../../images/icon/jit2.png'></image>
+        </view>
+    </view>
+</view>
+

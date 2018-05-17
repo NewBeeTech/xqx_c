@@ -1,0 +1,231 @@
+/* pages/spellGroup/spellGroup.wxss */
+page {
+  background: rgb(240,240,240);
+  height: 100%;
+}
+.top_banner {
+  height: 345rpx;
+}
+.top_banner swiper-item {
+  height: inherit;
+}
+.top_banner swiper-item image{
+  display: block;
+  width: 100%;
+  height: 345rpx;
+}
+.nav {
+  margin-top: 16rpx;
+  background: white;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  text-align: center;
+}
+.nav image {
+  display: block;
+  width: 64rpx;
+  height: 64rpx;
+  margin: 0 auto 16rpx;
+}
+.nav view{
+  text-align: center;
+}
+.goods  {
+  position: relative;
+}
+.goods .title {
+  padding: 20rpx;
+  height: 83rpx;
+  box-sizing: border-box;
+  line-height: 43rpx;
+  font-size: 28rpx;
+  color: rgb(103,103,103);
+}
+.goods .item {
+  display: flex;
+  flex-direction: row;
+  padding: 40rpx 35rpx;
+  align-items:center;
+  background: white;
+  border-bottom:1rpx solid rgb(240,240,240);
+  box-sizing: border-box;
+  position: relative;
+}
+.goods .left_icon{
+  display: flex;
+  flex-shrink: 0;
+  width: 228rpx;
+  height: 228rpx;
+}
+.goods .right_des {
+  padding-left: 40rpx;
+  text-align: left;
+  height: 228rpx;
+}
+
+.title {
+  width: 60vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.good_title {
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 50rpx;
+  font-size: 30rpx;
+}
+.goods .right_des .title{
+  font-size: 32rpx;
+  white-space: nowrap;
+  color: black;
+}
+
+.goods .right_des > view {
+  box-sizing: border-box;
+  padding-left: 10rpx;
+}
+.goods .money_symbol {
+  font-size: 26rpx;
+}
+.goods .min_price {
+  font-size: 36rpx;
+}
+.goods .orange_price {
+  font-size: 26rpx;
+  text-decoration: line-through;
+  padding-left: 30rpx;
+  color: #999;
+}
+
+.goods .xiaojin {
+  font-size: 26rpx;
+  color: #6e6e6e;
+}
+
+.goods .right_button {
+  width: 130rpx;
+  background: gray;
+  height: 70rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  font-weight: bold;
+  border-radius: 30rpx;
+  line-height: 70rpx;
+  color: white;
+  background:  rgb(253,155,39);
+  text-align: center;
+  position: absolute;
+  right: 30rpx;
+  top: 120rpx;
+}
+.goods .group {
+  padding-top: 10rpx;
+}
+.wrap3_btn {
+  height: 70rpx;
+  min-width: 163rpx;
+  line-height: 70rpx;
+  padding: 0 10rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: #fff;
+  background: #ff9a00;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.good_detail_bottom {
+  margin-top: 10rpx;
+  width: 400rpx;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.goods .group_num {
+  display: inline-block;
+  /* width: 114rpx; */
+  /* padding-right: 16rpx; */
+  height: 40rpx;
+  font-size: 26rpx;
+  color: rgb(251,115,39);
+  border-radius: 10rpx;
+  text-align: left;
+  line-height: 40rpx;
+  /* border: 1rpx solid rgb(251,115,39); */
+  /* padding-left: 10rpx; */
+}
+
+.goods .group_out {
+  font-size: 26rpx;
+  color: #6e6e6e;
+  padding-left: 10rpx;
+}
+
+.cont {
+    position: relative;
+}
+
+.cont_title>view{
+    width: 50%;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont_title>view:nth-child(1){
+    border-right: solid 1rpx #c7c7c7;
+
+}
+.cont_title>view>image{
+    width: 24rpx;
+    height: 14rpx;
+}
+.cont_title>view>text{
+    font-size: 13px;
+    color: #242424;
+    margin-right: 12rpx;
+}
+.cont_title_deg{
+    transform: rotate(180deg)
+}
+.slide-image{
+    width: 100%;
+    height: 345rpx;
+}
+.bannerbox{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+/* 城市选择按钮 */
+.citybox{
+  min-width: 80rpx;
+  width: auto;
+  height:50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background: #F49F11;
+  border-radius:25rpx;
+  position: absolute;
+  top:40rpx;
+  left: 20rpx;
+  color:#fff;
+  font-size: 26rpx;
+  padding: 0 25rpx;
+}
+.citybox image{
+ width: 14rpx;
+ height: 8rpx;
+ vertical-align: middle; 
+ margin-left: 10rpx;
+}

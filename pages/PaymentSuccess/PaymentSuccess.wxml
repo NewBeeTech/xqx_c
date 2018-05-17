@@ -1,0 +1,40 @@
+<!--pages/PaymentSuccess/PaymentSuccess.wxml-->
+<view>
+<view class="top_rule">
+  <view class="bargain_rule1" bindtap='goBackHome'>返回主页</view>
+  <!-- <view class="bargain_rule1" bindtap='goBargainRule'>活动规则</view> -->
+</view>
+    <icon class='icon' type='success' size='48' color='1bb100'></icon>
+    <view class='ck'>付款成功</view>
+    <view class='nub'><text>￥</text>{{info.real_charge}}</view>
+    <!-- <view class='nub2'>￥{{info.real_charge}}</view> -->
+</view>
+<view class='cont'>
+    <view>
+        <view>消费金额</view>
+        <text>￥{{info.real_charge}}</text>
+    </view>
+    <!-- <view>
+        <view>优惠（满50减5元）</view>
+        <text><text>-</text>￥5.00</text>
+    </view> -->
+    <view>
+        <!-- <view wx:if="{{info.third_service_name}}">{{info.third_service_name}}</view>
+        <text>{{info.merchant_name}}</text> -->
+    </view>
+</view>
+
+<view class='hd'>
+    <!-- <view class='hd_title'>本次付款获得</view> -->
+    <view class='hd_cont1'>
+        <view class='hd_cont1_left'>
+            <image src='{{info.logo}}'></image>
+            <view>
+                <view>{{info.merchant_name}}</view>
+                <text>返还{{info.currency}}小金</text>
+            </view>
+        </view>
+        <view class='hd_cont1_right' bindtap='toNext'>查看详情</view>
+    </view>
+    <image bindtap="goH5" mode='widthFix' class='hd_cont2' src='{{info.advertisement.pic}}'></image>
+</view>

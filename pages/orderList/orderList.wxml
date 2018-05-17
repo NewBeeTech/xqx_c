@@ -1,0 +1,170 @@
+<!--pages/orderList/orderList.wxml-->
+<scroll-view wx:if="{{!list.length}}" class="scroll-view" scroll-x="true">
+      <view class="scroll_warp">
+            <view class="tab-beset {{currentIndex==0 ?'action':''}}" >
+                  <text class="tab-text" bindtap='choose' data-index='{{0}}' >待分享</text>
+            </view>
+            <view class="tab-beset {{currentIndex==1 ?'action':''}}" >
+                  <text class="tab-text" bindtap='choose' data-index='{{1}}'>待发货</text>
+            </view>
+            <view class="tab-beset {{currentIndex==2 ?'action':''}}">
+                  <text class="tab-text" bindtap='choose' data-index='{{2}}'>待收货</text>
+            </view>
+            <view class="tab-beset {{currentIndex==3 ?'action':''}}" >
+                  <text class="tab-text" bindtap='choose' data-index='{{3}}'>已收货</text>
+            </view>
+      </view>
+</scroll-view>
+<swiper class="warp" wx:if="{{!list.length}}" bindchange='changeType' current='{{currentIndex}}'>
+      <swiper-item>
+      <scroll-view scroll-y='true' lower-threshold='1' enable-back-to-top='true' scroll-top='{{scrollTop}}'>
+        <view class='coupOrder' bindtap='gmTap'>
+            <view class='order_list'>
+                <view class='order_status'>
+                    <view>
+                        <text class='shop_name'>外婆家</text>
+                        <image src='../../images/icon/right_arrow2.png'></image>
+                    </view>
+                    <text>卖家已发货</text>
+                    <text wx:if="{{false}}">待分享</text>
+                    <text wx:if="{{false}}">待发货</text>
+                    <text wx:if="{{false}}">待收货</text>
+                    <text wx:if="{{false}}">已收货</text>
+                </view>
+                <view class='order_info'>
+                    <image src="../../images/icon/che.png"></image>
+                    <view class='price_info'>
+                        <view class='shop_info'>【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+                        <view class='present_price'>
+                            <view>
+                                <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                            </view>
+                            <view class='fight_group'>拼团</view>
+                        </view>
+                    </view>
+                </view>
+                <view class='order_btn_bar'>
+                    <view class='cancel_order_btn' wx:if="{{false}}">取消订单</view>
+                    <view class='customer_service_btn' wx:if="{{true}}">售后</view>
+                    <view class='confirmation_receipt_btn identical' wx:if="{{true}}">确认收货</view>
+                    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+                </view>
+            </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y='true' lower-threshold='1' enable-back-to-top='true' scroll-top='{{scrollTop}}'>
+        <view class='coupOrder' bindtap='gmTap'>
+            <view class='order_list'>
+                <view class='order_status'>
+                    <view>
+                        <text class='shop_name'>外婆家</text>
+                        <image src='../../images/icon/right_arrow2.png'></image>
+                    </view>
+                    <text>卖家已发货</text>
+                    <text wx:if="{{false}}">待分享</text>
+                    <text wx:if="{{false}}">待发货</text>
+                    <text wx:if="{{false}}">待收货</text>
+                    <text wx:if="{{false}}">已收货</text>
+                </view>
+                <view class='order_info'>
+                    <image src="../../images/icon/che.png"></image>
+                    <view class='price_info'>
+                        <view class='shop_info'>【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+                        <view class='present_price'>
+                            <view>
+                                <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                            </view>
+                            <view class='fight_group'>拼团</view>
+                        </view>
+                    </view>
+                </view>
+                <view class='order_btn_bar'>
+                    <view class='cancel_order_btn' wx:if="{{false}}">取消订单</view>
+                    <view class='customer_service_btn' wx:if="{{true}}">售后</view>
+                    <view class='confirmation_receipt_btn identical' wx:if="{{true}}">确认收货</view>
+                    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+                </view>
+            </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y='true' lower-threshold='1' enable-back-to-top='true' scroll-top='{{scrollTop}}'>
+        <view class='coupOrder' bindtap='gmTap'>
+            <view class='order_list'>
+                <view class='order_status'>
+                    <view>
+                        <text class='shop_name'>外婆家</text>
+                        <image src='../../images/icon/right_arrow2.png'></image>
+                    </view>
+                    <text>卖家已发货</text>
+                    <text wx:if="{{false}}">待分享</text>
+                    <text wx:if="{{false}}">待发货</text>
+                    <text wx:if="{{false}}">待收货</text>
+                    <text wx:if="{{false}}">已收货</text>
+                </view>
+                <view class='order_info'>
+                    <image src="../../images/icon/che.png"></image>
+                    <view class='price_info'>
+                        <view class='shop_info'>【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+                        <view class='present_price'>
+                            <view>
+                                <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                            </view>
+                            <view class='fight_group'>拼团</view>
+                        </view>
+                    </view>
+                </view>
+                <view class='order_btn_bar'>
+                    <view class='cancel_order_btn' wx:if="{{false}}">取消订单</view>
+                    <view class='customer_service_btn' wx:if="{{true}}">售后</view>
+                    <view class='confirmation_receipt_btn identical' wx:if="{{true}}">确认收货</view>
+                    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+                </view>
+            </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y='true' lower-threshold='1' enable-back-to-top='true' scroll-top='{{scrollTop}}'>
+        <view class='coupOrder' bindtap='gmTap'>
+            <view class='order_list'>
+                <view class='order_status'>
+                    <view>
+                        <text class='shop_name'>外婆家</text>
+                        <image src='../../images/icon/right_arrow2.png'></image>
+                    </view>
+                    <text>卖家已发货</text>
+                    <text wx:if="{{false}}">待分享</text>
+                    <text wx:if="{{false}}">待发货</text>
+                    <text wx:if="{{false}}">待收货</text>
+                    <text wx:if="{{false}}">已收货</text>
+                </view>
+                <view class='order_info'>
+                    <image src="../../images/icon/che.png"></image>
+                    <view class='price_info'>
+                        <view class='shop_info'>【4件装】，2018新款男士短袖体恤 韩版加大码装夏季半袖装潮流宽松打底衫，圆领映画上衣35%棉65%洗涤</view>
+                        <view class='present_price'>
+                            <view>
+                                <text class='symbol'>￥</text>22.00<text class='original_price'>￥12.00</text>
+                            </view>
+                            <view class='fight_group'>拼团</view>
+                        </view>
+                    </view>
+                </view>
+                <view class='order_btn_bar'>
+                    <view class='cancel_order_btn' wx:if="{{false}}">取消订单</view>
+                    <view class='customer_service_btn' wx:if="{{true}}">售后</view>
+                    <view class='confirmation_receipt_btn identical' wx:if="{{true}}">确认收货</view>
+                    <view class='sharing_friends_btn identical' wx:if="{{false}}">分享好友</view>
+                </view>
+            </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+</swiper>
+<view>
+
+</view>

@@ -1,0 +1,136 @@
+/* pages/identityCode/identityCode.wxss */
+.topBack{
+  width: 100%;
+  overflow: hidden;
+}
+.topBack>image{
+  width: 100%;
+  height: 260rpx;
+}
+.iconCode{
+  position: relative;
+  border-radius: 20rpx;
+  box-shadow:3rpx -6rpx 6rpx #c8c1c1;
+  height: 100px;
+  padding-top:170rpx; 
+}
+.iconCode>.iconImg{
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  top: -70rpx;
+  left: 50%;
+  margin-left: -70rpx; 
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -8rpx 11rpx #c8c1c1;
+}
+.iconCode>.iconImg>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 25rpx;
+}
+.iconCode>.mobile{
+   text-align: center;
+   color: #000;
+   font-size: 15px;
+   margin-bottom: 60rpx;
+}
+.iconCode>.codeImg{
+  display: flex;
+  justify-content: center;
+}
+.iconCode>.codeImg>image{
+  width: 350rpx;
+  height: 350rpx;
+  margin-bottom: 64rpx;
+}
+.iconCode>text{
+  color: #000;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 158rpx;
+}
+.iconCode>.intrUse{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60rpx;
+  position: relative;
+  bottom: 30rpx;
+}
+.iconCode>.intrUse>text{
+  font-size: 15px;
+  color: #000;
+  margin-right: 26rpx;
+}
+.iconCode>.intrUse>image{
+  width: 20rpx;
+  height: 30rpx;
+}
+/* 窗体 */
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.3);
+}
+.popup>view{
+    width: 568rpx;
+    height: 574rpx;
+    margin: 265rpx auto 0;
+    background: #edf8fc;
+    border-radius: 100rpx;
+    /* overflow: hidden; */
+    position: relative;
+}
+ .popup_box{
+    position: relative;
+    z-index: 9;
+    color: #fff;
+} 
+.popup_box>image{
+  width: 100%;
+   height: 574rpx; 
+}
+.popup>view>.explain{
+  width: 100%;
+  position: absolute;
+  top: 437rpx;
+  left: 0;  
+  z-index: 10;
+}
+.popup>view>.explain>text{
+  display: flex;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+.popup>view>.explain>view{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+.popup>view>.close{
+  position: absolute;
+  top: 612rpx;
+  width: 100%;
+  z-index: 10;
+}
+.popup>view>.close>image{
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 0 auto;
+}

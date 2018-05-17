@@ -1,0 +1,121 @@
+<!--pages/homePage/homePage.wxml-->
+ <view class='container'>
+  <scroll-view class='wrapSroll' bindscroll="scrolling" scroll-y style='height:{{scrollHeight-44}}' bindscrolltolower='onReachBottom'>
+
+    <view>
+    <!-- <view class='Input' style='margin-bottom: {{obj.catalogList.length>0?15:0}}rpx;'>
+      <view bindtap='inputTap'>
+        <icon type='search' size='14' color='#848484'></icon>
+        <input placeholder='搜索商户'></input>
+      </view>
+    </view> -->
+<!--
+    <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400' wx:if='{{obj.topPics.length}}'>
+      <block wx:for='{{obj.topPics}}' wx:key='{{index}}'>
+        <swiper-item>
+          <image bindtap='dkTap' data-pic_url='{{item.pic_url}}' src='{{item.pic_logo}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <scroll-view class='nav' scroll-x='true' wx:if="{{obj.catalogList}}">
+      <view wx:for='{{obj.catalogList}}' wx:key='{{index}}' bindtap='navListTap' data-name='{{item.name}}' data-id='{{item.id}}' data-index='{{index+1}}' data-info="{{obj.catalogList}}">
+        <image src='{{item.url}}'></image>
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <swiper class='Swipr Swipr2' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400' wx:if='{{obj.middlePics.length}}'>
+      <block wx:for='{{obj.middlePics}}' wx:key='{{index}}'>
+        <swiper-item>
+          <image bindtap='dkTap' data-pic_url='{{item.pic_url}}' src='{{item.pic_logo}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class='Yh'>
+      <view class='Yh_box' bindtap='yhTap'>
+        <view>
+          <view>优惠劵</view>
+          <text>附近优惠享不停</text>
+        </view>
+        <image src='https://activity.denong.com/yh.png'></image>
+      </view>
+      <view class='Yh_box' bindtap='tsTap' data-pic_url='{{obj.expUrl}}'>
+        <view>
+          <view>探索体验</view>
+          <text>好的生活方式</text>
+        </view>
+        <image src='https://activity.denong.com/yh2.png'></image>
+      </view>
+    </view> -->
+    </view>
+
+    <view class='cont'>
+      <view class='{{positionType}}'>
+        <!-- <view class='cont_title'>
+          <view bindtap='shTap'>
+            <text>{{types}}</text>
+            <image class='cont_title_deg' src="{{!PopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
+          <view bindtap='unionidTap'>
+            <text>{{orderType}}</text>
+            <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
+        </view> -->
+        <!-- 筛选_弹窗 -->
+        <view class='Popup left_container' wx:if='{{PopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_left {{index==Popup_inde&&"Popup_ba"}}' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='PopupBoxLeftChoose' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+            <scroll-view class='Popup_box_scroll' scroll-y='true' style='background: #fff;'>
+            <view class='Popup_box_left Popup_box_right {{index==Popup_index_right&&"Popup_co"}}' wx:for='{{subList}}' wx:key='{{index}}' bindtap='PopupBoxLeft' data-index='{{index}}' data-id='{{item.id}}' data-name="{{item.name}}">
+                <view>{{item.name}}</view>
+            </view>
+        </scroll-view>
+          </view>
+           <view style='height:100%' bindtap='PopupF'></view>
+        </view>
+
+        <view class='Popup right_container' wx:if='{{unionidPopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金总额",id: "" }, { name: "返金比例", id: "2" }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+          </view>
+           <view style='height:100%' bindtap='PopupF'></view>
+        </view>
+      </view>
+      <scroll-view wx:if='{{list.length}}' scroll-y='{{sonSroll}}' class='scroll' style='height:{{windowHeight - 44}}px' bindscrolltoupper='sonLower'>
+        <view style='padding-top:{{paddingTop}}rpx'>
+        <view wx:for="{{list}}" wx:key='{{index}}' class='list' bindtap='shopTap' data-id='{{item.id}}' data-qFlag='{{item.qFlag}}'>
+          <image src='{{item.store_logo}}' mode='aspectFill'></image>
+          <view class='list_box'>
+            <view class='list_box_name'>{{item.name}}</view>
+            <view class='list_box_btn'>
+              <view  wx:if="{{item.business_ind_name}}">{{item.business_ind_name}}</view>
+              <view wx:if="{{item.ratio!=0&&item.ratio}}">获金{{item.ratio}}%</view>
+            </view>
+            <view class='list_box_y' wx:if="{{item.total_currency}}">已累计贡献小金{{item.total_currency / 100 || '0.00'}}</view>
+            <view class='list_box_j' >
+              <view wx:if="{{item.qFlag}}">劵</view>
+              <text class='list_box_j_l' wx:if="{{item.qFlag}}">售优惠劵</text>
+              <text wx:if="{{item.distance}}">距离{{item.distance}}</text>
+            </view>
+          </view>
+        </view>
+        </view>
+      </scroll-view>
+      <view wx:if="{{!list.length}}" class='scrollNo'>
+        <image src='https://activity.denong.com/w.png'></image>
+        <text>亲，您当前所在城市暂无特约商户，\n我们正在努力拓展商户中，敬请期待哦</text>
+      </view>
+    </view>
+
+  </scroll-view>
+ </view>
