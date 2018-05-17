@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/MyBargain/MyBargain.wxss */
 
 page{
@@ -109,3 +110,116 @@ page{
   font-size: 32rpx;
   color: #858585;
 }
+=======
+/* pages/MyBargain/MyBargain.wxss */
+
+page{
+  box-sizing: border-box;
+}
+.bargin_bg {
+
+}
+.bargin_list {
+  width: 750rpx;
+  height: 100vh;
+}
+
+.wrap3{
+    padding: 0 35rpx;
+}
+.wrap3>view{
+    border-bottom: solid 1rpx #dadada;
+    padding: 40rpx 0 38rpx;
+    overflow: hidden;
+}
+.wrap3>view>view{
+    margin-top: 20rpx;
+    display: flex;
+}
+.merchant {
+  font-size: 32rpx;
+  color: #666;
+}
+.wrap3>view:last-child{
+    border: none;
+}
+.wrap3_img{
+    width: 165rpx;
+    height: 165rpx;
+    border-radius:8rpx;
+    display: block;
+    margin-right: 30rpx;
+    /* border: solid 1rpx #dadada; */
+}
+.wrap3_box_name{
+    width: 340rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 50rpx;
+    font-size: 36rpx;
+}
+.wrap3_box_jig{
+    display: flex;
+    align-items: center;
+    font-size: 32rpx;
+    color: #333;
+}
+.wrap3_box_jig>text{
+  color: #ff9a00;
+}
+.wrap3_box_ewj{
+    font-size: 28rpx;
+    color: #6f6f6f;
+    margin-top: 20rpx;
+}
+.wrap3_btn{
+    width: 150rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    text-align: center;
+    border-radius: 35rpx;
+    color: #fff;
+    background: #ff9a00;
+    font-size: 25rpx;
+    margin-top: 140rpx;
+}
+
+.wrap2_jul{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.wrap3_jul{
+    padding-top: 92rpx;
+}
+
+.timer {
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color:#6f6f6f;
+  font-size: 32rpx;
+}
+.timer>view {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 6rpx;
+  background-color: #858585;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+  margin-right: 10rpx;
+  font-size: 32rpx;
+}
+.timer>text {
+  width: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 32rpx;
+  color: #858585;
+}
+>>>>>>> master

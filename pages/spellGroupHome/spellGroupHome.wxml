@@ -1,5 +1,8 @@
 <scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
+<<<<<<< HEAD
 <view class='bannerbox'>
+=======
+>>>>>>> master
   <swiper class='top_banner' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
 
     <swiper-item wx:for="{{banners}}" wx:key='{{index}}'>
@@ -17,6 +20,7 @@
         <image src="../../images/img/banner.png" class="slide-image" width="355" height="150" />
     </swiper-item> -->
 
+<<<<<<< HEAD
       
 
   </swiper>
@@ -29,6 +33,9 @@
 
 <!-- 授权 -->
          <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>          -->
+=======
+  </swiper>
+>>>>>>> master
 
   <view class='nav'>
     <view class='item' bindtap='toNextPage' data-page='{{0}}'>
@@ -79,8 +86,11 @@
   </view>
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> master
 </scroll-view>

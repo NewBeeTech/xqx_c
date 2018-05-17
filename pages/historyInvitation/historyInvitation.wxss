@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/historyInvitation/historyInvitation.wxss */
 .wrap{
     background: #f0f0f0;
@@ -76,3 +77,83 @@
     font-size: 14px;
     color: #a3a3a3;
 }
+=======
+/* pages/historyInvitation/historyInvitation.wxss */
+.wrap{
+    background: #f0f0f0;
+}
+.wrap>.topHead{
+    background: #fff;
+    padding: 60rpx 0 50rpx 0;
+}
+.cumulative{
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+     margin-bottom: 40rpx; 
+}
+.kimNum{
+    font-size: 28px;
+    color: #ffa300;
+    text-align: center;
+}
+.kimNum>text{
+    font-size: 16px;
+}
+.history{
+    background: #fff;
+    margin-top: 13rpx;
+}
+.coupOrder{
+  margin:30rpx 34rpx;
+  padding-bottom: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10rpx;
+  border-bottom: 1rpx solid #dadada;
+}
+.coupOrder>.leftContent{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.imgInfo{
+    margin: 0 32rpx 0 24rpx;
+}
+.imgInfo>image{
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 50%;
+}
+.saleInfo>text{
+    color: #6e6e6e;
+    font-size: 13px;
+}
+.couponInfo{
+    width: 100%;
+}
+.couponInfo>view{
+    text-align: right;
+}
+.couponInfo>.addPrice{
+    font-size: 16px;
+    color: #000;
+    line-height: 55rpx;
+}
+.couponInfo>.dataTime{
+    font-size: 14px;
+    color: #a3a3a3;
+}
+>>>>>>> master

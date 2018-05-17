@@ -14,8 +14,12 @@ Page({
   data: {
     page:1,
     goods:[],
+<<<<<<< HEAD
     banners:[],
     city:'',//对应城市设置
+=======
+    banners:[]
+>>>>>>> master
   },
   loadBanners:function(){
      var self = this;
@@ -58,6 +62,7 @@ Page({
 
   },
   loadOpenedGroup:function(page){
+<<<<<<< HEAD
   
     // 获取对应商品
     var a = 1;
@@ -69,6 +74,12 @@ Page({
     console.log(codeid)
     appData.Tool.getCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
+=======
+    var a = 1;
+    console.log(a.toDouble());
+    var self = this;
+    appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 }).then(function (result) {
+>>>>>>> master
       wx.hideLoading();
       console.log(result);
       self.loadBanners();
@@ -95,17 +106,28 @@ Page({
           goods:arr
         });
       }else{
+<<<<<<< HEAD
           wx.showToast({
               title: result.message,
               icon: 'none',
               duration: 2000
           })
+=======
+        wx.showToast({
+          title: result.message,
+          icon: 'none',
+          duration: 2000
+        })
+>>>>>>> master
       }
     }).catch(function(err){
       console.log(err);
     });
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
@@ -122,7 +144,10 @@ Page({
     })
   },
   loadUserStatus:function(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
       var self = this;
     // app.getUserLocation(function (addr) {
       app.login(function () {
@@ -137,7 +162,10 @@ Page({
         //   .catch(function (err) {
         //     console.log(err);
         //   });
+<<<<<<< HEAD
          
+=======
+>>>>>>> master
       });
     // })
   },
@@ -146,16 +174,20 @@ Page({
       this.data.page += 1;
       this.loadOpenedGroup(this.data.page);
   },
+<<<<<<< HEAD
   // 城市选择
   choiseCity:function(){
     wx.navigateTo({
       url:"../choiseCity/choiseCity?city="+this.data.city
     })
   },
+=======
+>>>>>>> master
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
 
     // app.getUserLocation();  //获取地理位置
     var city= wx.getStorageSync("city1");
@@ -163,20 +195,30 @@ Page({
     this.setData({
       city:city
     })
+=======
+    // this.loadUserStatus();
+>>>>>>> master
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> master
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< HEAD
     var that=this;
+=======
+>>>>>>> master
 
     this.setData({
       page:1,
@@ -184,6 +226,7 @@ Page({
       banners:[],
     })
     this.loadUserStatus();
+<<<<<<< HEAD
 
   // 获取缓存中的city与codeid
     wx.getStorage({
@@ -234,6 +277,8 @@ Page({
 
       }
     })
+=======
+>>>>>>> master
   },
 
   /**
@@ -247,6 +292,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   },
 
   /**

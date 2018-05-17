@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/Album/Album.wxss */
 page{
     border-top: solid 1rpx #e4e4e4;
@@ -52,4 +53,60 @@ page{
     white-space: nowrap;
     text-overflow: ellipsis;
     background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+=======
+/* pages/Album/Album.wxss */
+page{
+    border-top: solid 1rpx #e4e4e4;
+}
+
+.nav{
+    display: flex;
+    padding: 35rpx 0 0 32rpx;
+    flex-wrap: wrap;
+}
+.navList{
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 28rpx;
+    color: #999999;
+    border: solid 1rpx #999999;
+    border-radius: 24rpx;
+    margin: 0 22rpx 22rpx 0;
+    font-size: 13.5px;
+}
+.navList_color{
+    color: #ffa300;
+    border-color: #ffa300;
+}
+
+.img{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 42rpx;
+}
+.img>view{
+    width: 207rpx;
+    height: 207rpx;
+    border-radius: 6rpx;
+    margin: 0 0 32rpx 32rpx;
+    position: relative;
+}
+.img>view>image{
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+.img>view>view{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 167rpx;
+    padding: 20rpx;
+    color: #fff;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+>>>>>>> master
 }

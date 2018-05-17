@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--pages/myCoupon/myCoupon.wxml-->
 <!--选项卡-->
 
@@ -145,3 +146,152 @@
 </swiper-item>
 </swiper>
 
+=======
+<!--pages/myCoupon/myCoupon.wxml-->
+<!--选项卡-->
+
+<scroll-view class="scroll-view" scroll-x="true">
+      <view class="scroll_warp">
+            <view class="tab-beset {{currentIndex==0 ?'action':''}}">
+                  <text class="tab-text" bindtap='choose' data-index='{{0}}'>未使用</text>
+            </view>
+            <view class="tab-beset {{currentIndex==1 ?'action':''}}">
+                  <text class="tab-text" bindtap='choose' data-index='{{1}}'>已使用</text>
+            </view>
+            <view class="tab-beset {{currentIndex==2 ?'action':''}}">
+                  <text class="tab-text"  bindtap='choose' data-index='{{2}}'>已过期</text>
+            </view>
+            <view class="tab-beset {{currentIndex==3 ?'action':''}}">
+                  <text class="tab-text" bindtap='choose' data-index='{{3}}'>已退款</text>
+            </view>
+      </view>
+</scroll-view>
+
+<!--区域滚动-->
+
+<swiper bindchange='changeType' current="{{currentIndex}}">
+
+    <swiper-item>
+     <scroll-view scroll-y='true' >
+      <view class='coupOrder'  bindtap='ddyhTap' data-type='{{currentIndex}}'>
+            <view>
+                <view class='imgInfo'>
+                    <image src='https://activity.denong.com/che2.png'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>外婆家</view>
+                        <text>酸豆角肉沫饭</text>
+                    </view>
+                    <view class='priceInfo'> 
+                        <text class='discountPrice'>￥45</text>
+                        <text class='oriPrice'>￥45</text>
+                         <text class='discount'>9折</text> 
+                    </view> 
+                    <view class='saleInfo' wx:if="{{false}}">
+                         <text>已售:432份\t|\t</text> 
+                        <text>返0.45小金\t|\t</text>
+                        <text>距离100米</text>
+                    </view>
+                </view>
+            </view>
+             
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+     <scroll-view scroll-y='true'>
+        <view class='coupOrder' bindtap='ddyhTap' data-type='{{currentIndex}}'>
+            <view>
+                <view class='imgInfo'>
+                    <image src='https://activity.denong.com/che2.png'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>外婆家</view>
+                        <text>酸豆角肉沫饭</text>
+                    </view>
+                    <view class='priceInfo'> 
+                        <text class='discountPrice'>￥45</text>
+                        <text class='oriPrice'>￥45</text>
+                        
+                    </view> 
+                    <view class='saleInfo' wx:if="{{false}}">
+                        
+                        <text>返0.45小金\t|\t</text>
+                        <text>距离100米</text>
+                    </view>
+                </view>
+            </view>
+             <view class='imgInfo couponInfo'>
+                <image src='https://activity.denong.com/alreadyUsed.png'></image>
+            </view> 
+        </view>
+        </scroll-view>
+        
+    </swiper-item>
+
+<swiper-item>
+<scroll-view scroll-y='true'>
+        <view class='coupOrder' bindtap='ddyhTap' data-type='{{currentIndex}}'>
+            <view>
+                <view class='imgInfo'>
+                    <image src='https://activity.denong.com/che2.png'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>外婆家</view>
+                        <text>酸豆角肉沫饭</text>
+                    </view>
+                    <view class='priceInfo'> 
+                        <text class='discountPrice'>￥45</text>
+                        <text class='oriPrice'>￥45</text>
+                        
+                    </view> 
+                    <view class='saleInfo' wx:if="{{false}}">
+                        
+                        <text>返0.45小金\t|\t</text>
+                        <text>距离100米</text>
+                    </view>
+                </view>
+            </view>
+             <view class='imgInfo couponInfo'>
+                <image src='https://activity.denong.com/expired.png'></image>
+            </view> 
+        </view>
+        </scroll-view>
+</swiper-item>
+
+<swiper-item>
+<scroll-view scroll-y='true'>
+        <view class='coupOrder' bindtap='ddyhTap' data-type='{{currentIndex}}'>
+            <view>
+                <view class='imgInfo'>
+                    <image src='https://activity.denong.com/che2.png'></image>
+                </view>
+                <view>
+                    <view class='mealInfo'>
+                        <view>外婆家</view>
+                        <text>酸豆角肉沫饭</text>
+                    </view>
+                    <view class='priceInfo'> 
+                        <text class='discountPrice'>￥45</text>
+                        <text class='oriPrice'>￥45</text>
+                         <text class='discount'>9折</text> 
+                    </view> 
+                    <view class='saleInfo' wx:if="{{false}}">
+                         <text>已售:432份\t|\t</text> 
+                        <text>返0.45小金\t|\t</text>
+                        <text>距离100米</text>
+                    </view>
+                </view>
+            </view>
+             <view class='imgInfo couponInfo'>
+                <image src='https://activity.denong.com/refunded.png'></image>
+            </view> 
+        </view>
+        </scroll-view>
+</swiper-item>
+</swiper>
+
+>>>>>>> master

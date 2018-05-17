@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/customerService/customerService.wxss */
 .customer_problem{
     width: 100%;
@@ -7,4 +8,15 @@
     width:calc(100% - 68rpx);
     text-align: right;
     padding: 0 34rpx; 
+=======
+/* pages/customerService/customerService.wxss */
+.customer_problem{
+    width: 100%;
+    padding: 30rpx 34rpx;
+}
+.tel{
+    width:calc(100% - 68rpx);
+    text-align: right;
+    padding: 0 34rpx; 
+>>>>>>> master
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/myCoupon/myCoupon.wxss */
 page{
     width: 100%;
@@ -142,4 +143,150 @@ page>view{
 
 .action text {
   color:#fea400;
+=======
+/* pages/myCoupon/myCoupon.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    font-size:14px;
+    background-color:#f5f5f5;
+}
+swiper {
+  min-height: 1200rpx;
+}
+page>view{
+      box-sizing: border-box;
+      width: 100%;
+     height: calc(100% - 42px);
+     overflow-y: auto;
+}
+.warp>scroll-view{
+      box-sizing: border-box;
+      height: 100%;
+      padding-top: 10px;
+}
+/*选项卡样式*/
+.shopNo{
+    margin-top: 80px;
+    float: none;
+    color: #999;
+    text-align: center;
+    font-size: 16px;
+}
+.shopNo image{
+      width: 256rpx;
+      height: 220rpx;
+      display: block;
+      margin: 0 auto 22rpx;
+
+}
+.scroll-view {
+    width: 100%;
+    background: #fff;
+    white-space: nowrap;
+    background: #fff;
+}
+.scroll_warp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab-beset {
+    width: 20% ;
+    /* float: left; */
+    padding: 5px 10px;
+}
+.tab-text {
+    display: block;
+    width: 100%;
+    line-height: 30px ;
+    color: #666;
+    text-align: center;
+}
+.active {
+    border-bottom:2px #ff5429 solid ;
+    color: #43964e;
+}
+
+/*列表内容样式*/
+
+.outContainer {
+  width: 750rpx;
+}
+.coupOrder{
+  margin:30rpx 34rpx;
+  padding-bottom: 35rpx;
+  padding-top: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.coupOrder>view{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.mealInfo{
+    margin-bottom: 10rpx;
+}
+.mealInfo>view{
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.mealInfo>text{
+  font-size: 15px;
+  color: #000;
+}
+.priceInfo{
+    margin-bottom: 10rpx;
+}
+.discountPrice{
+  font-size: 15px;
+  color: #333;
+  margin-right: 20rpx;
+}
+.oriPrice{
+  text-decoration: line-through;
+  color: #979797;
+  font-size: 12px;
+  margin-right: 20rpx;
+}
+.discount{
+  border:#fcaa01 1rpx solid;
+  border-radius: 10rpx;
+  font-size: 13px;
+  color: #fcaa01;
+  padding:5rpx 10rpx;
+}
+.imgInfo{
+    margin: 0 32rpx 0 24rpx;
+}
+.imgInfo>image{
+  height: 106rpx;
+  width: 106rpx;
+  border-radius: 10rpx;
+}
+.saleInfo>text{
+    color: #6e6e6e;
+    font-size: 13px;
+}
+.couponInfo>image{
+    width: 155rpx;
+    height: 118rpx;
+    margin-right:36rpx; 
+}
+
+.action {
+  border-bottom:6rpx solid #fea400;
+}
+
+.action text {
+  color:#fea400;
+>>>>>>> master
 }

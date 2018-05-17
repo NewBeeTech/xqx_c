@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/homePage/homePage.wxss */
 page{
     border-top: solid 1rpx #e4e4e4;
@@ -298,3 +299,305 @@ width: 50%;
   color: #F3B357;
 }
 
+=======
+/* pages/homePage/homePage.wxss */
+page{
+    border-top: solid 1rpx #e4e4e4;
+    height: 1160rpx;
+ 
+}
+.container {
+  height: 1160rpx;
+}
+.wrapSroll{
+    /* height: 100%; */
+    height: 1160rpx;
+}
+
+.fixed {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top:0;
+  z-index: 999;
+  /* background: white; */
+}
+
+/* .top {
+  top:44rpx;
+} */
+.nor {
+  position: static;
+  top:0;
+  width: 100%;
+  z-index: 999;
+  /* background: white; */
+}
+
+
+.Input{
+    padding: 15rpx 32rpx;
+    background: #f0f0f0;
+    /* margin-bottom: 15rpx; */
+}
+.Input>view{
+    height: 57rpx;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8rpx;
+}
+.Input>view>icon{
+    margin: 0 14rpx 0 38rpx;
+}
+
+.Swipr{
+    height: 345rpx;
+    border-bottom: solid 15rpx #f0f0f0;
+}
+.Swipr image{
+    width: 100%;
+    height: 100%;
+}
+
+.nav{
+    /* background: #f0f0f0; */
+    /* padding: 15rpx 0; */
+    white-space: nowrap;
+}
+.nav view{
+    width: calc((100% - 80rpx) / 4);
+    height: 150rpx;
+    text-align: center;
+    background: #fff;
+    display: inline-block;
+
+}
+.nav view>image{
+    width: 70rpx;
+    height: 70rpx;
+    margin-top: 16rpx;
+}
+.nav view>text{
+    font-size: 14px;
+    color: #3a3a3a;
+    display: block;
+    font-weight: bold;
+}
+
+.Swipr2{
+    height: 190rpx;
+    border-top: solid 15rpx #f0f0f0;
+    border-bottom: none;
+}
+
+.Yh{
+    border-top: solid 15rpx #f0f0f0;
+    border-bottom: solid 15rpx #f0f0f0;
+    height: 220rpx;
+    display: flex;
+    align-items: center;
+}
+.Yh_box{
+    position: relative;
+    width: 327rpx;
+    height: 175rpx;
+    margin-left: 33.5rpx;
+    
+}
+.Yh_box>image{
+    width: 100%;
+    height: 100%;
+}
+.Yh_box>view{
+    position: absolute;
+    left: 30rpx;
+    top: 0;
+    color: #fff;
+}
+.Yh_box>view>view{
+    font-size: 17px;
+    margin-top: 50rpx;
+    font-weight: bold;
+}
+.Yh_box>view>text{
+    font-size: 10px;
+    margin-top: 18rpx;
+}
+
+
+.cont_title{
+     height: 92rpx; 
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1rpx #dadada;
+    background: white;
+    width: 100%;
+}
+
+.cont {
+    position: relative;  
+}
+
+.cont_title>view{
+    width: 50%;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont_title>view:nth-child(1){
+    border-right: solid 1rpx #c7c7c7;
+    
+}
+.cont_title>view>image{
+    width: 24rpx;
+    height: 14rpx;
+}
+.cont_title>view>text{
+    font-size: 13px;
+    color: #242424;
+    margin-right: 12rpx;
+}
+.cont_title_deg{
+    transform: rotate(180deg)
+}
+
+.scroll{
+    height: 100%;
+    transition: all 500s;
+}
+.list{
+    /* height: 300rpx; */
+    width: calc(100% - 70rpx);
+    border-bottom: solid 1rpx #dadada;
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 48rpx;
+}
+.list>image{
+  display: block;
+    width: 294rpx;
+    height: 165rpx;
+    border-radius: 8rpx;
+    margin: 48rpx 40rpx 0 0;
+}
+.list_box{
+    margin-top: 48rpx;
+    width: calc(100% - 340rpx);
+}
+.list_box_name{
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list_box_btn{
+    display: flex;
+    margin-top: 30rpx;
+}
+.list_box_btn>view{
+    width: 114rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border-radius: 6rpx;
+    background: #fea400;
+    color: #fff;
+    font-size: 11.5px;
+}
+.list_box_btn>view:nth-child(1){
+    margin-right: 18rpx;
+    background: #1a2e38;
+}
+.list_box_y{
+    font-size: 13px;
+    color: #6e6e6e;
+    margin-top: 30rpx;
+    line-height: 13px;
+}
+.list_box_j{
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+.list_box_j>view{
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border: solid 1rpx #fea400;
+    color: #fea400;
+    border-radius: 6rpx;
+    font-size: 13px;
+    margin-right: 10rpx;
+}
+.list_box_j>text{
+    color: #6d6d6d;
+    font-size: 13px;
+}
+.list_box_j_l{
+    margin-right: 55rpx;
+}
+
+.scrollNo{
+    text-align: center;
+    color: #989898;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx;
+    display: block;
+    margin: 100rpx auto 50rpx;
+}
+
+.Popup{
+    position: absolute;
+    left: 0;
+    top: 90rpx;
+    width: 100%;
+    height: 1500rpx;
+    z-index: 999;
+    border-top: 1rpx solid #c7c7c7;
+    background: rgba(122,122,122,0.7);
+}
+.right_container .Popup_box_scroll{
+  height: 190rpx;
+}
+.Popup_box{
+    overflow: hidden;
+}
+.Popup_box_scroll{
+    height: 460rpx;
+    width: 100%;
+    float: left;
+    background: #fff;
+}
+
+.left_container .Popup_box_scroll{
+width: 50%;
+}
+
+.Popup_box_left,.Popup_box_right{
+    font-size: 15px;
+    border-bottom: 1rpx solid #c7c7c7;
+}
+.Popup_box_left>view,.Popup_box_right>view{
+    height: 92rpx;
+    line-height: 92rpx;
+    margin-left: 80rpx;
+}
+
+
+.Popup_ba{
+  border-bottom: 1rpx solid #F3B357;
+  color: #F3B357;
+}
+.Popup_co{
+    border-bottom: 1rpx solid #F3B357;
+  color: #F3B357;
+}
+
+>>>>>>> master

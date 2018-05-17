@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 {
     "navigationBarTitleText": "附近商户",
     "enablePullDownRefresh": true
+=======
+{
+    "navigationBarTitleText": "附近商户",
+    "enablePullDownRefresh": true
+>>>>>>> master
 }
