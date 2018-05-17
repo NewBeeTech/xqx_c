@@ -13,6 +13,7 @@ Page({
         windowHeight: 1200,
         Popup_inde: 0,
         Popup_inde2: 0,
+        Popup_inde3: 0,
         PopupIf: false,
         unionidPopupIf: false,
         name: '',
@@ -26,10 +27,12 @@ Page({
         Popup_index_right: 0,
         types: "全部分类",
         orderType: "智能排序",
+        peisongType: "配送方式",
         superID: 0,
         goods: [],
         a1:'',
         a2:'',
+        a3:'',
         imgURL: '',
         topPic: {},
         hasMore: true
@@ -51,6 +54,7 @@ Page({
         Popup_inde2: 0,
         PopupIf: false,
         unionidPopupIf: false,
+        peisongPopupIf: false,
         name: '',
         windowHeight: '',
         list: [],
@@ -129,7 +133,8 @@ Page({
         console.log("....");
         this.setData({
             PopupIf: false,
-            unionidPopupIf: false
+            unionidPopupIf: false,
+            peisongPopupIf: false,
         })
     },
     //筛选点击
@@ -187,6 +192,7 @@ Page({
                     positionType: "fixed",
                     PopupIf: false,
                     unionidPopupIf: false,
+                    peisongPopupIf: false,
                     paddingTop: 92 + 15
                 });
             }
@@ -196,6 +202,7 @@ Page({
                     positionType: "nor",
                     PopupIf: false,
                     unionidPopupIf: false,
+                    peisongPopupIf: false,
                     paddingTop: 0
                 });
             }
@@ -211,6 +218,7 @@ Page({
     returnType: function () {
         this.setData({
             unionidPopupIf: false,
+            peisongPopupIf: false,
             PopupIf: false
         })
     },
@@ -218,6 +226,7 @@ Page({
     shTap: function () {
         this.setData({
             unionidPopupIf: false,
+            peisongPopupIf: false,
             PopupIf: !this.data.PopupIf
         })
         if (this.data.positionType === "fixed") {
@@ -230,8 +239,16 @@ Page({
     unionidTap: function () {
         this.setData({
             PopupIf: false,
-            unionidPopupIf: !this.data.unionidPopupIf
+            unionidPopupIf: !this.data.unionidPopupIf,
+            peisongPopupIf: false,
         })
+    },
+    peisongTap() {
+      this.setData({
+          PopupIf: false,
+          unionidPopupIf:  false,
+          peisongPopupIf: !this.data.peisongPopupIf,
+      });
     },
     //筛选点击**
     PopupBoxLeft: function (e) {
@@ -257,6 +274,7 @@ Page({
         this.loadData(1 ,true ).then(function () {
             self.setData({
                 PopupIf: !self.data.PopupIf,
+                peisongPopupIf: false,
                 unionidPopupIf: false
             });
         });
@@ -278,11 +296,40 @@ Page({
         this.loadData(1  ,true ).then(function () {
             self.setData({
                 PopupIf: false,
+                peisongPopupIf: false,
                 unionidPopupIf: !self.data.unionidPopupIf
             });
         });
         this.unionidTap()
 
+    },
+    PopupBoxPeisong: function (e) {
+
+        wx.showLoading({
+            title: '加载中',
+        })
+        this.setData({
+            // PopupIf: false,
+            // unionidPopupIf: false,
+            // peisongPopupIf: !self.data.peisongPopupIf,
+            Popup_inde3: e.currentTarget.dataset.index,
+            peisongType: e.currentTarget.dataset.name
+        })
+        var self = this;
+        this.data.a3 = e.currentTarget.dataset.id
+        this.loadData(1  ,true ).then(function () {
+            self.setData({
+                PopupIf: false,
+                unionidPopupIf: false,
+                peisongPopupIf: !self.data.peisongPopupIf,
+            });
+        });
+        // this.unionidTap()
+        this.setData({
+          PopupIf: false,
+          unionidPopupIf: false,
+          peisongPopupIf: !self.data.peisongPopupIf,
+        })
     },
 
     /**
@@ -325,11 +372,13 @@ Page({
     loadData: function (page, sf) {
         var intPara = this.data.a1;
         var intPara2 = this.data.a2;
+        var intPara3 = this.data.a3;
         var self = this;
         return new Promise(function (success, fail) {
             var config = { page: page, rows: 10, token: wx.getStorageSync('token') };
             if (intPara) { config.intPara = intPara }
             if (intPara2) { config.intPara2 = intPara2 }
+            if (intPara3) { config.intPara3 = intPara3 }
             appData.Tool.getGoodsGroupBuyListXCX(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {

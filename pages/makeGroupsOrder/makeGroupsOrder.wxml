@@ -23,7 +23,7 @@
                     <view>
                         <text class='symbol'>￥</text>{{item.group_price}}<text class='original_price'>￥{{item.price}}</text>
                     </view>
-                    <view class='fight_group'>砍价</view>
+                    <view class='fight_group'>拼团</view>
                 </view>
             </view>
         </view>
