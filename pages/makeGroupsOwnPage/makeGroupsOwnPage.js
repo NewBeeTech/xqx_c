@@ -164,7 +164,7 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '/pages/MyBargain/MyBargain'
+        url: '/pages/makeGroupsMy/makeGroupsMy'
     })
   },
   goBargainRule: function () {

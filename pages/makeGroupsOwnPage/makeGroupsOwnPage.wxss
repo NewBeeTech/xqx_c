@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 10rpx solid #eee;
+  /* border-bottom: 10rpx solid #eee; */
   padding-bottom: 30rpx;
 }
 
@@ -69,8 +69,11 @@
 
 .bargin_share_btn {
   width: 464rpx;
-  background-color: #f39800;
-  border: 1px solid #fff;
+  height: 70rpx;
+  line-height: 70rpx;
+  /* background-color: #f39800; */
+  background:linear-gradient(-90deg,rgba(250,205,39,1),rgba(244,159,17,1));
+  border-radius: 70rpx;
   color: #fff;
   font-size: 30rpx;
   font-weight: bold;
@@ -294,4 +297,23 @@
   line-height: 1.75;
   letter-spacing: 0.5rpx;
   color: #6e6e6e;
+}
+.makeGroups_info {
+  margin: 0 30rpx;
+  padding: 30rpx 0rpx;
+  width:690rpx;
+  /* height:164rpx; */
+  background:rgba(255,255,255,1);
+  /* box-shadow: 0px 0px 12rpx 0px rgba(219,221,225,0.8) */
+  box-shadow: 0 0 1em #ccc;
+  border-radius: 16rpx ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.makeGroups_info-desc {
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:37rpx;
 }
