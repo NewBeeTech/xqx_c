@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 51,
+			"current": 49,
 			"list": [
 				{
 					"id": 0,
@@ -332,7 +332,7 @@
 					"id": 49,
 					"name": "拼团支付详情",
 					"pathName": "pages/makeGroupsOwnPage/makeGroupsOwnPage",
-					"query": "id=4225"
+					"query": "id=4226"
 				},
 				{
 					"id": -1,

@@ -26,6 +26,17 @@ page{
 .merchant {
   font-size: 32rpx;
   color: #666;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.deadLine {
+  height:37rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(244,159,17,1);
+  line-height:37rpx;
 }
 .wrap3>view:last-child{
     border: none;

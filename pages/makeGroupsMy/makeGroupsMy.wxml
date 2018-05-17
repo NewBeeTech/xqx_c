@@ -4,7 +4,9 @@
       <view wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="toBarginDetail">
         <view class="merchant" >
           <view>{{item.merchant_name}}</view>
-          <!-- <view>{{item.merchant_name}}</view> -->
+          <view class="deadLine" wx:if="{{item.groupStatus == 10}}">开团取消</view>
+          <view class="deadLine" wx:elif="{{item.groupStatus == 11}}">开团中</view>
+          <view class="deadLine" wx:elif="{{item.groupStatus == 12}}">开团中</view>
         </view>
         <view>
           <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
