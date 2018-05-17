@@ -111,48 +111,94 @@ Page({
           group_buy_id: that.data.group_buy_id,
           orderId: that.data.orderId
       };
-      console.log(obj);
-      appData.Tool.createGroupBuyXCX(obj).then(function (res) {
-          console.log(res)
-          wx.hideLoading();
-          if (!res.data){
-              wx.showToast({
-                  title: res.message,
-                  icon:'none'
-              })
-              return
-          };
+      if (that.data.group_buy_id) {  // 参团
+        console.warn('参团');
+        appData.Tool.joinGroupBuyXCX(obj).then(function (res) {
+            console.log(res)
+            wx.hideLoading();
+            if (!res.data){
+                wx.showToast({
+                    title: res.message,
+                    icon:'none'
+                })
+                return
+            };
 
-          if (res.data.package) {
-              wx.requestPayment({
-                  timeStamp: res.data.timeStamp,
-                  nonceStr: res.data.nonceStr,
-                  package: res.data.package,
-                  signType: res.data.signType,
-                  paySign: res.data.paySign,
-                  success:function(e){
-                    console.log(e);
-                      wx.showToast({
-                          title: '支付成功',
-                          complete:function(){
-                              wx.redirectTo({
-                                url: '/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=' + res.data.orderId
-                              })
-                          }
-                      })
-                  },
-                  fail: function (er) {
-                      console.log(er)
-                      wx.showToast({
-                          title:'支付失败'
-                      })
-                  },
-              })
-          }
-      }).catch(function (err) {
-          wx.hideLoading();
-          console.log(err)
-      });
+            if (res.data.package) {
+                wx.requestPayment({
+                    timeStamp: res.data.timeStamp,
+                    nonceStr: res.data.nonceStr,
+                    package: res.data.package,
+                    signType: res.data.signType,
+                    paySign: res.data.paySign,
+                    success:function(e){
+                      console.log(e);
+                        wx.showToast({
+                            title: '支付成功',
+                            complete:function(){
+                                wx.redirectTo({
+                                  url: '/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=' + res.data.orderId
+                                })
+                            }
+                        })
+                    },
+                    fail: function (er) {
+                        console.log(er)
+                        wx.showToast({
+                            title:'支付失败'
+                        })
+                    },
+                })
+            }
+        }).catch(function (err) {
+            wx.hideLoading();
+            console.log(err)
+        });
+
+      } else { // 开团
+        console.warn('开团');
+        appData.Tool.createGroupBuyXCX(obj).then(function (res) {
+            console.log(res)
+            wx.hideLoading();
+            if (!res.data){
+                wx.showToast({
+                    title: res.message,
+                    icon:'none'
+                })
+                return
+            };
+
+            if (res.data.package) {
+                wx.requestPayment({
+                    timeStamp: res.data.timeStamp,
+                    nonceStr: res.data.nonceStr,
+                    package: res.data.package,
+                    signType: res.data.signType,
+                    paySign: res.data.paySign,
+                    success:function(e){
+                      console.log(e);
+                        wx.showToast({
+                            title: '支付成功',
+                            complete:function(){
+                                wx.redirectTo({
+                                  url: '/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=' + res.data.orderId
+                                })
+                            }
+                        })
+                    },
+                    fail: function (er) {
+                        console.log(er)
+                        wx.showToast({
+                            title:'支付失败'
+                        })
+                    },
+                })
+            }
+        }).catch(function (err) {
+            wx.hideLoading();
+            console.log(err)
+        });
+      }
   },
   /**
    * 生命周期函数--监听页面加载

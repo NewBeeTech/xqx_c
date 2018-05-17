@@ -178,6 +178,10 @@ Default.OPERATE_PERSON_ADDRESS = "xcxgroupbuy/operatePersonAddress";
  * 确认一键开团/参团
  */
 Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuy";
+/**
+ * 确认一键开团/参团
+ */
+Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
 
 /**
  * 获取用户拼团订单列表
@@ -235,5 +239,8 @@ Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
 // 砍价确认支付
 Default.BARGAINS_PAY = "xcxcutprice/createWeChatPayXCX";
+
+// 拼团 获取商户分类
+Default.GETGOODSCATELOG = "xcxgroupbuy/getGoodsCatelog";
 
 module.exports = Default;

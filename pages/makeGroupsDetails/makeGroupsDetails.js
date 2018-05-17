@@ -169,7 +169,7 @@ Page({
           //   duration: 1000,
           // });
           wx.navigateTo({
-            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+self.data.id+'&create_person_id='+group_buy_id+'&create_person_id='+create_person_id,
+            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+self.data.id+'&group_buy_id='+group_buy_id+'&create_person_id='+create_person_id,
           });
         }
     })

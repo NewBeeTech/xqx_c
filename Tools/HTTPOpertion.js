@@ -20,6 +20,10 @@ HTTPOpertion.getTopPics = function (parm) {
   return HttpManager.post(Default.HOST + Default.GET_TOP_PICS, parm);
 }
 
+HTTPOpertion.getGoodsCatelog = function (parm) {
+  return HttpManager.post(Default.HOST + Default.GETGOODSCATELOG, parm);
+}
+
 /**
  * 首页
  *
@@ -498,6 +502,11 @@ HTTPOpertion.createGroupBuyXCX = function (parm) {
     return HttpManager.post(Default.HOST + Default.CREATE_GROUP_BUY, parm || {});
 
 };
+HTTPOpertion.joinGroupBuyXCX = function (parm) {
+    return HttpManager.post(Default.HOST + Default.JOIN_GROUP_BUY, parm || {});
+
+};
+
 /**
 token	String	是
 page	Integer	是	页码
