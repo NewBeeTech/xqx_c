@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 46,
+			"current": 49,
 			"list": [
 				{
 					"id": 0,
@@ -329,9 +329,15 @@
 					"query": "id=4218"
 				},
 				{
-					"id": -1,
+					"id": 49,
 					"name": "拼团支付详情",
 					"pathName": "pages/makeGroupsOwnPage/makeGroupsOwnPage",
+					"query": "id=4225"
+				},
+				{
+					"id": -1,
+					"name": "我的拼团",
+					"pathName": "pages/makeGroupsMy/makeGroupsMy",
 					"query": "id=4219"
 				}
 			]

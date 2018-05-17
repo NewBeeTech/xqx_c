@@ -109,3 +109,42 @@ page{
   font-size: 32rpx;
   color: #858585;
 }
+.wrap3_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.group_person_num {
+  padding: 0 10rpx;
+  height:27rpx;
+  border-radius: 17rpx ;
+  border: 1rpx solid #FE6100;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(254,97,0,1);
+  line-height:19rpx;
+  margin-right: 10rpx;
+}
+.group_num {
+  height:33rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:33rpx;
+}
+.group_price {
+  height:30rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(244,159,17,1);
+  line-height:30rpx;
+  margin-right: 10rpx;
+}
+.price {
+  height:24rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:24rpx;
+  text-decoration: line-through;
+}

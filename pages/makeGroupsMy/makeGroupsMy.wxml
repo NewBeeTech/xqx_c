@@ -1,24 +1,41 @@
 <view class="bargin_bg">
   <scroll-view class="bargin_list" scroll-y="true" bindscroll='pageScroll' bindscrolltolower='shjiaz'>
     <view class='wrap3'>
-      <view wx:for='{{list}}' wx:key='{{index}}'>
-        <view class="merchant" data-id='{{item.id}}' bindtap="toBarginDetail">
-          {{item.merchant_name}}
+      <view wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="toBarginDetail">
+        <view class="merchant" >
+          <view>{{item.merchant_name}}</view>
+          <!-- <view>{{item.merchant_name}}</view> -->
         </view>
         <view>
-          <image data-id='{{item.id}}' bindtap="toBarginDetail" class='wrap3_img' src='{{item.img_url}}'></image>
-          <view class='wrap3_box' data-id='{{item.id}}' bindtap="toBarginDetail">
+          <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
+          <view class='wrap3_box'>
             <view class='wrap3_box_name'>{{item.name}}</view>
-            <view class="timer">
-              <view>{{ wxTimerList['wxTimer'+item.id].wxTimerHour }}</view><text>:</text>
-              <view>{{ wxTimerList['wxTimer'+item.id].wxTimerMin }}</view><text>:</text>
-              <view>{{ wxTimerList['wxTimer'+item.id].wxTimerSecond }}</view>
-              后结束
+            <view class="make_group_info">
+              <view>
+                <view>
+                  <text class="group_person_num">{{item.max_num}}人团</text>
+                  <text class="group_num">已团{{item.hasSaleNum}}件</text>
+                </view>
+                <view class='wrap3_box_ewj'>奖励：{{ item.currency / 100.0 }}小金</view>
+                <view>
+                  <text class="group_price">￥{{item.group_price / 100.0}}</text>
+                  <text class="price">￥{{item.price / 100.0}}</text>
+                </view>
+              </view>
+              <!-- <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去拼团</view> -->
             </view>
-            <view class='wrap3_box_ewj'>距离最低购买价</view>
-            <view class='wrap3_box_jig'>
-              还差 <text> {{ item.chazhi }} </text> 元
+            <!-- <view class="price-detail">
+              <view class='price-detail-number'>
+                <view>
+                  <text>原价：￥</text>{{item.price / 100.0}}
+                </view>
+                <view class='wrap3_box_ewj'>额外奖励：{{ item.currency / 100.0 }}小金</view>
+              </view>
             </view>
+            <view class='wrap3_box_shl'>
+              <view>{{item.low_price_num}}人已{{ item.group_price / 100.0 }}元拿</view>
+              <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去砍价</view>
+            </view> -->
           </view>
           <view wx:if="{{item.now_price > item.group_price}}" class='wrap3_btn' bindtap='toBarginOwn' data-id='{{item.goods_group_id}}'>继续砍价</view>
           <view wx:if="{{item.now_price <= item.group_price && item.order_state == 0}}" class='wrap3_btn' bindtap='toPayment' data-id='{{item.id}}'>立即支付</view>

@@ -68,7 +68,7 @@ Page({
     this.setData({
       wxTimerList: {}
     })
-    // this.loadData(this.data.id);
+    this.loadData(this.data.id);
   },
   loadData: function (id) {
     var self = this;
@@ -143,8 +143,8 @@ Page({
       console.log('intPara:', this.data.barginOwnData.group_buy_id);
     const self = this;
     return {
-      title: '砍价',
-      path: `/pages/bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
+      title: '拼团',
+      path: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({

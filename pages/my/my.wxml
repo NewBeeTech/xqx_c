@@ -36,7 +36,7 @@
         <view class="warp_sub clearBorder" bindtap='wdyhTap'>
             <view class='leftIcon'>
                 <image class='arrow sub_icon' src='https://activity.denong.com/myCoupon.png'></image>
-                <view class="sub_tit">我的订单</view>
+                <view class="sub_tit">我的砍价订单</view>
             </view>
             <view class='arrowOnfo'>
                 <!-- <text class='priceInfo'>未开户</text> -->

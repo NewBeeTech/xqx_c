@@ -1,17 +1,55 @@
-<import src="../../components/bargainGoodsInfo/bargainGoodsInfo.wxml"/>
+<!-- <import src="../../components/bargainGoodsInfo/bargainGoodsInfo.wxml"/> -->
 <import src="../../components/barginUserList/barginUserList.wxml"/>
 
 <view class="own-content">
-  <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" />
+  <!-- <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" /> -->
+  <view class="bargain_content" bindtap="navToGoodDetail">
+    <!-- <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
+    <view class='wrap3_box'>
+      <view class='wrap3_box_name'>{{item.name}}</view>
+      <view class="make_group_info">
+        <view>
+          <view>
+            <text class="group_person_num">{{item.group_person_num}}人团</text>
+            <text class="group_num">已团{{item.group_num}}件</text>
+          </view>
+          <view class='wrap3_box_ewj'>奖励：{{ item.currency / 100.0 }}小金</view>
+          <view>
+            <text class="group_price">￥{{item.group_price / 100.0}}</text>
+            <text class="price">￥{{item.price / 100.0}}</text>
+          </view>
+        </view>
+        <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去拼团</view>
+      </view>
+    </view> -->
+     <view class="bargain_portrait">
+        <view class="bargain_portrait1"><image src="{{ barginOwnData.userPortrait }}"/></view>
+        <view class="bargain_portrait2"> {{ barginOwnData.userName }}</view>
+     </view>
+     <view class="bargain_good_info">
+       <view class="bargain_img"><image src="{{ barginOwnData.img_url }}"/></view>
+       <view class="bargain_right_info">
+          <view class="bargain_right_name">{{ barginOwnData.name }}</view>
+          <view class="bargain_detail">查看详情 > </view>
+          <view  class="bargain_right_money">
+             <view  class="bargain_right_money3">
+               <span class="bargain_right_money1">¥</span>{{ barginOwnData.price / 100  }}
+             </view>
+             <view class="bargain_right_money2">{{  barginOwnData.low_price_num }}人已{{ barginOwnData.group_price / 100 }}元拿</view>
+           </view>
+          <view class="bargain_right_money4">砍价购买成功额外奖励{{ barginOwnData.currency / 100}}小金</view>
+      </view>
+    </view>
+  </view>
   <view class="bargin_own_info">
+    <view class="bargin_own_info3">剩余3人拼成，{{ wxTimerList['wxTimer1'].wxTimer }}后结束</view>
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ (barginOwnData.price - barginOwnData.now_price) / 100 }}</span>元  还差<span class="bargin_own_info2">{{ (barginOwnData.now_price -  barginOwnData.group_price) / 100 }}</span>元</view>
     <button bindtap="navToGoodDetail" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:if="{{ deadTime > nowTime && barginOwnData.now_price <= barginOwnData.group_price }}">砍价成功，去支付</button>
     <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn" wx:elif="{{ deadTime > nowTime }}">喊朋友砍一刀</button>
     <button class="bargin_share_btn" wx:else>已结束</button>
-    <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>
   <view class="bargain_own_list">
-    <template is="bargainUserList" data="{{ cutList: barginOwnData.cutList }}"/>
+    <view>拼团须知：好友参团，人满发货，人不满退款</view>
   </view>
   <view class='bottomBtn'>
       <view class='backHome' bindtap='backHome'>
@@ -19,31 +57,7 @@
           <view>首页</view>
       </view>
       <view class='bargainBtn' bindtap='myBargainList'>
-          我的砍价商品
+          我的拼团商品
       </view>
-  </view>
-  <!-- 弹窗 -->
-  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal && barginOwnData.showFlag != 1 }}"></view>
-  <!-- <view class="modal-dialog" wx:if="{{showModal && barginOwnData.showFlag != 1 }}">
-     <view class="modal-close-img" bindtap="hideModal"><image src="{{ closeIcon }}"/></view>
-     <view class="modal-dialog-content">
-         <view class="modal-user-img"><image src="{{ barginOwnData.userPortrait }}"/></view>
-         <view class="modal-dialog-text">您已经砍{{ barginOwnData.cut_price / 100.0  || 0}} 元，听说分享次数越多，砍价成功的机会越大～</view>
-         <button bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="modal-dialog-button">分享到群，成功几率更大哦～</button>
-     </view>
-  </view> -->
-  <view class="modal-mask" bindtap="hideRuleModal" catchtouchmove="preventTouchMove" wx:if="{{showRuleModal}}"></view>
-  <view class="modal-dialog modal-dialog-rule" wx:if="{{showRuleModal}}">
-     <view class="modal-close-img" bindtap="hideRuleModal"><image src="{{ closeIcon }}"/></view>
-     <view class="rule">
-       <view class="rule-title">活动规则</view>
-       <view>1、邀请好友一起砍价。最低砍价到0元免费领取商品；</view>
-       <view>2、对于同一个砍价，只能砍价一次；</view>
-       <view>3、每次砍价金额随机，参与好友越多越容易成功；</view>
-       <view>4、下载并注册APP，得3元养老金，砍价加倍，砍价更容易成功。</view>
-       <view>5、每天最多可以帮助三个好友砍价；</view>
-       <view>6、砍价完成后需三天内在砍价页完善收货信息，逾期失效；</view>
-       <view>7、小确幸可在法律法规允许范围内对活动规则作出解释</view>
-     </view>
   </view>
 </view>

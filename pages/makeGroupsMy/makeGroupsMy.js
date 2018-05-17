@@ -29,7 +29,7 @@ Page({
   toBarginDetail: function (e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
-        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+        url: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?id=${id}`,
     })
   },
   toPayment: function (e) {

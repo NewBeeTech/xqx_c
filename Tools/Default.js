@@ -187,7 +187,7 @@ Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 /**
  * 获取用户拼团订单列表
  */
-Default.GET_GROUP_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getGoodsGroupOrderListXCX";
+Default.GET_GROUP_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getMyGroupGoods";
 
 /**
  * 获取拼团订单详情
