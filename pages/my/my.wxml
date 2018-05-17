@@ -43,6 +43,16 @@
                 <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
             </view>
         </view>
+        <view class="warp_sub clearBorder" bindtap='wdyhGroupTap'>
+            <view class='leftIcon'>
+                <image class='arrow sub_icon' src='https://activity.denong.com/myCoupon.png'></image>
+                <view class="sub_tit">我的拼团订单</view>
+            </view>
+            <view class='arrowOnfo'>
+                <!-- <text class='priceInfo'>未开户</text> -->
+                <image src="https://activity.denong.com/right_arrow.png" class="sub_right arrow"></image>
+            </view>
+        </view>
         <!-- <view class='wrap_colorT'></view> -->
         <!-- <view class='line'></view> -->
         <!-- <view class="warp_sub clearBorder" bindtap='yqTap'> -->

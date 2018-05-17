@@ -78,6 +78,12 @@ Page({
             url: '../wholeOrder/wholeOrder',
         })
     },
+    //我的订单
+    wdyhGroupTap: function () {
+        wx.navigateTo({
+            url: '/pages/makeGroupsOrder/makeGroupsOrder',
+        })
+    },
     //邀请奖励
     yqTap: function () {
         wx.navigateTo({
