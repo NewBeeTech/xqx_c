@@ -54,7 +54,7 @@
         <view class='Popup right_container' wx:if='{{peisongPopupIf}}'>
           <view class='Popup_box'>
             <scroll-view class='Popup_box_scroll' scroll-y='true'>
-              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "邮寄",id: 1 }, { name: "到店自取", id: 2 }]}}' wx:key='{{index}}' bindtap='PopupBoxPeisong' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "全部",id: 0 },{ name: "邮寄",id: 1 }, { name: "到店自取", id: 2 }]}}' wx:key='{{index}}' bindtap='PopupBoxPeisong' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
                 <view>{{item.name}}</view>
               </view>
             </scroll-view>

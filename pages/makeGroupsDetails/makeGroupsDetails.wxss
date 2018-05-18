@@ -352,3 +352,11 @@ margin: 0 26rpx 0 34rpx;
   text-align: center;
   border-radius: 8rpx;
 }
+.beginBtn_lef_btn {
+  background: rgba(0,0,0,0);
+  color: #fff;
+  border: 0;
+}
+button::after{
+  border: 0;
+}

@@ -41,6 +41,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      this.getGoodsCatelog();
 
     },
     onShow: function() {
@@ -77,7 +78,39 @@ Page({
       this.loadMainData();
       this.loadData(1);
     },
+    getGoodsCatelog: function() {
+      const that = this;
+      appData.Tool.getGoodsCatelog({}).then(function (result) {
+          console.log('getGoodsCatelog result', result);
+          var temp = [{ name: "全部", id: 0 }].concat(result.data);
+          that.setData({
+            typeList: temp,
+          });
+          // var temp = [{ name: "全部", id: 0 }].concat(result.data.catalogList);
+          //
+          // let topPics = result.data.topPics;
+          // topPics = topPics && topPics.filter(item => item.activity_type == 1);
+          // const topPic = topPics && topPics[0];
+          // const imgURL = topPics && topPics[0] && topPics[0].img_url;
+          // self.setData({
+          //     subList: [{ name: "不限", id: null }],
+          //     obj: result.data,
+          //     list: result.data.merchantList,
+          //     typeList: temp,
+          //     topPic,
+          //     imgURL,
+          // });
+          // // self.data.typeList.unshift({name:"全部",id:0});
+          // console.log(self.data.typeList);
+          // wx.hideLoading();
+          // wx.stopPullDownRefresh();
+      }).catch(function (error) {
+              // console.log(error);
+              // wx.hideLoading();
+              // wx.stopPullDownRefresh()
+          });
 
+    },
     loadMainData: function () {
         wx.showLoading({
             title: '加载中'
@@ -97,12 +130,12 @@ Page({
                 subList: [{ name: "不限", id: null }],
                 obj: result.data,
                 list: result.data.merchantList,
-                typeList: temp,
+                // typeList: temp,
                 topPic,
                 imgURL,
             });
             // self.data.typeList.unshift({name:"全部",id:0});
-            console.log(self.data.typeList);
+            // console.log(self.data.typeList);
             wx.hideLoading();
             wx.stopPullDownRefresh();
         }).catch(function (error) {
@@ -375,9 +408,15 @@ Page({
         var intPara3 = this.data.a3;
         var self = this;
         return new Promise(function (success, fail) {
-            var config = { page: page, rows: 10, token: wx.getStorageSync('token') };
+            var config = { page: page, rows: 10, token: wx.getStorageSync('token'), areaId: wx.getStorageSync('city') };
             if (intPara) { config.intPara = intPara }
-            if (intPara2) { config.intPara2 = intPara2 }
+            if (intPara2) {
+              config.intPara2 = intPara2
+              if (intPara2 == 4) {
+                config.latitude = wx.getStorageSync('latitude');
+                config.longitude = wx.getStorageSync('longitude');
+              }
+            }
             if (intPara3) { config.intPara3 = intPara3 }
             appData.Tool.getGoodsGroupBuyListXCX(config).then(function (res) {
                 wx.hideLoading();

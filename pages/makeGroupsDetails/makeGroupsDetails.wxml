@@ -114,9 +114,10 @@
             <view>一键开团</view>
         </view>
     </view>
-    <view wx:elif="{{obj.infoStatus == 1}}" class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:elif="{{obj.infoStatus == 1}}" class='beginBtn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
-            <view>邀请好友拼团</view>
+          <button bindtap="onShareAppMessage" open-type="share" class='beginBtn_lef_btn' bindtap='mdTap'>邀请好友拼团</button>
+            <!-- <view>邀请好友拼团</view> -->
         </view>
     </view>
 </view>

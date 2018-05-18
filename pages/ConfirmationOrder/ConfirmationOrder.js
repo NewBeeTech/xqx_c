@@ -111,7 +111,7 @@ Page({
           group_buy_id: that.data.group_buy_id,
           orderId: that.data.orderId
       };
-      if (that.data.group_buy_id) {  // 参团
+      if (that.data.group_buy_id && that.data.group_buy_id != 'undefined') {  // 参团
         console.warn('参团');
         appData.Tool.joinGroupBuyXCX(obj).then(function (res) {
             console.log(res)
