@@ -201,6 +201,7 @@ Page({
       console.log(res);
       if (res.code == 0) {
         console.warn(res);
+        wx.token=res.data.token;
         res.data.token && wx.setStorageSync('token', res.data.token);
         // res.data.token && appData.Tool.saveToLocation("token", res.data.token);
         wx.reLaunch({
