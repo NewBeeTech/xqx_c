@@ -92,6 +92,7 @@ App({
       // tool.saveToLocation("session", res.session);
       res.userId && wx.setStorageSync('userId', res.userId);
       res.token && wx.setStorageSync('token', res.token);
+      wx.token=res.token;
       res.session && wx.setStorageSync('session', res.session);
       wx.getStorage({
         key: 'token',
