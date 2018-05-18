@@ -7,6 +7,7 @@ Default.HOST = "http://ccpp.denong.com/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
 
+Default.GETGOODSCATELOG = "xcxgroupbuy/getGoodsCatelog";
 Default.GET_TOP_PICS = "XCXmerchant/getTopPics";
 /**
  * 首页
@@ -154,10 +155,10 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
 /**
  *
- * 首页砍价列表
+ * 首页拼团列表
  *
  */
-// Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+Default.GOODS_GROUP_BUY_LIST1 = "xcxgroupbuy/getGoodsGroupBuyListXCX";
 /**
  * 开团
  * @type {String}

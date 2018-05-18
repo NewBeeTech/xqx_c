@@ -406,8 +406,15 @@ Page({
         var intPara2 = this.data.a2;
         var intPara3 = this.data.a3;
         var self = this;
+        const citybox = wx.getStorageSync('citybox');
+        const codeid = citybox && citybox.codeid;
         return new Promise(function (success, fail) {
-            var config = { page: page, rows: 10, token: wx.getStorageSync('token'), areaId: wx.getStorageSync('city') };
+            var config = {
+              page: page,
+              rows: 10,
+              token: wx.getStorageSync('token'),
+              areaId: codeid,
+            };
             if (intPara) { config.intPara = intPara }
             if (intPara2) {
               config.intPara2 = intPara2
@@ -417,7 +424,7 @@ Page({
               }
             }
             if (intPara3) { config.intPara3 = intPara3 }
-            appData.Tool.getGoodsGroupBuyListXCX(config).then(function (res) {
+            appData.Tool.getGoodsGroupBuyListXCX1(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
                   if (page === 1) {

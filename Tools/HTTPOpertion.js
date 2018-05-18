@@ -455,6 +455,13 @@ HTTPOpertion.getGoodsGroupBuyListXCX = function (parm) {
         .post(Default.HOST + Default.GOODS_GROUP_BUY_LIST, parm);
 
 }
+
+HTTPOpertion.getGoodsGroupBuyListXCX1 = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.GOODS_GROUP_BUY_LIST1, parm);
+
+}
+
 /**
  * token	String	是
  * page	Integer	是	页码
