@@ -41,10 +41,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getGoodsCatelog();
-
     },
     onShow: function() {
+      this.getGoodsCatelog();
       this.setData({
         page: 1,
         julIf: false,
