@@ -26,7 +26,7 @@ Page({
         typeList: [],
         Popup_index_right: 0,
         types: "全部分类",
-        orderType: "智能排序",
+        orderType: "排序",
         peisongType: "配送方式",
         superID: 0,
         goods: [],
@@ -65,7 +65,7 @@ Page({
         typeList: [],
         Popup_index_right: 0,
         types: "全部分类",
-        orderType: "智能排序",
+        orderType: "排序",
         superID: 0,
         goods: [],
         a1:'',
@@ -405,7 +405,7 @@ Page({
     loadData: function (page, sf) {
         var intPara = this.data.a1;
         var intPara2 = this.data.a2;
-        var intPara3 = this.data.a3;
+        var intPara4 = this.data.a3;
         var self = this;
         const citybox = wx.getStorageSync('citybox');
         const codeid = citybox && citybox.codeid;
@@ -424,7 +424,7 @@ Page({
                 config.longitude = wx.getStorageSync('longitude');
               }
             }
-            if (intPara3) { config.intPara3 = intPara3 }
+            if (intPara4) { config.intPara4 = intPara4 }
             appData.Tool.getGoodsGroupBuyListXCX1(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
