@@ -101,7 +101,7 @@ Page({
       };
       var obj ={
           cnd: that.data.cnd,
-          num: that.data.buyNum,
+          num: 1,
           money: that.data.groupInfo.group_price*100 * that.data.buyNum,
           merchant_id: that.data.groupInfo.merchant_id,
           ratio: that.data.groupInfo.ratio,
@@ -111,6 +111,9 @@ Page({
           group_buy_id: that.data.group_buy_id,
           orderId: that.data.orderId
       };
+      if (that.data.groupInfo.delivery_method == 2) {
+        obj.address_id = -1;
+      }
       if (that.data.group_buy_id && that.data.group_buy_id != 'undefined') {  // 参团
         console.warn('参团');
         appData.Tool.joinGroupBuyXCX(obj).then(function (res) {
