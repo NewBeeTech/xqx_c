@@ -154,10 +154,15 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
 /**
  *
- * 开团列表
+ * 首页砍价列表
  *
  */
-Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+// Default.GOODS_GROUP_BUY_LIST = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+/**
+ * 开团
+ * @type {String}
+ */
+Default.GOODS_GROUP_BUY_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
 
 /**
  * 获取拼团详情
@@ -196,7 +201,7 @@ Default.GET_GOODS_GROUP_ORDER_LIST1 = "xcxgroupbuy/getGoodsGroupOrderListXCX";
  * 获取用户拼团订单列表
  */
 Default.GET_GROUP_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getMyGroupGoods";
-
+// Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 /**
  * 获取拼团订单详情
  */
@@ -240,7 +245,13 @@ Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 // 砍价确认支付
 Default.BARGAINS_PAY = "xcxcutprice/createWeChatPayXCX";
 
-// 拼团 获取商户分类
-Default.GETGOODSCATELOG = "xcxgroupbuy/getGoodsCatelog";
+// 新增
+//获取城市列表接口     /merchantv20/getXCXCCPPCity
+Default.CITY_LIST = "merchantv20/getXCXCCPPCity";
+
+// 获取砍价商品列表 / xcxcutprice / getGoodsCutPriceListXCX
+Default.CITY_GOODS =
+"xcxcutprice/getGoodsCutPriceListXCX";
+
 
 module.exports = Default;

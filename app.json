@@ -65,12 +65,13 @@
     "pages/learnOurs/learnOurs",
     "pages/BargainDetails/BargainDetails",
     "pages/MyBargain/MyBargain",
-    "pages/notice/notice"
+    "pages/notice/notice",
+    "pages/choiseCity/choiseCity"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "小确幸",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
   },

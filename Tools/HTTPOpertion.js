@@ -502,11 +502,6 @@ HTTPOpertion.createGroupBuyXCX = function (parm) {
     return HttpManager.post(Default.HOST + Default.CREATE_GROUP_BUY, parm || {});
 
 };
-HTTPOpertion.joinGroupBuyXCX = function (parm) {
-    return HttpManager.post(Default.HOST + Default.JOIN_GROUP_BUY, parm || {});
-
-};
-
 /**
 token	String	是
 page	Integer	是	页码
@@ -654,6 +649,37 @@ HTTPOpertion.bargainPay = function (parm) {
     return HttpManager
         .post(Default.HOST + Default.BARGAINS_PAY, parm || {});
 
+}
+
+/**
+ * 获取城市列表接口
+ *
+ * token	String	是	token
+ */
+HTTPOpertion.getCityList= function (parm) {
+  return HttpManager
+    .post(Default.HOST + Default.CITY_LIST, parm || {});
+
+}
+
+
+/**
+ * 获取砍价商品列表
+ *
+ * token	String	是	token
+ * intPara	Integer	否	分类id
+ * intPara2	Integer	否  排序规则  返回由高到低、人气由高到低、价格由高到低、距离由近到远
+ * intPara3	string	否	城市编码
+ * intPara4	string	否	邮寄  自提
+ * latitude	String	是	纬度
+ * longitude	String	是	经度
+ * page 	Integer 是 页码
+ * rows 	Integer 是 页面大小
+ *
+ */
+HTTPOpertion.getCityGoods = function (parm) {
+  return HttpManager
+    .post(Default.HOST + Default.CITY_GOODS, parm || {});
 }
 
 module.exports = HTTPOpertion;
