@@ -586,6 +586,12 @@ HTTPOpertion.getBargainInfo = function (parm) {
 
 }
 
+HTTPOpertion.joinGroupBuyXCX = function (parm) {
+    return HttpManager
+        .post(Default.HOST + Default.JOIN_GROUP_BUY, parm || {});
+
+}
+
 /**
  * 获取砍价商品详情
  *

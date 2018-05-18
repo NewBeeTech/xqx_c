@@ -46,6 +46,7 @@ Page({
     // 请求数据
     this.setData({
       id: options.id,
+      goods_group_id: options.goods_group_id,
       from: options.from,
     })
   },
@@ -139,13 +140,13 @@ Page({
     let config = {};
     if (create_person_id) {
       config = {
-        cnd: self.data.id,
+        cnd: group_buy_id,
         group_buy_id,
         create_person_id,
       };
     } else {
       config = {
-        cnd: self.data.id,
+        cnd: group_buy_id,
       };
     }
     appData.Tool.getCreateGroupBuyInfoXCX(config).then(function (result) {
@@ -157,7 +158,7 @@ Page({
           //   duration: 1000,
           // });
           wx.navigateTo({
-            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+self.data.id+'&group_buy_id='+group_buy_id+'&create_person_id='+create_person_id,
+            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+group_buy_id+'&group_buy_id='+group_buy_id+'&create_person_id='+create_person_id,
           });
         }
     })
@@ -183,7 +184,7 @@ Page({
     const self = this;
     return {
       title: '拼团',
-      path: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?from=share&id=${this.data.barginOwnData.id}&intPara=${this.data.barginOwnData.group_buy_id}`,
+      path: `/pages/makeGroupsOwnPage/makeGroupsOwnPage?from=share&goods_group_id=${this.data.barginOwnData.goods_group_id}&id=${this.data.barginOwnData.id}&intPara=${this.data.barginOwnData.group_buy_id}`,
       success: function(res) {
         // 转发成功
         wx.showToast({
@@ -213,6 +214,11 @@ Page({
     // wx.navigateTo({
     //     url: '/pages/bargainRulePage/bargainRulePage',
     // })
+  },
+  orderInfo() {
+    wx.navigateTo({
+        url: '/pages/orderDetails/orderDetails?id='+ this.data.id,
+    });
   },
   backHome: function () {
     // wx.redirectTo({
