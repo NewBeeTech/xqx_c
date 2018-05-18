@@ -1,6 +1,6 @@
 // var app = getApp();
 // var appData = app.globalData;
-
+wx.token='11111'
 
 function HTTPManager() { }
 HTTPManager.get = function (url, parm) {
@@ -37,7 +37,7 @@ HTTPManager.post = function (url, parm) {
   wx.showLoading({
     title: '加载中',
   });
-  parm.token = wx.getStorageSync('token');
+  parm.token = wx.getStorageSync('token')||wx.token;
   let session = wx.getStorageSync('session') || "";
   parm.session = session;
   // parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
@@ -49,37 +49,33 @@ HTTPManager.post = function (url, parm) {
   //   });
   // }
   // console.log(parm,wx.getStorageSync('token'));
-  wx.getStorage({
-    key: 'token',
-    success: function(res) {
-      console.log(res);
-    },
-  })
-  console.log("URL:",url,"parms:", parm, "token: ", parm.token);
-  return new Promise(function (success, fail) {
-    wx.request({
-      url: url,
-      data: parm,
-      method: "POST",
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res);
-        if (res.data.code === 2) {
-          wx.reLaunch({
-            url: '/pages/boundNumber/boundNumber',
-          })
+    console.log("URL:",url,"parms:", parm, "token: ", parm.token);
+    return new Promise(function (success, fail) {
+      wx.request({
+        url: url,
+        data: parm,
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res);
+          if (res.data.code === 2) {
+            wx.reLaunch({
+              url: '/pages/boundNumber/boundNumber',
+            })
 
-          return;
+            return;
+          }
+            success(res.data);
+        },
+        fail: function (error) {
+          fail(error)
         }
-          success(res.data);
-      },
-      fail: function (error) {
-        fail(error)
-      }
-    })
-  });
+      })
+    });
+
+
 }
 HTTPManager.login = function(){
   return new Promise(function (success, fail) {
