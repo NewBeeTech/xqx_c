@@ -480,3 +480,14 @@ width: 50%;
   line-height:24rpx;
   text-decoration: line-through;
 }
+.goods-image-container {
+  position: relative;
+}
+
+.goods-ziti {
+  width: 70rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

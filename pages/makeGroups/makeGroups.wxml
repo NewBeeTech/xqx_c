@@ -67,7 +67,11 @@
 
     <view class='wrap3 {{julIf && "wrap3_jul"}}'>
       <view wx:for='{{goods}}' wx:key='{{ item.id }}' bindtap='toGroupDetail' data-id="{{item.id}}" >
-        <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
+        <div class="goods-image-container">
+          <image wx:if="{{item.delivery_method == 1}}" class="goods-ziti" src="/images/baoyou.png" />
+          <image wx:if="{{item.delivery_method == 2}}" class="goods-ziti" src="/images/ziti.png" />
+          <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
+        </div>
         <view class='wrap3_box'>
           <view class='wrap3_box_name'>{{item.name}}</view>
           <view class="make_group_info">
