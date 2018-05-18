@@ -41,7 +41,7 @@ Page({
     //详情
     gmTap: function (e) {
         wx.navigateTo({
-            url: '../orderDetails/orderDetails?id=' + e.currentTarget.dataset.id
+            url: '../makeGroupsOrderDetails/makeGroupsOrderDetails?id=' + e.currentTarget.dataset.id
         })
     },
     //售后

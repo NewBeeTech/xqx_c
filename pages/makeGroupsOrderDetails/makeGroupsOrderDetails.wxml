@@ -1,0 +1,125 @@
+<!--pages/orderDetails/orderDetails.wxml-->
+<view class='order_info_head'>
+    <view>
+        <view wx:if='{{xqObj.order_state==-1}}' class='fight_success'>已取消</view>
+        <view wx:elif='{{xqObj.order_state==-2}}' class='fight_success'>拼团失败</view>
+        <view wx:elif='{{xqObj.order_state==0}}' class='fight_success'>待支付</view>
+        <view wx:elif='{{xqObj.order_state==1}}' class='fight_success'>拼团中</view>
+        <view wx:else class='fight_success'>砍价成功</view>
+
+        <text wx:if='{{xqObj.order_state==-3}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
+        <!-- <text wx:elif='{{xqObj.order_state==1}}' class='fight_success'>正在努力拼团中，请耐心等待</text> -->
+        <text wx:elif="{{xqObj.order_state==4}}">待发货</text>
+        <text wx:elif="{{xqObj.order_state==2}}">已发货</text>
+        <text wx:elif="{{xqObj.order_state==3}}">已完成</text>
+        <text wx:if="{{xqObj.order_state==3}}">本单已获得 {{xqObj.currency/100}} 小金 </text>
+    </view>
+        <image src='../../images/icon/waitFor.png' class='waitImg'></image>
+</view>
+
+<view wx:if="{{xqObj.delivery_method == 2}}" class='position_info'>
+    <view>
+        <text class='buyers_name'>到店自提</text>
+    </view>
+    <text>{{xqObj.detail_address}}</text>
+</view>
+<view wx:else class='position_info'>
+    <view>
+        <text class='buyers_name'>{{xqObj.receive_name}}</text>
+        <text>{{xqObj.receive_phone}}</text>
+    </view>
+    <text>{{xqObj.receive_address}}</text>
+</view>
+
+
+<!-- <view class='fight_info' wx:if='{{xqObj.order_state==2||xqObj.order_state==3||xqObj.order_state==4}}'>
+    <view class='fight_icon'>
+        <image src='../../images/icon/waitFor.png'></image>
+        <text>拼团成功</text>
+    </view>
+    <view class='headPor'>
+        <image wx:for='{{xqObj.imgList}}' wx:key='{{index}}' src='{{item.portrait}}'></image>
+    </view>
+</view> -->
+
+ <view class='order_list'>
+    <view class='order_status'>
+        <text class='shop_name'>{{xqObj.merchant_name}}</text>
+        <image src='../../images/icon/jit2.png'></image>
+    </view>
+    <view class='order_info'>
+        <image src="{{xqObj.img_url}}"></image>
+        <view class='price_info'>
+            <view class='shop_info'>{{xqObj.group_name}}</view>
+            <view class='present_price'>
+                <view>
+                    <text class='symbol'>￥</text>{{xqObj.group_price}}<text class='original_price'>￥{{xqObj.price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='order_detailed'>
+    <view wx:if="{{xqObj.joinTime}}">
+        <view>参团时间</view>
+        <text>{{xqObj.joinTime}}</text>
+    </view>
+    <view wx:if="{{xqObj.serial_number}}">
+        <view>订单编号</view>
+        <text>{{xqObj.serial_number}}</text>
+    </view>
+    <view wx:if="{{xqObj.express_number}}">
+        <view>快递单号</view>
+        <text>{{xqObj.express_number}}</text>
+    </view>
+    <view wx:if="{{xqObj.explain_content}}">
+        <view>拼团须知</view>
+        <view class='notice'>
+            <view>{{xqObj.explain_content}}</view>
+            <image src='../../images/icon/right_arrow2.png'></image>
+        </view>
+    </view>
+</view>
+<view class='btn_bar'>
+    <block wx:if="{{xqObj.order_state==3}}">
+        <!-- <view class='customer_service_btn percent_width' bindtap='shohTap'>售后</view> -->
+    </block>
+    <block wx:elif="{{xqObj.order_state==0}}">
+        <!-- <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view> -->
+        <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
+    </block>
+    <block wx:elif="{{xqObj.order_state==1}}">
+        <!-- <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view> -->
+        <!-- <button class='buy_again_btn identical buy_again_no' data-id='{{xqObj.goods_group_id}}' open-type="share">分享好友</button> -->
+        <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
+    </block>
+    <block wx:elif="{{xqObj.order_state==4}}">
+        <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
+        <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
+        <!-- <view class='buy_again_btn identical' bindtap='zcgTap'>再次购买</view> -->
+        <!-- <view class='confirmation_receipt_btn identical'>确认发货</view> -->
+    </block>
+    <block wx:elif="{{xqObj.order_state==2}}">
+        <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
+        <view class='confirmation_receipt_btn identical' bindtap='qusTap'>确认收货</view>
+    </block>
+    <block wx:elif="{{xqObj.order_state==-2||xqObj.order_state==-1}}">
+        <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
+    </block>
+
+</view>
+<!-- 弹窗 -->
+<view class='popup' wx:if='{{qxdd}}'>
+    <view>
+         <!-- <view class='popup_box'>
+            <text>退款提示</text>
+         </view>  -->
+         <view class='explain'>
+            <text class='describeInfo'>是否取消订单？</text>
+         </view>
+         <view class='close'>
+            <button class='cancel' bindtap='sqtkTap'>取消</button>
+            <button class='confirm' bindtap='quxTap'>确认</button>
+         </view>
+    </view>
+</view>

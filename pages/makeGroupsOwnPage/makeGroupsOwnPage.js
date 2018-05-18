@@ -217,7 +217,7 @@ Page({
   },
   orderInfo() {
     wx.navigateTo({
-        url: '/pages/orderDetails/orderDetails?id='+ this.data.id,
+        url: '/pages/makeGroupsOrderDetails/makeGroupsOrderDetails?id='+ this.data.id,
     });
   },
   backHome: function () {
