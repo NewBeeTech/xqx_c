@@ -46,6 +46,7 @@ Page({
     // 请求数据
     this.setData({
       id: options.id,
+      userId: wx.getStorageSync('userId'),
       goods_group_id: options.goods_group_id,
       from: options.from,
     })
