@@ -182,6 +182,7 @@ Page({
                 superID: e.currentTarget ? e.currentTarget.dataset.id : 0,
                 a1: '',
                 a2: '',
+                a3: '',
                 // PopupIf: false,
             });
             this.loadData(1);

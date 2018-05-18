@@ -20,6 +20,10 @@
             <text>{{orderType}}</text>
             <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
           </view>
+          <view bindtap='peisongTap'>
+            <text>{{peisongType}}</text>
+            <image class='cont_title_deg' src="{{!unionidPopupIf?'https://activity.denong.com/b.png':'https://activity.denong.com/up.png'}}"></image>
+          </view>
         </view>
         <!-- 筛选_弹窗 -->
         <view class='Popup left_container' wx:if='{{PopupIf}}'>
@@ -41,6 +45,16 @@
           <view class='Popup_box'>
             <scroll-view class='Popup_box_scroll' scroll-y='true'>
               <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "返金金额由高到低",id: 1 }, { name: "人气由高到低", id: 2 },{ name: "价格由低到高", id: 3 }, { name: "离我最近", id: 4 }]}}' wx:key='{{index}}' bindtap='PopupBoxRight' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+                <view>{{item.name}}</view>
+              </view>
+            </scroll-view>
+          </view>
+          <view style='height:100%' bindtap='PopupF'></view>
+        </view>
+        <view class='Popup right_container' wx:if='{{peisongPopupIf}}'>
+          <view class='Popup_box'>
+            <scroll-view class='Popup_box_scroll' scroll-y='true'>
+              <view class='Popup_box_right {{index==Popup_inde2&&"Popup_co"}}' wx:for='{{[{ name: "全部",id: 0 },{ name: "邮寄",id: 1 }, { name: "到店自取", id: 2 }]}}' wx:key='{{index}}' bindtap='PopupBoxPeisong' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.name}}'>
                 <view>{{item.name}}</view>
               </view>
             </scroll-view>

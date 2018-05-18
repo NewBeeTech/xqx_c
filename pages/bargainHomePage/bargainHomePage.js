@@ -26,10 +26,12 @@ Page({
         Popup_index_right: 0,
         types: "全部分类",
         orderType: "智能排序",
+        peisongType: "配送方式",
         superID: 0,
         goods: [],
         a1:'',
         a2:'',
+        a3:'',
         imgURL: '',
         topPic: {},
         hasMore: true
@@ -129,7 +131,36 @@ Page({
         console.log("....");
         this.setData({
             PopupIf: false,
-            unionidPopupIf: false
+            unionidPopupIf: false,
+            peisongPopupIf: false,
+        })
+    },
+    PopupBoxPeisong: function (e) {
+
+        wx.showLoading({
+            title: '加载中',
+        })
+        this.setData({
+            // PopupIf: false,
+            // unionidPopupIf: false,
+            // peisongPopupIf: !self.data.peisongPopupIf,
+            Popup_inde3: e.currentTarget.dataset.index,
+            peisongType: e.currentTarget.dataset.name
+        })
+        var self = this;
+        this.data.a3 = e.currentTarget.dataset.id
+        this.loadData(1  ,true ).then(function () {
+            self.setData({
+                PopupIf: false,
+                unionidPopupIf: false,
+                peisongPopupIf: !self.data.peisongPopupIf,
+            });
+        });
+        // this.unionidTap()
+        this.setData({
+          PopupIf: false,
+          unionidPopupIf: false,
+          peisongPopupIf: !self.data.peisongPopupIf,
         })
     },
     //筛选点击
@@ -139,12 +170,13 @@ Page({
         console.log('id:', id);
         if (id == 0) {
             self.setData({
-                subList: [],
-                Popup_inde: 0,
-                types: "全部",
-                superID: e.currentTarget ? e.currentTarget.dataset.id : 0,
-                a1: '',
-                a2: '',
+              subList: [],
+              Popup_inde: 0,
+              types: "全部",
+              superID: e.currentTarget ? e.currentTarget.dataset.id : 0,
+              a1: '',
+              a2: '',
+              a3: '',
                 // PopupIf: false,
             });
             this.loadData(1);
@@ -211,6 +243,7 @@ Page({
     returnType: function () {
         this.setData({
             unionidPopupIf: false,
+            peisongPopupIf: false,
             PopupIf: false
         })
     },
@@ -218,6 +251,7 @@ Page({
     shTap: function () {
         this.setData({
             unionidPopupIf: false,
+            peisongPopupIf: false,
             PopupIf: !this.data.PopupIf
         })
         if (this.data.positionType === "fixed") {
@@ -230,8 +264,16 @@ Page({
     unionidTap: function () {
         this.setData({
             PopupIf: false,
+            peisongPopupIf: false,
             unionidPopupIf: !this.data.unionidPopupIf
         })
+    },
+    peisongTap() {
+      this.setData({
+          PopupIf: false,
+          unionidPopupIf:  false,
+          peisongPopupIf: !this.data.peisongPopupIf,
+      });
     },
     //筛选点击**
     PopupBoxLeft: function (e) {
@@ -278,6 +320,7 @@ Page({
         this.loadData(1  ,true ).then(function () {
             self.setData({
                 PopupIf: false,
+                peisongPopupIf: false,
                 unionidPopupIf: !self.data.unionidPopupIf
             });
         });
@@ -325,11 +368,28 @@ Page({
     loadData: function (page, sf) {
         var intPara = this.data.a1;
         var intPara2 = this.data.a2;
+        var intPara4 = this.data.a3;
         var self = this;
+        const citybox = wx.getStorageSync('citybox');
+        const codeid = citybox && citybox.codeid;
         return new Promise(function (success, fail) {
-            var config = { page: page, rows: 10, token: wx.getStorageSync('token') };
+            var config = {
+              page: page,
+              rows: 10,
+              token: wx.getStorageSync('token'),
+              intPara3: codeid,
+            };
             if (intPara) { config.intPara = intPara }
-            if (intPara2) { config.intPara2 = intPara2 }
+            if (intPara2) {
+              config.intPara2 = intPara2;
+              if (intPara2 == 4) {
+                config.latitude = wx.getStorageSync('latitude');
+                config.longitude = wx.getStorageSync('longitude');
+              }
+            }
+            if (intPara4) {
+              config.intPara4 = intPara4;
+            }
             appData.Tool.getBargainList(config).then(function (res) {
                 wx.hideLoading();
                 if (res.code === 0) {
