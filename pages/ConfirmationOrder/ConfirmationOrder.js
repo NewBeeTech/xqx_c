@@ -85,20 +85,15 @@ Page({
   //立即支付
   toPay: function () {
       var that = this;
-      if (!that.data.groupInfo.address_id){
+      if (that.data.groupInfo.delivery_method == 2) {
+
+      }else if (!that.data.groupInfo.address_id ){
           wx.showToast({
               title: '请先添加地址',
               icon:'none'
           });
           return
-      };
-      if (that.data.groupInfo.group_price * 100 * that.data.buyNum==0) {
-          wx.showToast({
-              title: '至少支付0.01元',
-              icon: 'none'
-          });
-          return
-      };
+      }
       var obj ={
           cnd: that.data.cnd,
           num: 1,
