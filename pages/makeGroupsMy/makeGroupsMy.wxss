@@ -159,3 +159,13 @@ page{
   line-height:24rpx;
   text-decoration: line-through;
 }
+.scrollNo{
+    text-align: center;
+    color: #989898;
+}
+.scrollNo>image{
+    width: 200rpx;
+    height: 220rpx;
+    display: block;
+    margin: 100rpx auto 50rpx;
+}
