@@ -21,6 +21,9 @@
     </view>
   </view>
   <view class="group_own_info">
+    <view class="bargin_own_info3" wx:if="{{barginOwnData.deadLine <= 0 && barginOwnData.avail_num > 0}}">拼团结束</view>
+    <view class="bargin_own_info3" wx:elif="{{barginOwnData.deadLine <= 0}}">拼团结束</view>
+    <view class="bargin_own_info3" wx:elif="{{barginOwnData.avail_num <= 0}}">拼团成功</view>
     <view class="bargin_own_info3">剩余{{barginOwnData.avail_num}}人拼成，{{ wxTimerList['wxTimer1'].wxTimer }}后结束</view>
 
     <view class="makegroup-portraits">
