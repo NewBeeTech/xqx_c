@@ -33,7 +33,7 @@ Page({
     },
     loadData: function (id) {
         var that = this;
-        appData.Tool.getGoodsGroupOrderInfoXCX({ cnd: id }).then(function (res) {
+        appData.Tool.getGroupGoodsGroupOrderInfoXCX({ cnd: id }).then(function (res) {
             console.log(res)
             wx.hideLoading();
             function fn(a) {
