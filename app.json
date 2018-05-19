@@ -67,7 +67,8 @@
     "pages/BargainDetails/BargainDetails",
     "pages/MyBargain/MyBargain",
     "pages/notice/notice",
-    "pages/choiseCity/choiseCity"
+    "pages/choiseCity/choiseCity",
+    "pages/shareFriends/shareFriends"
   ],
   "window": {
     "backgroundTextStyle": "light",

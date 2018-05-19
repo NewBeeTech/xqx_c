@@ -28,7 +28,7 @@
 </view>
 
 <!-- 授权 -->
-         <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>          -->
+            <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>             -->
 
   <view class='nav'>
     <view class='item' bindtap='toNextPage' data-page='{{0}}'>

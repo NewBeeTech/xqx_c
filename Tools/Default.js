@@ -9,6 +9,7 @@ Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
 
 
+
 Default.GETGOODSCATELOG = "xcxgroupbuy/getGoodsCatelog";
 Default.GET_TOP_PICS = "XCXmerchant/getTopPics";
 /**
