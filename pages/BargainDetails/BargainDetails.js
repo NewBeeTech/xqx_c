@@ -27,8 +27,10 @@ Page({
     services:[],
     allServices:[],
     minServices: [],
-    pics:[]
+    pics:[],
+    hid: false   //分享弹出框
   },
+
   showAlert:function(){
     this.setData({
       alertTop:50,
@@ -95,6 +97,7 @@ Page({
         url: `/pages/MerchantDetails/MerchantDetails?id=${id}`,
     })
   },
+    // 分享好友或群聊
   onShareAppMessage: function () {
     const self = this;
     return {
@@ -148,6 +151,7 @@ Page({
       console.log('self.data',self.data);
       if (self.data.from == 'banner') {
         appData.Tool.getBargainInfo1({ cnd: self.data.id }).then(function (result) {
+          console.log(result)
             wx.hideLoading();
             let explain_img_url = result.data.explain_img_url;
             if (explain_img_url) {

@@ -1,6 +1,7 @@
 
 var Default = require("Default.js");
 var HttpManager = require("HTTPManager.js");
+var login = require('login.js');
 function HTTPOpertion() { };
 
 /**
@@ -307,52 +308,52 @@ HTTPOpertion.getMerchantDiscountInfo = function (parm) {
 
 /**
  * 授权
- */
-HTTPOpertion.login = function () {
+//  */
+// HTTPOpertion.login = function () {
 
-    return new Promise(function (success, fail) {
-        wx.login({
-            success: function (res) {
-                console.log(res);
+//     return new Promise(function (success, fail) {
+//         wx.login({
+//             success: function (res) {
+//                 console.log(res);
 
-                var code = res.code;
-                wx.getUserInfo({
-                    success: function (res) {
-                        console.log(res);
-                        HTTPOpertion.saveToLocation("encryptedData", res.encryptedData);
-                        HTTPOpertion.saveToLocation("iv", res.iv);
-                        /**
-                         * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
-                         *
-                         * code	String	是	code
-                         * encryptedData	String	是	微信用户加密信息
-                         * iv	String	是	微信用户加密信息
-                         */
-                        HTTPOpertion.get3rdSession({ code: code, encryptedData: res.encryptedData, iv: res.iv }).then(function (result) {
-                            console.log(result);
-                            success(result);
-                        }).catch(function (error) {
-                            console.log(error);
-                            fail(error);
-                        });
-                    },
-                    fail: function(err) {
-                      console.warn('getUserInfo fail: ', err);
-                      wx.showToast({
-                        title: '很遗憾，因为授权失败，您将无法正常使用小程序。请到设置里（右上角 - 关于 - 右上角 - 设置）重新授权。',
-                        icon: 'none',
-                        duration: 5000,
-                      });
+//                 var code = res.code;
+//                 wx.getUserInfo({
+//                     success: function (res) {
+//                         console.log(res);
+//                         HTTPOpertion.saveToLocation("encryptedData", res.encryptedData);
+//                         HTTPOpertion.saveToLocation("iv", res.iv);
+//                         /**
+//                          * 进入小程序获取unionid 相关信息 判断是当前用户是否进入注册页面
+//                          *
+//                          * code	String	是	code
+//                          * encryptedData	String	是	微信用户加密信息
+//                          * iv	String	是	微信用户加密信息
+//                          */
+//                         HTTPOpertion.get3rdSession({ code: code, encryptedData: res.encryptedData, iv: res.iv }).then(function (result) {
+//                             console.log(result);
+//                             success(result);
+//                         }).catch(function (error) {
+//                             console.log(error);
+//                             fail(error);
+//                         });
+//                     },
+//                     fail: function(err) {
+//                       console.warn('getUserInfo fail: ', err);
+//                       wx.showToast({
+//                         title: '很遗憾，因为授权失败，您将无法正常使用小程序。请到设置里（右上角 - 关于 - 右上角 - 设置）重新授权。',
+//                         icon: 'none',
+//                         duration: 5000,
+//                       });
 
-                    }
-                })
+//                     }
+//                 })
 
 
-            }
-        });
-    })
-}
-
+//             }
+//         });
+//     })
+// }
+HTTPOpertion.login = login.login;
 /**
  * 本地存储数组
  * key:存储的字段

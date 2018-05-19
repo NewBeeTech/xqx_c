@@ -259,3 +259,69 @@
     margin-left: 23rpx;
     transform: rotate(90deg);
 }
+
+
+/* 分享弹出框 */
+.mark{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index:99;
+}
+.mark .sharebox{
+  width: 100%;
+  height:382rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #FAFAFC;
+  text-align: center;
+}
+.mark .squn{
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  text-align: center;
+}
+.mark .squn button{
+  width: 100%;
+  height: 100%;
+  color: #353535;
+  font-size: 34rpx;
+  line-height: 120rpx;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+ border-bottom: 1rpx solid #FAFAFC;
+}
+.mark .shareImg{
+  width: 100%;
+  height: 122rpx;
+  background:#fff;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.mark .simg{
+  display: block;
+    font-size: 34rpx;
+    line-height:80rpx;
+    color: #353535;
+}
+.mark .afriend{
+   display: block;
+    font-size: 28rpx;
+    line-height:30rpx;
+    color: #999999;
+}
+.mark .cancel{
+  width: 100%;
+  height:120rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 120rpx;
+  color: #353535;
+  font-size: 34rpx;
+}

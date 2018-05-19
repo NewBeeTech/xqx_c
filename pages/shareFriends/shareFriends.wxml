@@ -1,0 +1,8 @@
+<view  class='canvasMark' hidden="{{maskHidden}}">
+
+
+</view>
+  <canvas style="width: 750rpx; height: 750rpx;" canvas-id="firstCanvas" hidden="{{maskHidden}}"></canvas>
+
+   <!-- <image src='{{src}}'></image>  -->
+   <!-- style='display:none;' -->

@@ -27,8 +27,39 @@ Page({
     services:[],
     allServices:[],
     minServices: [],
-    pics:[]
+    pics:[],
+    //  hid: false   //分享弹出框
   },
+  // 点击取消按钮
+  // cancelBtn: function () {
+  //   this.setData({
+  //     hid: false
+  //   })
+  //   wx.showToast({
+  //     title: '用户取消分享',
+  //     icon: 'none',
+  //     duration: 1000
+  //   })
+
+  // },
+  // 点击分享朋友圈按钮
+  // shareImg: function (e) {
+  //   console.log(e.currentTarget.dataset)
+  //   var imgurl = e.currentTarget.dataset.imgurl;
+  //   var nowrmb = e.currentTarget.dataset.nowrmb;
+  //   var prermb = e.currentTarget.dataset.prermb;
+  //   var title = e.currentTarget.dataset.title;
+  //   var xj = e.currentTarget.dataset.xj;
+  //   wx.navigateTo({
+  //     url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj +'&page=pages/makeGroupsDetails/makeGroupsDetails'
+  //   })
+  // },
+  // 点击分享按钮
+  // listenerButton: function () {
+  //   this.setData({
+  //     hid: true
+  //   })
+  // },
   showAlert:function(){
     this.setData({
       alertTop:50,
