@@ -153,30 +153,31 @@ Page({
   getCreateGroupBuyInfoXCX(e) {
     console.warn(e);
     const self = this;
-    const group_buy_id = e.currentTarget.dataset.group_buy_id;
+    const id = e.currentTarget.dataset.cnd;
+    const goods_group_id = e.currentTarget.dataset.goods_group_id;
     const create_person_id = e.currentTarget.dataset.create_person_id;
     let config = {};
     if (create_person_id) {
       config = {
-        cnd: group_buy_id,
-        group_buy_id,
+        cnd: goods_group_id,
+        group_buy_id: id,
         create_person_id,
       };
     } else {
       config = {
-        cnd: group_buy_id,
+        cnd: goods_group_id,
       };
     }
     appData.Tool.getCreateGroupBuyInfoXCX(config).then(function (result) {
         wx.hideLoading();
-        console.warn('result: ', result);
         if (result.code == 0) {
+        console.warn('result: ', result);
           // wx.showToast({
           //   title: '开团成功',
           //   duration: 1000,
           // });
           wx.navigateTo({
-            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+group_buy_id+'&group_buy_id='+group_buy_id+'&create_person_id='+create_person_id,
+            url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+goods_group_id+'&group_buy_id='+id+'&create_person_id='+create_person_id,
           });
         }
     })
