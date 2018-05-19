@@ -153,7 +153,7 @@ Page({
   getCreateGroupBuyInfoXCX(e) {
     console.warn(e);
     const self = this;
-    const id = e.currentTarget.dataset.cnd;
+    const id = e.currentTarget.dataset.id;
     const goods_group_id = e.currentTarget.dataset.goods_group_id;
     const create_person_id = e.currentTarget.dataset.create_person_id;
     let config = {};
