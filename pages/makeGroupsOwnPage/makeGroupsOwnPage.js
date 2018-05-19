@@ -13,6 +13,7 @@ Page({
     nowTime: new Date().getTime(),
     deadTime: '',
     id: '',
+    canJoinGroup: false, // 是否显示一键参团
     barginOwnData: {
       // userPortrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
       // userName: '丽丽',
@@ -87,6 +88,22 @@ Page({
       if (result.code === 0) {
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
+        const joinList = result.data.joinList;
+        if (self.data.userId !== result.data.create_person_id) {
+          if (joinList.filter(item => item.id == self.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
+            self.setData({
+              canJoinGroup: false,
+            });
+          } else {
+            self.setData({
+              canJoinGroup: true,
+            });
+          }
+        } else {
+          self.setData({
+            canJoinGroup: false,
+          });
+        }
         if (result.data.showFlag == 0) {
           self.setData({
             showModal: false,
