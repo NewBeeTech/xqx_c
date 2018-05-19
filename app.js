@@ -12,15 +12,16 @@ App({
       key: "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6"
       // key:"4BUBZ-FNLWX-5OJ4S-7FR64-HLZQH-R5BI4"
     });
-
+ 
+    
   //  地理位置
     this.getUserLocation() //获取位置函数
    
-    this.getCityId()//城市匹配
+    // this.getCityId()//城市匹配
     
   },
   getUserLocation: function (callback) {
-
+  var that=this;
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -33,13 +34,15 @@ App({
             longitude: res.longitude
           },
           success: function (addressRes) {
+            console.log("地理位置成功")
             var address = addressRes.result.formatted_addresses.district;
             console.log(addressRes);
           //  获取城市（新加）
            city = addressRes.result.address_component.city;
             // console.log(city)
             wx.setStorageSync("city", city );
-
+            // 获取城市
+            that.getCityId(city)
             // callback(addressRes.result.address_component.district);
           }, fail: function (err) {
             console.log(err);
@@ -140,10 +143,10 @@ App({
       console.log(error);
     });
   },
-  getCityId:function(){
+  getCityId:function(ci){
     //  获取城市列表id
     // console.log(wx.getStorageSync("city"))
-    var ci = wx.getStorageSync("city");
+    // var ci = wx.getStorageSync("city");
     var codeid = '';
     this.globalData.Tool.getCityList({}).then(function (res) {
       console.log(res)
@@ -155,8 +158,19 @@ App({
           codeid = citylist[i].id;
           city = citylist[i].cityname;
           // console.log(codeid)
-          console.log(city)
-          wx.setStorageSync('city1', city)
+          console.log("获取城市成功"+city)
+          // 获取当前页，添加data参数
+          var currentpage = getCurrentPages();
+//       //       currentpage=currentpage[currentpage.length-1];
+            console.log(currentpage);
+            if(currentpage[0].route){
+              currentpage[0].setData({
+                city:city
+              })
+            }
+
+
+          // wx.setStorageSync('city1', city)
           wx.setStorageSync('codeid', codeid)
           break;
         } else {

@@ -39,6 +39,9 @@ Page({
       data: { city:data.city, codeid:data.codeid },
       success: function () {
         wx.navigateBack();   //返回上一个页面
+        // wx.switchTab({
+        //   url: "pages/spellGroupHome/spellGroupHome?city=" + data.city + "&codeid=" +data.codeid,
+        // })
       }
     })
   },
