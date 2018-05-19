@@ -218,11 +218,13 @@ Default.GET_GOODS_GROUP_ORDER_INFO1 = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
  * 确认收货
  */
 Default.COMMIT_RECEIVE_GOODS = "xcxcutprice/commitReceiveGoods";
+Default.COMMIT_RECEIVE_GOODS1 = "xcxgroupbuy/commitReceiveGoods";
 
 /**
  * 取消订单
  */
 Default.CANCEL_GROUP_ORDER = "xcxcutprice/cancelGroupOrder";
+Default.CANCEL_GROUP_ORDER1 = "xcxgroupbuy/cancelGroupOrder";
 
 /**
  * 获取砍价详情

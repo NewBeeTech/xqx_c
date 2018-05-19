@@ -63,7 +63,7 @@ Page({
     qusTap: function () {
         var that = this;
         throttle(function() {
-          appData.Tool.commitReceiveGoods({
+          appData.Tool.commitReceiveGoods1({
               orderId: that.data.xqObj.orderId,
               goods_group_id: that.data.xqObj.goods_group_id,
               group_buy_id: that.data.xqObj.group_buy_id
@@ -92,7 +92,7 @@ Page({
           goods_group_id: that.data.xqObj.goods_group_id,
           group_buy_id: that.data.xqObj.group_buy_id
         })
-        appData.Tool.cancelGroupOrder({
+        appData.Tool.cancelGroupOrder1({
             orderId: that.data.xqObj.orderId,
             goods_group_id: that.data.xqObj.goods_group_id,
             group_buy_id: that.data.xqObj.group_buy_id
@@ -228,25 +228,25 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function (res) {
-        var that = this;
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            console.log(res.target)
-            var id = res.target.dataset.id
-        }
-        return {
-            title: '自定义转发标题',
-            path: '/pages/goodDetail/goodDetail?id=' + id,
-            success: function (res) {
-                // 转发成功
-            },
-            fail: function (res) {
-                // 转发失败
-            }
-        }
-    }
+    // /**
+    //  * 用户点击右上角分享
+    //  */
+    // onShareAppMessage: function (res) {
+    //     var that = this;
+    //     if (res.from === 'button') {
+    //         // 来自页面内转发按钮
+    //         console.log(res.target)
+    //         var id = res.target.dataset.id
+    //     }
+    //     return {
+    //         title: '自定义转发标题',
+    //         path: '/pages/goodDetail/goodDetail?id=' + id,
+    //         success: function (res) {
+    //             // 转发成功
+    //         },
+    //         fail: function (res) {
+    //             // 转发失败
+    //         }
+    //     }
+    // }
 })

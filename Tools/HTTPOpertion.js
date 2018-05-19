@@ -562,6 +562,11 @@ HTTPOpertion.commitReceiveGoods = function (parm) {
     return HttpManager.post(Default.HOST + Default.COMMIT_RECEIVE_GOODS, parm || {});
 
 };
+HTTPOpertion.commitReceiveGoods1 = function (parm) {
+    return HttpManager.post(Default.HOST + Default.COMMIT_RECEIVE_GOODS1, parm || {});
+
+};
+
 /**
  * token	String	是	token
  * orderId	String	是	账单ID
@@ -572,6 +577,12 @@ HTTPOpertion.cancelGroupOrder = function (parm) {
     return HttpManager.post(Default.HOST + Default.CANCEL_GROUP_ORDER, parm || {});
 
 };
+
+HTTPOpertion.cancelGroupOrder1 = function (parm) {
+    return HttpManager.post(Default.HOST + Default.CANCEL_GROUP_ORDER1, parm || {});
+
+};
+
 
 /**
  * 获取砍价商品详情

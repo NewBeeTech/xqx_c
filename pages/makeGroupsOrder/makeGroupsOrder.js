@@ -113,7 +113,7 @@ Page({
                       group_buy_id: data.currentTarget.dataset.group_buy_id
                     }
                     console.warn('参数：', obj);
-                    appData.Tool.cancelGroupOrder(obj).then(function (res) {
+                    appData.Tool.cancelGroupOrder1(obj).then(function (res) {
                         console.log(res)
                         wx.hideLoading();
                         var title = '';
@@ -153,7 +153,7 @@ Page({
             group_buy_id: e.currentTarget.dataset.group_buy_id
         }
         throttle(function() {
-          appData.Tool.commitReceiveGoods(obj).then(function (res) {
+          appData.Tool.commitReceiveGoods1(obj).then(function (res) {
               console.log(res)
               wx.hideLoading();
               that.data.Ddarr = [];
@@ -241,21 +241,21 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function (res) {
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            console.log(res.target)
-            var id = res.target.dataset.id
-        }
-        return {
-            title: '自定义转发标题',
-            path: '/pages/goodDetail/goodDetail?id=' + id,
-            success: function (res) {
-                // 转发成功
-            },
-            fail: function (res) {
-                // 转发失败
-            }
-        }
-    }
+    // onShareAppMessage: function (res) {
+    //     if (res.from === 'button') {
+    //         // 来自页面内转发按钮
+    //         console.log(res.target)
+    //         var id = res.target.dataset.id
+    //     }
+    //     return {
+    //         title: '自定义转发标题',
+    //         path: '/pages/goodDetail/goodDetail?id=' + id,
+    //         success: function (res) {
+    //             // 转发成功
+    //         },
+    //         fail: function (res) {
+    //             // 转发失败
+    //         }
+    //     }
+    // }
 })
