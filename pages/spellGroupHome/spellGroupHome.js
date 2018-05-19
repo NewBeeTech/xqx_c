@@ -157,13 +157,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log(options)
     // app.getUserLocation();  //获取地理位置
-    var city= wx.getStorageSync("city1");
-    console.log(city)
-    this.setData({
-      city:city
-    })
+    // var city= wx.getStorageSync("city1");
+    // console.log(city)
+    // this.setData({
+    //   city:city
+    // })
   },
 
   /**
@@ -195,8 +195,10 @@ Page({
           city:res.data.city
         })
         var codeid=res.data.codeid;
+        console.log(codeid)
         appData.Tool.getCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
+            // console.log(result)
             wx.hideLoading();
             console.log(result);
             self.loadBanners();
