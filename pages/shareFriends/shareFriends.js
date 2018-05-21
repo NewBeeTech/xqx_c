@@ -140,7 +140,7 @@ Page({
 
     ctx.clearRect(0, 0, 375, 375);
     //2 获取画布画指定内容
-    ctx.setFillStyle('#FAFAFC');
+    ctx.setFillStyle('#FFFFFF');
     ctx.fillRect(0, 0, 375, 375);
     // 画上面的矩形
     ctx.beginPath();
@@ -160,7 +160,7 @@ Page({
     // 写图片右侧文字(大字)
     ctx.setFontSize(15);
     ctx.setFillStyle('#353535');
-    ctx.fillText(txt, 185, 74, 160);
+    ctx.fillText(txt, 185,57, 160);
   //   //  小金
     ctx.setFontSize(13);
     ctx.setFillStyle('#999999');
@@ -174,33 +174,33 @@ Page({
     ctx.setFillStyle('#999999');
     ctx.fillText(prej, 280, 189);
   //   // 原价上面的小线条
-    ctx.setStrokeStyle('#999999')
-    ctx.moveTo(283, 185);
-    ctx.lineTo(340, 185);
-    ctx.stroke();
+    // ctx.setStrokeStyle('#999999')
+    // ctx.moveTo(283, 185);
+    // ctx.lineTo(340, 185);
+    // ctx.stroke();
   //   // 画中间线条
-    ctx.setLineDash([10, 10], 2);
-    ctx.beginPath();
-    ctx.moveTo(15, 235);
-    ctx.lineTo(360, 235);
-    ctx.stroke();
+    // ctx.setLineDash([10, 10], 2);
+    // ctx.beginPath();
+    // ctx.moveTo(15, 235);
+    // ctx.lineTo(360, 235);
+    // ctx.stroke();
   //   //  小确幸活动
     ctx.setFontSize(15);
     ctx.setFillStyle('#353535');
-    ctx.fillText('小确幸活动', 258, 277);
+    ctx.fillText('小确幸活动', 218, 277);
 
   //   // 矩形
     // const grd = ctx.createLinearGradient(0,0,130,33);
     // grd.addColorStop(0, 'green');
     // grd.addColorStop(1, '#FFC900');
-    ctx.setShadow(0, 0, 6, '#FFA000');
+    // ctx.setShadow(0, 0, 6, '#FFA000');
     ctx.setFillStyle('#FFC900');
-    ctx.fillRect(230,306, 130, 33);
+    ctx.fillRect(190,306, 130, 33);
   // // 按钮加文字
     ctx.setShadow(0, 0, 0, '#FFFFFF');
     ctx.setFontSize(15);
     ctx.setFillStyle('#FFFFFF');
-    ctx.fillText('长按扫码参加', 250, 330);
+    ctx.fillText('长按扫码参加', 210, 330);
 
   
     //最后画所有内容
