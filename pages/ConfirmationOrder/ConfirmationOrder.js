@@ -110,7 +110,7 @@ Page({
         obj.address_id = -1;
       }
       if (that.data.group_buy_id && that.data.group_buy_id != 'undefined') {  // 参团
-        console.warn('参团');
+        console.warn('参团', that.data.group_buy_id);
         appData.Tool.joinGroupBuyXCX(obj).then(function (res) {
             console.log(res)
             wx.hideLoading();
