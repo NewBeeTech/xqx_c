@@ -17,7 +17,6 @@ App({
   //  地理位置
     this.getUserLocation() //获取位置函数
 
-    // this.getCityId()//城市匹配
 
   },
   getUserLocation: function (callback) {
@@ -145,6 +144,7 @@ App({
     });
   },
   getCityId:function(ci){
+    var that=this;
     //  获取城市列表id
     // console.log(wx.getStorageSync("city"))
     // var ci = wx.getStorageSync("city");
@@ -164,14 +164,13 @@ App({
           var currentpage = getCurrentPages();
 //       //       currentpage=currentpage[currentpage.length-1];
             console.log(currentpage);
-            if(currentpage[0].route){
-              currentpage[0].setData({
-                city:city
-              })
-            }
+            that.setpageData(currentpage,city);
+            // if(currentpage[0].route){
+            //   currentpage[0].setData({
+            //     city:city
+            //   })
+            // }
 
-
-          // wx.setStorageSync('city1', city)
           wx.setStorageSync('codeid', codeid)
           break;
         } else {
@@ -187,9 +186,23 @@ App({
     session: '',
     userid: '',
     // host: "https://mini.xqx.com",
-    host: "http://ccpp.denong.com",
+    // host: "http://ccpp.denong.com",
+    host:'http://192.168.1.204',
     searchData:[],
     photos:[]
+  },
+  setpageData: function (data,city) {
+    const that = this;
+    if (data.length > 0) {
+      if (data[0].route.indexOf('spellGroupHome/spellGroupHome') > 0) {
+        data[0].setData({ city: city })
+      }
+    } else {
+      setTimeout(function () {
+        data = getCurrentPages()
+        that.setpageData(data,city)
+      }, 50)
+    }
   },
   // 数据转换json
   jsonToString: function (data) {

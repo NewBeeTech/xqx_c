@@ -2,8 +2,9 @@ function Default() { }
 /**
  * 主机地址
  */
-Default.HOST = "http://ccpp.denong.com/app_person/";
+// Default.HOST = "http://ccpp.denong.com/app_person/";
 // Default.HOST = "https://mini.xqx.com/app_person/";
+Default.HOST = "http://192.168.1.204:8080/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
 Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
@@ -258,6 +259,10 @@ Default.CITY_LIST = "merchantv20/getXCXCCPPCity";
 // 获取砍价商品列表 / xcxcutprice / getGoodsCutPriceListXCX
 Default.CITY_GOODS =
 "xcxcutprice/getGoodsCutPriceListXCX";
+
+// 获取砍价、拼团商品列表（首页热门）   xcxgroupbuy/getHomeHot
+Default.INDEX_CITY_GOODS =
+  "xcxgroupbuy/getHomeHot";
 
 
 module.exports = Default;

@@ -62,10 +62,24 @@ Page({
     var prermb = e.currentTarget.dataset.prermb;
     var title = e.currentTarget.dataset.title;
     var xj = e.currentTarget.dataset.xj;
-    var cnd = this.data.cnd;
-    var page1 = 'pages/DetailsPayment/DetailsPayment';
-    var token = wx.getStorageSync("token");
+    
+    wx.navigateTo({
+      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
+    })
+    this.setData({
+      hid: false
+    })
+  },
+  // 点击分享按钮
+  listenerButton: function () {
+    this.setData({
+      hid: true
+    })
 
+    var cnd = this.data.cnd;
+    var page1 = 'pages/makeGroupsOwnPage/makeGroupsOwnPage';
+    var token = wx.getStorageSync("token");
+    
     wx.request({
       // Default.HOST = "https://192.168.1.204:8080/app_person/";
       url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
@@ -83,8 +97,8 @@ Page({
         console.log(res)
         // console.log(res.data)
         var shareImgSrc = res.data.data;
-        wx.setStorageSync('shareImgSrc1', shareImgSrc)
-        // console.log(wx.getStorageSync('shareImgSrc1'))
+        wx.setStorageSync('shareImgSrc', shareImgSrc)
+        console.log(wx.getStorageSync('shareImgSrc'))
         // that.setData({
         //   shareImgSrc: shareImgSrc
         // })
@@ -93,21 +107,6 @@ Page({
     })
 
 
-
-
-    // pages / makeGroupsOwnPage / makeGroupsOwnPage
-    wx.navigateTo({
-      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj + '&page=pages/DetailsPayment/DetailsPayment&cnd='+cnd
-    })
-    this.setData({
-      hid: false
-    })
-  },
-  // 点击分享按钮
-  listenerButton: function () {
-    this.setData({
-      hid: true
-    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -120,9 +119,6 @@ Page({
       goods_group_id: options.goods_group_id,
       from: options.from,
     })
-
-
-
 
 
   },
@@ -184,6 +180,7 @@ Page({
           });
         }
         var cnd=result.data.id;
+        // console.log(cnd)
         self.setData({
           cnd:cnd
         })
@@ -194,7 +191,7 @@ Page({
         // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
         const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
 
-        console.log(cutPrice, totalCutPrice, hasPrice)
+        // console.log(cutPrice, totalCutPrice, hasPrice)
         self.setData({
           cutPrice,
           totalCutPrice,

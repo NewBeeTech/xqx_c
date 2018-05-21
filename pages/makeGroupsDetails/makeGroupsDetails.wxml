@@ -19,7 +19,7 @@
 
             <view><text>{{ obj.group_person_num }}人团 </text>已团出{{ obj.group_num }}件</view>
         </view>
-         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享</button>
+         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
 
     </view>
     <view class='Md_mid'>

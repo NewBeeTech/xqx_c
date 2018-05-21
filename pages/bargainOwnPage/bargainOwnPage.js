@@ -37,7 +37,75 @@ Page({
       // group_buy_id:3,
       // orderId:2
     },
-    wxTimerList: {}
+    wxTimerList: {},
+    hid: false,   //分享弹出框
+    cnd: ''
+  },
+  // 点击取消按钮
+  cancelBtn: function () {
+    this.setData({
+      hid: false
+    })
+    wx.showToast({
+      title: '用户取消分享',
+      icon: 'none',
+      duration: 1000
+    })
+
+  },
+  // 点击分享朋友圈按钮
+  shareImg: function (e) {
+    console.log(e.currentTarget.dataset)
+    var imgurl = e.currentTarget.dataset.imgurl;
+    var nowrmb = e.currentTarget.dataset.nowrmb;
+    var prermb = e.currentTarget.dataset.prermb;
+    var title = e.currentTarget.dataset.title;
+    var xj = e.currentTarget.dataset.xj;
+
+    wx.navigateTo({
+      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
+    })
+    this.setData({
+      hid: false
+    })
+  },
+  // 点击分享按钮
+  listenerButton: function () {
+    this.setData({
+      hid: true
+    })
+
+    var cnd = this.data.cnd;
+    var page1 = 'pages/bargainOwnPage/bargainOwnPage';
+    var token = wx.getStorageSync("token");
+    console.log(cnd)
+    wx.request({
+      // Default.HOST = "https://192.168.1.204:8080/app_person/";
+      url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
+      // url: appData.host + '/app_person/xcxgroupbuy/createCode',
+      method: "POST",
+      data: {
+        cnd: cnd,
+        page: page1,
+        token: token
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res)
+        // console.log(res.data)
+        var shareImgSrc = res.data.data;
+        wx.setStorageSync('shareImgSrc', shareImgSrc)
+        console.log(wx.getStorageSync('shareImgSrc'))
+        // that.setData({
+        //   shareImgSrc: shareImgSrc
+        // })
+        // that.drawCanvas();
+      }
+    })
+
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -77,6 +145,11 @@ Page({
       cnd: id
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
+      console.log(result)
+      var cnd = result.data.id;
+      self.setData({
+        cnd: cnd
+      })
       if (result.code === 0) {
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});

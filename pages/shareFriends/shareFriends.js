@@ -13,40 +13,20 @@ Page({
     xj:'',
     maskHidden:true,
     src:'',
+    tupurl:''
     // temp1:''
     // aaaaa:"../../images/xcxm.jpg"
   },
   onLoad:function(options){
-    
-    // console.log(new Date())
     var that=this;
-    // console.log(options)
-    var aa = wx.getStorageSync('shareImgSrc');
-    console.log(aa)
-    // var aa ='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526727462711&di=02565dd8746d0f35bf01ccd2636826da&imgtype=0&src=http%3A%2F%2Fimg0.pconline.com.cn%2Fpconline%2F1303%2F22%2F3224436_1_500.jpg';
-    wx.downloadFile({
-      url:aa,
-        success: function (sres) {
-          console.log(sres);
-          that.data.src = sres.tempFilePath
-          that.drawCanvas();
-        }, 
-        fail: function (fres) {
-              wx.showToast({
-                title: '图片加载失败，请重新加载',
-                icon:'none',
-                duration:1000
-              })
-        }
-    }) 
     // var shareImgSrc = wx.getStorageSync('shareImgSrc');
     var imgurl = options.imgurl;
     var nowrmb = options.nowrmb;
     var prermb = options.prermb;
     var title = options.title;
-    var xj = options.xj;    
-    var page1=options.page;
-    var cnd=options.cnd;
+    var xj = options.xj;
+    // var page1 = options.page;
+    // var cnd = options.cnd;
     // console.log(cnd)
     this.setData({
       imgurl: imgurl,
@@ -56,20 +36,97 @@ Page({
       xj: xj,
       // src: shareImgSrc
     })
-    
+
+
+
+    // var that=this;
+    // var aa = wx.getStorageSync('shareImgSrc');
+    // console.log(aa)
+    // wx.downloadFile({
+    //     url:aa,
+    //     success: function (sres) {
+    //       console.log(sres);
+    //       that.data.src = sres.tempFilePath
+    //       that.drawCanvas();
+    //     }, 
+    //     fail: function (fres) {
+    //           wx.showToast({
+    //             title: '图片加载失败，请重新加载',
+    //             icon:'none',
+    //             duration:1000
+    //           })
+    //     }
+    // }) 
+
+    this.downLoadFile()
 
     // this.drawCanvas();
      
   
   },
+  // 下载图片
+  downLoadFile:function(){
+    var that = this;
+    var erweima = wx.getStorageSync('shareImgSrc');
+    console.log(erweima)
+    var tupian = this.data.imgurl;
+    console.log(tupian)
+
+    wx.downloadFile({
+      url: tupian,
+      success: function (sres) {
+        console.log(sres);
+        that.data.tupurl = sres.tempFilePath;
+        // that.drawCanvas();
+      },
+      fail: function (fres) {
+        wx.showToast({
+          title: '图片加载失败，请重新加载',
+          icon: 'none',
+          duration: 1000,
+          success: function () {
+            setTimeout(function(){
+                wx.navigateBack()
+            }, 1000)
+          }
+        })
+      }
+    }) 
+
+      wx.downloadFile({
+        url: erweima,
+        success: function (sres) {
+          console.log(sres);
+          that.data.src = sres.tempFilePath;
+              setTimeout(function () {
+                    that.drawCanvas();
+              }, 800)
+        },
+        fail: function (fres) {
+          wx.showToast({
+            title: '图片加载失败，请重新加载',
+            icon: 'none',
+            duration: 1000,
+            success:function(){
+              setTimeout(function () {
+                wx.navigateBack()
+              }, 1000)
+
+            }
+          })
+
+        }
+      })
+    
+  
+  },
 
   drawCanvas:function(){
+    // console.log('画画图')
     var ctx = wx.createCanvasContext('firstCanvas');
     var txt = this.data.title;
     var url = this.data.imgurl;
-    // var shareImgSrc=this.data.shareImgSrc;
-    // var shareImgSrc = this.data.aaaaa;
-    // console.log(txt.length)
+    var pictureSrc = this.data.src; //图片能获取
     
     if (txt.length >=10) {
       txt = txt.substr(0, 10) + "...";
@@ -80,6 +137,7 @@ Page({
     var nowj = "￥" + num1;
     var num2 = this.data.prermb;
     var prej = "￥" + num2;
+
     ctx.clearRect(0, 0, 375, 375);
     //2 获取画布画指定内容
     ctx.setFillStyle('#FAFAFC');
@@ -90,17 +148,14 @@ Page({
     ctx.setShadow(0, 0, 6, '#DBDDE1');
     ctx.fillRect(15, 15, 345, 207);
     ctx.closePath();
+
     // 画二维码
-    // var shareImgSrc ='http://img1.imgtn.bdimg.com/it/u=2304929803,4180907776&fm=27&gp=0.jpg';
-    // console.log(shareImgSrc)
-    // var shareImgSrc = this.data.aaaaa;
-    // var pictureSrc='http://tmp/wx98072aa3f02d25d3.o6zAJs84XaFnFfESJNZF…ymF4g0HOvaJb03df4791dd7ba7bec8859d781ee4fb6c.jpeg';
-    var pictureSrc = this.data.src; //图片能获取
     console.log(pictureSrc)
     ctx.setShadow(0, 0, 0, '#FFFFFF');
     ctx.drawImage(pictureSrc,15,242, 120, 118);
     
     // 画任意图
+    var url = this.data.tupurl;
     ctx.drawImage(url, 30, 43.5, 145, 145);
     // 写图片右侧文字(大字)
     ctx.setFontSize(15);
@@ -183,11 +238,15 @@ Page({
                       that.setData({
                         maskHidden: true
                       })
-                      wx.navigateBack()
-                      // wx.removeStorageSync('shareImgSrc')
+                      // that.baocun()
+                      setTimeout(function(){
+                        wx.navigateBack()
+                      },500)
+                      
+
                     }
                   })
-                  // that.baocun()
+        
                 },
                 fail: function (res) {
                   console.log(res);
@@ -204,20 +263,26 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath: tempFilePath,
       success(res) {
-        wx.navigateBack()
         wx.showModal({
-          title: '存图成功',
-          content: '图片成功保存到相册了，去发圈噻~',
-          showCancel: false,
-          confirmText: '好哒',
-          confirmColor: '#72B9C3',
+          title: '图片成功保存到相册了，去发圈噻~',
           success: function (res) {
-          
-              if (res.confirm) {
-                console.log('用户点击确定');
-              }
+            wx.navigateBack()
           }
         })
+        // wx.showModal({
+        //   title: '存图成功',
+        //   content: '图片成功保存到相册了，去发圈噻~',
+        //   showCancel: false,
+        //   confirmText: '好哒',
+        //   confirmColor: '#72B9C3',
+        //   success: function (res) {
+          
+        //       if (res.confirm) {
+        //         console.log('用户点击确定');
+        //       }
+        //   }
+        // })
+        // wx.navigateBack()
       }
     })
   }

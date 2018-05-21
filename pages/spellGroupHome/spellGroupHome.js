@@ -67,7 +67,7 @@ Page({
     // 根据城市获取商品
     var codeid=wx.getStorageSync("codeid");
     console.log(codeid)
-    appData.Tool.getCityGoods({page:page,rows:10, intPara3:codeid})
+    appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
       wx.hideLoading();
       console.log(result);
@@ -111,7 +111,7 @@ Page({
     var pageIndex = e.currentTarget.dataset.page;
     // var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     // var pages = ["../homePage/homePage", "/pages/FightGroups/FightGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
-    var pages = ["../homePage/homePage", "/pages/makeGroups/makeGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    var pages = ["../homePage/homePage", "/pages/makeGroups/makeGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage", "../miaosha/miaosha","/pages/makeGroupsDetails/makeGroupsDetails"]
     var url = pages[pageIndex];
     if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
       url += "?id=" + e.currentTarget.dataset.id
@@ -196,7 +196,7 @@ Page({
         })
         var codeid=res.data.codeid;
         console.log(codeid)
-        appData.Tool.getCityGoods({ page:1, rows: 10, intPara3: codeid })
+        appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
             // console.log(result)
             wx.hideLoading();
