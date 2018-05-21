@@ -82,8 +82,8 @@ Page({
     
     wx.request({
       // Default.HOST = "https://192.168.1.204:8080/app_person/";
-      url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
-      // url: appData.host+'/app_person/xcxgroupbuy/createCode',
+      // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
+      url: appData.host+'/app_person/xcxgroupbuy/createCode',
       method: "POST",
       data: {
         cnd: cnd,
