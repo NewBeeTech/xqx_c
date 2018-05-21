@@ -28,7 +28,7 @@
 </view>
 
 <!-- 授权 -->
-             <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>             
+               <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>                -->
 
   <view class='nav'>
     <view class='item' bindtap='toNextPage' data-page='{{0}}'>
@@ -55,8 +55,10 @@
 
   <view class='goods'>
     <view class='title'>热门</view>
+<!-- 货物列表 -->
     <view class='good_list'>
-      <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'>
+      <!-- 去砍价 -->
+      <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{3}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==3}}">
         <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
         <view class='item_detail right_des'>
           <view class='good_title'>{{item.name}}</view>
@@ -72,10 +74,32 @@
             <!-- <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view> -->
             <view style="color: #fff; " class='wrap3_btn'>去砍价</view>
           </view>
-        </view>
-
       </view>
+  </view>
+
+     <!-- 去拼团  -->
+     <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}">
+        <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
+        <view class='item_detail right_des'>
+          <view class='good_title'>{{item.name}}</view>
+          <view>
+            <text><text class='money_symbol'>￥</text><text class='min_price'>{{item.group_price}}</text></text>
+            <text class='orange_price'>￥{{item.price}}</text>
+          </view>
+          <view class='xiaojin'>额外奖励:
+            <text>{{item.currency / 100}}</text>小金
+          </view>
+          <view class='good_detail_bottom'>
+            <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
+            <!-- <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view> -->
+            <view style="color: #fff; " class='wrap3_btn'>去拼团</view>
+          </view>
+        </view>
+      </view>
+
+
     </view>
+
   </view>
 
 

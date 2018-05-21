@@ -66,9 +66,9 @@
     </block>
     <block wx:else>
 
-           <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button> 
+            <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>  
                <!-- 分享开始 -->
-       <!-- <button data-orderId="{{ barginOwnData.orderId }}" class="wrap2_btn"  bindtap="listenerButton">邀请好友参团{{xqObj.deadLine}}后结束</button>
+        <!-- <button data-orderId="{{ barginOwnData.orderId }}" class="wrap2_btn"  bindtap="listenerButton">邀请好友参团{{xqObj.deadLine}}后结束</button>
  <view class='mark' wx:if="{{hid}}"> 
    <view class='sharebox'>
           <view class='squn'>
@@ -80,7 +80,7 @@
           </view>
           <view class='cancel' bindtap='cancelBtn'>取消</view>
    </view>
-</view> -->
+</view>  -->
         <!-- 分享结束 -->
 
 

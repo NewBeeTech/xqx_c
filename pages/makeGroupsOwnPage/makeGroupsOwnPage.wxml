@@ -30,9 +30,9 @@
     </view>
 
     <button wx:if="{{from}}" bindtap="getCreateGroupBuyInfoXCX" data-group_buy_id="{{barginOwnData.id}}" data-create_person_id="{{barginOwnData.create_person_id}}"  data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn">一键参团</button>
-      <button wx:else bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn">邀请好友参团</button>  
+      <!-- <button wx:else bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn">邀请好友参团</button>   -->
      <!-- 分享开始 -->
-       <!-- <button  wx:else  data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn"  bindtap="listenerButton">邀请好友参团</button>
+        <button  wx:else  data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn"  bindtap="listenerButton">邀请好友参团</button>
  <view class='mark' wx:if="{{hid}}"> 
    <view class='sharebox'>
           <view class='squn'>
@@ -44,7 +44,7 @@
           </view>
           <view class='cancel' bindtap='cancelBtn'>取消</view>
    </view>
-</view> -->
+</view> 
         <!-- 分享结束 -->
     <view>分享到3个群后，成团率高达98%</view>
   </view>

@@ -37,14 +37,10 @@ Page({
     var title = e.currentTarget.dataset.title;
     var xj = e.currentTarget.dataset.xj;
    
-
-    // setTimeout(function(){
     wx.navigateTo({
-      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj
+      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
     })
-    // }, 1000)
 
-   
     this.setData({
       hid: false
     })
@@ -61,7 +57,7 @@ Page({
     console.log(cnd)
     console.warn(token)
 
-    console.log(new Date())
+    // console.log(new Date())
     wx.request({
       // Default.HOST = "https://192.168.1.204:8080/app_person/";
       url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
@@ -77,12 +73,12 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        console.log(new Date())
+        // console.log(new Date())
         // console.log(res.data)
         var shareImgSrc = res.data.data;
         wx.setStorageSync('shareImgSrc', shareImgSrc)
         console.log(wx.getStorageSync('shareImgSrc'))
-        console.log(new Date())
+        // console.log(new Date())
         // pages / makeGroupsOwnPage / makeGroupsOwnPage
 
 

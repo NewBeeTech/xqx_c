@@ -34,6 +34,10 @@ Page({
   },
   goToHome:function(e){
     var data=e.currentTarget.dataset;
+    var codeid = data.codeid;
+    wx.removeStorageSync('codeid');
+    // console.log(wx.getStorageSync('codeid'))
+    wx.setStorageSync('codeid', codeid);
     wx.setStorage({
       key: "citybox",
       data: { city:data.city, codeid:data.codeid },
