@@ -186,8 +186,8 @@ App({
     session: '',
     userid: '',
     // host: "https://mini.xqx.com",
-    // host: "http://ccpp.denong.com",
-    host:'http://192.168.1.204',
+    host: "http://ccpp.denong.com",
+    // host:'http://192.168.1.204',
     searchData:[],
     photos:[]
   },
