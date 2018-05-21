@@ -115,6 +115,8 @@ Page({
     var url = pages[pageIndex];
     if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
       url += "?id=" + e.currentTarget.dataset.id
+    } else if (pages[pageIndex] == "/pages/makeGroupsDetails/makeGroupsDetails"){
+      url += "?id=" + e.currentTarget.dataset.id
     }
     console.log(e.currentTarget.dataset.id);
     console.log(url);

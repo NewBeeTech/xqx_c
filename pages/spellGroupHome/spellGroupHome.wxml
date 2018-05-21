@@ -78,7 +78,7 @@
   </view>
 
      <!-- 去拼团  -->
-     <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}">
+     <!-- <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}">
         <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
         <view class='item_detail right_des'>
           <view class='good_title'>{{item.name}}</view>
@@ -91,13 +91,35 @@
           </view>
           <view class='good_detail_bottom'>
             <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
-            <!-- <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view> -->
             <view style="color: #fff; " class='wrap3_btn'>去拼团</view>
           </view>
         </view>
+      </view> -->
+
+       <view class='wrap3 {{julIf && "wrap3_jul"}}'>
+      <view  wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}" class='wrap3_item'>
+        <!-- <view class='wrap3_itembox1'> -->
+        <image mode='aspectFill' class='wrap3_img' src='{{item.img_url}}'></image>
+        <view class='wrap3_box'>
+          <view class='wrap3_box_name'>{{item.name}}</view>
+
+          <view class="make_group_info">
+            <view>
+                    <view>
+                      <text class="group_person_num">{{item.group_person_num}}人团</text>
+                      <text class="group_num">已团{{item.group_num}}件</text>
+                    </view>
+                      <view class='wrap3_box_ewj'>奖励：{{ item.currency / 100 }}小金</view>
+                        <view>
+                                    <text class="group_price">￥{{item.group_price}}</text>
+                                    <text class="price">￥{{item.price}}</text>
+                        </view>
+                </view>
+                <view style="color: #fff; " class='wrap3_btn' data-id='{{item.id}}'>去拼团</view>
+          </view>
+        </view>
       </view>
-
-
+</view>
     </view>
 
   </view>
