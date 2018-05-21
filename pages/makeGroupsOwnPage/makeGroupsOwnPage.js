@@ -250,10 +250,11 @@ Page({
         wx.hideLoading();
         if (result.code == 0) {
         console.warn('result: ', result);
-          // wx.showToast({
-          //   title: '开团成功',
-          //   duration: 1000,
-          // });
+        console.warn('config: ', config, self.data);
+          wx.showToast({
+            title: '开团成功',
+            duration: 1000,
+          });
           wx.navigateTo({
             url: '/pages/ConfirmationOrder/ConfirmationOrder?cnd='+goods_group_id+'&group_buy_id='+id+'&create_person_id='+create_person_id,
           });
