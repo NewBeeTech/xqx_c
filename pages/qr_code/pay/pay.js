@@ -162,7 +162,7 @@ Page({
           money: parseFloat(e.detail.value),
           resultMoney: result
         });
-        this.data.info.mInfo.forEach(function (item) {
+        this.data.info.mInfo&&this.data.info.mInfo.forEach(function (item) {
 
           if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
 

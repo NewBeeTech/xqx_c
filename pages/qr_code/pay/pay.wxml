@@ -35,7 +35,7 @@
     </view>
     <view class='confirmPay'>
        <view>
-             <view class='estimate'>本单预计可返<text>{{resultMoney * ratio / 100}}</text>小金</view>
+             <view class='estimate'>本单预计可返<text>{{resultMoney * ratio / 100 >= 0.01 ? resultMoney * ratio / 100 : 0.01 }}</text>小金</view>
             <view class='confirOrder' bindtap='qrmdTap'>确认买单</view>
        </view>
     </view>
