@@ -43,15 +43,23 @@ App({
             // 获取城市
             that.getCityId(city)
             // callback(addressRes.result.address_component.district);
-          }, fail: function (err) {
+          }, 
+          fail: function (err) {
             console.log(err);
+            city = '北京';
+            that.getCityId(city)
+            wx.setStorageSync("city", city);
           }
         })
       },
       // 获取位置失败，定位到北京市天南门
       fail:function(err){
         city='北京';
+        // that.getCityId(city)
         wx.setStorageSync("city", city);
+        var currentpage = getCurrentPages();
+        that.setpageData(currentpage, city);
+        console.log(123456)
       }
     })
   },
@@ -173,9 +181,12 @@ App({
 
           wx.setStorageSync('codeid', codeid)
           break;
-        } else {
-          console.log('失败');
-        }
+        } 
+        //  else {
+        //   city="北京"
+        //   console.log('失败');
+        
+        // }
         i++;
       }
     })
