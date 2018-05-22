@@ -47,11 +47,11 @@ Page({
     this.setData({
       hid: false
     })
-    wx.showToast({
-      title: '用户取消分享',
-      icon: 'none',
-      duration: 1000
-    })
+    // wx.showToast({
+    //   title: '用户取消分享',
+    //   icon: 'none',
+    //   duration: 1000
+    // })
 
   },
   // 点击分享朋友圈按钮
@@ -62,7 +62,7 @@ Page({
     var prermb = e.currentTarget.dataset.prermb;
     var title = e.currentTarget.dataset.title;
     var xj = e.currentTarget.dataset.xj;
-    
+
     wx.navigateTo({
       url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
     })
@@ -79,7 +79,7 @@ Page({
     var cnd = this.data.cnd;
     var page1 = 'pages/makeGroupsOwnPage/makeGroupsOwnPage';
     var token = wx.getStorageSync("token");
-    
+
     wx.request({
       // Default.HOST = "https://192.168.1.204:8080/app_person/";
       // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',

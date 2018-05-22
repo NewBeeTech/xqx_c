@@ -69,8 +69,16 @@ Page({
               group_buy_id: that.data.xqObj.group_buy_id
           }).then(function (res) {
               console.log(res)
+              if (res.code == 0) {
+                that.loadData(that.id);
+              } else {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                    duration: 2000
+                });
+              }
               wx.hideLoading();
-              that.loadData(that.id);
           }).catch(function (err) { });
         }, 10000)();
 
@@ -88,16 +96,17 @@ Page({
         var that = this;
         console.warn(that.data);
         console.warn('参数：', {
-          orderId: that.data.xqObj.orderId,
+          orderId: that.data.xqObj.id,
           goods_group_id: that.data.xqObj.goods_group_id,
           group_buy_id: that.data.xqObj.group_buy_id
         })
         appData.Tool.cancelGroupOrder1({
-            orderId: that.data.xqObj.orderId,
+            orderId: that.data.xqObj.id,
             goods_group_id: that.data.xqObj.goods_group_id,
             group_buy_id: that.data.xqObj.group_buy_id
         }).then(function (res) {
           wx.hideLoading();
+          if (res.code == 0) {
             console.log(res);
             if (res.data.cancelFlag == 'false'){
               wx.showToast({
@@ -111,6 +120,14 @@ Page({
               });
               that.loadData(that.id);
             }
+          } else {
+            wx.showToast({
+                title: res.message,
+                icon: 'none',
+                duration: 2000
+            });
+          }
+
 
           }).catch(function (err) { wx.hideLoading();});
     },

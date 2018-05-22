@@ -116,20 +116,29 @@ Page({
                     appData.Tool.cancelGroupOrder1(obj).then(function (res) {
                         console.log(res)
                         wx.hideLoading();
-                        var title = '';
-                        if (res.data.cancelFlag) {
-                            title = '取消成功'
+                        if (res.code == 0) {
+                          var title = '';
+                          if (res.data.cancelFlag) {
+                              title = '取消成功'
+                          } else {
+                              title = '取消失败'
+                          };
+                          wx.showToast({
+                              title: title
+                          });
+                          setTimeout(function () {
+                              that.data.Ddarr = [];
+                              that.data.page = 1;
+                              that.getDdList();
+                          }, 1500)
                         } else {
-                            title = '取消失败'
-                        };
-                        wx.showToast({
-                            title: title
-                        });
-                        setTimeout(function () {
-                            that.data.Ddarr = [];
-                            that.data.page = 1;
-                            that.getDdList();
-                        }, 1500)
+                          wx.showToast({
+                              title: res.message,
+                              icon: 'none',
+                              duration: 2000
+                          });
+                        }
+
                     })
                         .catch(function (err) {
                             wx.hideLoading();
@@ -156,9 +165,18 @@ Page({
           appData.Tool.commitReceiveGoods1(obj).then(function (res) {
               console.log(res)
               wx.hideLoading();
-              that.data.Ddarr = [];
-              that.data.page = 1;
-              that.getDdList();
+              if (res.code == 0) {
+                that.data.Ddarr = [];
+                that.data.page = 1;
+                that.getDdList();
+              } else {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                    duration: 2000
+                });
+              }
+
           })
               .catch(function (err) {
                   wx.hideLoading();
