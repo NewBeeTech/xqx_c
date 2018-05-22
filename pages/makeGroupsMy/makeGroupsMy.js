@@ -148,8 +148,8 @@ Page({
    */
   onHide: function () {
     this.setData({
-      list: [
-      ],
+      // list: [
+      // ],
       wxTimerList: {},
       page: 1,
     });
