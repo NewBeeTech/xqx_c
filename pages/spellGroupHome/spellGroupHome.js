@@ -17,6 +17,7 @@ Page({
     banners:[],
     city:'',//对应城市设置
   },
+  // 加载banner
   loadBanners:function(){
      var self = this;
       appData.Tool.getTopPics({}).then(function (result) {
@@ -27,6 +28,7 @@ Page({
         console.log(self.data.banners);
       });
   },
+  // banner跳转链接
   link:function(e){
     // wx.navigateTo({
     //     url: e.currentTarget.dataset.url,
@@ -57,6 +59,7 @@ Page({
     // }
 
   },
+  // 加载热门数据
   loadOpenedGroup:function(page){
 
     // 获取对应商品
@@ -105,7 +108,7 @@ Page({
       console.log(err);
     });
   },
-
+// 导航跳转地址
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
@@ -124,6 +127,7 @@ Page({
       url: url,
     })
   },
+  // 获取用户状态
   loadUserStatus:function(){
 
       var self = this;
@@ -159,6 +163,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.loadBanners();
       console.log(options)
     // app.getUserLocation();  //获取地理位置
     // var city= wx.getStorageSync("city1");
