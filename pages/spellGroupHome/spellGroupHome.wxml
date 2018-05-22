@@ -28,7 +28,7 @@
 </view>
 
 <!-- 授权 -->
-               <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>                -->
+                 <!-- <button type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>                  -->
 
   <view class='nav'>
     <view class='item' bindtap='toNextPage' data-page='{{0}}'>
@@ -70,7 +70,7 @@
             <text>{{item.currency / 100}}</text>小金
           </view>
           <view class='good_detail_bottom'>
-            <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
+            <text class='group_num'>{{item.group_person_num}}人已{{ item.group_price }}元拿</text>
             <!-- <view style="color: #fff; " class='wrap3_btn'>砍价{{ item.group_price }}元得</view> -->
             <view style="color: #fff; " class='wrap3_btn'>去砍价</view>
           </view>
