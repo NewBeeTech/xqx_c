@@ -36,10 +36,11 @@
                     <!-- <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view> -->
                     <!-- <view class='customer_service_btn' bindtap='sohTap'>售后</view> -->
                     <!-- <button class='sharing_friends_btn identical' open-type="share" bindtap='fxIndex' data-id='{{item.goods_group_id}}'>分享好友</button> -->
-                    <view class='confirmation_receipt_btn identical'>确认发货</view>
+                    <!-- <view class='confirmation_receipt_btn identical'>确认发货</view> -->
+                    <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>
                 </block>
                 <block wx:if="{{item.order_state==4}}">
-                    <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>
+                    <!-- <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view> -->
                     <!-- <button class='sharing_friends_btn identical'  bindtap='gmTap' data-id='{{item.id}}'>立即支付</button> -->
                 </block>
                 <block wx:elif="{{item.order_state==2}}">

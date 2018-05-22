@@ -89,12 +89,12 @@
         <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
     </block>
     <block wx:elif="{{xqObj.order_state==1}}">
+        <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
         <!-- <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view> -->
         <!-- <button class='buy_again_btn identical buy_again_no' data-id='{{xqObj.goods_group_id}}' open-type="share">分享好友</button> -->
         <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
     </block>
     <block wx:elif="{{xqObj.order_state==4}}">
-        <view class='customer_service_btn' bindtap='sqtkTap'>取消订单</view>
         <!-- <view class='customer_service_btn' bindtap='shohTap'>售后</view> -->
         <!-- <view class='buy_again_btn identical' bindtap='zcgTap'>再次购买</view> -->
         <!-- <view class='confirmation_receipt_btn identical'>确认发货</view> -->
