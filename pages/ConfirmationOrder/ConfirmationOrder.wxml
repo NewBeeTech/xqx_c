@@ -55,7 +55,7 @@
         </view>
         <view>
             <view>额外奖励：</view>
-            <text class='wrap3_cont_he_sc'>{{goodInfo.currency / 100 >= 0.01 ? goodInfo.currency / 100 : 0.01}}小金</text>
+            <text class='wrap3_cont_he_sc'>{{groupInfo.currency / 100 >= 0.01 ? groupInfo.currency / 100 : 0.01}}小金</text>
         </view>
     </view>
     <view class='wrap3_btn' bindtap='toPay'>立即支付</view>
