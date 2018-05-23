@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/spellGroupHome/spellGroupHome",
+    "pages/makeGroupsRulePage/makeGroupsRulePage",
     "pages/makeGroups/makeGroups",
     "pages/makeGroupsOrder/makeGroupsOrder",
     "pages/makeGroupsMy/makeGroupsMy",
