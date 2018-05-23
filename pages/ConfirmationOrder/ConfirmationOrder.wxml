@@ -1,5 +1,12 @@
 <!--pages/ConfirmationOrder/ConfirmationOrder.wxml-->
-<view class='wrap1' wx:if='{{groupInfo.address_id}}' bindtap='bjAddress'>
+<view class='wrap1' wx:if='{{groupInfo.delivery_method == 2}}'>
+    <view class='wrap1_box'>
+      <view>到店自提</view>
+      <view>{{ groupInfo.detail_address }}</view>
+    </view>
+    <!-- <image class='wrap1_icon' src='../../images/icon/jit2.png'></image> -->
+</view>
+<view class='wrap1' wx:elif='{{groupInfo.address_id}}' bindtap='bjAddress'>
     <view class='wrap1_box'>
         <view>{{groupInfo.receiveName}} {{groupInfo.phone}}</view>
         <text>{{groupInfo.address}}</text>
@@ -30,14 +37,14 @@
             </view>
         </view>
     </view>
-    <view class='wrap2_nub'>
+    <!-- <view class='wrap2_nub'>
         <text>购买数量</text>
         <view class='wrap2_nub_anj'>
             <image src='{{buyNum==1?"../../images/icon/jia2.png":"../../images/icon/jia.png"}}' bindtap='ja1'></image>
             <view>{{buyNum}}</view>
             <image src='../../images/icon/ja.png' bindtap='ja2'></image>
         </view>
-    </view>
+    </view> -->
 </view>
 
 <view class='wrap3'>

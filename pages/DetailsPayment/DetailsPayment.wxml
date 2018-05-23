@@ -65,7 +65,26 @@
            <view class='wrap2_btn' bindtap='onekey'>一键参团</view>
     </block>
     <block wx:else>
-          <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>
+
+            <button class='wrap2_btn' open-type='share'>邀请好友参团{{xqObj.deadLine}}后结束</button>  
+               <!-- 分享开始 -->
+        <!-- <button data-orderId="{{ barginOwnData.orderId }}" class="wrap2_btn"  bindtap="listenerButton">邀请好友参团{{xqObj.deadLine}}后结束</button>
+ <view class='mark' wx:if="{{hid}}"> 
+   <view class='sharebox'>
+          <view class='squn'>
+              <button open-type='share' class='shareFri' bindtap='onShareAppMessage'>发给群聊或好友</button>
+          </view>
+          <view class='shareImg' bindtap='shareImg' data-imgurl="{{xqObj.img_url}}" data-title="{{xqObj.name}}" data-nowRmb="{{xqObj.group_price}}" data-preRmb="{{xqObj.price}}" data-xj="{{~~(xqObj.group_price*100*xqObj.ratio/100)?~~(xqObj.group_price*100*xqObj.ratio/100)/100:0.01}}">
+                <text class='simg'>生成图片分享</text>
+                <text class='afriend'>可以用来分享到朋友圈</text>
+          </view>
+          <view class='cancel' bindtap='cancelBtn'>取消</view>
+   </view>
+</view>  -->
+        <!-- 分享结束 -->
+
+
+
           <view class='wrap2_mie'>分享到3个群后，成团率高达98%</view>
     </block>
   

@@ -1,0 +1,19 @@
+<scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
+<view class='citybox'>
+    <view class='citynow'>
+          <text>当前选择城市：{{city}}</text>
+    </view>
+    <view class='citychoisebox' wx:for='{{citys}}'>
+          <view class='citychoise' hover-class="citychoise-hover" hover-stay-time='2000'  data-city='{{item.cityname}}' data-codeid='{{item.id}}'  bindtap='goToHome' >
+          <!-- <navigator hover-class='none' open-type='switchTab' url='../spellGroupHome/spellGroupHome?city={{item.cityname}}&codeid={{item.id}}'> -->
+                <view wx:if='{{item.cityname==city}}' >
+                      <text  class='citych1'>{{item.cityname}}</text>
+                      <image src='../../images/cityChoise/dg.png' class='img'></image>
+                </view>     
+                <text class='l' wx:else>{{item.cityname}}</text>
+          <!-- </navigator> -->
+          </view>
+    </view>
+</view>
+
+</scroll-view>

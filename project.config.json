@@ -309,6 +309,42 @@
 					"name": "附件商户",
 					"pathName": "pages/homePage/homePage",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拼团列表",
+					"pathName": "pages/makeGroups/makeGroups",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拼团详情",
+					"pathName": "pages/makeGroupsDetails/makeGroupsDetails",
+					"query": "id=83f9a598-c0ab-4f79-8e8f-a021d353c929"
+				},
+				{
+					"id": 48,
+					"name": "拼团支付详情",
+					"pathName": "pages/makeGroupsOwnPage/makeGroupsOwnPage",
+					"query": "id=4254&from=share"
+				},
+				{
+					"id": -1,
+					"name": "我的拼团",
+					"pathName": "pages/makeGroupsMy/makeGroupsMy",
+					"query": "id=4219"
+				},
+				{
+					"id": 51,
+					"name": "拼团订单",
+					"pathName": "pages/makeGroupsOrder/makeGroupsOrder",
+					"query": "id=4225"
+				},
+				{
+					"id": 52,
+					"name": "拼团分享",
+					"pathName": "pages/makeGroupsOwnPage/makeGroupsOwnPage",
+					"query": "id=4238&from=1"
 				}
 			]
 		}

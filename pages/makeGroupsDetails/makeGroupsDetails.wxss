@@ -1,0 +1,362 @@
+/* pages/MerchantDetails/MerchantDetails.wxss */
+
+page{
+  box-sizing: border-box;
+  margin-bottom: 100rpx;
+  padding-bottom: 100rpx;
+}
+
+.ta{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.Swipr{
+    height: 420rpx;
+}
+.Swipr image{
+    width: 100%;
+    height: 100%;
+}
+.Swipr_wrap{
+    position: relative;
+}
+.Swipr_pop{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    line-height: 100rpx;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 323rpx;
+    top: 140rpx;
+}
+
+.Md{
+    padding: 0 35rpx;
+    box-sizing: border-box;
+}
+.Md_top{
+    margin-top: 30rpx;
+    /* height: 160rpx; */
+    display: flex;
+    align-items: center;
+}
+.detaileTitle{
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+  line-height: 50px;
+  margin: 0 30rpx;
+}
+.detailContent{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin: 0 15px;
+}
+.Md_top .Md_top_left {
+    width: 528rpx;
+    margin-bottom: 10rpx;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+.Md_top_left>view:first-child {
+    font-size: 40rpx;
+    margin-bottom: 10rpx;
+    font-weight: bold;
+}
+.Md_top_left>view:first-child > text{
+    font-size: 28rpx;
+}
+.Md_top_left>view:nth-child(2) {
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+    color: #999;
+}
+.Md_top_left>view:nth-child(3) {
+    font-size: 30rpx;
+    color: #999;
+}
+.price {
+  color: 26rpx;
+  color: #999;
+  text-decoration:line-through;
+}
+.Md_top_right {
+    display: block;
+    width: 220rpx;
+    height: 70rpx;
+    border-radius: 35rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background: #fea400;
+    text-align: center;
+    line-height: 70rpx;
+}
+
+.Md_mid {
+    border-bottom: solid 1rpx #dadada;
+    height: 136rpx;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.Md_bottom {
+    display: flex;
+    height: 110rpx;
+    font-size: 30rpx;
+    align-items: center;
+    color: #666;
+    justify-content: space-between;
+}
+.Md_bottom_left {
+  display: flex;
+  width: 698rpx;
+  justify-content: space-between;
+}
+.Md_bottom_left > view{
+  display: flex;
+  align-items: center;
+}
+.Md_bottom_left image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.Md_bottom_right {
+  width: 50rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.Md_bottom_right>image{
+    width: 36rpx;
+    height: 20rpx;
+    transform: rotate(90deg);
+}
+.alertView {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50%;
+  padding: 50rpx;
+  position: fixed;
+  font-size: 30rpx;
+  background: white;
+  left: 0;
+  top:100%;
+  display: none;
+  z-index: 9999;
+}
+
+.address_tel{
+display: flex;
+height: 140rpx;
+justify-content: space-between;
+align-items: center;
+border-bottom: 14rpx solid #f0f0f0;
+border-top:14rpx solid #f0f0f0;
+background: #ffffff;
+}
+.shop_name{
+font-size: 30rpx;
+font-weight: 500;
+}
+
+.address{
+display: flex;
+align-items: center;
+}
+.address>image{
+width: 80rpx;
+height: 80rpx;
+border-radius: 50%;
+border: solid 1rpx #dadada;
+margin: 0 26rpx 0 34rpx;
+}
+.shop_name{
+    font-size: 30rpx;
+    font-weight: bold;
+    height: 48rpx;
+    display: block;
+}
+.address_info{
+    font-size: 25rpx;
+    color: #9a9a9a;
+}
+.address_tel_rig{
+    height: 72rpx;
+    border-left: solid 1rpx #dadada;
+    padding: 0 75rpx 0 60rpx;
+    display: flex;
+    align-items: center;
+}
+.address_tel_rig>image{
+    width: 48rpx;
+    height: 48rpx;
+}
+
+/* 底部功能 */
+.bottomBtn{
+  border-top: 1rpx solid #dadada;
+  height: 45px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+.backHome{
+  color: #ff9c00;
+  padding: 0 32px;
+  text-align: center;
+}
+.backHome image{
+    width: 18px;
+    height: 18px;
+}
+.beginBtn{
+  flex: 1;
+  height: 100%;
+  font-size: 36rpx;
+  background: #ff9c00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.beginBtnGrey{
+  background: #ccc;
+  color: white;
+}
+.beginBtn view {
+  text-align: center;
+}
+.beginBtn_lef{
+    padding-left: 190rpx;
+}
+.beginBtn2{
+    flex: 1;
+    height: 92rpx;
+    color: white;
+    text-align: center;
+    line-height: 47px;
+    background: #ff9c00;
+    border-radius: 0;
+}
+.bottomreward{
+  line-height: 22px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-right: 35rpx;
+}
+/* 详情 */
+
+.details{
+    border-top: solid 15rpx #f0f0f0;
+    color: #333;
+    font-size: 14px;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+/* 从下面弹出框 */
+.alertView  .container {
+  position: relative;
+}
+.alert_title {
+  text-align: center;
+  font-weight: bold;
+}
+.close {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+}
+.alertView .sub_title {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 0;
+}
+.alertView .sub_title text {
+  padding-left: 17rpx;
+}
+.alert_title .des {
+  color: rgb(96,96,96);
+}
+.ok_icon {
+  width: 39rpx;
+  height: 39rpx;
+}
+.margin-detail {
+  margin-bottom: 100rpx;
+}
+.cantuan-list{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:40rpx;
+  margin: 0px 30rpx;
+}
+.cantuan-header {
+  height:80rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:80rpx;
+}
+.cantuan-cell {
+  border-top: 0.5rpx solid #DADADA;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 140rxp;
+  padding: 20rpx 0;
+}
+.cantuan-portrait {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+.cantuan-cell-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.joinBtn {
+  width:140rpx;
+  height:60rpx;
+  background:linear-gradient(-90deg,rgba(255,201,0,1),rgba(255,160,0,1));
+  box-shadow: 0px 5px 11px 0px rgba(248,180,32,0.5);
+  margin-left: 20rpx;
+  line-height: 60rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  border-radius: 8rpx;
+}
+.beginBtn_lef_btn {
+  background: rgba(0,0,0,0);
+  color: #fff;
+  border: 0;
+}
+button::after{
+  border: 0;
+}

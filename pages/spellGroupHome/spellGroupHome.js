@@ -14,8 +14,10 @@ Page({
   data: {
     page:1,
     goods:[],
-    banners:[]
+    banners:[],
+    city:'',//对应城市设置
   },
+  // 加载banner
   loadBanners:function(){
      var self = this;
       appData.Tool.getTopPics({}).then(function (result) {
@@ -26,6 +28,7 @@ Page({
         console.log(self.data.banners);
       });
   },
+  // banner跳转链接
   link:function(e){
     // wx.navigateTo({
     //     url: e.currentTarget.dataset.url,
@@ -56,11 +59,19 @@ Page({
     // }
 
   },
+  // 加载热门数据
   loadOpenedGroup:function(page){
+
+    // 获取对应商品
     var a = 1;
     console.log(a.toDouble());
     var self = this;
-    appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 }).then(function (result) {
+    // appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 })
+    // 根据城市获取商品
+    var codeid=wx.getStorageSync("codeid");
+    console.log(codeid)
+    appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
+    .then(function (result) {
       wx.hideLoading();
       console.log(result);
       self.loadBanners();
@@ -87,23 +98,27 @@ Page({
           goods:arr
         });
       }else{
-        wx.showToast({
-          title: result.message,
-          icon: 'none',
-          duration: 2000
-        })
+          wx.showToast({
+              title: result.message,
+              icon: 'none',
+              duration: 2000
+          })
       }
     }).catch(function(err){
       console.log(err);
     });
   },
+// 导航跳转地址
   toNextPage:function(e){
     console.log(e);
     var pageIndex = e.currentTarget.dataset.page;
-    var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    // var pages = ["../homePage/homePage", "/pages/pintuan/pintuan", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
     // var pages = ["../homePage/homePage", "/pages/FightGroups/FightGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage","../miaosha/miaosha"]
+    var pages = ["../homePage/homePage", "/pages/makeGroups/makeGroups", "../search/search", '/pages/bargainOwnPage/bargainOwnPage', "/pages/bargainHomePage/bargainHomePage", "../miaosha/miaosha","/pages/makeGroupsDetails/makeGroupsDetails"]
     var url = pages[pageIndex];
     if (pages[pageIndex] =="/pages/bargainOwnPage/bargainOwnPage"){
+      url += "?id=" + e.currentTarget.dataset.id
+    } else if (pages[pageIndex] == "/pages/makeGroupsDetails/makeGroupsDetails"){
       url += "?id=" + e.currentTarget.dataset.id
     }
     console.log(e.currentTarget.dataset.id);
@@ -112,7 +127,9 @@ Page({
       url: url,
     })
   },
+  // 获取用户状态
   loadUserStatus:function(){
+
       var self = this;
     // app.getUserLocation(function (addr) {
       app.login(function () {
@@ -127,6 +144,7 @@ Page({
         //   .catch(function (err) {
         //     console.log(err);
         //   });
+
       });
     // })
   },
@@ -135,11 +153,24 @@ Page({
       this.data.page += 1;
       this.loadOpenedGroup(this.data.page);
   },
+  // 城市选择
+  choiseCity:function(){
+    wx.navigateTo({
+      url:"../choiseCity/choiseCity?city="+this.data.city
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.loadUserStatus();
+    // this.loadBanners();
+      console.log(options)
+    // app.getUserLocation();  //获取地理位置
+    // var city= wx.getStorageSync("city1");
+    // console.log(city)
+    // this.setData({
+    //   city:city
+    // })
   },
 
   /**
@@ -153,6 +184,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that=this;
 
     this.setData({
       page:1,
@@ -160,6 +192,58 @@ Page({
       banners:[],
     })
     this.loadUserStatus();
+
+  // 获取缓存中的city与codeid
+    wx.getStorage({
+      key: 'citybox',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          city:res.data.city
+        })
+        var codeid=res.data.codeid;
+        console.log(codeid)
+        appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
+          .then(function (result) {
+            // console.log(result)
+            wx.hideLoading();
+            console.log(result);
+            self.loadBanners();
+            if (result.code == 0) {
+              var arr = self.data.goods.concat(result.data.list);
+              for (var k in arr) {
+                arr[k].group_price = fn(arr[k].group_price);
+                arr[k].price = fn(arr[k].price);
+              }
+              function fn(a) {
+                if (typeof a == 'string') { return a };
+                var str = a / 100 + '';
+                var i = str.indexOf('.');
+                if (i != -1) {
+                  if (str.length != i + 3) {
+                    str += '0';
+                  }
+                } else {
+                  str += '.00';
+                }
+                return str;
+              };
+              self.setData({
+                goods: arr
+              });
+            } else {
+              wx.showToast({
+                title: result.message,
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          }).catch(function (err) {
+            console.log(err);
+          });
+
+      }
+    })
   },
 
   /**

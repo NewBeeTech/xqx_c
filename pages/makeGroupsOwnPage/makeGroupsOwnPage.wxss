@@ -1,0 +1,457 @@
+/* @import "../../components/barginUserList/barginUserList.wxss"; */
+/* @import "../../components/bargainGoodsInfo/bargainGoodsInfo.wxss"; */
+
+.own-content {
+  height: calc(100vh - 90rpx);
+  overflow-y: scroll;
+}
+
+.group_own_info {
+  margin: 20rpx 30rpx;
+  padding: 30rpx 0rpx;
+  width:690rpx;
+  /* height:164rpx; */
+  background:rgba(255,255,255,1);
+  /* box-shadow: 0px 0px 12rpx 0px rgba(219,221,225,0.8) */
+  box-shadow: 0 0 1em #ccc;
+  border-radius: 16rpx ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bargain_own_list {
+  position: relative;
+  top: -70rpx;
+}
+
+.bargin_own_info1 {
+  font-size: 24rpx;
+  color: #6e6e6e;
+}
+
+.bargin_own_info2 {
+  font-size: 30rpx;
+  color: #f39800;
+}
+
+.bargin_own_info3 {
+  font-size: 24rpx;
+  color:  #a5a5a5;
+}
+
+.bottomBtn{
+  height: 90rpx;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.backHome{
+  width: 90rpx;
+  padding: 0 30rpx;
+  text-align: center;
+}
+.backHome image{
+    width: 18px;
+    height: 18px;
+}
+.bargainBtn{
+  width: calc(100vw - 90rpx);
+  height: 100%;
+  background: #ff9c00;
+  color: white;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+}
+
+.bargin_share_btn {
+  width: 464rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  /* background-color: #f39800; */
+  background:linear-gradient(-90deg,rgba(250,205,39,1),rgba(244,159,17,1));
+  border-radius: 70rpx;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+}
+
+/* 弹窗 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 650rpx;
+  height: 550rpx;
+  border-radius: 6rpx;
+  position: fixed;
+  top: 20%;
+  left: 50rpx;
+  z-index: 9999;
+  background: #f9f9f9;
+
+}
+
+
+.modal-user-img > image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-top: 18rpx;
+}
+
+.modal-dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dialog-text {
+  font-size: 30rpx;
+  color: #000;
+  padding: 30rpx 30rpx 46rpx;
+  line-height: 60rpx;
+}
+
+.modal-dialog-button {
+  border: 1rpx solid #f39800;
+  color: #f39800;
+  height: 86rpx;
+  width: 470rpx;
+  font-size: 30rpx;
+  border-radius: 43rpx;
+}
+
+.modal-close-img {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 42rpx;
+  padding-right: 35rpx;
+}
+.modal-close-img > image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.bargain_rule {
+  width: 90vw;
+  margin: 0 auto;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #6e6e6e;
+  text-align: right;
+}
+.rule-title {
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.modal-dialog-rule {
+  height: 600rpx;
+}
+.modal-dialog-rule>view {
+  text-align: justify;
+}
+.rule{
+  width: 550rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.bargain_content {
+  margin-top: 20rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bargain_rule {
+  width: 90vw;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 24rpx;
+  color: #6e6e6e;
+  text-align: right;
+  position: relative;
+  top: 0;
+}
+.bargain_portrait {
+  position: relative;
+  top: -50rpx;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.bargain_portrait1 {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.bargain_portrait1 > image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.bargain_portrait2 {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 23rpx;
+}
+
+.group_good_info {
+  border-radius: 10rpx;
+  /* padding: 130rpx 32rpx 32rpx; */
+  margin: 0 30rpx;
+  width: calc(100vw - 60rpx);
+  min-height: 350rpx;
+  /* position: relative; */
+  /* top: -150rpx; */
+  box-shadow: 0 0 1em #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.bargain_right_info {
+  /* width: 600rpx; */
+  min-height: 290rpx;
+  margin: 30rpx 30rpx 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bargain_img > image {
+  width: 290rpx;
+  height: 290rpx;
+  border-radius: 5rpx;
+  margin: 30rpx 20rpx 30rpx 30rpx;
+}
+
+.bargain_right_name {
+  width: 320rpx;
+  font-size: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  /* display:-webkit-box; */
+  white-space:nowrap;
+  /* -webkit-line-clamp:2; */
+  /* -webkit-box-orient:vertical; */
+  color: #000;
+}
+
+.bargain_right_money {
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bargain_right_money1 {
+  font-size: 26rpx;
+}
+
+.bargain_right_money2 {
+  font-size: 24rpx;
+  color: #f39800;
+}
+
+.bargain_right_money3 {
+  font-size: 36rpx;
+  color: #000;
+}
+
+.bargain_right_money4 {
+  font-size: 24rpx;
+  color: #6e6e6e;
+  margin-top: 10rpx;
+}
+.bargain_detail {
+  width: 65vw;
+  text-align: right;
+  font-family: PingFangSC;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.75;
+  letter-spacing: 0.5rpx;
+  color: #6e6e6e;
+}
+.makeGroups_info {
+  margin: 0 30rpx;
+  padding: 30rpx 0rpx;
+  width:690rpx;
+  /* height:164rpx; */
+  background:rgba(255,255,255,1);
+  /* box-shadow: 0px 0px 12rpx 0px rgba(219,221,225,0.8) */
+  box-shadow: 0 0 1em #ccc;
+  border-radius: 16rpx ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.makeGroups_info-desc {
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(53,53,53,1);
+  line-height:37rpx;
+}
+.group_person_num {
+  padding: 0 10rpx;
+  height:27rpx;
+  border-radius: 17rpx ;
+  border: 1rpx solid #FE6100;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(254,97,0,1);
+  line-height:19rpx;
+  margin-right: 10rpx;
+}
+.group_num {
+  height:33rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:33rpx;
+}
+.group_price {
+  height:30rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(244,159,17,1);
+  line-height:30rpx;
+  margin-right: 10rpx;
+}
+.price {
+  height:24rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:24rpx;
+  text-decoration: line-through;
+}
+.wrap3_box_ewj{
+  height:19rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:19rpx;
+  margin: 15rpx 0;
+}
+.makegroup-portrait {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 74rpx;
+  margin: 10rpx 20rpx;
+}
+.makegroup-portraits {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.orderInfo {
+  margin-bottom: 30rpx;
+  height:37rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(53,53,53,1);
+  line-height:37rpx;
+}
+
+
+/* 分享弹出框 */
+.mark{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index:99;
+}
+.mark .sharebox{
+  width: 100%;
+  height:382rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #FAFAFC;
+  text-align: center;
+}
+.mark .squn{
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  text-align: center;
+}
+.mark .squn button{
+  width: 100%;
+  height: 100%;
+  color: #353535;
+  font-size: 34rpx;
+  line-height: 120rpx;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+ border-bottom: 1rpx solid #FAFAFC;
+}
+.mark .shareImg{
+  width: 100%;
+  height: 122rpx;
+  background:#fff;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.mark .simg{
+  display: block;
+    font-size: 34rpx;
+    line-height:80rpx;
+    color: #353535;
+}
+.mark .afriend{
+   display: block;
+    font-size: 28rpx;
+    line-height:30rpx;
+    color: #999999;
+}
+.mark .cancel{
+  width: 100%;
+  height:120rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 120rpx;
+  color: #353535;
+  font-size: 34rpx;
+}

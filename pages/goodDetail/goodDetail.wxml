@@ -10,7 +10,6 @@
     </swiper>
     <!-- <view class='Swipr_pop' wx:if="{{goodsInfo.ratio!=0||goodsInfo.integral_ratio}}">{{goodsInfo.ratio}}%</view> -->
   </view>
-
   <view class='goodsMsg'>
     <!-- 商品头部信息 -->
     <view class='goodTitle padding_rl bg_white'>

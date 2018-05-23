@@ -11,13 +11,87 @@ Page({
       xqObj:{},
       su:'',
       id:'',
-      onekey:'0'
+      onekey:'0',
+      hid: false,   //分享弹出框
+      cnd: ''
   },
+  // 点击取消按钮
+  cancelBtn: function () {
+    this.setData({
+      hid: false
+    })
+    wx.showToast({
+      title: '用户取消分享',
+      icon: 'none',
+      duration: 1000
+    })
+
+  },
+  
+  // 点击分享朋友圈按钮
+  shareImg: function (e) {
+    console.log(e.currentTarget.dataset)
+    var imgurl = e.currentTarget.dataset.imgurl;
+    var nowrmb = e.currentTarget.dataset.nowrmb;
+    var prermb = e.currentTarget.dataset.prermb;
+    var title = e.currentTarget.dataset.title;
+    var xj = e.currentTarget.dataset.xj;
+   
+    wx.navigateTo({
+      url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
+    })
+
+    this.setData({
+      hid: false
+    })
+  },
+  // 点击分享按钮
+  listenerButton: function () {
+    this.setData({
+      hid: true
+    })
+
+    var cnd = this.data.cnd;
+    var page1 = 'pages/DetailsPayment/DetailsPayment'
+    var token = wx.getStorageSync("token");
+    console.log(cnd)
+    console.warn(token)
+
+    // console.log(new Date())
+    wx.request({
+      // Default.HOST = "https://192.168.1.204:8080/app_person/";
+      url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
+      // url: appData.host+'/app_person/xcxgroupbuy/createCode',
+      method: "POST",
+      data: {
+        cnd: cnd,
+        page: page1,
+        token: token
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res)
+        // console.log(new Date())
+        // console.log(res.data)
+        var shareImgSrc = res.data.data;
+        wx.setStorageSync('shareImgSrc', shareImgSrc)
+        console.log(wx.getStorageSync('shareImgSrc'))
+        // console.log(new Date())
+        // pages / makeGroupsOwnPage / makeGroupsOwnPage
+
+
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
     this.setData({
       id:options.id
     })
@@ -26,12 +100,15 @@ Page({
         onekey: options.onekey
       })
     }
-      this.loadData(options.id);
+      this.loadData(options.id)
   },
   loadData: function (id) {
       var that = this;
       appData.Tool.getGoodsGroupOrderInfoXCX({ cnd: id }).then(function (res) {
           console.log(res)
+          that.setData({
+            cnd:res.data.id
+          })
           wx.hideLoading();
           function fn(a) {
               if (typeof a == 'string') { return a };

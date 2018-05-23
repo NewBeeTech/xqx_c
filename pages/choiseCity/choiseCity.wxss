@@ -1,0 +1,52 @@
+/* pages/choiseCity/choiseCity.wxss */
+.citybox{
+  width: 100%;
+  height: auto;
+   font-family: 'PingFangSC';
+}
+.citynow{
+  font-weight: Medium;
+  width: 100%;
+  height: 102rpx;
+  border-top:1rpx solid  #DADADA;
+  font-size:30rpx;
+  color:#F49F11;
+  line-height: 102rpx;
+}
+.citynow text{
+  margin-left:30rpx;
+}
+.citychoisebox{
+  font-weight: Regular;
+  width: 690rpx;
+  height: auto;
+  margin: 0 auto;
+}
+.citychoise{
+  width: 100%;
+  height: 76rpx;
+  border-top: 1rpx solid  #DADADA;
+  line-height: 76rpx;
+  font-size: 28rpx;
+}
+.citychoise .l{
+  float: left;
+    color: #414141;
+}
+.citychoise .citych1{
+  float: left;
+  color:#F49F11;
+}
+.citychoise .img{
+  width: 30rpx;
+  height: 26rpx;
+  float:right;
+  margin-top: 25rpx;
+}
+.citychoise-hover{
+  color: #F49F11;
+}
+.citychoise navigator{
+  width: 100%;
+  height: 100%;
+}

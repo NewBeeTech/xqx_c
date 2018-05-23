@@ -1,0 +1,69 @@
+<import src="../../components/barginUserList/barginUserList.wxml"/>
+
+<view class="own-content">
+  <view class="bargain_content" bindtap="navToGoodDetail">
+     <view class="group_good_info">
+       <view class="bargain_img"><image src="{{ barginOwnData.img_url }}"/></view>
+       <view class="bargain_right_info">
+          <view class="bargain_right_name">{{ barginOwnData.group_name}}</view>
+          <view>
+            <view>
+              <text class="group_person_num">{{barginOwnData.group_person_num}}人团</text>
+              <text class="group_num">已团{{barginOwnData.group_num}}件</text>
+            </view>
+            <view class='wrap3_box_ewj'>奖励：{{ barginOwnData.currency / 100.0 }}小金</view>
+            <view>
+              <text class="group_price">￥{{barginOwnData.group_price / 100.0}}</text>
+              <text class="price">￥{{barginOwnData.price / 100.0}}</text>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="group_own_info">
+    <view class="bargin_own_info3" wx:if="{{barginOwnData.deadLine <= 0 && barginOwnData.avail_num > 0}}">拼团失败</view>
+    <view class="bargin_own_info3" wx:elif="{{barginOwnData.deadLine <= 0}}">拼团结束</view>
+    <view class="bargin_own_info3" wx:elif="{{barginOwnData.avail_num <= 0}}">拼团成功</view>
+    <view class="bargin_own_info3" wx:else>剩余{{barginOwnData.avail_num}}人拼成，{{ wxTimerList['wxTimer1'].wxTimer }}后结束</view>
+
+    <view class="makegroup-portraits">
+      <view wx:for="{{barginOwnData.joinList}}">
+        <image class="makegroup-portrait" src="{{item.portrait}}" />
+      </view>
+    </view>
+
+    <button class="bargin_share_btn" wx:if="{{barginOwnData.deadLine <= 0 && barginOwnData.avail_num > 0}}">拼团失败</button>
+    <button class="bargin_share_btn" wx:elif="{{barginOwnData.avail_num <= 0}}">拼团成功</button>
+    <button wx:elif="{{from && canJoinGroup}}" bindtap="getCreateGroupBuyInfoXCX" data-id="{{barginOwnData.group_buy_id}}" data-create_person_id="{{barginOwnData.create_person_id}}"  data-goods_group_id="{{ barginOwnData.goods_group_id }}" class="bargin_share_btn">一键参团</button>
+    <button  wx:else  data-orderId="{{ barginOwnData.orderId }}" class="bargin_share_btn"  bindtap="listenerButton">邀请好友参团</button>
+ <view class='mark' wx:if="{{hid}}">
+   <view class='sharebox'>
+          <view class='squn'>
+              <button open-type='share' class='shareFri' bindtap='onShareAppMessage'>发给群聊或好友</button>
+          </view>
+          <view class='shareImg' bindtap='shareImg' data-imgurl="{{barginOwnData.img_url}}" data-title="{{barginOwnData.group_name}}" data-nowRmb="{{barginOwnData.group_price / 100.0}}" data-preRmb="{{barginOwnData.price / 100.0}}" data-xj="{{ barginOwnData.currency / 100.0 }}">
+                <text class='simg'>生成图片分享</text>
+                <text class='afriend'>可以用来分享到朋友圈</text>
+          </view>
+          <view class='cancel' bindtap='cancelBtn'>取消</view>
+   </view>
+</view>
+        <!-- 分享结束 -->
+    <view>分享到3个群后，成团率高达98%</view>
+  </view>
+  <view class="makeGroups_info">
+    <view wx:if="{{!from}}" class="orderInfo" bindtap="orderInfo">订单详情 > </view>
+    <view class="makeGroups_info-desc">
+      拼团须知：好友参团，人满发货，人不满退款
+    </view>
+  </view>
+  <view class='bottomBtn'>
+      <view class='backHome' bindtap='backHome'>
+          <image src='../../images/tabBar/a2.png'></image>
+          <view>首页</view>
+      </view>
+      <view class='bargainBtn' bindtap='myBargainList'>
+          我的拼团商品
+      </view>
+  </view>
+</view>

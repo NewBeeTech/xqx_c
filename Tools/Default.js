@@ -2,11 +2,16 @@ function Default() { }
 /**
  * 主机地址
  */
-// Default.HOST = "http://ccpp.denong.com/app_person/";
-Default.HOST = "https://mini.xqx.com/app_person/";
+Default.HOST = "http://ccpp.denong.com/app_person/";
+// Default.HOST = "https://mini.xqx.com/app_person/";
+// Default.HOST = "http://192.168.1.204:8080/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
+Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
 
+
+
+Default.GETGOODSCATELOG = "xcxgroupbuy/getGoodsCatelog";
 Default.GET_TOP_PICS = "XCXmerchant/getTopPics";
 /**
  * 首页
@@ -154,8 +159,13 @@ Default.MERCHANT_DISCOUNT_INFO = "xcxwechatpay/getMerchantDiscountInfo";
 
 /**
  *
- * 开团列表
+ * 首页拼团列表
  *
+ */
+Default.GOODS_GROUP_BUY_LIST1 = "xcxgroupbuy/getGoodsGroupBuyListXCX";
+/**
+ * 开团
+ * @type {String}
  */
 Default.GOODS_GROUP_BUY_LIST = "xcxcutprice/getGoodsCutPriceListXCX";
 
@@ -177,27 +187,46 @@ Default.OPERATE_PERSON_ADDRESS = "xcxgroupbuy/operatePersonAddress";
 /**
  * 确认一键开团/参团
  */
-Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuyXCX";
+Default.CREATE_GROUP_BUY = "xcxgroupbuy/createGroupBuy";
+/**
+ * 确认一键开团/参团
+ */
+Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
 
 /**
  * 获取用户拼团订单列表
  */
 Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
+/**
+ * 获取用户拼团订单列表
+ */
+Default.GET_GOODS_GROUP_ORDER_LIST1 = "xcxgroupbuy/getGoodsGroupOrderListXCX";
 
+/**
+ * 获取用户拼团订单列表
+ */
+Default.GET_GROUP_GOODS_GROUP_ORDER_LIST = "xcxgroupbuy/getMyGroupGoods";
+// Default.GET_GOODS_GROUP_ORDER_LIST = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 /**
  * 获取拼团订单详情
  */
 Default.GET_GOODS_GROUP_ORDER_INFO = "xcxcutprice/getGoodsCutPriceOrderInfoXCX";
+/**
+ * 获取拼团订单详情1
+ */
+Default.GET_GOODS_GROUP_ORDER_INFO1 = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
 
 /**
  * 确认收货
  */
 Default.COMMIT_RECEIVE_GOODS = "xcxcutprice/commitReceiveGoods";
+Default.COMMIT_RECEIVE_GOODS1 = "xcxgroupbuy/commitReceiveGoods";
 
 /**
  * 取消订单
  */
 Default.CANCEL_GROUP_ORDER = "xcxcutprice/cancelGroupOrder";
+Default.CANCEL_GROUP_ORDER1 = "xcxgroupbuy/cancelGroupOrder";
 
 /**
  * 获取砍价详情
@@ -222,5 +251,18 @@ Default.GET_MY_BARGAINS = "xcxcutprice/getGoodsCutPriceOrderListXCX";
 
 // 砍价确认支付
 Default.BARGAINS_PAY = "xcxcutprice/createWeChatPayXCX";
+
+// 新增
+//获取城市列表接口     /merchantv20/getXCXCCPPCity
+Default.CITY_LIST = "merchantv20/getXCXCCPPCity";
+
+// 获取砍价商品列表 / xcxcutprice / getGoodsCutPriceListXCX
+Default.CITY_GOODS =
+"xcxcutprice/getGoodsCutPriceListXCX";
+
+// 获取砍价、拼团商品列表（首页热门）   xcxgroupbuy/getHomeHot
+Default.INDEX_CITY_GOODS =
+  "xcxgroupbuy/getHomeHot";
+
 
 module.exports = Default;

@@ -1,0 +1,153 @@
+<!--pages/BargainDetails/BargainDetails.wxml-->
+<view class='ta' class='ta' style='display:{{isShow}}'></view>
+<view class='Swipr'>
+    <!-- <swiper class='Swipr' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
+        <block wx:for='{{obj.carousel_figure}}' wx:key='{{index}}'>
+            <swiper-item> -->
+                <image class='' src='{{obj.img_url}}' mode='aspectFill'></image>
+            <!-- </swiper-item>
+        </block>
+    </swiper> -->
+     <!-- <view class='Swipr_pop' wx:if="{{obj.ratio!=0||obj.integral_ratio}}">{{obj.ratio?obj.ratio+'%':(obj.integral_ratio?'100:'+obj.integral_ratio:'')}}</view> -->
+</view>
+
+<view class='Md'>
+    <view class='Md_top'>
+        <view class='Md_top_left'>
+            <view><text>￥</text>{{obj.group_price / 100}} <text class="price">￥{{obj.price / 100}}</text></view>
+            <view>奖励小金：{{ obj.xiaojin }} </view>
+
+            <view><text>{{ obj.group_person_num }}人团 </text>已团出{{ obj.group_num }}件</view>
+        </view>
+         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
+
+    </view>
+    <view class='Md_mid'>
+        {{obj.name}}
+    </view>
+    <view class='Md_bottom' bindtap="showAlert">
+        <view class='Md_bottom_left'>
+            <view><image src="{{icon}}"></image>全场包邮</view>
+            <view><image src="{{icon}}"></image>48小时发货</view>
+            <view><image src="{{icon}}"></image>消费即得养老金</view>
+        </view>
+        <view class='Md_bottom_right'>
+          <image src='https://activity.denong.com/b.png'></image>
+        </view>
+    </view>
+</view>
+<view wx:if="{{obj.joinList.length > 0}}" class="cantuan-list">
+  <view class="cantuan-header">正在开团，可直接参与</view>
+  <view wx:for="{{obj.joinList}}" class="cantuan-cell">
+    <view class="cantuan-cell-left">
+      <image class="cantuan-portrait" src="{{item.portrait}}" />
+      <view>{{item.name}}</view>
+    </view>
+    <view class="cantuan-cell-left">
+      <view>还差{{item.avail_num}}人拼成</view>
+      <view class="joinBtn" bindtap='getCreateGroupBuyInfoXCX' data-group_buy_id="{{item.id}}" data-create_person_id="{{item.person_id}}">去参团</view>
+    </view>
+  </view>
+</view>
+<view class='address_tel'>
+    <view class='address' bindtap='dpzy'>
+        <image src='{{obj.store_logo}}'></image>
+        <view>
+            <text bindtap="toShop" class='shop_name' data-id="{{obj.merchant_id}}">{{obj.merchant_name}}</text>
+            <view class='address_info' wx:if="{{obj.address}}">{{obj.address}}</view>
+        </view>
+    </view>
+    <view wx:if="{{obj.store_phone}}" class='address_tel_rig'>
+        <image bindtap='ddhua' data-store_phone='{{obj.store_phone}}' src='../../images/img/phone.png'></image>
+    </view>
+</view>
+<view class='goodDetails bg_white margin-detail' wx:if="{{obj.explain_content||(obj.explain_img_url !== '' && obj.explain_img_url !== '[]' && obj.explain_img_url !== '\"[]\"')}}">
+    <view>
+        <view class='detaileTitle'>商品详情</view>
+        <view class='detailContent' wx:if="{{obj.explain_content}}">{{obj.explain_content}}</view>
+        <image  wx:if="{{obj.imgList}}" style='padding:20rpx;width:100%;box-sizing:border-box;' mode='widthFix' wx:for="{{obj.imgList}}" wx:key='{{index}}' src='{{item}}'></image>
+    </view>
+</view>
+<!-- 底部功能件 -->
+<view class='bottomBtn' wx:if="{{obj.state != 1}}">
+    <view class='backHome' bindtap='backHome'>
+        <image src='../../images/tabBar/a2.png'></image>
+        <view>首页</view>
+    </view>
+    <view wx:if="{{obj.status == 3}}" class='beginBtn beginBtnGrey'>
+        <view class='beginBtn_lef'>
+            <view >已结束</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.status == 4}}" class='beginBtn beginBtnGrey'>
+        <view class='beginBtn_lef'>
+            <view >已下架</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.order_state == 1 || obj.order_state == 2 || obj.order_state == 3 }}" class='beginBtn beginBtnGrey' class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>发起砍价</view>
+        </view>
+    </view>
+</view>
+<view class='bottomBtn' wx:if="{{obj.status == 1 && obj.order_state != 1}}">
+    <view class='backHome' bindtap='backHome'>
+        <image src='../../images/tabBar/a2.png'></image>
+        <view>首页</view>
+    </view>
+    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0 && obj.create_person_id == userId}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.orderId}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view >立即支付</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.order_state == 1 || obj.order_state == 2 || obj.order_state == 3 || obj.order_state == 4}}" class='beginBtn beginBtnGrey' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>已购买</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.now_price > obj.group_price && obj.order_state == 0}}" class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>继续砍价</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.infoStatus == 0}}" class='beginBtn' bindtap='getCreateGroupBuyInfoXCX' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+            <view>一键开团</view>
+        </view>
+    </view>
+    <view wx:elif="{{obj.infoStatus == 1}}" class='beginBtn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+        <view class='beginBtn_lef'>
+          <button bindtap="onShareAppMessage" open-type="share" class='beginBtn_lef_btn' bindtap='mdTap'>邀请好友拼团</button>
+            <!-- <view>邀请好友拼团</view> -->
+        </view>
+    </view>
+</view>
+<view class='alertView' style='top:{{alertTop}}%; display:{{isShow}}'>
+    <view class='container'>
+        <image bindtap='close' class='close' src='../../images/img/close.png'></image>
+        <view class='alert_title'>服务说明</view>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>全场包邮</text>
+            </view>
+            <view class='des'>所有商品均无条件包邮</view>
+        </view>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>消费即得养老金</text>
+            </view>
+            <view class='des'>每一笔消费都能获得相应比例的养老金</view>
+        </view>
+        <view class='item'>
+            <view class='sub_title'>
+                <image class='ok_icon' src='../../images/img/dui.png'></image>
+                <text>假一赔十</text>
+            </view>
+            <view class='des'>若收到的商品是假冒品牌，可获得加倍赔偿</view>
+        </view>
+
+
+    </view>
+</view>
