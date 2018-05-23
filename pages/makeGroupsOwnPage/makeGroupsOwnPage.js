@@ -140,7 +140,7 @@ Page({
   },
   onShow: function() {
     this.setData({
-      wxTimerList: {}
+      wxTimerList: {},
       hid: false,
     })
     this.loadData(this.data.id);
