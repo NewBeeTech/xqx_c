@@ -20,10 +20,10 @@
             <view>已{{ obj.low_price_num }}人成功砍价</view>
         </view>
 
-         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button> 
+         <button bindtap="onShareAppMessage" open-type="share" class='Md_top_right' bindtap='mdTap'>分享给好友</button>
 <!-- 分享开始 -->
         <!-- <button class='Md_top_right'  bindtap="listenerButton">分享到好友</button>
- <view class='mark' wx:if="{{hid}}"> 
+ <view class='mark' wx:if="{{hid}}">
    <view class='sharebox'>
           <view class='squn'>
               <button open-type='share' class='shareFri'>发给群聊或好友</button>
@@ -97,7 +97,7 @@
         <image src='../../images/tabBar/a2.png'></image>
         <view>首页</view>
     </view>
-    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0 && obj.create_person_id == userId}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.orderId}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:if="{{obj.now_price <= obj.group_price && obj.order_state == 0 && obj.create_person_id == obj.userId}}" class='beginBtn' bindtap='oneKeyGroup' data-id='{{obj.orderId}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view >立即支付</view>
         </view>
@@ -112,7 +112,7 @@
             <view>继续砍价</view>
         </view>
     </view>
-    <view wx:elif="{{obj.create_person_id != userId}}" class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
+    <view wx:elif="{{obj.create_person_id != obj.userId}}" class='beginBtn' bindtap='toBarginOwn' data-id='{{obj.id}}' data-group_buy_id='{{obj.group_buy_id}}' data-create_person_id='{{obj.create_person_id}}'>
         <view class='beginBtn_lef'>
             <view>去砍价</view>
         </view>
