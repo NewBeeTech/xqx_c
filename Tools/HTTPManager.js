@@ -61,6 +61,7 @@ HTTPManager.post = function (url, parm) {
       },
       success: function (res) {
         console.log(res);
+        wx.hideLoading();
         if (res.data.code === 2) {
           console.warn('其他接口验证需要跳转手机号页面-调用登录接口再次验证')
           login.login().then(function (res) {
@@ -88,7 +89,6 @@ HTTPManager.post = function (url, parm) {
                 })
               }
             } else {
-              wx.hideLoading;
               wx.showToast({
                 title: '网络错误请稍后再试',
                 icon: 'none',
@@ -96,10 +96,9 @@ HTTPManager.post = function (url, parm) {
               });
             }
           })
-
-
           return;
         }
+        wx.hideLoading();
         success(res.data);
       },
       fail: function (error) {
