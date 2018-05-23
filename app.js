@@ -42,8 +42,8 @@ App({
             wx.setStorageSync("city", city );
             // 获取城市
             that.getCityId(city)
-            // callback(addressRes.result.address_component.district);
-          }, 
+            callback && callback(addressRes.result.address_component.district);
+          },
           fail: function (err) {
             console.log(err);
             city = '北京';
@@ -181,11 +181,11 @@ App({
 
           wx.setStorageSync('codeid', codeid)
           break;
-        } 
+        }
         //  else {
         //   city="北京"
         //   console.log('失败');
-        
+
         // }
         i++;
       }
