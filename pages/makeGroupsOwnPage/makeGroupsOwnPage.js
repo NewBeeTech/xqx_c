@@ -160,7 +160,7 @@ Page({
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
         const joinList = result.data.joinList;
         if (self.data.userId !== result.data.create_person_id) {
-          if (joinList.filter(item => item.id == self.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
+          if (joinList.filter(item => item.id == result.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
             self.setData({
               canJoinGroup: false,
             });
