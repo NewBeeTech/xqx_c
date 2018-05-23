@@ -145,7 +145,7 @@ Page({
     },
     toWaring: function () {
         wx.navigateTo({
-            url: '../bargainRulePage/bargainRulePage',
+            url: '../makeGroupsRulePage/makeGroupsRulePage',
         })
     },
     bannerLink: function() {

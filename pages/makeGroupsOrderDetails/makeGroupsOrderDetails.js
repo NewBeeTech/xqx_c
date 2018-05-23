@@ -64,7 +64,7 @@ Page({
         var that = this;
         throttle(function() {
           appData.Tool.commitReceiveGoods1({
-              orderId: that.data.xqObj.orderId,
+              orderId: that.data.xqObj.id,
               goods_group_id: that.data.xqObj.goods_group_id,
               group_buy_id: that.data.xqObj.group_buy_id
           }).then(function (res) {
