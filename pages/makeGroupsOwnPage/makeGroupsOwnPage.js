@@ -141,6 +141,7 @@ Page({
   onShow: function() {
     this.setData({
       wxTimerList: {}
+      hid: false,
     })
     this.loadData(this.data.id);
   },
@@ -286,7 +287,7 @@ Page({
           title: '转发成功',
           duration: 2000
         })
-        self.setData({ showModal: false })
+        self.setData({ hid: false, showModal: false })
       },
       fail: function(res) {
         // 转发失败

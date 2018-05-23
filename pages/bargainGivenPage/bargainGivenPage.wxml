@@ -9,9 +9,9 @@
   <template  data="{{ barginOwnData, navToGoodDetail }}" is="bargainGoodsInfo" />
   <view class="bargin_own_info">
     <view class="bargin_own_info1">已砍<span class="bargin_own_info2">{{ totalCutPrice }}</span>元  还差<span class="bargin_own_info2">{{ hasPrice }}</span>元</view>
-    <button wx:if="{{barginOwnData.now_price > barginOwnData.group_price && barginOwnData.create_person_id != userId}}" bindtap="showModalBtn" class="bargin_share_btn">帮朋友砍一刀</button>
-    <button wx:elif="{{barginOwnData.now_price > barginOwnData.group_price && barginOwnData.create_person_id == userId}}" bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}"  class="bargin_share_btn">喊朋友砍一刀</button>
-    <button wx:elif="{{barginOwnData.create_person_id == userId}}" bindtap="navToGoodDetail" class="bargin_share_btn">去支付</button>
+    <button wx:if="{{barginOwnData.now_price > barginOwnData.group_price && barginOwnData.create_person_id != barginOwnData.userId}}" bindtap="showModalBtn" class="bargin_share_btn">帮朋友砍一刀</button>
+    <button wx:elif="{{barginOwnData.now_price > barginOwnData.group_price && barginOwnData.create_person_id == barginOwnData.userId}}" bindtap="onShareAppMessage" open-type="share" data-orderId="{{ barginOwnData.orderId }}"  class="bargin_share_btn">喊朋友砍一刀</button>
+    <button wx:elif="{{barginOwnData.create_person_id == barginOwnData.userId}}" bindtap="navToGoodDetail" class="bargin_share_btn">去支付</button>
     <button wx:else class="bargin_share_btn">已砍至底价</button>
     <view class="bargin_own_info3">还剩{{ wxTimerList['wxTimer1'].wxTimer }}结束，快来砍价吧</view>
   </view>

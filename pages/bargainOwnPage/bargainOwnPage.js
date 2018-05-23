@@ -46,11 +46,11 @@ Page({
     this.setData({
       hid: false
     })
-    wx.showToast({
-      title: '用户取消分享',
-      icon: 'none',
-      duration: 1000
-    })
+    // wx.showToast({
+    //   title: '用户取消分享',
+    //   icon: 'none',
+    //   duration: 1000
+    // })
 
   },
   // 点击分享朋友圈按钮
@@ -134,7 +134,8 @@ Page({
   },
   onShow: function() {
     this.setData({
-      wxTimerList: {}
+      wxTimerList: {},
+      hid: false,   //分享弹出框
     })
     this.loadData(this.data.id);
   },
@@ -211,6 +212,7 @@ Page({
     this.setData({ showRuleModal: false });
   },
   onShareAppMessage: function () {
+
     console.log('id:', this.data.barginOwnData.goods_group_id);
       console.log('intPara:', this.data.barginOwnData.group_buy_id);
     const self = this;
@@ -222,6 +224,9 @@ Page({
         wx.showToast({
           title: '转发成功',
           duration: 2000
+        })
+        self.setData({
+          hid: false,   //分享弹出框
         })
         self.setData({ showModal: false })
       },
