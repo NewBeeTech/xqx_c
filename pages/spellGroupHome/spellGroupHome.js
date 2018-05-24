@@ -198,11 +198,18 @@ Page({
       key: 'citybox',
       success: function (res) {
         console.log(res.data)
-        that.setData({
-          city:res.data.city
-        })
-        wx.setStorageSync('citybox',res.data.codeid)
-        var codeid=res.data.codeid;
+        var codeid;
+        if(res.data.city){
+          that.setData({
+            city:res.data.city
+          })
+          codeid=res.data.codeid;
+          wx.setStorageSync('citybox',res.data.codeid)
+        }else{
+          codeid=wx.getStorageSync('citybox');
+        }
+
+
         console.log(codeid)
         appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
