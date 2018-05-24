@@ -410,15 +410,15 @@ Page({
         const citybox = wx.getStorageSync('citybox');
         console.log(1111111111111111)
         console.log(citybox)
-        const codeid = citybox || citybox.codeid;
+        const codeid = citybox;
         return new Promise(function (success, fail) {
             var config = {
               page: page,
               rows: 10,
               token: wx.getStorageSync('token'),
               areaId: codeid,
-              latitude:wx.setStorageSync("latitude"),
-              longitude:wx.setStorageSync("longitude")
+              latitude:wx.getStorageSync("latitude"),
+              longitude:wx.getStorageSync("longitude")
             };
             if (intPara) { config.intPara = intPara }
             if (intPara2) {

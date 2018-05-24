@@ -371,15 +371,15 @@ Page({
         var intPara4 = this.data.a3;
         var self = this;
         const citybox = wx.getStorageSync('citybox');
-        const codeid = citybox || citybox.codeid;
+        const codeid = citybox;
         return new Promise(function (success, fail) {
             var config = {
               page: page,
               rows: 10,
               token: wx.getStorageSync('token'),
               intPara3: codeid,
-              latitude:wx.setStorageSync("latitude"),
-              longitude:wx.setStorageSync("longitude")
+              latitude:wx.getStorageSync("latitude"),
+              longitude:wx.getStorageSync("longitude")
             };
             if (intPara) { config.intPara = intPara }
             if (intPara2) {
