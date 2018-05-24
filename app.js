@@ -185,7 +185,6 @@ App({
             //     city:city
             //   })
             // }
-
           wx.setStorageSync('codeid', codeid)
           wx.setStorageSync('citybox', codeid)
           break;
