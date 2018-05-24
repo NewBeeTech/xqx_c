@@ -51,7 +51,10 @@ App({
             city = '北京' || this.globalData.city;
             that.getCityId(city)
             wx.setStorageSync("city", city);
+            wx.setStorageSync("latitude", '39.9');
+            wx.setStorageSync("longitude", '116.4');
             wx.setStorageSync('codeid', this.globalData.codeid)
+            wx.setStorageSync('citybox', this.globalData.codeid)
             console.log(wx.getStorageSync('codeid'))
           }
         })
@@ -184,6 +187,7 @@ App({
             // }
 
           wx.setStorageSync('codeid', codeid)
+          wx.setStorageSync('citybox', codeid)
           break;
         }
         //  else {

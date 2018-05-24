@@ -408,13 +408,17 @@ Page({
         var intPara4 = this.data.a3;
         var self = this;
         const citybox = wx.getStorageSync('citybox');
-        const codeid = citybox && citybox.codeid;
+        console.log(1111111111111111)
+        console.log(citybox)
+        const codeid = citybox || citybox.codeid;
         return new Promise(function (success, fail) {
             var config = {
               page: page,
               rows: 10,
               token: wx.getStorageSync('token'),
               areaId: codeid,
+              latitude:wx.setStorageSync("latitude"),
+              longitude:wx.setStorageSync("longitude")
             };
             if (intPara) { config.intPara = intPara }
             if (intPara2) {
