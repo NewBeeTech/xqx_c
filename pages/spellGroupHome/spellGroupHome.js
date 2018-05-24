@@ -69,7 +69,7 @@ Page({
     // 根据城市获取商品
     // var codeid=wx.getStorageSync("codeid");
     const citybox = wx.getStorageSync('citybox');
-    const codeid = citybox && citybox.codeid;
+    const codeid = citybox && citybox.codeid || appData.codeid;
     console.log(codeid)
     appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
@@ -205,7 +205,7 @@ Page({
         that.setData({
           city:res.data.city
         })
-        var codeid=res.data.codeid;
+        var codeid=res.data.codeid ||  appData.codeid;
         console.log(codeid)
         appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {

@@ -36,5 +36,5 @@
         </view>
         <view class='hd_cont1_right' bindtap='toNext'>查看详情</view>
     </view>
-    <!-- <image bindtap="goH5" mode='widthFix' class='hd_cont2' src='{{info.advertisement.pic}}'></image> -->
+    <image bindtap="goH5" mode='widthFix' class='hd_cont2' src='{{info.advertisement.pic}}'></image>
 </view>

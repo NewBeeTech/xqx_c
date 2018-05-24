@@ -40,26 +40,30 @@ App({
            city = addressRes.result.address_component.city;
             // console.log(city)
             wx.setStorageSync("city", city );
+            // this.globalData.city=city;
+
             // 获取城市
             that.getCityId(city)
             callback && callback(addressRes.result.address_component.district);
           },
           fail: function (err) {
             console.log(err);
-            city = '北京';
+            city = '北京' || this.globalData.city;
             that.getCityId(city)
             wx.setStorageSync("city", city);
+            wx.setStorageSync('codeid', this.globalData.codeid)
+            console.log(wx.getStorageSync('codeid'))
           }
         })
       },
-      // 获取位置失败，定位到北京市天南门
+      // 获取位置失败，定位到北京市天an门
       fail:function(err){
-        city='北京';
+        city = '北京' || this.globalData.city;
         // that.getCityId(city)
         wx.setStorageSync("city", city);
+        wx.setStorageSync('codeid', this.globalData.codeid)
         var currentpage = getCurrentPages();
         that.setpageData(currentpage, city);
-        console.log(123456)
       }
     })
   },
@@ -200,7 +204,9 @@ App({
     host: "http://ccpp.denong.com",
     // host:'http://192.168.1.204',
     searchData:[],
-    photos:[]
+    photos:[],
+    city:'北京',
+    codeid:'110100'
   },
   setpageData: function (data,city) {
     const that = this;
