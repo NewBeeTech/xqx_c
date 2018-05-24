@@ -39,7 +39,6 @@ Page({
     if (info.activity_type == 0) {
       wx.navigateTo({
         // url: '../h5/h5?url='+info.url,
-        url:"../learnOurs/learnOurs"
       });
     } else if (info.activity_type == 2) {
       const id = info.activity_id;
@@ -149,10 +148,13 @@ Page({
 
       });
     // })
+
+
   },
   //上拉加载
   wrapList:function(){
       this.data.page += 1;
+      console.log(this.data.page)
       this.loadOpenedGroup(this.data.page);
   },
   // 城市选择
