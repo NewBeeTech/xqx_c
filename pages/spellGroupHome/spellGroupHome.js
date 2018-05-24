@@ -68,7 +68,9 @@ Page({
     var self = this;
     // appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 })
     // 根据城市获取商品
-    var codeid=wx.getStorageSync("codeid");
+    // var codeid=wx.getStorageSync("codeid");
+    const citybox = wx.getStorageSync('citybox');
+    const codeid = citybox && citybox.codeid;
     console.log(codeid)
     appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
