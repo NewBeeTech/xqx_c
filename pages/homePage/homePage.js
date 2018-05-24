@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        city:'北京',
         page: 1,
         obj: {},
         windowHeight: 1200,
@@ -165,7 +166,7 @@ Page({
         })
 
         var self = this;
-        var config = { intPara2: wx.getStorageSync("level"), cnd: wx.getStorageSync("city"), latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude") };
+        var config = { intPara2: wx.getStorageSync("level"), cnd: self.data.city, latitude: wx.getStorageSync("latitude"), longitude: wx.getStorageSync("longitude") };
         console.log(config);
         appData.Tool.getMianData(config).then(function (result) {
             console.log(result);
@@ -214,7 +215,8 @@ Page({
             app.login(function () {
                 console.log(wx.getStorageSync("token"));
                 appData.Tool.getAddressData({ location: addr }).then(function (result) {
-                    wx.setStorageSync("city", result.data.id);
+                    //wx.setStorageSync("city", result.data.id);
+                    self.setData({'city':result.data.id})
                     wx.setStorageSync("level", result.data.level);
                     console.log(result);
                     self.loadData();

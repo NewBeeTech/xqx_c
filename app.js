@@ -39,6 +39,10 @@ App({
           //  获取城市（新加）
            city = addressRes.result.address_component.city;
             // console.log(city)
+            if(callback){
+              callback(addressRes.result.address_component.district);
+              return false;
+            }
             wx.setStorageSync("city", city );
             // this.globalData.city=city;
 
