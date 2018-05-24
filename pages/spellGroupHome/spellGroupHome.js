@@ -39,6 +39,7 @@ Page({
     if (info.activity_type == 0) {
       wx.navigateTo({
         // url: '../h5/h5?url='+info.url,
+        url:"../learnOurs/learnOurs"
       });
     } else if (info.activity_type == 2) {
       const id = info.activity_id;
@@ -67,9 +68,7 @@ Page({
     var self = this;
     // appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 })
     // 根据城市获取商品
-    // var codeid=wx.getStorageSync("codeid");
-    const citybox = wx.getStorageSync('citybox');
-    const codeid = citybox && citybox.codeid || appData.codeid;
+    var codeid=wx.getStorageSync("codeid");
     console.log(codeid)
     appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
@@ -148,13 +147,10 @@ Page({
 
       });
     // })
-
-
   },
   //上拉加载
   wrapList:function(){
       this.data.page += 1;
-      console.log(this.data.page)
       this.loadOpenedGroup(this.data.page);
   },
   // 城市选择
@@ -205,7 +201,8 @@ Page({
         that.setData({
           city:res.data.city
         })
-        var codeid=res.data.codeid ||  appData.codeid;
+        wx.setStorageSync('citybox',res.data.codeid)
+        var codeid=res.data.codeid;
         console.log(codeid)
         appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
