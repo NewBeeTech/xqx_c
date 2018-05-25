@@ -156,7 +156,7 @@ Page({
     if (this.data.from == 'share') {
       params.intPara = 1;
     }
-    if(self.itimer){clearInterval(self.itimer);
+    if(self.itimer){clearInterval(self.itimer)};
     self.itimer=setInterval(function(){
       appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
         if (result.code === 0&&result.data.deadLine) {
