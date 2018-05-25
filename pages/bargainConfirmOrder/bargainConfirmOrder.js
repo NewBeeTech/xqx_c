@@ -1,5 +1,23 @@
 var app = getApp();
 var appData = app.globalData;
+var _lastTime = null
+function throttle(fn, gapTime) {
+    if (gapTime == null || gapTime == undefined) {
+        gapTime = 1500
+    }
+
+    // let _lastTime = null
+
+    // 返回新的函数
+    return function () {
+        let _nowTime = + new Date()
+        console.log(_nowTime, _lastTime, gapTime);
+        if (_nowTime - _lastTime > gapTime || !_lastTime) {
+            fn.apply(this, arguments)   //将this和参数传给原函数
+            _lastTime = _nowTime
+        }
+    }
+}
 Page({
 
   /**
@@ -70,8 +88,11 @@ Page({
       }
 
   },
+  topay() {
+    throttle(() => this.toPay1(), 10000)();
+  },
   //立即支付
-  toPay: function () {
+  toPay1: function () {
       var that = this;
       // FIXME:
       if (!this.data.addressInfo.id && this.data.goodInfo.delivery_method != 2){
