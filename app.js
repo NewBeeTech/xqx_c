@@ -20,7 +20,7 @@ App({
 
   },
   getUserLocation: function (callback) {
-  var that=this;
+    var that=this;
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
