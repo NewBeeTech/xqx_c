@@ -186,7 +186,7 @@ Page({
   onShow: function () {
     var that=this;
     // console.log(wx.getStorageSync('city'))
-
+    
     var city = wx.getStorageSync('city');
     console.log(city)
     this.setData({
@@ -196,7 +196,7 @@ Page({
       city:city
     })
     this.loadUserStatus();
-
+    
   // 获取缓存中的city与codeid
     wx.getStorage({
       key: 'citybox',
@@ -213,8 +213,8 @@ Page({
           codeid=wx.getStorageSync('citybox');
         }
 
-
-        console.log(codeid)
+        var codeid = wx.getStorageSync('codeid');
+        // console.log(codeid)
         appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
             // console.log(result)
