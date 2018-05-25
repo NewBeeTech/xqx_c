@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    itimer:'',
     showModal: false,
     showRuleModal: false,
     closeIcon: '../../images/icon/close.png',
@@ -155,75 +156,141 @@ Page({
     if (this.data.from == 'share') {
       params.intPara = 1;
     }
-    appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
-      if (result.code === 0) {
-        wx.hideLoading();
-        self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
-        const joinList = result.data.joinList;
-        if (self.data.userId !== result.data.create_person_id) {
-          if (joinList.filter(item => item.id == result.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
+    if(self.itimer){clearInterval(self.itimer);
+    self.itimer=setInterval(function(){
+      appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
+        if (result.code === 0&&result.data.deadLine) {
+          clearInterval(self.itimer)
+          wx.hideLoading();
+          self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
+          const joinList = result.data.joinList;
+          if (self.data.userId !== result.data.create_person_id) {
+            if (joinList.filter(item => item.id == result.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
+              self.setData({
+                canJoinGroup: false,
+              });
+            } else {
+              self.setData({
+                canJoinGroup: true,
+              });
+            }
+          } else {
             self.setData({
               canJoinGroup: false,
             });
-          } else {
+          }
+          if (result.data.showFlag == 0) {
             self.setData({
-              canJoinGroup: true,
+              showModal: false,
             });
           }
-        } else {
+          var cnd=result.data.id;
+          // console.log(cnd)
           self.setData({
-            canJoinGroup: false,
-          });
-        }
-        if (result.data.showFlag == 0) {
+            cnd:cnd
+          })
+        // console.log(result.data.id)
+          const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+          const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
+          const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
+          // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+          const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
+
+          // console.log(cutPrice, totalCutPrice, hasPrice)
           self.setData({
-            showModal: false,
+            cutPrice,
+            totalCutPrice,
+            hasPrice,
+            'barginOwnData.xiaojin': xiaojin
+          })
+
+
+          var wxTimer = new timer({
+              beginTime: result.data.deadLine,
+              name: 'wxTimer1',
+              complete:function(){
+                  console.log("完成了")
+              }
+          })
+          wxTimer.start(self);
+        } else if (result.code == -3) {
+          wx.showToast({
+            title: '该商品已下架',
+            icon: 'none',
+            duration: 20000,
           });
+          setTimeout(function () {
+            wx.navigateBack();
+          }, 2000);
         }
-        var cnd=result.data.id;
-        // console.log(cnd)
-        self.setData({
-          cnd:cnd
-        })
-      // console.log(result.data.id)
-        const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
-        const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
-        const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
-        // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
-        const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
+      })
 
-        // console.log(cutPrice, totalCutPrice, hasPrice)
-        self.setData({
-          cutPrice,
-          totalCutPrice,
-          hasPrice,
-          'barginOwnData.xiaojin': xiaojin
-        })
-
-
-        var wxTimer = new timer({
-            beginTime: result.data.deadLine,
-            name: 'wxTimer1',
-            complete:function(){
-                console.log("完成了")
-            }
-        })
-        wxTimer.start(self);
-      } else if (result.code == -3) {
-        wx.showToast({
-          title: '该商品已下架',
-          icon: 'none',
-          duration: 20000,
-        });
-        setTimeout(function () {
-          wx.navigateBack();
-        }, 2000);
-      }
-    }).catch(function (error) {
-        console.log(error);
-        wx.hideLoading()
-
-    });
+    },1000)
+    // appData.Tool.getGroupGoodsGroupOrderInfoXCX(params).then(function (result) {
+    //   if (result.code === 0) {
+    //     wx.hideLoading();
+    //     self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
+    //     const joinList = result.data.joinList;
+    //     if (self.data.userId !== result.data.create_person_id) {
+    //       if (joinList.filter(item => item.id == result.data.userId).length) { //  获取当前登录人userId   与   create_person_id  比较  不一致的话      遍历joinList 查找是否存在当前登录人userId      存在        显示分享
+    //         self.setData({
+    //           canJoinGroup: false,
+    //         });
+    //       } else {
+    //         self.setData({
+    //           canJoinGroup: true,
+    //         });
+    //       }
+    //     } else {
+    //       self.setData({
+    //         canJoinGroup: false,
+    //       });
+    //     }
+    //     if (result.data.showFlag == 0) {
+    //       self.setData({
+    //         showModal: false,
+    //       });
+    //     }
+    //     var cnd=result.data.id;
+    //     // console.log(cnd)
+    //     self.setData({
+    //       cnd:cnd
+    //     })
+    //   // console.log(result.data.id)
+    //     const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+    //     const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
+    //     const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
+    //     // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+    //     const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
+    //
+    //     // console.log(cutPrice, totalCutPrice, hasPrice)
+    //     self.setData({
+    //       cutPrice,
+    //       totalCutPrice,
+    //       hasPrice,
+    //       'barginOwnData.xiaojin': xiaojin
+    //     })
+    //
+    //
+    //     var wxTimer = new timer({
+    //         beginTime: result.data.deadLine,
+    //         name: 'wxTimer1',
+    //         complete:function(){
+    //             console.log("完成了")
+    //         }
+    //     })
+    //     wxTimer.start(self);
+    //   } else if (result.code == -3) {
+    //     wx.showToast({
+    //       title: '该商品已下架',
+    //       icon: 'none',
+    //       duration: 20000,
+    //     });
+    //     setTimeout(function () {
+    //       wx.navigateBack();
+    //     }, 2000);
+    //   }
+    // })
   },
   // 一键开团
   getCreateGroupBuyInfoXCX(e) {
