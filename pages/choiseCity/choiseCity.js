@@ -36,17 +36,17 @@ Page({
   goToHome:function(e){
     var data=e.currentTarget.dataset;
     var codeid = data.codeid;
+    var city = data.city;
     wx.removeStorageSync('codeid');
+    wx.removeStorageSync('city');
     // console.log(wx.getStorageSync('codeid'))
     wx.setStorageSync('codeid', codeid);
+    wx.setStorageSync('city', city)
     wx.setStorage({
       key: "citybox",
       data: { city:data.city, codeid:data.codeid },
       success: function () {
         wx.navigateBack();   //返回上一个页面
-        // wx.switchTab({
-        //   url: "pages/spellGroupHome/spellGroupHome?city=" + data.city + "&codeid=" +data.codeid,
-        // })
       }
     })
   },

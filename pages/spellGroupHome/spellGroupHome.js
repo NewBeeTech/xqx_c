@@ -16,6 +16,7 @@ Page({
     goods:[],
     banners:[],
     city:'',//对应城市设置
+    codeid:''
   },
   // 加载banner
   loadBanners:function(){
@@ -67,9 +68,11 @@ Page({
     console.log(a.toDouble());
     var self = this;
     // appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 })
+    
     // 根据城市获取商品
-    var codeid=wx.getStorageSync("codeid");
+    var codeid = wx.getStorageSync("codeid") || appData.codeid;
     console.log(codeid)
+    
     appData.Tool.getIndexCityGoods({page:page,rows:10, intPara3:codeid})
     .then(function (result) {
       wx.hideLoading();
@@ -185,14 +188,19 @@ Page({
    */
   onShow: function () {
     var that=this;
-
+    // console.log(wx.getStorageSync('city'))
+    
+    var city = wx.getStorageSync('city');
+    var codeid = wx.getStorageSync('codeid');
+    console.log(city)
     this.setData({
       page:1,
       goods:[],
       banners:[],
+      city:city,
+      codeid:codeid
     })
     this.loadUserStatus();
-
   // 获取缓存中的city与codeid
     wx.getStorage({
       key: 'citybox',
@@ -203,14 +211,14 @@ Page({
           that.setData({
             city:res.data.city
           })
-          codeid=res.data.codeid;
+          codeid=res.data.codeid || that.data.codeid;
           wx.setStorageSync('citybox',res.data.codeid)
         }else{
-          codeid=wx.getStorageSync('citybox');
+          codeid = wx.getStorageSync('citybox') || that.data.codeid;
         }
 
-
-        console.log(codeid)
+       
+        // console.log(codeid)
         appData.Tool.getIndexCityGoods({ page:1, rows: 10, intPara3: codeid })
           .then(function (result) {
             // console.log(result)
