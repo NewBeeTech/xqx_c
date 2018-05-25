@@ -38,6 +38,7 @@ Page({
     var codeid = data.codeid;
     var city = data.city;
     wx.removeStorageSync('codeid');
+    wx.removeStorageSync('city');
     // console.log(wx.getStorageSync('codeid'))
     wx.setStorageSync('codeid', codeid);
     wx.setStorageSync('city', city)
