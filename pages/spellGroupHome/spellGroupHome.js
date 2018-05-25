@@ -185,11 +185,15 @@ Page({
    */
   onShow: function () {
     var that=this;
+    // console.log(wx.getStorageSync('city'))
 
+    var city = wx.getStorageSync('city');
+    console.log(city)
     this.setData({
       page:1,
       goods:[],
       banners:[],
+      city:city
     })
     this.loadUserStatus();
 

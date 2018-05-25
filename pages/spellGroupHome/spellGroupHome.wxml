@@ -78,24 +78,6 @@
   </view>
 
      <!-- 去拼团  -->
-     <!-- <view class='item' wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}">
-        <image class='item_detail left_icon' src='{{item.img_url}}' mode='aspectFill'></image>
-        <view class='item_detail right_des'>
-          <view class='good_title'>{{item.name}}</view>
-          <view>
-            <text><text class='money_symbol'>￥</text><text class='min_price'>{{item.group_price}}</text></text>
-            <text class='orange_price'>￥{{item.price}}</text>
-          </view>
-          <view class='xiaojin'>额外奖励:
-            <text>{{item.currency / 100}}</text>小金
-          </view>
-          <view class='good_detail_bottom'>
-            <text class='group_num'>{{item.low_price_num}}人已{{ item.group_price }}元拿</text>
-            <view style="color: #fff; " class='wrap3_btn'>去拼团</view>
-          </view>
-        </view>
-      </view> -->
-
        <view class='wrap3 {{julIf && "wrap3_jul"}}'>
       <view  wx:for="{{goods}}" wx:key='{{index}}' bindtap='toNextPage' data-page='{{6}}' data-id='{{item.id}}'  wx:if="{{item.goods_type==1}}" class='wrap3_item'>
         <!-- <view class='wrap3_itembox1'> -->
