@@ -66,6 +66,11 @@
 
 
     <view class='wrap3 {{julIf && "wrap3_jul"}}'>
+      <view wx:if="{{goods.length == 0}}" class='scrollNo' style="display: flex; flex-direction: column">
+        <image src='https://activity.denong.com/w.png'></image>
+        <view>暂无数据</view>
+      </view>
+
       <view wx:for='{{goods}}' wx:key='{{ item.id }}' bindtap='toGroupDetail' data-id="{{item.id}}" >
         <div class="goods-image-container">
           <image wx:if="{{item.delivery_method == 1}}" class="goods-ziti" src="/images/baoyou.png" />
