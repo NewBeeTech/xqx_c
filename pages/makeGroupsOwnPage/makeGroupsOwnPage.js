@@ -219,11 +219,7 @@ Page({
           wx.navigateBack();
         }, 2000);
       }
-    }).catch(function (error) {
-        console.log(error);
-        wx.hideLoading()
-
-    });
+    })
   },
   // 一键开团
   getCreateGroupBuyInfoXCX(e) {

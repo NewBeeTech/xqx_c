@@ -179,18 +179,23 @@ App({
           city = citylist[i].cityname;
           // console.log(codeid)
           console.log("获取城市成功"+city)
-          // 获取当前页，添加data参数
-          var currentpage = getCurrentPages();
-//       //       currentpage=currentpage[currentpage.length-1];
-            console.log(currentpage);
-            that.setpageData(currentpage,city);
-            // if(currentpage[0].route){
-            //   currentpage[0].setData({
-            //     city:city
-            //   })
-            // }
+          if(!wx.getStorageSync('codeid')){
+                // 获取当前页，添加data参数
+                var currentpage = getCurrentPages();
+      //       //       currentpage=currentpage[currentpage.length-1];
+                  console.log(currentpage);
+                  that.setpageData(currentpage,city);
+                  // if(currentpage[0].route){
+                  //   currentpage[0].setData({
+                  //     city:city
+                  //   })
+                  // }
+          }
           wx.setStorageSync('codeid', codeid)
           wx.setStorageSync('citybox', codeid)
+            // that.globalData.city=city;
+            // that.globalData.codeid = codeid;
+            // console.log(that.globalData.codeid)
           break;
         }
         //  else {
