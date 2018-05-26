@@ -88,7 +88,7 @@ Page({
       }
 
   },
-  topay() {
+  toPay() {
     throttle(() => this.toPay1(), 10000)();
   },
   //立即支付
