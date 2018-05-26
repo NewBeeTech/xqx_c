@@ -48,7 +48,7 @@ Page({
     //       console.log(sres);
     //       that.data.src = sres.tempFilePath
     //       that.drawCanvas();
-    //     }, 
+    //     },
     //     fail: function (fres) {
     //           wx.showToast({
     //             title: '图片加载失败，请重新加载',
@@ -56,13 +56,13 @@ Page({
     //             duration:1000
     //           })
     //     }
-    // }) 
+    // })
 
     this.downLoadFile()
 
     // this.drawCanvas();
-     
-  
+
+
   },
   // 下载图片
   downLoadFile:function(){
@@ -91,7 +91,7 @@ Page({
           }
         })
       }
-    }) 
+    })
 
       wx.downloadFile({
         url: erweima,
@@ -117,8 +117,8 @@ Page({
 
         }
       })
-    
-  
+
+
   },
 
   drawCanvas:function(){
@@ -127,7 +127,7 @@ Page({
     var txt = this.data.title;
     var url = this.data.imgurl;
     var pictureSrc = this.data.src; //图片能获取
-    
+
     if (txt.length >=10) {
       txt = txt.substr(0, 10) + "...";
     }
@@ -153,7 +153,7 @@ Page({
     console.log(pictureSrc)
     ctx.setShadow(0, 0, 0, '#FFFFFF');
     ctx.drawImage(pictureSrc,15,242, 120, 118);
-    
+
     // 画任意图
     var url = this.data.tupurl;
     ctx.drawImage(url, 30, 43.5, 145, 145);
@@ -202,7 +202,7 @@ Page({
     ctx.setFillStyle('#FFFFFF');
     ctx.fillText('长按扫码参加', 210, 330);
 
-  
+
     //最后画所有内容
     ctx.draw()
     console.log('绘画完成')
@@ -242,11 +242,11 @@ Page({
                       setTimeout(function(){
                         wx.navigateBack()
                       },500)
-                      
+
 
                     }
                   })
-        
+
                 },
                 fail: function (res) {
                   console.log(res);
@@ -255,7 +255,7 @@ Page({
 
     },500)
 
-    
+
 
   },
   baocun:function(){
@@ -276,7 +276,7 @@ Page({
         //   confirmText: '好哒',
         //   confirmColor: '#72B9C3',
         //   success: function (res) {
-          
+
         //       if (res.confirm) {
         //         console.log('用户点击确定');
         //       }
@@ -289,5 +289,3 @@ Page({
 
 
 })
-    
-

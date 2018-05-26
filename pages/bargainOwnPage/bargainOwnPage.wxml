@@ -24,7 +24,7 @@
           </view>
           <view class='cancel' bindtap='cancelBtn'>取消</view>
    </view>
-</view>   
+</view>
         <!-- 分享结束 -->
 
 
