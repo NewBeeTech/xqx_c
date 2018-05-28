@@ -39,7 +39,9 @@ Page({
     },
     wxTimerList: {},
     hid: false,   //分享弹出框
-    cnd: ''
+    cnd: '',
+    intPara: '',
+    intPara2:""
   },
   // 点击取消按钮
   cancelBtn: function () {
@@ -78,16 +80,18 @@ Page({
     var cnd = this.data.cnd;
     var page1 = 'pages/bargainOwnPage/bargainOwnPage';
     var token = wx.getStorageSync("token");
+    var intPara = this.data.intPara;
+    var intPara2 = this.data.intPara2;
     console.log(cnd)
     wx.request({
-      // Default.HOST = "https://192.168.1.204:8080/app_person/";
-      // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
       url: appData.host + '/app_person/xcxgroupbuy/createCode',
       method: "POST",
       data: {
-        cnd: cnd,
+        // cnd: cnd,
         page: page1,
-        token: token
+        token: token,
+        intPara: intPara,
+        intPara2: intPara2
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -125,21 +129,21 @@ Page({
       wxTimerList: {}
     })
   },
-  navToGoodDetail: function() {
+  navToGoodDetail: function () {
     console.log('click', this.data);
     const id = this.data.barginOwnData.orderId;
     wx.navigateTo({
-        url: `/pages/BargainDetails/BargainDetails?id=${id}`,
+      url: `/pages/BargainDetails/BargainDetails?id=${id}`,
     })
   },
-  onShow: function() {
+  onShow: function () {
     this.setData({
       wxTimerList: {},
       hid: false,   //分享弹出框
     })
     this.loadData(this.data.id);
   },
-  loadData: function (id) {
+    loadData: function (id) {
     var self = this;
     const params = {
       token: wx.getStorageSync('token'),
@@ -147,13 +151,17 @@ Page({
     };
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       console.log(result)
-      var cnd = result.data.id;
+      // var cnd = result.data.goods_group_id;
+      var intPara = result.data.id;
+      var intPara2 = result.data.orderId;
       self.setData({
-        cnd: cnd
+        // cnd: cnd,
+        intPara: intPara,
+        intPara2: intPara2
       })
       if (result.code === 0) {
         wx.hideLoading();
-        self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine});
+        self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine });
         if (result.data.showFlag == 0) {
           self.setData({
             showModal: false,
@@ -162,7 +170,7 @@ Page({
 
         const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
         const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
-        const hasPrice = ((result.data.now_price -  result.data.group_price) / 100).toFixed(2)
+        const hasPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
         // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
         const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
 
@@ -176,11 +184,11 @@ Page({
 
 
         var wxTimer = new timer({
-            beginTime: result.data.deadLine,
-            name: 'wxTimer1',
-            complete:function(){
-                console.log("完成了")
-            }
+          beginTime: result.data.deadLine,
+          name: 'wxTimer1',
+          complete: function () {
+            console.log("完成了")
+          }
         })
         wxTimer.start(self);
       } else if (result.code == -3) {
@@ -194,8 +202,8 @@ Page({
         }, 2000);
       }
     }).catch(function (error) {
-        console.log(error);
-        wx.hideLoading()
+      console.log(error);
+      wx.hideLoading()
 
     });
   },
@@ -214,12 +222,12 @@ Page({
   onShareAppMessage: function () {
 
     console.log('id:', this.data.barginOwnData.goods_group_id);
-      console.log('intPara:', this.data.barginOwnData.group_buy_id);
+    console.log('intPara:', this.data.barginOwnData.group_buy_id);
     const self = this;
     return {
       title: '砍价',
       path: `/pages/bargainGivenPage/bargainGivenPage?id=${this.data.barginOwnData.goods_group_id}&intPara=${this.data.barginOwnData.group_buy_id}`,
-      success: function(res) {
+      success: function (res) {
         // 转发成功
         wx.showToast({
           title: '转发成功',
@@ -230,7 +238,7 @@ Page({
         })
         self.setData({ showModal: false })
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
         wx.showToast({
           title: '转发失败',
@@ -241,7 +249,7 @@ Page({
   },
   myBargainList: function () {
     wx.navigateTo({
-        url: '/pages/MyBargain/MyBargain'
+      url: '/pages/MyBargain/MyBargain'
     })
   },
   goBargainRule: function () {
