@@ -39,14 +39,14 @@
       <image src='../../images/home/pintuan.png'></image>
       <text>拼团</text>
     </view>
-    <!-- <view class='item' bindtap='toNextPage' data-page='{{4}}'>
+    <view class='item' bindtap='toNextPage' data-page='{{4}}'>
       <image src='../../images/home/kanjia.png'></image>
       <text>砍价</text>
-    </view> -->
-    <view class='item' bindtap='toNextPage'  data-page='{{5}}'>
+    </view>
+    <!-- <view class='item' bindtap='toNextPage'  data-page='{{5}}'>
       <image src='../../images/home/xianshi.png'></image>
       <view>限时秒杀</view>
-    </view>
+    </view> -->
     <!-- <view class='item' bindtap='toNextPage' data-page='{{2}}'>
       <image src='../../images/home/sousuo.png'></image>
       <view>搜索</view>
