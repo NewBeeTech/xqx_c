@@ -68,8 +68,8 @@ HTTPManager.post = function (url, parm) {
             console.log('重新登录校验token')
             console.log(res)
             if (res.code == 0) {
-              if (res.token) {
-                wx.setStorageSync('token', res.token)
+              res.token&&wx.setStorageSync('token', res.token)
+              if (!res.needRegister) {
                 parm.token = res.token;
                 wx.request({
                   url: url,
