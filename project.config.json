@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -266,7 +266,7 @@
 					"id": 38,
 					"name": "帮朋友砍价",
 					"pathName": "pages/bargainGivenPage/bargainGivenPage",
-					"query": "id=d5ae7721-bf7a-4c8e-a6d6-966aa13fbaae&intPara=877"
+					"query": "id=1be8676a-1e55-434a-9bb0-6d249af623d0&intPara=877"
 				},
 				{
 					"id": 39,
@@ -281,10 +281,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 41,
 					"name": "砍价",
 					"pathName": "pages/bargainOwnPage/bargainOwnPage",
-					"query": ""
+					"query": "cnd=1be8676a-1e55-434a-9bb0-6d249af623d0"
 				},
 				{
 					"id": -1,
