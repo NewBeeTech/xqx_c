@@ -32,15 +32,15 @@ HTTPManager.get = function (url, parm) {
 }
 
 HTTPManager.post = function (url, parm) {
-  wx.hideLoading();
-  wx.showLoading({
-    title: '加载中',
-    mask: true
-  });
-  parm.token = wx.getStorageSync('token') || '缓存中没有token';
-  console.warn('post  token' + parm.token)
-  let session = wx.getStorageSync('session') || "";
-  parm.session = session;
+      wx.hideLoading();
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      });
+      parm.token = wx.getStorageSync('token') || '缓存中没有token';
+      console.warn('post  token' + parm.token)
+      let session = wx.getStorageSync('session') || "";
+      parm.session = session;
   // parm.session = wx.getStorageSync('session') ? wx.getStorageSync('session'):"";
   // if(!parm.session) {
   //   wx.showToast({
@@ -81,31 +81,24 @@ HTTPManager.post = function (url, parm) {
                   success: function (res) {
                     success(res.data);
                   }
-                })
-              } else {
-                console.warn('其他接口访问，经重新登录接口再次验证需要跳转手机号页面注册');
-                wx.reLaunch({
-                  url: '/pages/boundNumber/boundNumber',
-                })
-              }
-            } else {
-              wx.showToast({
-                title: '网络错误请稍后再试',
-                icon: 'none',
-                duration: 5000,
-              });
+                } else {
+                  wx.showToast({
+                    title: '网络错误请稍后再试',
+                    icon: 'none',
+                    duration: 5000,
+                  });
+                }
+              })
+              return;
             }
-          })
-          return;
-        }
-        wx.hideLoading();
-        success(res.data);
-      },
-      fail: function (error) {
-        fail(error)
-      }
-    })
-  });
+            wx.hideLoading();
+            success(res.data);
+          },
+          fail: function (error) {
+            fail(error)
+          }
+        })
+      });
 
 
 }

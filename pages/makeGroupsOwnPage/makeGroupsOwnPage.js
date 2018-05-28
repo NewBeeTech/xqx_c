@@ -40,7 +40,8 @@ Page({
     },
     wxTimerList: {},
     hid: false,   //分享弹出框
-    cnd:''
+    cnd:'',
+    // intPara:''
   },
   // 点击取消按钮
   cancelBtn: function () {
@@ -79,7 +80,7 @@ Page({
     var cnd = this.data.cnd;
     var page1 = 'pages/makeGroupsOwnPage/makeGroupsOwnPage';
     var token = wx.getStorageSync("token");
-
+    // var intPara = this.data.intPara;
     wx.request({
       // Default.HOST = "https://192.168.1.204:8080/app_person/";
       // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
@@ -88,7 +89,8 @@ Page({
       data: {
         cnd: cnd,
         page: page1,
-        token: token
+        token: token,
+        // intPara: intPara
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -180,10 +182,12 @@ Page({
             showModal: false,
           });
         }
-        var cnd=result.data.id;
+        var cnd = result.data.goods_group_id;
+        // var intPara = result.data.id;
         // console.log(cnd)
         self.setData({
-          cnd:cnd
+          cnd:cnd,
+          // intPara: intPara
         })
       // console.log(result.data.id)
         const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
