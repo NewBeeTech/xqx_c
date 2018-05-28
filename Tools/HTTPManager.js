@@ -50,36 +50,43 @@ HTTPManager.post = function (url, parm) {
   //   });
   // }
   // console.log(parm,wx.getStorageSync('token'));
-  console.warn("URL:", url, "parms:", parm, "token: ", parm.token);
-  return new Promise(function (success, fail) {
-    wx.request({
-      url: url,
-      data: parm,
-      method: "POST",
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res);
-        wx.hideLoading();
-        if (res.data.code === 2) {
-          console.warn('其他接口验证需要跳转手机号页面-调用登录接口再次验证')
-          login.login().then(function (res) {
-            console.log('重新登录校验token')
-            console.log(res)
-            if (res.code == 0) {
-              res.token&&wx.setStorageSync('token', res.token)
-              if (!res.needRegister) {
-                parm.token = res.token;
-                wx.request({
-                  url: url,
-                  data: parm,
-                  method: "POST",
-                  header: {
-                    'content-type': 'application/json'
-                  },
-                  success: function (res) {
-                    success(res.data);
+      console.warn("URL:", url, "parms:", parm, "token: ", parm.token);
+      return new Promise(function (success, fail) {
+        wx.request({
+          url: url,
+          data: parm,
+          method: "POST",
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res);
+            wx.hideLoading();
+            if (res.data.code === 2) {
+              console.warn('其他接口验证需要跳转手机号页面-调用登录接口再次验证')
+              login.login().then(function (res) {
+                console.log('重新登录校验token')
+                console.log(res)
+                if (res.code == 0) {
+                  if (res.token) {
+                    wx.setStorageSync('token', res.token)
+                    parm.token = res.token;
+                    wx.request({
+                      url: url,
+                      data: parm,
+                      method: "POST",
+                      header: {
+                        'content-type': 'application/json'
+                      },
+                      success: function (res) {
+                        success(res.data);
+                      }
+                    })
+                  } else {
+                    console.warn('其他接口访问，经重新登录接口再次验证需要跳转手机号页面注册');
+                    wx.reLaunch({
+                      url: '/pages/boundNumber/boundNumber',
+                    })
                   }
                 } else {
                   wx.showToast({
