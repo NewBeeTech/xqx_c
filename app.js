@@ -13,7 +13,7 @@ App({
       // key:"4BUBZ-FNLWX-5OJ4S-7FR64-HLZQH-R5BI4"
     });
 
- 
+
   //  地理位置
     this.getUserLocation() //获取位置函数
 
@@ -212,8 +212,8 @@ App({
     Tool: tool,
     session: '',
     userid: '',
-    // host: "https://mini.xqx.com",
-    host: "http://ccpp.denong.com",
+    host: "https://mini.xqx.com",
+    // host: "http://ccpp.denong.com",
     // host:'http://192.168.1.204',
     searchData:[],
     photos:[],
