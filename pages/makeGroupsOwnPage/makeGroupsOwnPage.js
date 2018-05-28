@@ -182,7 +182,7 @@ Page({
             showModal: false,
           });
         }
-        var cnd = result.data.goods_group_id;
+        var cnd = result.data.id;
         // var intPara = result.data.id;
         // console.log(cnd)
         self.setData({
