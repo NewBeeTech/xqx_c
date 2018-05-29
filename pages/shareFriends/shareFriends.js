@@ -37,35 +37,18 @@ Page({
       // src: shareImgSrc
     })
 
-
-
-    // var that=this;
-    // var aa = wx.getStorageSync('shareImgSrc');
-    // console.log(aa)
-    // wx.downloadFile({
-    //     url:aa,
-    //     success: function (sres) {
-    //       console.log(sres);
-    //       that.data.src = sres.tempFilePath
-    //       that.drawCanvas();
-    //     },
-    //     fail: function (fres) {
-    //           wx.showToast({
-    //             title: '图片加载失败，请重新加载',
-    //             icon:'none',
-    //             duration:1000
-    //           })
-    //     }
-    // })
-
     this.downLoadFile()
-
-    // this.drawCanvas();
-
 
   },
   // 下载图片
   downLoadFile:function(){
+
+    wx.showToast({
+      title: '分享图片生成中...',
+      icon: 'loading',
+      duration: 1000
+    });
+
     var that = this;
     var erweima = wx.getStorageSync('shareImgSrc');
     console.log(erweima)
@@ -100,7 +83,7 @@ Page({
           that.data.src = sres.tempFilePath;
               setTimeout(function () {
                     that.drawCanvas();
-              }, 800)
+              }, 1200)
         },
         fail: function (fres) {
           wx.showToast({
@@ -161,42 +144,27 @@ Page({
     ctx.setFontSize(15);
     ctx.setFillStyle('#353535');
     ctx.fillText(txt, 185,57, 160);
-  //   //  小金
+    //  小金
     ctx.setFontSize(13);
     ctx.setFillStyle('#999999');
     ctx.fillText(jlj, 185, 154);
-  //   // 现价
+    // 现价
     ctx.setFontSize(20);
     ctx.setFillStyle('#FE003B');
     ctx.fillText(nowj, 185, 189);
-  //   // 原价
+    // 原价
     ctx.setFontSize(13);
     ctx.setFillStyle('#999999');
     ctx.fillText(prej, 280, 189);
-  //   // 原价上面的小线条
-    // ctx.setStrokeStyle('#999999')
-    // ctx.moveTo(283, 185);
-    // ctx.lineTo(340, 185);
-    // ctx.stroke();
-  //   // 画中间线条
-    // ctx.setLineDash([10, 10], 2);
-    // ctx.beginPath();
-    // ctx.moveTo(15, 235);
-    // ctx.lineTo(360, 235);
-    // ctx.stroke();
-  //   //  小确幸活动
+    //  小确幸活动
     ctx.setFontSize(15);
     ctx.setFillStyle('#353535');
     ctx.fillText('小确幸活动', 218, 277);
 
-  //   // 矩形
-    // const grd = ctx.createLinearGradient(0,0,130,33);
-    // grd.addColorStop(0, 'green');
-    // grd.addColorStop(1, '#FFC900');
-    // ctx.setShadow(0, 0, 6, '#FFA000');
+    // 矩形
     ctx.setFillStyle('#FFC900');
     ctx.fillRect(190,306, 130, 33);
-  // // 按钮加文字
+  // 按钮加文字
     ctx.setShadow(0, 0, 0, '#FFFFFF');
     ctx.setFontSize(15);
     ctx.setFillStyle('#FFFFFF');
@@ -207,11 +175,6 @@ Page({
     ctx.draw()
     console.log('绘画完成')
 
-    wx.showToast({
-      title: '分享图片生成中...',
-      icon: 'loading',
-      duration: 1000
-    });
 
     var that = this;
     setTimeout(function(){
@@ -224,29 +187,29 @@ Page({
                 destHeight:375,
                 canvasId: 'firstCanvas',
                 success: function (res) {
-                  that.setData({
-                    maskHidden:false
-                  })
-                  wx.hideToast()
+                  // that.setData({
+                  //   maskHidden:false
+                  // })
+              
                   var tempFilePath = res.tempFilePath;
                   console.log(tempFilePath)
                   wx.setStorageSync('tempFilePath', tempFilePath)
+                  wx.hideToast()
                   wx.previewImage({
                     current: tempFilePath, // 当前显示图片的http链接
                     urls: [tempFilePath], // 需要预览的图片http链接列表
                     success: function (res) {
-                      that.setData({
-                        maskHidden: true
-                      })
+                      
+                      // that.setData({
+                      //   maskHidden: true
+                      // })
                       // that.baocun()
                       setTimeout(function(){
                         wx.navigateBack()
                       },500)
 
-
                     }
                   })
-
                 },
                 fail: function (res) {
                   console.log(res);
@@ -255,11 +218,10 @@ Page({
 
     },500)
 
-
-
   },
   baocun:function(){
     var tempFilePath=wx.getStorageSync('tempFilePath');
+
     wx.saveImageToPhotosAlbum({
       filePath: tempFilePath,
       success(res) {
@@ -269,22 +231,9 @@ Page({
             wx.navigateBack()
           }
         })
-        // wx.showModal({
-        //   title: '存图成功',
-        //   content: '图片成功保存到相册了，去发圈噻~',
-        //   showCancel: false,
-        //   confirmText: '好哒',
-        //   confirmColor: '#72B9C3',
-        //   success: function (res) {
-
-        //       if (res.confirm) {
-        //         console.log('用户点击确定');
-        //       }
-        //   }
-        // })
-        // wx.navigateBack()
       }
     })
+
   }
 
 
