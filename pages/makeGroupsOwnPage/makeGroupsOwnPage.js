@@ -114,6 +114,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     // 请求数据
     this.setData({
       id: options.id,
@@ -122,6 +123,16 @@ Page({
       from: options.from,
     })
 
+    // 扫描二维码获取的数据（拼团页面为cnd）
+    if (options.scene) {
+      var scene = decodeURIComponent(options.scene)
+      var arr = [];
+      var obj = {};
+      arr = scene.split('=');
+      obj.cnd = arr[1];
+      // 将返回的cnd给页面数据
+      this.loadData(obj.cnd);
+    }
 
   },
   /**

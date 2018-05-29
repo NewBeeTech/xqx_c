@@ -119,6 +119,17 @@ Page({
     this.setData({
       id: options.id
     })
+    // 扫描二维码获取的数据（拼团页面为cnd）
+    if (options.scene) {
+      var scene = decodeURIComponent(options.scene)
+      var arr = [];
+      var obj = {};
+      arr = scene.split('=');
+      obj.intPara2 = arr[1];
+      // 将返回的cnd给页面数据
+      this.loadData(obj.intPara2);
+    }
+
   },
   /**
    * 生命周期函数--监听页面隐藏
