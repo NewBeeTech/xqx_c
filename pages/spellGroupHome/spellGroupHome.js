@@ -171,15 +171,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.loadBanners();
-      console.log(options)
-    // app.getUserLocation();  //获取地理位置
-    // var city= wx.getStorageSync("city1");
-    // console.log(city)
-    // this.setData({
-    //   city:city
-    // })
-  },
+          console.log(options)
+     },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
