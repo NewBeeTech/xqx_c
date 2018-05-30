@@ -40,6 +40,7 @@ Page({
     this.downLoadFile()
 
   },
+  
   // 下载图片
   downLoadFile:function(){
 

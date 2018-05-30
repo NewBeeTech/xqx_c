@@ -82,7 +82,7 @@ Page({
     var token = wx.getStorageSync("token");
     var intPara = this.data.intPara;
     var intPara2 = this.data.intPara2;
-    console.log(cnd)
+    // console.log(cnd)
     wx.request({
       url: appData.host + '/app_person/xcxgroupbuy/createCode',
       method: "POST",

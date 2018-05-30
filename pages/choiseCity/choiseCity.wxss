@@ -3,6 +3,7 @@
   width: 100%;
   height: auto;
    font-family: 'PingFangSC';
+
 }
 .citynow{
   font-weight: Medium;
@@ -12,9 +13,16 @@
   font-size:30rpx;
   color:#F49F11;
   line-height: 102rpx;
+  position: fixed;
+  top:0;
+  z-index: 99;
+  background: #fff;
 }
 .citynow text{
   margin-left:30rpx;
+}
+.scrollBox{
+  margin-top: 106rpx;
 }
 .citychoisebox{
   font-weight: Regular;
@@ -42,6 +50,7 @@
   height: 26rpx;
   float:right;
   margin-top: 25rpx;
+  margin-right: 100rpx;
 }
 .citychoise-hover{
   color: #F49F11;
@@ -49,4 +58,23 @@
 .citychoise navigator{
   width: 100%;
   height: 100%;
+}
+
+.cityInit{
+  width: 50rpx;
+  height: auto;
+  position: fixed;
+  top:106rpx;
+  right: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color:#fff;
+}
+.cityInitInner{
+  width: 50rpx;
+  height:50rpx;
+  line-height:50rpx;
+  border-radius: 25rpx;
+  background:#F49F11;
+  margin: 4rpx;
 }
