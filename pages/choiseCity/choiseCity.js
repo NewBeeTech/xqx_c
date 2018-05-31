@@ -13,7 +13,8 @@ Page({
     //  cityInitBox: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z'],
      cityFirstLetter:[],
      h:0,
-     nowTop:0
+     nowTop:0,
+     toView:''
   },
 
   /**
@@ -84,21 +85,9 @@ Page({
     var city1 = this.data.citys;
     for (var i = 0; i < city1.length;i++){
       if (city1[i].firstLetter == this.data.cityFirstLetter[index]){
-        console.log(i)
-        num=42*i;
-        console.log(num)
-        // 获取当前手机的可用高度
-        wx.getSystemInfo({
-          success: function (res) {
-            console.log(res.statusBarHeight)
-            that.setData({
-              h: (res.windowHeight - res.statusBarHeight- that.data.nowTop)/14*i
-            })
-          }
-        })
-     
-        console.log(this.data.h)
-
+          this.setData({
+            toView: city1[i].firstLetter
+          })
         break;
       }
     }

@@ -50,7 +50,7 @@
   height: 26rpx;
   float:right;
   margin-top: 25rpx;
-  margin-right: 100rpx;
+   margin-right:24rpx; 
 }
 .citychoise-hover{
   color: #F49F11;
@@ -61,20 +61,19 @@
 }
 
 .cityInit{
-  width: 50rpx;
+  width:32rpx;
   height: auto;
   position: fixed;
-  top:106rpx;
-  right: 30rpx;
+  top:156rpx;
+  right: 6rpx;
   text-align: center;
-  font-size: 30rpx;
-  color:#fff;
+  font-size: 24rpx;
+  color:#007AFF;
 }
 .cityInitInner{
-  width: 50rpx;
-  height:50rpx;
-  line-height:50rpx;
-  border-radius: 25rpx;
-  background:#F49F11;
-  margin: 4rpx;
+  width:32rpx;
+  height:34rpx;
+  line-height:34rpx;
+  font-weight: bold;
+  /* margin: 4rpx; */
 }

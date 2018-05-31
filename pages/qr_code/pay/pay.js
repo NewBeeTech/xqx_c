@@ -16,7 +16,7 @@ Page({
     ratio: 0.00,
     isChoose: "nor",
     resultRatio:"0.00",
-    merchantId:'',
+    merchantId:''
   },
 
   /**
@@ -27,6 +27,7 @@ Page({
     // 判断用户是不是新用户
     var id = options.q.split("merchantId%3D")[1];
     console.warn('res', id);
+
     let that = this;
     that.setData({
       merchantId: id
@@ -126,6 +127,7 @@ Page({
       url: '/pages/spellGroupHome/spellGroupHome'
     });
   },
+  // 优惠活动与实付金额
   inputMoney: function (e) {
     if (e.detail.value <= 999999.99) {
       this.setData({
@@ -146,13 +148,16 @@ Page({
       //     duration: 2000
       //   })
       // }
+
+      // 打折
       if (this.data.info.discountMode == "MR") {
         this.setData({
           money: e.detail.value,
           resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
         });
-
       }
+
+      // 满减
       if (this.data.info.discountMode == "MD") {
         console.log(this.data.info.mInfo);
         var self = this;
@@ -176,14 +181,16 @@ Page({
           }
         });
       }
+      // 如果没有满减或打折
       if (this.data.info.discountMode == 'undefined' || this.data.info.discountMode == 'null' || !this.data.info.discountMode) {
         this.setData({
           money: parseFloat(e.detail.value),
           resultMoney: parseFloat(e.detail.value) //减去 减满
         });
-        console.log(this.data.resultMoney);
+        console.log(this.data.resultMoney);//实付金额
       }
 
+      // 实付金额
       var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
 
       console.log(this.data.resultMoney);
@@ -191,6 +198,7 @@ Page({
       resultM = Math.ceil(resultM * 1000) / 1000;
       resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
 
+      // ~~：转换为数字（实付金额后面加小数点）
       resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
       var resultMStr = resultM + "";
 
@@ -199,6 +207,7 @@ Page({
           resultMStr = resultM + "0";
         }
       }
+
       this.setData({
         resultMoney:resultMStr
       });
@@ -243,6 +252,7 @@ Page({
       //     });
       //   }
       // }
+
     }
 
 
@@ -344,13 +354,13 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
     var self = this;
     appData.Tool.getMerchantDiscountInfo({ cnd: id }).then(function (result) {
       wx.hideLoading()
-
+      console.log(result)
+      
       self.setData({
         info: result.data,
         ratio: parseFloat(result.data.ratio)
-
       });
-      console.log(self.data.info);
+      console.log(self.data.ratio);
     }).catch(function (error) {
       console.log(error);
     });
