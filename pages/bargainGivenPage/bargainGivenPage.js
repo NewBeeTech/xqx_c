@@ -128,6 +128,12 @@ Page({
         setTimeout(function () {
           wx.navigateBack();
         }, 2000);
+      } else {
+        wx.showToast({
+          title: result.message,
+          icon: 'none',
+          duration: 2000,
+        });
       }
     }).catch(function (error) {
         console.log(error);
