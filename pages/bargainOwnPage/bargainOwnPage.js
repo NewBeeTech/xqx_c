@@ -163,14 +163,15 @@ Page({
     appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
       console.log(result)
       // var cnd = result.data.goods_group_id;
-      var intPara = result.data.id;
-      var intPara2 = result.data.orderId;
-      self.setData({
-        // cnd: cnd,
-        intPara: intPara,
-        intPara2: intPara2
-      })
+
       if (result.code === 0) {
+        var intPara = result.data.id;
+        var intPara2 = result.data.orderId;
+        self.setData({
+          // cnd: cnd,
+          intPara: intPara,
+          intPara2: intPara2
+        })
         wx.hideLoading();
         self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine });
         if (result.data.showFlag == 0) {
@@ -211,6 +212,12 @@ Page({
         setTimeout(function () {
           wx.navigateBack();
         }, 2000);
+      } else {
+        wx.showToast({
+          title: result.message,
+          icon: 'none',
+          duration: 2000,
+        });
       }
     }).catch(function (error) {
       console.log(error);
