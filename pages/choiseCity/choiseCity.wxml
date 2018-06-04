@@ -3,9 +3,10 @@
     <view class='citynow'>
           <text>当前选择城市：{{city}}</text>
     </view>
-    <scroll-view scroll-y='true' style='height:1070rpx'  scroll-with-animation='true' class='scrollBox' scroll-into-view="{{toView}}">
+    <scroll-view scroll-y='{{scrolly}}' style='height:1070rpx'  scroll-with-animation='true' class='scrollBox' scroll-into-view="{{toView}}">
       <!-- scroll-top="{{h}}" -->
         <view class='citychoisebox' wx:for='{{citys}}'  id='{{item.firstLetter}}'>
+              <view class='gray' wx:if="{{item.firstLetter!=citys[index-1].firstLetter}}">{{item.firstLetter}}</view>
               <view class='citychoise' hover-class="citychoise-hover" hover-stay-time='2000'  data-city='{{item.cityname}}' data-codeid='{{item.id}}'  bindtap='goToHome' >
                     <view wx:if='{{item.cityname==city||item.cityname+"市"==city}}' >
                           <text  class='citych1'>{{item.cityname}}</text>
@@ -16,11 +17,13 @@
         </view>
 
       </scroll-view >
-        <view class='cityInit' >
-              <view class='cityInitInner'  wx:for='{{cityFirstLetter}}'  bindtap='toScrollTop' data-xiabiao='{{index}}'>
-                    <text>{{item}}</text>
-              </view>
-          </view>
+
+      <view class='cityInit' data-shuju="{{cityFirstLetter}}" bindtouchstart='scrollStart' bindtouchmove='scrollView'   bindtouchend='scrollEnd' data-height="{{(winHeight-108)/cityFirstLetter.length|Int}}" style='height:{{winHeight-108}}px;'>
+       <!-- cityFirstLetter cityInitBox -->
+            <view class='cityInitInner'  wx:for='{{cityFirstLetter}}'  bindtap='toScrollTop' data-xiabiao='{{index}}' style='height:{{(winHeight-108)/cityFirstLetter.length}}px;'>
+                  <text>{{item}}</text>
+            </view>
+      </view>
 
 </view>
 

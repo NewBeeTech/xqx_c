@@ -152,8 +152,8 @@ Page({
       // 打折
       if (this.data.info.discountMode == "MR") {
         this.setData({
-          money: e.detail.value,
-          resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value * parseFloat(this.data.info.rebate)/10
+          money: parseFloat(e.detail.value),
+          resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value *parseFloat(this.data.info.rebate)/10
         });
       }
 
@@ -302,7 +302,7 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
         // return;
     // }
     console.log(self.data.money);
-    if (parseFloat(self.data.money) < 0.01 || parseFloat(self.data.money) > 999999.99){
+    if (parseFloat(self.data.money) < 0.01 ||parseFloat(self.data.money) > 999999.99){
       wx.showToast({
         title: "请输入0.01-999999.99的金额",
         icon: 'none',
@@ -312,8 +312,11 @@ discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户
 }
 
     appData.Tool.getToLocation("session").then(function (session) {
+      var strnum=Math.floor(self.data.resultMoney*100)+"";
+      var strmon = Math.floor(self.data.money * 100) + ""
+      console.log(strnum)
       console.log(session);
-      var config = { merchantName: self.data.info.name, money: self.data.resultMoney * 100 + "", session: session, origionPrice: self.data.money * 100+"", merchantId: self.data.info.id, ratio: self.data.info.ratio ? self.data.info.ratio : "0" };
+      var config = { merchantName: self.data.info.name, money: strnum, session: session, origionPrice: strmon, merchantId: self.data.info.id, ratio: self.data.info.ratio ? self.data.info.ratio : "0" };
       console.log(config);
       appData.Tool.createPay(config).then(function (result) {
         wx.hideLoading()

@@ -26,16 +26,27 @@
 }
 .citychoisebox{
   font-weight: Regular;
-  width: 690rpx;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
+  overflow: hidden;
 }
 .citychoise{
-  width: 100%;
+  width: 690rpx;
   height: 76rpx;
   border-top: 1rpx solid  #DADADA;
   line-height: 76rpx;
   font-size: 28rpx;
+    margin: 0 auto;
+}
+.gray{
+   width: 100%;
+   height: 50rpx;
+   background: #E8E9EB;
+   padding-left: 30rpx;
+   font-size: 30rpx;
+   color: #353535;
+   font-weight: blod;
+   line-height: 50rpx;
 }
 .citychoise .l{
   float: left;
@@ -50,7 +61,7 @@
   height: 26rpx;
   float:right;
   margin-top: 25rpx;
-   margin-right:24rpx; 
+    margin-right:30rpx;  
 }
 .citychoise-hover{
   color: #F49F11;
@@ -62,18 +73,19 @@
 
 .cityInit{
   width:32rpx;
-  height: auto;
+  height:918rpx;  
   position: fixed;
-  top:156rpx;
-  right: 6rpx;
+   top:106rpx; 
+  right: 0rpx;
   text-align: center;
   font-size: 24rpx;
   color:#007AFF;
+  z-index: 99;
+  /* background: red;  */
 }
 .cityInitInner{
   width:32rpx;
-  height:34rpx;
-  line-height:34rpx;
   font-weight: bold;
-  /* margin: 4rpx; */
+  text-align: center;
+  /* background: green; */
 }
