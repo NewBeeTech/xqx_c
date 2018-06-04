@@ -1,0 +1,13 @@
+var filters = {
+  toStr: function (value) {
+    var len=value.length;
+    if (value.indexOf('市')>0){
+      return value.slice(0,len-1)
+    }else{
+      return value;
+    }   
+  }
+}
+module.exports = {
+  toStr: filters.toStr
+}

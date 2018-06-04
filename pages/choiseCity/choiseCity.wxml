@@ -1,7 +1,8 @@
+<wxs module="filters" src="../spellGroupHome/filterString.wxs"></wxs>
 <view class='citybox'>
 
     <view class='citynow'>
-          <text>当前选择城市：{{city}}</text>
+          <text>当前选择城市：{{filters.toStr(city)}}</text>
     </view>
     <scroll-view scroll-y='{{scrolly}}' style='height:1070rpx'  scroll-with-animation='true' class='scrollBox' scroll-into-view="{{toView}}">
       <!-- scroll-top="{{h}}" -->
@@ -18,7 +19,7 @@
 
       </scroll-view >
 
-      <view class='cityInit' data-shuju="{{cityFirstLetter}}" bindtouchstart='scrollStart' bindtouchmove='scrollView'   bindtouchend='scrollEnd' data-height="{{(winHeight-108)/cityFirstLetter.length|Int}}" style='height:{{winHeight-108}}px;'>
+      <view class='cityInit' data-shuju="{{cityFirstLetter}}" data-height="{{(winHeight-108)/cityFirstLetter.length|Int}}" style='height:{{winHeight-108}}px;'>
        <!-- cityFirstLetter cityInitBox -->
             <view class='cityInitInner'  wx:for='{{cityFirstLetter}}'  bindtap='toScrollTop' data-xiabiao='{{index}}' style='height:{{(winHeight-108)/cityFirstLetter.length}}px;'>
                   <text>{{item}}</text>

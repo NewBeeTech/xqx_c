@@ -27,7 +27,8 @@ Page({
      */
     data: {
         page: 1,//页码
-        Ddarr: []
+        Ddarr: [],
+        currentTab: 0   //选项卡控制参数
     },
 
     /**
@@ -255,7 +256,28 @@ Page({
     onReachBottom: function () {
 
     },
+    //滑动切换
+    swiperTab: function (e) {
+      console.log(e)
+      // console.log(e.detail.current)
+      // var that = this;
+      this.setData({
+        currentTab: e.detail.current
+      });
+    },
+    //点击切换
+    clickTab: function (e) {
 
+      // var that = this;
+
+      if (this.data.currentTab === e.target.dataset.current) {
+        return false;
+      } else {
+        this.setData({
+          currentTab: e.target.dataset.current
+        })
+      }
+    }  
     /**
      * 用户点击右上角分享
      */

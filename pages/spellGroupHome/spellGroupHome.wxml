@@ -1,3 +1,4 @@
+<wxs module="filters" src="filterString.wxs"></wxs>
 <scroll-view scroll-y='true' style='height:100%' bindscrolltolower='wrapList'>
 <view class='bannerbox'>
   <swiper class='top_banner' indicator-dots='true' autoplay='true' indicator-color='#fff' indicator-active-color='#ffa400'>
@@ -22,7 +23,7 @@
   </swiper>
   <!-- 城市选择按钮 -->
       <view class='citybox' bindtap='choiseCity'>
-          <text>{{city}}</text>
+          <text>{{filters.toStr(city)}}</text>
           <image src='../../images/cityChoise/Shape.png'></image>
       </view>
 </view>

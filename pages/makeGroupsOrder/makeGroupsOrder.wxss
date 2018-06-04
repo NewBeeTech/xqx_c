@@ -4,12 +4,44 @@ page{
 }
 .coupOrder{
     border-top:1rpx solid #f0f0f0;
+
+}
+/* 选项卡 */
+.qbdd{
+  width: 100%;
+  background: #FAFAFC;
+}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    /* font-weight: bold; */
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+.swiper-tab-item{
+    display: inline-block;
+    width: 16.66%;
+    color:#999999;
+}
+.active{
+    color: #F49F11;
+    border-bottom: 4rpx solid #F49F11;
+}
+.swiperbox{
+  width: 100%;
+  height: 1100rpx;
+ /* background: yellow; */
 }
 /* 订单列表 */
 .order_list{
     padding:20rpx 30rpx;
     font-size: 28rpx;
     border-bottom: 14rpx solid #f0f0f0;
+    background: #fff;
 }
 .order_status{
     font-size: 26rpx;
