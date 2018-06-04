@@ -10,25 +10,28 @@ Page({
   data: {
      city:'',
      citys:[],
-    //  cityInitBox: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z'],
+     cityInitBox: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z'],
      cityFirstLetter:[],
      h:0,
      nowTop:0,
-     toView:''
+     toView:'',
+     scrolly:true,
+     winHeight:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取当前选择城市的高度
-    var query = wx.createSelectorQuery()
-    query.select('.citynow').boundingClientRect(function (res) {
-      console.log(res)
-      that.setData({
-        nowTop: res.height
-      })
-    }).exec()
+    var that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+         that.setData({
+           winHeight: res.windowHeight
+         })
+        console.log(res.windowHeight)
+      }
+    })
     // 设置城市内容
     var that=this;
     console.log(options.city)
@@ -77,9 +80,7 @@ Page({
 
   },
   toScrollTop:function(e){
-    var that=this;
     console.log(e)
-    var num=0;
     var index=e.currentTarget.dataset.xiabiao;
     console.log(index)
     var city1 = this.data.citys;
@@ -92,6 +93,42 @@ Page({
       }
     }
     
+  },
+  scrollStart:function(e){
+    console.log(e)
+    this.setData({
+      scrolly:false
+    })
+  },
+  scrollEnd:function(e){
+    // 高度：currentTarget.offsetTop
+    console.log(e)
+    this.setData({
+      scrolly: true
+    })
+  },
+  scrollView:function(e){
+    var that=this;
+    console.log(e)
+    this.setData({
+      scrolly: false
+    })
+    var nowY = parseInt(e.changedTouches[0].pageY);
+    var nowT = parseInt(e.currentTarget.offsetTop);
+    var innerH = parseInt(e.currentTarget.dataset.height);
+    var index = Math.floor((nowY - nowT) / innerH);
+    setTimeout(function(){
+        console.log(index)
+        var city1 = that.data.citys;
+        for (var i = 0; i < city1.length; i++) {
+          if (city1[i].firstLetter == that.data.cityFirstLetter[index]) {
+            that.setData({
+              toView: city1[i].firstLetter
+            })
+            break;
+          }
+        }
+    },100)
   },
   goToHome:function(e){
     var data=e.currentTarget.dataset;
