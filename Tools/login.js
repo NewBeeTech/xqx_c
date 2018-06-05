@@ -9,6 +9,13 @@ login.post = function (url, parm) {
     mask: true
   });
   console.warn("URL:", url, "parms:", parm);
+  //限制同一时间只有一个登录验证请求
+  if(wx.loginOnoff){
+    return new Promise(function(success,fail){
+      success({code:1000})
+    })
+  }
+  wx.loginOnoff=true;
   return new Promise(function (success, fail) {
     wx.request({
       url: url,
@@ -19,15 +26,17 @@ login.post = function (url, parm) {
       },
       success: function (res) {
         console.log(res);
-        if (res.data.code === 2) {
-          console.warn('登录接口验证需要跳转手机号页面')
-          wx.reLaunch({
-            url: '/pages/boundNumber/boundNumber',
-          })
-
-          return;
+        if(res.data.needRegister){
+          console.warn('其他接口访问，经重新登录接口再次验证需要跳转手机号页面注册');
+          const path=getCurrentPages()[0].route;
+          if(path.indexOf('boundNumber/boundNumber')==-1){
+            wx.navigateTo({
+              url: '/pages/boundNumber/boundNumber'
+            })
+          }
+        }else{
+          success(res.data);
         }
-        success(res.data);
       },
       fail: function (error) {
         fail(error)

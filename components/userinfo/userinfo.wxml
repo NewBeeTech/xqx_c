@@ -1,0 +1,8 @@
+<view wx:if="{{ishow}}" class="userinfo">
+  <view class="infoContainer">
+     <view class="container">
+        <text>{{text}}</text>
+        <button class="hmBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击授权</button>
+     </view>
+  </view>
+</view>

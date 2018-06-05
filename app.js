@@ -1,8 +1,10 @@
 //app.js
 var getSession = "/app_person/XCXController/get3rdSession";   //获取sessionKey
-
 var tool = require("Tools/HTTPOpertion.js");
 var QQMapWX = require('Tools/qqmap-wx-jssdk.min.js');
+var MD5 = require('Tools/md5.js');
+var host=require('Tools/Default.js');
+// var a=MD5("123456");
 var qqmapsdk;
 var city='';   //新加
 App({
@@ -12,12 +14,11 @@ App({
       key: "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6"
       // key:"4BUBZ-FNLWX-5OJ4S-7FR64-HLZQH-R5BI4"
     });
-
-
   //  地理位置
     this.getUserLocation() //获取位置函数
-
-
+  },
+  onShow:function(){
+    wx.loginOnoff=false;
   },
   getUserLocation: function (callback) {
     var that=this;
@@ -45,10 +46,8 @@ App({
             }
             wx.setStorageSync("city", city );
             // this.globalData.city=city;
-
             // 获取城市
             that.getCityId(city)
-            callback && callback(addressRes.result.address_component.district);
           },
           fail: function (err) {
             console.log(err);
@@ -77,89 +76,18 @@ App({
 
   login:function(finish){
     if (wx.getStorageSync("token")){
-      wx.getSetting({
-        success(res) {
-          if (!res.authSetting['scope.userInfo']) {
-            wx.authorize({
-              scope: 'scope.userInfo',
-              success(res) {
-                console.log(res);
-
-                wx.reLaunch({
-                  url: '/pages/boundNumber/boundNumber'
-                })
-
-              },
-              fail(err) {
-                console.warn(err);
-                wx.showToast({
-                  title: '很遗憾，因为授权失败，您将无法正常使用小程序。请到设置里（右上角 - 关于 - 右上角 - 设置）重新授权。',
-                  icon: 'none',
-                  duration: 5000,
-                });
-              }
-            })
-          }
-        }
-      })
       finish();
-      return
-      };
+      return false;
+    };
+    wx.loginOnoff=true;
     tool.login().then(function (res) {
       console.log(res);
       wx.hideLoading()
-      // tool.saveToLocation("userId", res.userId);
-      // tool.saveToLocation("token", res.token);
-      // tool.saveToLocation("session", res.session);
-      res.userId && wx.setStorageSync('userId', res.userId);
       res.token && wx.setStorageSync('token', res.token);
-      wx.token=res.token;
-      res.session && wx.setStorageSync('session', res.session);
-      wx.getStorage({
-        key: 'token',
-        success: function(res) {
-          console.log("！！！！！token", res);
-        },
-      })
-
-      var session = res.session;
       finish();
-      if (res.needRegister) {
-
-                  wx.reLaunch({
-                    url: '/pages/boundNumber/boundNumber'
-                  })
-
-      }else {
-      // console.log('hahah3');
-        // wx.getSetting({
-        //   success(res) {
-        //     if (!res.authSetting['scope.userInfo']) {
-        //       wx.authorize({
-        //         scope: 'scope.userInfo',
-        //         success(res) {
-        //           console.log(res);
-
-        //           wx.reLaunch({
-        //             url: '/pages/boundNumber/boundNumber'
-        //           })
-
-        //         },
-        //         fail(err) {
-        //           console.warn(err);
-        //           wx.showToast({
-        //             title: '很遗憾，因为授权失败，您将无法正常使用小程序。请到设置里（右上角 - 关于 - 右上角 - 设置）重新授权。',
-        //             icon: 'none',
-        //             duration: 5000,
-        //           });
-        //         }
-        //       })
-        //     }
-        //   }
-        // })
-      }
     }).catch(function (error) {
       console.log(error);
+      wx.loginOnoff=false;
     });
   },
   getCityId:function(ci){
@@ -212,9 +140,7 @@ App({
     Tool: tool,
     session: '',
     userid: '',
-    // host: "https://mini.xqx.com",
-    host: "http://ccpp.denong.com",
-    // host:'http://192.168.1.204',
+    host:host.HOST,
     searchData:[],
     photos:[],
     city:'北京',
@@ -233,6 +159,7 @@ App({
       }, 50)
     }
   },
+
   // 数据转换json
   jsonToString: function (data) {
     return JSON.stringify(data);

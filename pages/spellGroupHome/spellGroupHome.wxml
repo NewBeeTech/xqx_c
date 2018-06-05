@@ -106,10 +106,5 @@
     </view>
 
   </view>
-
-
-
-
-
-
+ <userinfo bindsetinfo="setuserinfo"></userinfo>
 </scroll-view>

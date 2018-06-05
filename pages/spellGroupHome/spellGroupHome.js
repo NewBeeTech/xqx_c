@@ -1,16 +1,6 @@
-// pages/spellGroup/spellGroup.js
 var app = getApp();
 var appData = app.globalData;
-
-Number.prototype.toDouble = function(){
-  return this.toFixed(2);
-}
-
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     page:1,
     goods:[],
@@ -70,7 +60,6 @@ Page({
 
     // 获取对应商品
     var a = 1;
-    console.log(a.toDouble());
     var self = this;
     // appData.Tool.getGoodsGroupBuyListXCX({ page: page, rows:10 })
 
@@ -167,27 +156,14 @@ Page({
       url:"../choiseCity/choiseCity?city="+this.data.city
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
           console.log(options)
      },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow:function(){
+    this.Show()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  Show: function () {
     var that=this;
-    // console.log(wx.getStorageSync('city'))
-
     var city = wx.getStorageSync('city');
     var codeid = wx.getStorageSync('codeid');
     console.log(city)
@@ -259,39 +235,7 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  setuserinfo:function(e){
+    this.Show()
   }
 })

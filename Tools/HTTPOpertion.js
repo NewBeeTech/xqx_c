@@ -683,7 +683,7 @@ HTTPOpertion.bargainPay = function (parm) {
  */
 HTTPOpertion.getCityList= function (parm) {
   return HttpManager
-    .post(Default.HOST + Default.CITY_LIST, parm || {});
+    .post(Default.HOST + Default.CITY_LIST, parm || {},'notoken');
 
 }
 
