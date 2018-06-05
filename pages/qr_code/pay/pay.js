@@ -193,21 +193,22 @@ Page({
       // 实付金额
       var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
 
-      console.log(this.data.resultMoney);
+      // console.log(this.data.resultMoney);
 
       resultM = Math.ceil(resultM * 1000) / 1000;
       resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
-
+      console.log(resultM/100)
       // ~~：转换为数字（实付金额后面加小数点）
-      resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : ~~(resultM * 100) / 100;
+      resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : resultM;
+      // console.log((resultM * 100))
       var resultMStr = resultM + "";
-
+      // console.log(resultMStr)
       if (resultMStr.split(".").length > 1) {
         if (resultMStr.split(".")[1].length < 2) {
           resultMStr = resultM + "0";
         }
       }
-
+      // console.log(resultMStr)
       this.setData({
         resultMoney:resultMStr
       });

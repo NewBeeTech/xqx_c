@@ -11,80 +11,441 @@
 </view>
 <!-- tab对应内容 -->
 <swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" class='swiperbox'>
+    <!-- 第一屏 -->
     <swiper-item>
         <!-- 全部订单 -->
-<scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
-<view class='coupOrder'>
-    <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
-        <view class='order_status'>
-            <view>
-                <text class='shop_name'>{{item.merchant_name}}</text>
-                <image src='../../images/icon/jit2.png'></image>
-            </view>
-
-            <text wx:if="{{item.order_state==-1||item.order_state==-3}}">已取消</text>
-            <text wx:if="{{item.order_state==-2}}">拼团失败</text>
-            <text wx:elif="{{item.order_state==0}}">待支付</text>
-            <text wx:elif="{{item.order_state==1}}">待发货</text>
-            <text wx:elif='{{item.order_state==3}}'>已确认</text>
-            <text wx:elif='{{item.order_state==2}}'>已发货</text>
-            <text wx:elif='{{item.order_state==4}}'>拼团中</text>
-
-        </view>
-        <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
-            <image src="{{item.img_url}}"></image>
-            <view class='price_info'>
-                <view class='shop_info'>{{item.name}}</view>
-                <view class='present_price'>
+        <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+        <view class='coupOrder'>
+            <!-- 每一项订单 -->
+            <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                <!-- 名称与状态开始 -->
+                <view class='order_status' wx:if="{{item.delivery_method==1}}">
                     <view>
-                        <text class='symbol'>￥</text>{{item.group_price}}<text class='original_price'>￥{{item.price}}</text>
+                        <text class='shop_name'>{{item.merchant_name}}</text>
+                        <image src='../../images/icon/jit2.png'></image>
                     </view>
-                    <view class='fight_group'>拼团</view>
+                    <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif="{{item.order_state==0}}">待支付</text>
+                    <text wx:elif="{{item.order_state==1}}">待发货</text>
+                    <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                    <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                    <text wx:elif='{{item.order_state==4}}'>开团中</text>
                 </view>
+                <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                    <view>
+                        <text class='shop_name'>{{item.merchant_name}}</text>
+                        <image src='../../images/icon/jit2.png'></image>
+                    </view>
+                    <text wx:if='{{item.order_state==3}}'>已自提</text>
+                    <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                    <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                </view>
+                <!-- 名称与状态结束 -->
+                <view class='order_infobox'>
+                    <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                        <image src="{{item.img_url}}"></image>
+                        <view class='price_info'>
+                            <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                            <view class='danjia'><text>￥{{item.price}}</text></view>
+                            <view class='geshu'>x1</view> 
+                            <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                            <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                        </view>         
+                    </view>
+                </view>
+                <view class='zt'>
+                        <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                        <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                        <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                        <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                </view>
+                <!-- 确认订单等 -->
+                <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+                
             </view>
         </view>
-        <view class='order_btn_bar'>
-            <!-- <view class='customer_service_btn' wx:if='{{item.order_state==3}}' bindtap='sohTap'>售后</view> -->
-            <block>
-                <block wx:if="{{item.order_state==1}}">
-                    <!-- <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view> -->
-                    <!-- <view class='customer_service_btn' bindtap='sohTap'>售后</view> -->
-                    <!-- <button class='sharing_friends_btn identical' open-type="share" bindtap='fxIndex' data-id='{{item.goods_group_id}}'>分享好友</button> -->
-                    <!-- <view class='confirmation_receipt_btn identical'>确认发货</view> -->
-                    <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view>
-                </block>
-                <block wx:if="{{item.order_state==4}}">
-                    <!-- <view class='cancel_order_btn' bindtap='qxdTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>取消订单</view> -->
-                    <!-- <button class='sharing_friends_btn identical'  bindtap='gmTap' data-id='{{item.id}}'>立即支付</button> -->
-                </block>
-                <block wx:elif="{{item.order_state==2}}">
-                    <!-- <view class='customer_service_btn' bindtap='sohTap'>售后</view> -->
-                    <view class='confirmation_receipt_btn identical' bindtap='qrsTap' data-id='{{item.id}}' data-goods_group_id='{{item.goods_group_id}}' data-group_buy_id='{{item.group_buy_id?item.group_buy_id:""}}'>确认收货</view>
-                </block>
-                <block wx:elif="{{item.order_state==4}}">
-                    <!-- <view class='customer_service_btn' bindtap='sohTap'>售后</view> -->
-
-                </block>
-                <block wx:elif="{{item.order_state==-1}}">
-                    <!-- <view class='customer_service_btn' bindtap='sohTap'>售后</view> -->
-                </block>
-            </block>
+        <!-- 每一个订单结束 -->
+        </scroll-view>
+        <view wx:else class='scrollNo'>
+            <image src='https://activity.denong.com/w.png'></image>
+            <view>暂无数据</view>
         </view>
-    </view>
-</view>
+    </swiper-item>
 
-</scroll-view>
-<view wx:else class='scrollNo'>
-    <image src='https://activity.denong.com/w.png'></image>
-    <view>暂无数据</view>
-</view>
+    <!-- 第二屏 -->
+    <swiper-item>
+      <!-- 全部订单 -->
+        <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+        <view class='coupOrder'>
+            <!-- 每一项订单 -->
+            <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                <!-- 名称与状态开始 -->
+                <view class='order_status' wx:if="{{item.delivery_method==1}}">
+                    <view>
+                        <text class='shop_name'>{{item.merchant_name}}</text>
+                        <image src='../../images/icon/jit2.png'></image>
+                    </view>
+                    <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif="{{item.order_state==0}}">待支付</text>
+                    <text wx:elif="{{item.order_state==1}}">待发货</text>
+                    <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                    <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                    <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                </view>
+                <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                    <view>
+                        <text class='shop_name'>{{item.merchant_name}}</text>
+                        <image src='../../images/icon/jit2.png'></image>
+                    </view>
+                    <text wx:if='{{item.order_state==3}}'>已自提</text>
+                    <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                    <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                </view>
+                <!-- 名称与状态结束 -->
+                <view class='order_infobox'>
+                    <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                        <image src="{{item.img_url}}"></image>
+                        <view class='price_info'>
+                            <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                            <view class='danjia'><text>￥{{item.price}}</text></view>
+                            <view class='geshu'>x1</view> 
+                            <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                            <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                        </view>         
+                    </view>
+                </view>
+                <view class='zt'>
+                        <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                        <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                        <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                        <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                </view>
+                <!-- 确认订单等 -->
+                <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+            </view>
+        </view>
+        <!-- 每一个订单结束 -->
+        </scroll-view>
+        <view wx:else class='scrollNo'>
+            <image src='https://activity.denong.com/w.png'></image>
+            <view>暂无数据</view>
+        </view>
+   </swiper-item>
+
+    <!-- 第三屏 -->
+    <swiper-item>
+          <!-- 全部订单 -->
+          <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+          <view class='coupOrder'>
+              <!-- 每一项订单 -->
+              <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                  <!-- 名称与状态开始 -->
+                  <view class='order_status' wx:if="{{item.delivery_method==1}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                      <text wx:elif="{{item.order_state==0}}">待支付</text>
+                      <text wx:elif="{{item.order_state==1}}">待发货</text>
+                      <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                      <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                      <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <!-- 名称与状态结束 -->
+                  <view class='order_infobox'>
+                      <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                          <image src="{{item.img_url}}"></image>
+                          <view class='price_info'>
+                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='danjia'><text>￥{{item.price}}</text></view>
+                              <view class='geshu'>x1</view> 
+                              <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                              <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                          </view>         
+                      </view>
+                  </view>
+                  <view class='zt'>
+                          <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                          <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                  </view>
+                  <!-- 确认订单等 -->
+                  <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+              </view>
+          </view>
+          <!-- 每一个订单结束 -->
+          </scroll-view>
+          <view wx:else class='scrollNo'>
+              <image src='https://activity.denong.com/w.png'></image>
+              <view>暂无数据</view>
+          </view>
+    </swiper-item>
+
+    <!-- 第四屏 -->
+    <swiper-item>
+          <!-- 全部订单 -->
+          <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+          <view class='coupOrder'>
+              <!-- 每一项订单 -->
+              <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                  <!-- 名称与状态开始 -->
+                  <view class='order_status' wx:if="{{item.delivery_method==1}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                      <text wx:elif="{{item.order_state==0}}">待支付</text>
+                      <text wx:elif="{{item.order_state==1}}">待发货</text>
+                      <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                      <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                      <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <!-- 名称与状态结束 -->
+                  <view class='order_infobox'>
+                      <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                          <image src="{{item.img_url}}"></image>
+                          <view class='price_info'>
+                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='danjia'><text>￥{{item.price}}</text></view>
+                              <view class='geshu'>x1</view> 
+                              <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                              <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                          </view>         
+                      </view>
+                  </view>
+                  <view class='zt'>
+                          <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                          <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                  </view>
+                  <!-- 确认订单等 -->
+                  <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+              </view>
+          </view>
+          <!-- 每一个订单结束 -->
+          </scroll-view>
+          <view wx:else class='scrollNo'>
+              <image src='https://activity.denong.com/w.png'></image>
+              <view>暂无数据</view>
+          </view>
     
     </swiper-item>
-    <swiper-item><view>第二屏</view></swiper-item>
-    <swiper-item><view>第三屏</view></swiper-item>
-    <swiper-item><view>第四屏</view></swiper-item>
-    <swiper-item><view>第五屏</view></swiper-item>
-    <swiper-item><view>第六屏</view></swiper-item>
+
+    <!-- 第五屏 -->
+    <swiper-item>
+          <!-- 全部订单 -->
+          <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+          <view class='coupOrder'>
+              <!-- 每一项订单 -->
+              <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                  <!-- 名称与状态开始 -->
+                  <view class='order_status' wx:if="{{item.delivery_method==1}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                      <text wx:elif="{{item.order_state==0}}">待支付</text>
+                      <text wx:elif="{{item.order_state==1}}">待发货</text>
+                      <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                      <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                      <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <!-- 名称与状态结束 -->
+                  <view class='order_infobox'>
+                      <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                          <image src="{{item.img_url}}"></image>
+                          <view class='price_info'>
+                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='danjia'><text>￥{{item.price}}</text></view>
+                              <view class='geshu'>x1</view> 
+                              <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                              <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                          </view>         
+                      </view>
+                  </view>
+                  <view class='zt'>
+                          <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                          <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                  </view>
+                  <!-- 确认订单 -->
+                 <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+              </view>
+          </view>
+          <!-- 每一个订单结束 -->
+          </scroll-view>
+          <view wx:else class='scrollNo'>
+              <image src='https://activity.denong.com/w.png'></image>
+              <view>暂无数据</view>
+          </view>
+    
+    </swiper-item>
+
+    <!-- 第六屏 -->
+    <swiper-item>
+          <!-- 全部订单 -->
+          <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+          <view class='coupOrder'>
+              <!-- 每一项订单 -->
+              <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+                  <!-- 名称与状态开始 -->
+                  <view class='order_status' wx:if="{{item.delivery_method==1}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                      <text wx:elif="{{item.order_state==0}}">待支付</text>
+                      <text wx:elif="{{item.order_state==1}}">待发货</text>
+                      <text wx:elif='{{item.order_state==3}}'>已收货</text>
+                      <text wx:elif='{{item.order_state==2}}'>已发货</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <view class='order_status' wx:elif="{{item.delivery_method==2}}">
+                      <view>
+                          <text class='shop_name'>{{item.merchant_name}}</text>
+                          <image src='../../images/icon/jit2.png'></image>
+                      </view>
+                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                      <text wx:elif='{{item.order_state==2}}'>待自提</text>
+                      <text wx:elif='{{item.order_state==4}}'>开团中</text>
+                  </view>
+                  <!-- 名称与状态结束 -->
+                  <view class='order_infobox'>
+                      <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
+                          <image src="{{item.img_url}}"></image>
+                          <view class='price_info'>
+                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='danjia'><text>￥{{item.price}}</text></view>
+                              <view class='geshu'>x1</view> 
+                              <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
+                              <view class='ziti' wx:elif="{{item.delivery_method==2}}">自提</view>                  
+
+                          </view>         
+                      </view>
+                  </view>
+                  <view class='zt'>
+                          <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
+                          <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
+                          <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
+                  </view>
+                  <!-- 确认订单等 -->
+                  <view class='order_btn_bar'>
+                      <block wx:if="{{item.delivery_method==1}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                      <block wx:if="{{item.delivery_method==2}}">
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
+                      </block>
+                  </view>
+              </view>
+          </view>
+          <!-- 每一个订单结束 -->
+          </scroll-view>
+          <view wx:else class='scrollNo'>
+              <image src='https://activity.denong.com/w.png'></image>
+              <view>暂无数据</view>
+          </view>
+
+    </swiper-item>
 </swiper>
 </view>
 

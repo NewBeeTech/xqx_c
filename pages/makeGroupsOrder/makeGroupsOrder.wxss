@@ -38,12 +38,16 @@ page{
 }
 /* 订单列表 */
 .order_list{
-    padding:20rpx 30rpx;
+    width: 100%;
+    padding:20rpx 0;
     font-size: 28rpx;
-    border-bottom: 14rpx solid #f0f0f0;
+    /* border-bottom: 14rpx solid #f0f0f0; */
     background: #fff;
+    margin-bottom: 20rpx;
 }
 .order_status{
+  width: 690rpx;
+  margin: 0 auto;
     font-size: 26rpx;
     display: flex;
     justify-content: space-between;
@@ -56,37 +60,66 @@ page{
     align-items: center;
 }
 .order_status .shop_name{
-    font-size: 26rpx;
+    font-size: 28rpx;
+    font-weight: bold;
     max-width: 240rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color:#353535;
 }
 .order_status image{
     width: 15rpx;
     height: 24rpx;
     margin-left: 20rpx;
 }
+.order_status text{
+  color:#F49F11;
+  font-size: 24rpx;
+}
+
+.order_infobox{
+  width: 100%;
+  height: 180rpx;
+  background:  #FBFAF9;
+}
 .order_info{
-    padding:36rpx 26rpx;
+    width: 690rpx;
+    height: 140rpx;
+    padding: 20rpx 0  0;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border:1rpx solid #f8f8f8;
-    box-shadow:0px 0px 20px #f6f6f6;
-    border-radius: 10rpx;
-    margin-top: 20rpx;
+    margin-top:20rpx;
 }
 .order_info>image{
-    width: 108rpx;
-    height: 108rpx;
-    border-radius: 8rpx;
-    margin-right: 28rpx;
+    width: 140rpx;
+    height: 140rpx;
+    margin-right: 20rpx;
 }
 .price_info{
     width:calc(100% - 108rpx);
     font-size: 28rpx;
     text-align: justify;
+}
+.shop_info{
+    float:left;
+    width: 400rpx;
+    height: 85rpx;
+    overflow: hidden;
+    line-height: 40rpx;
+    font-size: 26rpx;
+}
+.danjia{
+  width: 120rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  color:#353535;
+  font-size: 26rpx;
+  float: right;
+  text-align: right;
+  margin-bottom: 20rpx;
 }
 .present_price{
     font-size: 28rpx;
@@ -97,39 +130,76 @@ page{
     font-weight: 600;
     margin-top: 10rpx;
 }
-.shop_info{
-    height: 85rpx;
-    overflow: hidden;
-    line-height: 40rpx;
+.geshu{
+    width: 120rpx;
+  height: 38rpx;
+    line-height: 38rpx;
+  color:#353535;
+  font-size: 26rpx;
+  float: right;
+  text-align: right;
 }
 .symbol{
     font-size: 20rpx;
 }
-.original_price{
-    font-size: 20rpx;
-    text-decoration: line-through;
-    font-weight: normal;
-    color: #b6b6b6;
-    margin-left: 26rpx;
+.ziti{
+  width: 200rpx;
+  height: 24rpx;
+  color: #999999;
+  font-size: 24rpx;
+  float: left;
+}
+.zt{
+  width: 690rpx;
+  margin: 0 auto;
+  height: 80rpx;
+  border-bottom: 1rpx solid  #DADADA;
 }
 .fight_group{
     font-weight: normal;
-    width: 69rpx;
+    width:80rpx;
     height: 40rpx;
     text-align: center;
-    border:solid 1rpx #ff9e00;
+    border:solid 1rpx #FE6100;
     line-height: 40rpx;
-    border-radius: 8rpx;
+    border-radius:20rpx;
     font-size: 24rpx;
-    color: #ff9e00;
+    color: #FE6100;
+    margin-top: 20rpx;
+    float: left;
 }
+.now_fu{
+   font-weight: normal;
+    width:250rpx;
+    height: 40rpx;
+    text-align: right;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #353535;
+    margin-top: 20rpx;
+    float: right;
+}
+
 .order_btn_bar{
+  width: 690rpx;
+  margin: 0 auto;
     display: flex;
+    /* height: 82rpx; */
     justify-content: flex-end;
     align-items: center;
-    margin-top: 20rpx;
 }
-.order_btn_bar>view{
+.qr_sh{
+    width:160rpx;
+    height: 60rpx;
+    border:1rpx solid  #979797;
+    text-align: center;
+    line-height: 60rpx;
+    margin-left: 20rpx;
+    border-radius: 10rpx;
+    color:  #353535;
+    margin-top:20rpx;
+}
+/* .order_btn_bar>view{
     width: 172rpx;
     height: 60rpx;
     border:1rpx solid #999;
@@ -142,7 +212,7 @@ page{
 .order_btn_bar>view.identical{
     color: #ff9e00;
     border:1rpx solid #ff9e00;
-}
+} */
 .sharing_friends_btn{
     width: 172rpx;
     height: 60rpx;
