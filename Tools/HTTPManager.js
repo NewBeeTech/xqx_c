@@ -1,17 +1,26 @@
 var login = require("login.js");
-let info=wx.getStorageSync('systeminfo');
-wx.getSystemInfo({
-    success:function(res){
-      console.log(res)
-      info=JSON.stringify(res)
-    }
-  })
-info=info?JSON.stringify(info):'';
+var common=require('common.js');
+let systeminfo=wx.getStorageSync('systeminfo');
+if(!systeminfo){
+  try {
+    systeminfo = wx.getSystemInfoSync()
+    console.log(systeminfo)
+    wx.getNetworkType({
+      success: function(res) {
+        // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+        systeminfo.networkType = res.networkType
+        wx.setStorageSync('systeminfo',systeminfo)
+      }
+    })
+  } catch (e) {
+  }
+}
 function HTTPManager() { }
 HTTPManager.get = function (url, parm) {
   wx.showLoading({
     title: '加载中',
   })
+  const time=new Date().getTime();
   return new Promise(function (success, fail) {
     wx.request({
       url: url,
@@ -21,7 +30,7 @@ HTTPManager.get = function (url, parm) {
         'From':'xqx_c_wxxcx',
         'Authorization':parm.token,
         'DateTime':time,
-        'TerminalEnv':info
+        'TerminalEnv':systeminfo
       },
       success: function (res) {
         wx.hideLoading()
@@ -44,7 +53,6 @@ HTTPManager.get = function (url, parm) {
 HTTPManager.post = function (url, parm) {
       wx.hideLoading();
       wx.showLoading({title: '加载中',mask: true});
-      const time=new Date().getTime();
       parm.token = wx.getStorageSync('token') || '';
       console.warn('post  token' + parm.token)
       //没有token的情况直接重新登录获取token
@@ -53,20 +61,22 @@ HTTPManager.post = function (url, parm) {
           login.login().then(function (res) {
             console.log('重新登录校验token')
             console.log(res)
-            wx.loginOnoff=false;
             if (res.code == 0) {
               res.token&&wx.setStorageSync('token', res.token)
               parm.token = res.token;
+              const rsaData=common.getRsa(parm)
+              const Authorization=common.getAuthorization(rsaData)
+              const time=new Date().getTime();
               wx.request({
                 url: url,
-                data: parm,
+                data: rsaData,
                 method: "POST",
                 header: {
                   'content-type': 'application/json',
                   'From':'xqx_c_wxxcx',
-                  'Authorization':parm.token,
+                  'Authorization':Authorization,
                   'DateTime':time,
-                  'TerminalEnv':info
+                  'TerminalEnv':systeminfo
                 },
                 success: function (res) {
                   success(res.data);
@@ -82,6 +92,9 @@ HTTPManager.post = function (url, parm) {
           })
         })
       }else{
+        const rsaData=common.getRsa(parm)
+        const Authorization=common.getAuthorization(rsaData)
+        const time=new Date().getTime();
         return new Promise(function (success, fail) {
           wx.request({
             url: url,
@@ -90,9 +103,9 @@ HTTPManager.post = function (url, parm) {
             header: {
               'content-type': 'application/json',
               'From':'xqx_c_wxxcx',
-              'Authorization':parm.token,
+              'Authorization':Authorization,
               'DateTime':time,
-              'TerminalEnv':info
+              'TerminalEnv':systeminfo
             },
             success: function (res) {
               console.log(res);

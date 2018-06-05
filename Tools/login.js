@@ -1,4 +1,20 @@
 var Default = require("Default.js");
+var common = require("common.js");
+let systeminfo=wx.getStorageSync('systeminfo');
+if(!systeminfo){
+  try {
+    systeminfo = wx.getSystemInfoSync()
+    console.log(systeminfo)
+    wx.getNetworkType({
+      success: function(res) {
+        // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+        systeminfo.networkType = res.networkType
+        wx.setStorageSync('systeminfo',systeminfo)
+      }
+    })
+  } catch (e) {
+  }
+}
 function login() {
 
 }
@@ -10,22 +26,29 @@ login.post = function (url, parm) {
   });
   console.warn("URL:", url, "parms:", parm);
   //限制同一时间只有一个登录验证请求
+  console.log(wx.loginOnoff)
   if(wx.loginOnoff){
     return new Promise(function(success,fail){
-      success({code:1000})
+
     })
   }
   wx.loginOnoff=true;
+  const time=new Date().getTime();
   return new Promise(function (success, fail) {
     wx.request({
       url: url,
       data: parm,
       method: "POST",
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'From':'xqx_c_wxxcx',
+        'DateTime':time,
+        'TerminalEnv':systeminfo
       },
       success: function (res) {
+        wx.loginOnoff=false;
         console.log(res);
+        res.data.token&&wx.setStorageSync('token',res.data.token)
         if(res.data.needRegister){
           console.warn('其他接口访问，经重新登录接口再次验证需要跳转手机号页面注册');
           const path=getCurrentPages()[0].route;
@@ -39,6 +62,7 @@ login.post = function (url, parm) {
         }
       },
       fail: function (error) {
+        wx.loginOnoff=false;
         fail(error)
       }
     })

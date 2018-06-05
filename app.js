@@ -4,6 +4,7 @@ var tool = require("Tools/HTTPOpertion.js");
 var QQMapWX = require('Tools/qqmap-wx-jssdk.min.js');
 var MD5 = require('Tools/md5.js');
 var host=require('Tools/Default.js');
+var host=require('Tools/common.js');
 // var a=MD5("123456");
 var qqmapsdk;
 var city='';   //新加
@@ -79,7 +80,6 @@ App({
       finish();
       return false;
     };
-    wx.loginOnoff=true;
     tool.login().then(function (res) {
       console.log(res);
       wx.hideLoading()
@@ -87,7 +87,6 @@ App({
       finish();
     }).catch(function (error) {
       console.log(error);
-      wx.loginOnoff=false;
     });
   },
   getCityId:function(ci){
