@@ -219,13 +219,17 @@ Default.GET_GOODS_GROUP_ORDER_INFO1 = "xcxgroupbuy/getGoodsGroupOrderInfoXCX";
 /**
  * 确认收货
  */
+// 砍价
 Default.COMMIT_RECEIVE_GOODS = "xcxcutprice/commitReceiveGoods";
+// 拼团
 Default.COMMIT_RECEIVE_GOODS1 = "xcxgroupbuy/commitReceiveGoods";
 
 /**
  * 取消订单
  */
+// 砍价
 Default.CANCEL_GROUP_ORDER = "xcxcutprice/cancelGroupOrder";
+// 拼团
 Default.CANCEL_GROUP_ORDER1 = "xcxgroupbuy/cancelGroupOrder";
 
 /**
@@ -264,5 +268,8 @@ Default.CITY_GOODS =
 Default.INDEX_CITY_GOODS =
   "xcxgroupbuy/getHomeHot";
 
+//获取我的订单（整合）  xcxgoods/getGoodsOrderListXCX
+Default.GET_GOODS_ORDER_LIST_XCX =
+  "xcxgoods/getGoodsOrderListXCX";
 
 module.exports = Default;

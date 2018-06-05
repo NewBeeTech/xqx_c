@@ -2,6 +2,7 @@
 var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
+
 var _lastTime = null
 function throttle(fn, gapTime) {
     if (gapTime == null || gapTime == undefined) {
@@ -9,7 +10,6 @@ function throttle(fn, gapTime) {
     }
 
     // let _lastTime = null
-
     // 返回新的函数
     return function () {
         let _nowTime = + new Date()
@@ -20,6 +20,7 @@ function throttle(fn, gapTime) {
         }
     }
 }
+
 Page({
 
     /**
@@ -27,7 +28,7 @@ Page({
      */
     data: {
         page: 1,//页码
-        Ddarr: [],
+        Ddarr: [],    //关于订单返回的总数据
         currentTab: 0   //选项卡控制参数
     },
 
@@ -35,9 +36,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      // this.data.Ddarr = [];
-      // this.data.page = 1;
-      //   this.getDdList();
+      console.log(options)
     },
     //详情
     gmTap: function (e) {
@@ -54,9 +53,12 @@ Page({
 
     //获取用户全部订单
     getDdList: function () {
-        console.log(1111)
+      var token=wx.getStorageSync("token");
+      var intPara = this.data.currentTab;
+      console.log(intPara)
         var that = this;
-        appData.Tool.getGoodsGroupOrderList({ page: that.data.page, rows: 10  }).then(function (res) {
+        // appData.Tool.getGoodsGroupOrderList({ page: that.data.page, rows: 10  }).then(function (res) {
+        appData.Tool.getGoodsOrderListXCX({ token: token, page: that.data.page, rows: 10, intPara: intPara }).then(function (res) {
             console.log(res)
             wx.hideLoading();
             var arr = res.data.list;
@@ -77,9 +79,18 @@ Page({
                 }
                 return str;
             };
-            that.setData({
-                Ddarr: that.data.Ddarr.concat(res.data.list)
-            })
+            if (res.data.list!=0){
+              that.setData({
+                  Ddarr: that.data.Ddarr.concat(res.data.list)
+              })
+            }else{
+              wx.hideLoading();
+              wx.showToast({
+                title: "没有更多数据了",
+                duration: 1000
+              })
+            }
+            console.log(that.data.Ddarr)
         })
             .catch(function (err) {
                 wx.hideLoading();
@@ -101,20 +112,33 @@ Page({
 
     //取消订单
     qxdTap:function(e){
+       console.log(e)
+        var p;
+        var token=wx.getStorageSync("token");
         var that = this;
         var data = e;
         wx.showModal({
-            title:'提示',
-            content:'是否取消订单',
+            title:'取消订单',
+            content:'取消订单后款项会原路退回',
             success:function(e){
                 if (e.confirm){
                     var obj = {
                       orderId: data.currentTarget.dataset.id,
-                      goods_group_id: data.currentTarget.dataset.goods_group_id,
-                      group_buy_id: data.currentTarget.dataset.group_buy_id
+                      token: token
                     }
+                    var type1 = data.currentTarget.dataset.goods_type;
+                    console.log(type1)
+                    // 拼团
+                    if(type1==1){
+                        p=appData.Tool.cancelGroupOrder1(obj)
+                    // 砍价
+                    }else if(type1==3){
+                        p=appData.Tool.cancelGroupOrder(obj)
+                    }
+                    // console.log(appData.Tool.cancelGroupOrder1(obj))
                     console.warn('参数：', obj);
-                    appData.Tool.cancelGroupOrder1(obj).then(function (res) {
+
+                    p.then(function (res) {
                         console.log(res)
                         wx.hideLoading();
                         if (res.code == 0) {
@@ -154,40 +178,70 @@ Page({
         })
 
     },
+
     //确认收货
     qrsTap: function (e) {
         var that = this;
-        var obj = {
-            orderId: e.currentTarget.dataset.id,
-            goods_group_id: e.currentTarget.dataset.goods_group_id,
-            group_buy_id: e.currentTarget.dataset.group_buy_id
+        var pro;
+        var title='';
+        var token = wx.getStorageSync("token");
+        var delivery_method = e.currentTarget.dataset.delivery_method;
+        if (delivery_method == 1) {
+          title = "确认收货"
+        } else if (delivery_method == 2) {
+          title = "确认自提"
         }
-        throttle(function() {
-          appData.Tool.commitReceiveGoods1(obj).then(function (res) {
-              console.log(res)
-              wx.hideLoading();
-              if (res.code == 0) {
-                that.data.Ddarr = [];
-                that.data.page = 1;
-                that.getDdList();
-              } else {
-                wx.showToast({
-                    title: res.message,
-                    icon: 'none',
-                    duration: 2000
-                });
+        var obj = {
+          orderId: e.currentTarget.dataset.id,
+          token: token
+        }
+        var type1 = e.currentTarget.dataset.goods_type;
+        wx.showModal({
+          title: title,
+          content: title + "后款项无法退回，请谨慎操作",
+          success: function (e) {
+             if(e.confirm){
+              
+              if(type1==1){
+                  pro = appData.Tool.commitReceiveGoods1(obj)
+              }else if(type1==3){
+                  pro = appData.Tool.commitReceiveGoods(obj)
               }
+              throttle(function() {
+                
+                  pro.then(function (res) {
+                      console.log(res)
+                      wx.hideLoading();
+                      if (res.code == 0) {
+                        that.data.Ddarr = [];
+                        that.data.page = 1;
+                        that.getDdList();
+                      } else {
+                        wx.showToast({
+                            title: res.message,
+                            icon: 'none',
+                            duration: 2000
+                        });
+                      }
 
-          })
-              .catch(function (err) {
-                  wx.hideLoading();
-                  console.log(err)
-                  wx.showToast({
-                      title: err.message,
-                      duration: 2000
                   })
-              })
-        }, 10000)();
+                      .catch(function (err) {
+                          wx.hideLoading();
+                          console.log(err)
+                          wx.showToast({
+                              title: err.message,
+                              duration: 2000
+                          })
+                      })
+
+                  
+              }, 10000)();
+             }
+          },
+          fail:function(err){
+              console.log(err)
+          }
+        })
 
 
     },
@@ -262,40 +316,26 @@ Page({
       // console.log(e.detail.current)
       // var that = this;
       this.setData({
-        currentTab: e.detail.current
+        currentTab: e.detail.current,
+        Ddarr:[],
+        page: 1,
       });
+      this.getDdList();
     },
     //点击切换
     clickTab: function (e) {
-
       // var that = this;
-
       if (this.data.currentTab === e.target.dataset.current) {
         return false;
       } else {
         this.setData({
-          currentTab: e.target.dataset.current
+          currentTab: e.target.dataset.current,
+          Ddarr: [],
+          page: 1,
         })
+        this.getDdList();
       }
+      
     }  
-    /**
-     * 用户点击右上角分享
-     */
-    // onShareAppMessage: function (res) {
-    //     if (res.from === 'button') {
-    //         // 来自页面内转发按钮
-    //         console.log(res.target)
-    //         var id = res.target.dataset.id
-    //     }
-    //     return {
-    //         title: '自定义转发标题',
-    //         path: '/pages/goodDetail/goodDetail?id=' + id,
-    //         success: function (res) {
-    //             // 转发成功
-    //         },
-    //         fail: function (res) {
-    //             // 转发失败
-    //         }
-    //     }
-    // }
+  
 })

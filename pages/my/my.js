@@ -73,11 +73,11 @@ Page({
         })
     },
     //我的订单
-    wdyhTap: function () {
-        wx.navigateTo({
-            url: '../wholeOrder/wholeOrder',
-        })
-    },
+    // wdyhTap: function () {
+    //     wx.navigateTo({
+    //         url: '../wholeOrder/wholeOrder',
+    //     })
+    // },
     //我的订单
     wdyhGroupTap: function () {
         wx.navigateTo({

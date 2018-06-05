@@ -141,6 +141,7 @@ Page({
     // 画任意图
     var url = this.data.tupurl;
     ctx.drawImage(url, 30, 43.5, 145, 145);
+
     // 写图片右侧文字(大字)
     ctx.setFontSize(15);
     ctx.setFillStyle('#353535');

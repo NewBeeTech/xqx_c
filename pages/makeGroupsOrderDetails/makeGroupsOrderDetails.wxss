@@ -287,3 +287,27 @@ page{
     color: #4f7bdf;
     border-bottom-right-radius: 10rpx;
 }
+
+
+.order_btn_bar{
+  width: 690rpx;
+  /* margin: 100rpx auto 0; */
+    display: flex;
+    /* height: 82rpx; */
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    bottom: 20rpx;
+    right: 32rpx;
+}
+.qr_sh{
+    width:160rpx;
+    height: 60rpx;
+    border:1rpx solid  #979797;
+    text-align: center;
+    line-height: 60rpx;
+    margin-left:30rpx;
+    border-radius: 10rpx;
+    color:  #353535;
+    margin-top:20rpx;
+}

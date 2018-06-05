@@ -552,33 +552,37 @@ HTTPOpertion.getGroupGoodsGroupOrderInfoXCX = function (parm) {
 };
 
 /**
+ * 确认收货
  * token	String	是	token
  * orderId	String	是	账单ID
  * goods_group_id	String	是	团id 订单列表/详情接口可获得
  * group_buy_id	String	是	拼团id 订单列表/详情接口可获得
  *
 */
-
+// 砍价
 HTTPOpertion.commitReceiveGoods = function (parm) {
     return HttpManager.post(Default.HOST + Default.COMMIT_RECEIVE_GOODS, parm || {});
 
 };
+// 拼团
 HTTPOpertion.commitReceiveGoods1 = function (parm) {
     return HttpManager.post(Default.HOST + Default.COMMIT_RECEIVE_GOODS1, parm || {});
 
 };
 
 /**
+ * 取消订单
  * token	String	是	token
  * orderId	String	是	账单ID
  * goods_group_id	String	是	团id 订单列表/详情接口可获得
  * group_buy_id	String	是	拼团id 订单列表/详情接口可获得
  */
+// 砍价
 HTTPOpertion.cancelGroupOrder = function (parm) {
     return HttpManager.post(Default.HOST + Default.CANCEL_GROUP_ORDER, parm || {});
 
 };
-
+// 拼团
 HTTPOpertion.cancelGroupOrder1 = function (parm) {
     return HttpManager.post(Default.HOST + Default.CANCEL_GROUP_ORDER1, parm || {});
 
@@ -726,5 +730,16 @@ HTTPOpertion.getIndexCityGoods = function (parm) {
   return HttpManager
     .post(Default.HOST + Default.INDEX_CITY_GOODS, parm || {});
 }
+
+// 获取我的订单（整合）  xcxgoods/getGoodsOrderListXCX
+// token 	String 	是 	 
+// intPara 	Integer 	是 	0 全部 1 开团中 2 待自提 3 待发货 4 待收货 5 已结束
+// page 	Integer 	是 	页码
+// rows 	Integer 	是 	页面大小
+HTTPOpertion.getGoodsOrderListXCX = function (parm) {
+  return HttpManager
+    .post(Default.HOST + Default.GET_GOODS_ORDER_LIST_XCX , parm || {});
+}
+
 
 module.exports = HTTPOpertion;

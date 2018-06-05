@@ -60,77 +60,78 @@ Page({
         });
     },
     //确认收货
-    qusTap: function () {
-        var that = this;
-        throttle(function() {
-          appData.Tool.commitReceiveGoods1({
-              orderId: that.data.xqObj.id,
-              goods_group_id: that.data.xqObj.goods_group_id,
-              group_buy_id: that.data.xqObj.group_buy_id
-          }).then(function (res) {
-              console.log(res)
-              if (res.code == 0) {
-                that.loadData(that.id);
-              } else {
-                wx.showToast({
-                    title: res.message,
-                    icon: 'none',
-                    duration: 2000
-                });
-              }
-              wx.hideLoading();
-          }).catch(function (err) { });
-        }, 10000)();
+    // qusTap: function () {
+    //     var that = this;
+    //     throttle(function() {
+    //       appData.Tool.commitReceiveGoods1({
+    //           orderId: that.data.xqObj.id,
+    //           goods_group_id: that.data.xqObj.goods_group_id,
+    //           group_buy_id: that.data.xqObj.group_buy_id
+    //       }).then(function (res) {
+    //           console.log(res)
+    //           if (res.code == 0) {
+    //             that.loadData(that.id);
+    //           } else {
+    //             wx.showToast({
+    //                 title: res.message,
+    //                 icon: 'none',
+    //                 duration: 2000
+    //             });
+    //           }
+    //           wx.hideLoading();
+    //       }).catch(function (err) { });
+    //     }, 10000)();
 
-    },
-    //取消订单
-    sqtkTap:function(){
-        this.setData({
-            qxdd: !this.data.qxdd
-        })
-    },
-    quxTap: function () {
-      this.setData({
-        qxdd: !this.data.qxdd
-      })
-        var that = this;
-        console.warn(that.data);
-        console.warn('参数：', {
-          orderId: that.data.xqObj.id,
-          goods_group_id: that.data.xqObj.goods_group_id,
-          group_buy_id: that.data.xqObj.group_buy_id
-        })
-        appData.Tool.cancelGroupOrder1({
-            orderId: that.data.xqObj.id,
-            goods_group_id: that.data.xqObj.goods_group_id,
-            group_buy_id: that.data.xqObj.group_buy_id
-        }).then(function (res) {
-          wx.hideLoading();
-          if (res.code == 0) {
-            console.log(res);
-            if (res.data.cancelFlag == 'false'){
-              wx.showToast({
-                title: "取消失败",
-                duration: 2000
-              });
-            }else{
-              wx.showToast({
-                title: "取消成功",
-                duration: 2000
-              });
-              that.loadData(that.id);
-            }
-          } else {
-            wx.showToast({
-                title: res.message,
-                icon: 'none',
-                duration: 2000
-            });
-          }
+    // },
+    // //取消订单
+    // sqtkTap:function(){
+    //     this.setData({
+    //         qxdd: !this.data.qxdd
+    //     })
+    // },
+    // quxTap: function () {
+    //   this.setData({
+    //     qxdd: !this.data.qxdd
+    //   })
+    //     var that = this;
+    //     console.warn(that.data);
+    //     console.warn('参数：', {
+    //       orderId: that.data.xqObj.id,
+    //       goods_group_id: that.data.xqObj.goods_group_id,
+    //       group_buy_id: that.data.xqObj.group_buy_id
+    //     })
+    //     appData.Tool.cancelGroupOrder1({
+    //         orderId: that.data.xqObj.id,
+    //         goods_group_id: that.data.xqObj.goods_group_id,
+    //         group_buy_id: that.data.xqObj.group_buy_id
+    //     }).then(function (res) {
+    //       wx.hideLoading();
+    //       if (res.code == 0) {
+    //         console.log(res);
+    //         if (res.data.cancelFlag == 'false'){
+    //           wx.showToast({
+    //             title: "取消失败",
+    //             duration: 2000
+    //           });
+    //         }else{
+    //           wx.showToast({
+    //             title: "取消成功",
+    //             duration: 2000
+    //           });
+    //           that.loadData(that.id);
+    //         }
+    //       } else {
+    //         wx.showToast({
+    //             title: res.message,
+    //             icon: 'none',
+    //             duration: 2000
+    //         });
+    //       }
 
 
-          }).catch(function (err) { wx.hideLoading();});
-    },
+    //       }).catch(function (err) { wx.hideLoading();});
+    // },
+
     //售后
     shohTap: function () {
         wx.navigateTo({
@@ -193,6 +194,137 @@ Page({
             wx.hideLoading();
             console.log(err)
         });
+    },
+    //取消订单
+    qxdTap: function (e) {
+      console.log(e)
+      var p;
+      var token = wx.getStorageSync("token");
+      var that = this;
+      var data = e;
+      wx.showModal({
+        title: '取消订单',
+        content: '取消订单后款项会原路退回',
+        success: function (e) {
+          if (e.confirm) {
+            var obj = {
+              orderId: data.currentTarget.dataset.id,
+              token: token
+            }
+            var type1 = data.currentTarget.dataset.goods_type;
+            console.log(type1)
+            // 拼团
+            if (type1 == 1) {
+              p = appData.Tool.cancelGroupOrder1(obj)
+              // 砍价
+            } else if (type1 == 3) {
+              p = appData.Tool.cancelGroupOrder(obj)
+            }
+            // console.log(appData.Tool.cancelGroupOrder1(obj))
+            console.warn('参数：', obj);
+
+            p.then(function (res) {
+              console.log(res)
+              wx.hideLoading();
+              if (res.code == 0) {
+                var title = '';
+                if (res.data.cancelFlag) {
+                  title = '取消成功'
+                } else {
+                  title = '取消失败'
+                };
+                wx.showToast({
+                  title: title
+                });
+                setTimeout(function () {
+                  that.loadData(that.id);
+                }, 1500)
+              } else {
+                wx.showToast({
+                  title: res.message,
+                  icon: 'none',
+                  duration: 2000
+                });
+              }
+
+            })
+              .catch(function (err) {
+                wx.hideLoading();
+                console.log(err)
+                wx.showToast({
+                  title: err.message,
+                  duration: 2000
+                })
+              })
+          }
+        }
+      })
+
+    },
+
+    //确认收货
+    qrsTap: function (e) {
+      var that = this;
+      var pro;
+      var title = '';
+      var token = wx.getStorageSync("token");
+      var delivery_method = e.currentTarget.dataset.delivery_method;
+      if (delivery_method == 1) {
+        title = "确认收货"
+      } else if (delivery_method == 2) {
+        title = "确认自提"
+      }
+      var obj = {
+        orderId: e.currentTarget.dataset.id,
+        token: token
+      }
+      var type1 = e.currentTarget.dataset.goods_type;
+      wx.showModal({
+        title: title,
+        content: title + "后款项无法退回，请谨慎操作",
+        success: function (e) {
+          if (e.confirm) {
+
+            if (type1 == 1) {
+              pro = appData.Tool.commitReceiveGoods1(obj)
+            } else if (type1 == 3) {
+              pro = appData.Tool.commitReceiveGoods(obj)
+            }
+            throttle(function () {
+
+              pro.then(function (res) {
+                console.log(res)
+                wx.hideLoading();
+                if (res.code == 0) {
+                  that.loadData(that.id);
+                } else {
+                  wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                    duration: 2000
+                  });
+                }
+
+              })
+                .catch(function (err) {
+                  wx.hideLoading();
+                  console.log(err)
+                  wx.showToast({
+                    title: err.message,
+                    duration: 2000
+                  })
+                })
+
+
+            }, 10000)();
+          }
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
+
+
     },
 
     /**
