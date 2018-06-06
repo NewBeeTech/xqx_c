@@ -129,26 +129,15 @@ Page({
   },
   // 优惠活动与实付金额
   inputMoney: function (e) {
+
     if (e.detail.value <= 999999.99) {
       this.setData({
-        resultRatio: "0.00"
+        resultRatio: "0.00",
+        money: e.detail.value
       });
       var self = this;
-      // if (self.data.money > 999999.99) {
-      //   wx.showToast({
-      //     title: "请输入0.01-999999.99的金额",
-      //     icon: 'none',
-      //     duration: 2000
-      //   })
-      // }
-      // if (self.data.money < 0.01) {
-      //   wx.showToast({
-      //     title: "请输入0.01-999999.99的金额",
-      //     icon: 'none',
-      //     duration: 2000
-      //   })
-      // }
 
+    
       // 打折
       if (this.data.info.discountMode == "MR") {
         this.setData({
@@ -163,6 +152,7 @@ Page({
         var self = this;
 
         var result = e.detail.value;
+        console.log(result)
         self.setData({
           money: parseFloat(e.detail.value),
           resultMoney: result
@@ -171,13 +161,13 @@ Page({
 
           if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
 
-            result = result > parseFloat(e.detail.value) - parseFloat(item.subtract / 100) || result == 0 ? parseFloat(e.detail.value) - parseFloat(item.subtract / 100) : result;
-
+            result = result > e.detail.value-item.subtract / 100 || result == 0 ? e.detail.value-item.subtract / 100 : result;
+            result=result.toFixed(3);
             self.setData({
               money: parseFloat(e.detail.value),
               resultMoney: result
             });
-
+            console.log(result)
           }
         });
       }
@@ -197,6 +187,7 @@ Page({
 
       resultM = Math.ceil(resultM * 1000) / 1000;
       resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
+      console.log(resultM)
       console.log(resultM/100)
       // ~~：转换为数字（实付金额后面加小数点）
       resultM = ~~resultM / 100 == resultM / 100 ? resultM  + ".00" : resultM;
@@ -261,56 +252,43 @@ Page({
 
   //
   inputFinish: function (e) {
-    // var self = this;
-    // if (self.data.money != '' &&(self.data.money == 0 || self.data.money >= 999999.99)) {
-    //   wx.showToast({
-    //     title: "请输入0.01-999999.99的金额",
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    // }
+    var self = this;
+    if (self.data.money != '' &&(self.data.money == 0 || self.data.money >=100000.00)) {
+      wx.showToast({
+        title: "单笔金额最大为十万元，请重新输入",
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
+     var re = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+      if (re.test(self.data.money)) {
+        return true;
+      } else {
+        wx.showToast({
+          title: "只支持输入小数点后两位，请重新输入",
+          icon: 'none',
+          duration: 2000
+        })
+        return false;
+      }
   },
   qrmdTap: function () {
 
     var self = this;
 
-    /**
-     * money	String	是	实际支付金额
-session	String	是	session
-token	String	是	token
-merchantId	String	是	商户id
-origionPrice	String	是	原始价格
-discountId	String	是	折扣id 打折id 满减此项为空
-discounInfo	String	是	折扣信息 打折为 打折具体数值 满减为商户详情mInfo
-     */
-    // var decimal = (self.data.money).toString().split('.');
-    // if (self.data.money == '' && (self.data.money < 0.01 || self.data.money >= 999999.99) || decimal[1].length > 2) {
-    //     console.log(1111)
-    //   wx.showToast({
-    //     title: "请输入0.01-999999.99的金额",
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    //   return;
-    // }
-    // console.log(self.data.money2)
-    // if (self.data.money2 <= 0 || self.data.money2 >= 999999.99) {
-        // wx.showToast({
-        //     title: "请输入0.01-999999.99的金额",
-        //     icon: 'none',
-        //     duration: 2000
-        // })
-        // return;
-    // }
     console.log(self.data.money);
-    if (parseFloat(self.data.money) < 0.01 ||parseFloat(self.data.money) > 999999.99){
-      wx.showToast({
-        title: "请输入0.01-999999.99的金额",
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-}
+
+
+      if (self.data.money <=0) {
+        wx.showToast({
+          title: "请输入金额",
+          icon: 'none',
+          duration: 2000
+        })
+        return false;
+      }
+ 
 
     appData.Tool.getToLocation("session").then(function (session) {
       var strnum=Math.floor(self.data.resultMoney*100)+"";

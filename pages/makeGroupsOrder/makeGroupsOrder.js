@@ -79,9 +79,14 @@ Page({
                 }
                 return str;
             };
-            if (res.data.list!=0){
+            if (res.data.list!=0&&that.data.page==1){
               that.setData({
-                  Ddarr: that.data.Ddarr.concat(res.data.list)
+                  // Ddarr: that.data.Ddarr.concat(res.data.list)
+                Ddarr:arr
+              })
+            } else if (res.data.list != 0 && that.data.page != 1){
+              that.setData({
+                Ddarr: that.data.Ddarr.concat(res.data.list)
               })
             }else{
               wx.hideLoading();

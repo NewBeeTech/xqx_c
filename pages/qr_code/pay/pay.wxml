@@ -14,7 +14,7 @@
     <view class='consAmount'>
         <text class='consTit'>消费金额（元）</text>
         <!--bindinput='inputMoney'  -->
-        <input class='consNum'  placeholder='请输入消费金额'  type='digit' bindinput='inputMoney' bindblur='inputFinish'></input>
+        <input class='consNum'  placeholder='请输入消费金额'  type='digit' bindinput='inputMoney' bindblur='inputFinish' ></input>
     </view>
     <view class='discountActive' wx:if="{{info.discountMode!=null}}">
         <!-- 满减或打折开始 -->
