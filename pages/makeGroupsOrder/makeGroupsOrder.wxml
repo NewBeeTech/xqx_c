@@ -36,7 +36,8 @@
                         <text class='shop_name'>{{item.merchant_name}}</text>
                         <image src='../../images/icon/jit2.png'></image>
                     </view>
-                    <text wx:if='{{item.order_state==3}}'>已自提</text>
+                    <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                     <text wx:elif='{{item.order_state==2}}'>待自提</text>
                     <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                 </view>
@@ -109,7 +110,8 @@
                         <text class='shop_name'>{{item.merchant_name}}</text>
                         <image src='../../images/icon/jit2.png'></image>
                     </view>
-                    <text wx:if='{{item.order_state==3}}'>已自提</text>
+                    <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                     <text wx:elif='{{item.order_state==2}}'>待自提</text>
                     <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                 </view>
@@ -181,7 +183,8 @@
                           <text class='shop_name'>{{item.merchant_name}}</text>
                           <image src='../../images/icon/jit2.png'></image>
                       </view>
-                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                     <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                       <text wx:elif='{{item.order_state==2}}'>待自提</text>
                       <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                   </view>
@@ -253,7 +256,8 @@
                           <text class='shop_name'>{{item.merchant_name}}</text>
                           <image src='../../images/icon/jit2.png'></image>
                       </view>
-                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                       <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                       <text wx:elif='{{item.order_state==2}}'>待自提</text>
                       <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                   </view>
@@ -326,7 +330,8 @@
                           <text class='shop_name'>{{item.merchant_name}}</text>
                           <image src='../../images/icon/jit2.png'></image>
                       </view>
-                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                       <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                       <text wx:elif='{{item.order_state==2}}'>待自提</text>
                       <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                   </view>
@@ -399,7 +404,8 @@
                           <text class='shop_name'>{{item.merchant_name}}</text>
                           <image src='../../images/icon/jit2.png'></image>
                       </view>
-                      <text wx:if='{{item.order_state==3}}'>已自提</text>
+                       <text wx:if="{{item.order_state==-1||item.order_state==-2}}">已取消</text>
+                    <text wx:elif='{{item.order_state==3}}'>已自提</text>
                       <text wx:elif='{{item.order_state==2}}'>待自提</text>
                       <text wx:elif='{{item.order_state==4&&item.goods_type==1}}'>开团中</text>
                   </view>

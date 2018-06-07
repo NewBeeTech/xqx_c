@@ -127,7 +127,7 @@ HTTPManager.post = function (url, parm) {
                           'From':'xqx_c_wxxcx',
                           'Authorization':parm.token,
                           'DateTime':time,
-                          'TerminalEnv':info
+                          'TerminalEnv': systeminfo
                         },
                         success: function (res) {
                           success(res.data);
