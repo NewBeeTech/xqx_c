@@ -136,12 +136,11 @@ Page({
         money: e.detail.value
       });
       var self = this;
-
     
       // 打折
       if (this.data.info.discountMode == "MR") {
         this.setData({
-          money: parseFloat(e.detail.value),
+          money:e.detail.value,
           resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value *parseFloat(this.data.info.rebate)/10
         });
       }
@@ -154,7 +153,7 @@ Page({
         var result = e.detail.value;
         console.log(result)
         self.setData({
-          money: parseFloat(e.detail.value),
+          money: e.detail.value,
           resultMoney: result
         });
         this.data.info.mInfo&&this.data.info.mInfo.forEach(function (item) {
@@ -164,7 +163,7 @@ Page({
             result = result > e.detail.value-item.subtract / 100 || result == 0 ? e.detail.value-item.subtract / 100 : result;
             result=result.toFixed(3);
             self.setData({
-              money: parseFloat(e.detail.value),
+              money: e.detail.value,
               resultMoney: result
             });
             console.log(result)
@@ -174,8 +173,8 @@ Page({
       // 如果没有满减或打折
       if (this.data.info.discountMode == 'undefined' || this.data.info.discountMode == 'null' || !this.data.info.discountMode) {
         this.setData({
-          money: parseFloat(e.detail.value),
-          resultMoney: parseFloat(e.detail.value) //减去 减满
+          money: e.detail.value,
+          resultMoney: e.detail.value //减去 减满
         });
         console.log(this.data.resultMoney);//实付金额
       }
@@ -199,7 +198,8 @@ Page({
           resultMStr = resultM + "0";
         }
       }
-      // console.log(resultMStr)
+      console.log(resultMStr)
+      console.log(typeof resultMStr)
       this.setData({
         resultMoney:resultMStr
       });
@@ -253,25 +253,34 @@ Page({
   //
   inputFinish: function (e) {
     var self = this;
-    if (self.data.money != '' &&(self.data.money == 0 || self.data.money >=100000.00)) {
+    var re = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+    if (re.test(self.data.money)) {
+      return true;
+    } else {
+      wx.showToast({
+        title: "只支持输入小数点后两位，请重新输入",
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    if (self.data.money>100000.00) {
       wx.showToast({
         title: "单笔金额最大为十万元，请重新输入",
         icon: 'none',
         duration: 2000
       })
+      return false;
+    }
+    if (self.data.money != '' && (self.data.money == 0)) {
+      wx.showToast({
+        title: "单笔金额最小为一分，请重新输入",
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
     }
 
-     var re = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
-      if (re.test(self.data.money)) {
-        return true;
-      } else {
-        wx.showToast({
-          title: "只支持输入小数点后两位，请重新输入",
-          icon: 'none',
-          duration: 2000
-        })
-        return false;
-      }
   },
   qrmdTap: function () {
 
@@ -280,7 +289,7 @@ Page({
     console.log(self.data.money);
 
 
-      if (self.data.money <=0) {
+    if (self.data.resultMoney <=0) {
         wx.showToast({
           title: "请输入金额",
           icon: 'none',
@@ -358,7 +367,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function (e) {
+    this.setData({
+      resultMoney:''
+    })
+
+
     let that = this;
     wx.login({
       success: res => {
