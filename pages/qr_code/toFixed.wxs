@@ -1,6 +1,8 @@
 var filters = {
   toFix: function (value) {
-    return value.toFixed(2)//此处2为保留两位小数
+    var aa=value.toFixed(3);//此处2为保留两位小数
+    var bb=Math.round(aa*100)
+    return bb/100
   }
 }
 module.exports = {

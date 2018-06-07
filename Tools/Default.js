@@ -4,8 +4,8 @@ function Default() { }
  */
 Default.HOST = "http://ccpp.denong.com/app_person/";
 
-//Default.HOST = "http://192.168.1.166:8080/app_person/";
- //Default.HOST = "https://mini.xqx.com/app_person/";
+// Default.HOST = "http://192.168.1.166:8080/app_person/";
+//  Default.HOST = "https://mini.xqx.com/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
 Default.JOIN_GROUP_BUY = "xcxgroupbuy/joinGroupBuy";
