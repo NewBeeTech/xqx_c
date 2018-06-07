@@ -1,5 +1,5 @@
 // pages/qr_code/getMoney/getMoney.js
-
+//此页面暂时没用
 const app = getApp()
 const getTradeDetail = app.globalData.host + "/xcx-person/consump/getTradeDetail"; //待托管小金详情
 const getMainPagev = app.globalData.host + '/xcx-person/merchantv20/getMainPagev22' //初始化数据
@@ -44,7 +44,7 @@ Page({
         }
         app.postRequest(getTradeDetail, app.jsonToString(param), function (res) {
           if(res.data.code == 0){
-          
+
             that.setData({
               getTradeDetail:res.data.data
             })
@@ -87,7 +87,7 @@ Page({
             // 判断获得小金类型 如果有返金比则消费 如果返金比为null 则不是消费类型
             if (res.data.data.cur_ratio == null){
               that.setData({
-                cur_ratio: false,   
+                cur_ratio: false,
               })
             }else{
               that.setData({
@@ -130,14 +130,14 @@ Page({
           } else {
             arr.push(res.data.data.nearby.list[i])
           }
-          
+
         }
         for(let i = 0; i<arr.length;i++){
           if(arr[i] == undefined){
            arr.splice(i)
           }
         }
-        
+
         //console.log(arr);
         that.setData({
           list_img: arr
@@ -184,48 +184,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

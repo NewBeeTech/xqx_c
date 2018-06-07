@@ -14455,7 +14455,7 @@ KJUR.jws.JWSJS = function() {
     }
 };
 RSAKey.prototype.encryptLong = function(string) {
-    var k = this.getKey();
+    var k = KEYUTIL.getKey();
     try {
         var lt = "";
         var ct = "";

@@ -9,7 +9,7 @@ if(!systeminfo){
       success: function(res) {
         // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
         systeminfo.networkType = res.networkType
-        wx.setStorageSync('systeminfo',systeminfo)
+        wx.setStorageSync('systeminfo',JSON.stringify(systeminfo))
       }
     })
   } catch (e) {
@@ -65,11 +65,11 @@ HTTPManager.post = function (url, parm) {
               res.token&&wx.setStorageSync('token', res.token)
               parm.token = res.token;
               const rsaData=common.getRsa(parm)
-              const Authorization=common.getAuthorization(rsaData)
               const time=new Date().getTime();
+              const Authorization=common.getAuthorization(rsaData,time)
               wx.request({
                 url: url,
-                data: rsaData,
+                data: parm,
                 method: "POST",
                 header: {
                   'content-type': 'application/json',
@@ -79,6 +79,7 @@ HTTPManager.post = function (url, parm) {
                   'TerminalEnv':systeminfo
                 },
                 success: function (res) {
+                  console.log(res.header)
                   success(res.data);
                 }
               })
@@ -93,8 +94,8 @@ HTTPManager.post = function (url, parm) {
         })
       }else{
         const rsaData=common.getRsa(parm)
-        const Authorization=common.getAuthorization(rsaData)
         const time=new Date().getTime();
+        const Authorization=common.getAuthorization(rsaData,time)
         return new Promise(function (success, fail) {
           wx.request({
             url: url,
@@ -118,6 +119,9 @@ HTTPManager.post = function (url, parm) {
                   if (res.code == 0) {
                       res.token&&wx.setStorageSync('token', res.token)
                       parm.token = res.token;
+                      const rsaData=common.getRsa(parm)
+                      const time=new Date().getTime();
+                      const Authorization=common.getAuthorization(rsaData,time)
                       wx.request({
                         url: url,
                         data: parm,
@@ -125,9 +129,9 @@ HTTPManager.post = function (url, parm) {
                         header: {
                           'content-type': 'application/json',
                           'From':'xqx_c_wxxcx',
-                          'Authorization':parm.token,
+                          'Authorization':Authorization,
                           'DateTime':time,
-                          'TerminalEnv':info
+                          'TerminalEnv':systeminfo
                         },
                         success: function (res) {
                           success(res.data);
@@ -152,42 +156,4 @@ HTTPManager.post = function (url, parm) {
         });
       }
 }
-// HTTPManager.login = function (url, parm) {
-//   wx.hideLoading();
-//   wx.showLoading({
-//     title: '加载中',
-//     mask: true
-//   });
-//   wx.setStorageSync('token', '');
-//   parm.token = wx.getStorageSync('token') || wx.token;
-//   console.warn('post  新token' + parm.token)
-//   let session = wx.getStorageSync('session') || "";
-//   parm.session = session;
-//   console.warn("URL:", url, "parms:", parm, "token: ", parm.token);
-//   return new Promise(function (success, fail) {
-//     wx.request({
-//       url: url,
-//       data: parm,
-//       method: "POST",
-//       header: {
-//         'content-type': 'application/json'
-//       },
-//       success: function (res) {
-//         console.log(res);
-//         if (res.data.code === 2) {
-//           console.warn('登录接口验证需要跳转手机号页面')
-//           wx.reLaunch({
-//             url: '/pages/boundNumber/boundNumber',
-//           })
-//
-//           return;
-//         }
-//         success(res.data);
-//       },
-//       fail: function (error) {
-//         fail(error)
-//       }
-//     })
-//   });
-// }
 module.exports = HTTPManager;

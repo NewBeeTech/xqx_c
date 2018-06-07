@@ -212,7 +212,7 @@ Page({
         });
 
         app.getUserLocation(function (addr) {
-            app.login(function () {
+            // app.login(function () {
                 console.log(wx.getStorageSync("token"));
                 appData.Tool.getAddressData({ location: addr }).then(function (result) {
                     //wx.setStorageSync("city", result.data.id);
@@ -232,7 +232,7 @@ Page({
                         })
                     });
 
-            });
+            // });
         })
     },
 

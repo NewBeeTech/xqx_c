@@ -9,7 +9,7 @@ if(!systeminfo){
       success: function(res) {
         // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
         systeminfo.networkType = res.networkType
-        wx.setStorageSync('systeminfo',systeminfo)
+        wx.setStorageSync('systeminfo',JSON.stringify(systeminfo))
       }
     })
   } catch (e) {
