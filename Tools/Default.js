@@ -4,7 +4,7 @@ function Default() { }
  */
 Default.HOST = "http://ccpp.denong.com/app_person/";
 
-//Default.HOST = "http://192.168.1.166:8080/app_person/";
+Default.HOST = "http://192.168.1.166:8080/app_person/";
  //Default.HOST = "https://mini.xqx.com/app_person/";
 Default.KEY = "5QUBZ-XZVW6-5U7SE-M4OZW-VA7DE-WXFZ6";
 
@@ -272,5 +272,7 @@ Default.INDEX_CITY_GOODS =
 //获取我的订单（整合）  xcxgoods/getGoodsOrderListXCX
 Default.GET_GOODS_ORDER_LIST_XCX =
   "xcxgoods/getGoodsOrderListXCX";
+//分享朋友圈获取二维码接口
+Default.CREATE_CODE="xcxgroupbuy/createCode";
 
 module.exports = Default;

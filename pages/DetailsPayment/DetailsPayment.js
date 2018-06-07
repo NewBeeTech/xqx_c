@@ -27,7 +27,7 @@ Page({
     })
 
   },
-  
+
   // 点击分享朋友圈按钮
   shareImg: function (e) {
     console.log(e.currentTarget.dataset)
@@ -36,7 +36,7 @@ Page({
     var prermb = e.currentTarget.dataset.prermb;
     var title = e.currentTarget.dataset.title;
     var xj = e.currentTarget.dataset.xj;
-   
+
     wx.navigateTo({
       url: '../shareFriends/shareFriends?imgurl=' + imgurl + '&nowrmb=' + nowrmb + '&prermb=' + prermb + '&title=' + title + '&xj=' + xj,
     })
@@ -54,39 +54,17 @@ Page({
     var cnd = this.data.cnd;
     var page1 = 'pages/DetailsPayment/DetailsPayment'
     var token = wx.getStorageSync("token");
-    console.log(cnd)
-    console.warn(token)
-
-    // console.log(new Date())
-    wx.request({
-      // Default.HOST = "https://192.168.1.204:8080/app_person/";
-      // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
-      url: appData.host+'/app_person/xcxgroupbuy/createCode',
-      method: "POST",
-      data: {
-        cnd: cnd,
-        page: page1,
-        token: token
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res)
-        // console.log(new Date())
-        // console.log(res.data)
-        var shareImgSrc = res.data.data;
-        wx.setStorageSync('shareImgSrc', shareImgSrc)
-        console.log(wx.getStorageSync('shareImgSrc'))
-        // console.log(new Date())
-        // pages / makeGroupsOwnPage / makeGroupsOwnPage
-
-
-      }
+    const parm={
+      cnd: cnd,
+      page: page1,
+      token: token
+    }
+    appData.Tool.createCode(parm).then(function(res){
+      var shareImgSrc = res.data;
+      wx.setStorageSync('shareImgSrc', shareImgSrc)
+      console.log(wx.getStorageSync('shareImgSrc'))
     })
   },
-
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -133,7 +111,7 @@ Page({
               arr.push({})
           };
 
-          
+
           that.setData({
               xqObj: res.data,
               su:su
@@ -179,42 +157,42 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
   /**
     * 用户点击右上角分享

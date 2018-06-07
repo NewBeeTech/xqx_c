@@ -1,0 +1,12 @@
+<view class='mark' wx:if="{{hid}}">
+  <view class='sharebox'>
+         <view class='squn'>
+             <button open-type='share' class='shareFri' bindtap='onShareAppMessage'>发给群聊或好友</button>
+         </view>
+         <view class='shareImg' bindtap='shareImg' data-imgurl="{{barginOwnData.img_url}}" data-title="{{barginOwnData.name}}" data-nowRmb="{{barginOwnData.group_price / 100}}" data-preRmb="{{barginOwnData.price / 100}}" data-xj="{{barginOwnData.currency / 100}}">
+               <text class='simg'>生成图片分享</text>
+               <text class='afriend'>可以用来分享到朋友圈</text>
+         </view>
+         <view class='cancel' bindtap='cancelBtn'>取消</view>
+  </view>
+</view>

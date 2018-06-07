@@ -80,35 +80,16 @@ Page({
     var cnd = this.data.cnd;
     var page1 = 'pages/makeGroupsOwnPage/makeGroupsOwnPage';
     var token = wx.getStorageSync("token");
-    // var intPara = this.data.intPara;
-    wx.request({
-      // Default.HOST = "https://192.168.1.204:8080/app_person/";
-      // url: 'http://192.168.1.204:8080/app_person/xcxgroupbuy/createCode',
-      // url: appData.host+'/app_person/xcxgroupbuy/createCode',
-      url: appData.host + 'xcxgroupbuy/createCode',
-      method: "POST",
-      data: {
-        cnd: cnd,
-        page: page1,
-        token: token,
-        // intPara: intPara
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res)
-        // console.log(res.data)
-        var shareImgSrc = res.data.data;
-        wx.setStorageSync('shareImgSrc', shareImgSrc)
-        console.log(wx.getStorageSync('shareImgSrc'))
-        // that.setData({
-        //   shareImgSrc: shareImgSrc
-        // })
-        // that.drawCanvas();
-      }
+    const parm={
+      cnd: cnd,
+      page: page1,
+      token: token
+    }
+    appData.Tool.createCode(parm).then(function(res){
+      var shareImgSrc = res.data;
+      wx.setStorageSync('shareImgSrc', shareImgSrc)
+      console.log(wx.getStorageSync('shareImgSrc'))
     })
-
 
   },
   /**

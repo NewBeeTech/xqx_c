@@ -69,7 +69,7 @@ HTTPManager.post = function (url, parm) {
               const Authorization=common.getAuthorization(rsaData,time)
               wx.request({
                 url: url,
-                data: parm,
+                data: rsaData,
                 method: "POST",
                 header: {
                   'content-type': 'application/json',
@@ -99,7 +99,7 @@ HTTPManager.post = function (url, parm) {
         return new Promise(function (success, fail) {
           wx.request({
             url: url,
-            data: parm,
+            data: rsaData,
             method: "POST",
             header: {
               'content-type': 'application/json',

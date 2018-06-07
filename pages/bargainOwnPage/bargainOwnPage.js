@@ -1,7 +1,6 @@
 var app = getApp();
 var appData = app.globalData;
 var timer = require('../../components/wxTimer/wxTimer.js')
-
 Page({
   /**
    * 页面的初始数据
@@ -14,28 +13,6 @@ Page({
     deadTime: '',
     id: '',
     barginOwnData: {
-      // userPortrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
-      // userName: '丽丽',
-      // img_url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
-      // name: '商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称',
-      // group_person_num: 3,
-      // price: 30,
-      // group_price: 30,
-      // now_price: 30,
-      // deadLine: '2016-09-30',
-      // cutList: [{
-      //     portrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
-      //     name: '名称',
-      //     cut_price: 30
-      // },{
-      //     portrait: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524208554&di=d9b6ddb674b126952257281bc081d6ea&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe1fe9925bc315c602050233b87b1cb1348547718.jpg',
-      //     name: '名称',
-      //     cut_price: 30
-      // }],
-      // cut_price:30,
-      // goods_group_id:2,
-      // group_buy_id:3,
-      // orderId:2
     },
     wxTimerList: {},
     hid: false,   //分享弹出框
@@ -48,12 +25,6 @@ Page({
     this.setData({
       hid: false
     })
-    // wx.showToast({
-    //   title: '用户取消分享',
-    //   icon: 'none',
-    //   duration: 1000
-    // })
-
   },
   // 点击分享朋友圈按钮
   shareImg: function (e) {
@@ -83,34 +54,17 @@ Page({
     var intPara = this.data.intPara;
     var intPara2 = this.data.intPara2;
     // console.log(cnd)
-    wx.request({
-      // url: appData.host + '/app_person/xcxgroupbuy/createCode',
-      url: appData.host + 'xcxgroupbuy/createCode',
-      method: "POST",
-      data: {
-        // cnd: cnd,
-        page: page1,
-        token: token,
-        intPara: intPara,
-        intPara2: intPara2
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res)
-        // console.log(res.data)
-        var shareImgSrc = res.data.data;
-        wx.setStorageSync('shareImgSrc', shareImgSrc)
-        console.log(wx.getStorageSync('shareImgSrc'))
-        // that.setData({
-        //   shareImgSrc: shareImgSrc
-        // })
-        // that.drawCanvas();
-      }
+    const parm={
+      page: page1,
+      token: token,
+      intPara: intPara,
+      intPara2: intPara2
+    }
+    appData.Tool.createCode(parm).then(function(res){
+      var shareImgSrc = res.data;
+      wx.setStorageSync('shareImgSrc', shareImgSrc)
+      console.log(wx.getStorageSync('shareImgSrc'))
     })
-
-
   },
   /**
    * 生命周期函数--监听页面加载
