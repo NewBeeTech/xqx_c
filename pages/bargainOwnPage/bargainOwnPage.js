@@ -84,7 +84,8 @@ Page({
     var intPara2 = this.data.intPara2;
     // console.log(cnd)
     wx.request({
-      url: appData.host + '/app_person/xcxgroupbuy/createCode',
+      // url: appData.host + '/app_person/xcxgroupbuy/createCode',
+      url: appData.host + 'xcxgroupbuy/createCode',
       method: "POST",
       data: {
         // cnd: cnd,
