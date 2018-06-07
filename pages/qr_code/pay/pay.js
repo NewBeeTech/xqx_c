@@ -16,7 +16,8 @@ Page({
     ratio: 0.00,
     isChoose: "nor",
     resultRatio:"0.00",
-    merchantId:''
+    merchantId:'',
+    panduanMon:''
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
     // 判断用户是不是新用户
     var id = options.q.split("merchantId%3D")[1];
     console.warn('res', id);
-
+    console.log(id)
     let that = this;
     that.setData({
       merchantId: id
@@ -84,7 +85,8 @@ Page({
                       if (options.q) {
                         console.log(options.q);
                         // http%3A%2F%2Fmini.xqx.com%2Fapp_person%2F%3FmerchantId%3D10099
-                        var res = options.q.split("%2Fapp_person%2F%3FmerchantId%3D")[1];
+                        // var res = options.q.split("%2Fapp_person%2F%3FmerchantId%3D")[1];
+                        var res = options.q.split("%3D")[1];
                         console.log(res);
                         // that.loadInfo(res);
                       }
@@ -129,8 +131,10 @@ Page({
   },
   // 优惠活动与实付金额
   inputMoney: function (e) {
-
-    if (e.detail.value <= 999999.99) {
+    this.setData({
+      panduanMon: e.detail.value
+    })
+    if (e.detail.value <= 100000.00 && e.detail.value>=0.01) {
       this.setData({
         resultRatio: "0.00",
         money: e.detail.value
@@ -161,7 +165,7 @@ Page({
           if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
 
             result = result > e.detail.value-item.subtract / 100 || result == 0 ? e.detail.value-item.subtract / 100 : result;
-            result=result.toFixed(3);
+            result=parseFloat(result).toFixed(2);
             self.setData({
               money: e.detail.value,
               resultMoney: result
@@ -217,34 +221,21 @@ Page({
         });
       }
 
-      // var r = !this.data.ratio || this.data.resultMoney == 0 ? 0: (this.data.ratio * this.data.resultMoney / 100 <= 0.01 ? 0.01 : this.data.ratio * this.data.resultMoney / 100) ;
-      // r = Math.round(r * 1000)/1000;
-      // r = Math.round(Math.round(r * 1000) / 10) / 100;
-      // console.log(Math.round(r * 1000)/10);
-      // console.log(r );
-      //
-      // var str = r+"";
-      //
-      // if (str.split(".").length>1){
-      //   if (str.split(".")[1].length < 2 ){
-      //     str = r+"0";
-      //   }
-      // }else{
-      //   r = ~~r / 100 == r / 100 ? r / 100 + ".00" : ~~(r * 100) / 100;
-      //   str = r+"";
-      // }
-      // console.log(str);
-      // this.setData({
-      //   resultRatio: str
-      // });
-      // if (this.data.info.ratio){
-      //   if (r < 0.01){
-      //     this.setData({
-      //       resultRatio: 0.01
-      //     });
-      //   }
-      // }
-
+    }else{
+      if (e.detail.value<0.01){
+          this.setData({
+            resultMoney:"0.00"
+          })
+      }
+      if (e.detail.value>100000.00){
+          wx.showToast({
+            title: "单笔金额最大为十万元，请重新输入",
+            icon: 'none',
+            duration: 1000
+          })
+          return;
+      } 
+     
     }
 
 
@@ -253,6 +244,25 @@ Page({
   //
   inputFinish: function (e) {
     var self = this;
+    console.log(self.data.money)
+    // if (self.data.money>100000.00) {
+    //   wx.showToast({
+    //     title: "单笔金额最大为十万元，请重新输入",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return false;
+    // }
+
+    // if (self.data.money != '' && (self.data.money == 0)) {
+    //   wx.showToast({
+    //     title: "单笔金额最小为一分，请重新输入",
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return false;
+    // }
+
     var re = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
     if (re.test(self.data.money)) {
       return true;
@@ -264,23 +274,6 @@ Page({
       })
       return false;
     }
-    if (self.data.money>100000.00) {
-      wx.showToast({
-        title: "单笔金额最大为十万元，请重新输入",
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
-    }
-    if (self.data.money != '' && (self.data.money == 0)) {
-      wx.showToast({
-        title: "单笔金额最小为一分，请重新输入",
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
-    }
-
   },
   qrmdTap: function () {
 
@@ -298,6 +291,24 @@ Page({
         return false;
       }
  
+    var re = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
+    if (!re.test(self.data.money)) {
+      wx.showToast({
+        title: "只支持输入小数点后两位，请重新输入",
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+
+    if (self.data.panduanMon > 100000.00) {
+      wx.showToast({
+        title: "单笔金额最大为十万元，请重新输入",
+        icon: 'none',
+        duration: 1000
+      })
+      return false;
+    } 
 
     appData.Tool.getToLocation("session").then(function (session) {
       var strnum=Math.floor(self.data.resultMoney*100)+"";
@@ -429,9 +440,10 @@ Page({
                         // var res = options.q.split("%2Fapp_person%2F%3FmerchantId%3D")[1];
                         // console.log(res);
                         // that.loadInfo(res);
+                        that.loadInfo(that.data.merchantId);
                       }
-                      that.loadInfo(that.data.merchantId);
-                      // that.loadInfo('10099');
+                      console.log(that.data.merchantId)
+                     
                     }
                   },
                   fail: function (res) {

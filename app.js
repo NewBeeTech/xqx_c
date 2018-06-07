@@ -4,7 +4,7 @@ var tool = require("Tools/HTTPOpertion.js");
 var QQMapWX = require('Tools/qqmap-wx-jssdk.min.js');
 var MD5 = require('Tools/md5.js');
 var host=require('Tools/Default.js');
-var host=require('Tools/common.js');
+// var host=require('Tools/common.js');
 // var a=MD5("123456");
 var qqmapsdk;
 var city='';   //新加

@@ -286,6 +286,7 @@ Page({
       this.data.Ddarr = [];
       this.data.page = 1;
       this.getDdList();
+      // console.log(1111111111111)
     },
 
     /**
