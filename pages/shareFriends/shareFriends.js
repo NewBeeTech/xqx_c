@@ -55,7 +55,8 @@ Page({
     console.log(erweima)
     var tupian = this.data.imgurl;
     console.log(tupian)
-
+    console.warn(erweima)
+    console.warn(tupian)
     wx.downloadFile({
       url: tupian,
       success: function (sres) {

@@ -138,7 +138,9 @@ Page({
       wxTimerList: {},
       hid: false,
     })
-    this.loadData(this.data.id);
+    if (this.data.id!=''){
+          this.loadData(this.data.id);
+    }
   },
   loadData: function (id) {
     var self = this;

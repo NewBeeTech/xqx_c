@@ -1,13 +1,22 @@
 <!--pages/orderDetails/orderDetails.wxml-->
 <view class='order_info_head'>
     <view>
-        <view wx:if='{{xqObj.order_state==-1}}' class='fight_success'>已取消</view>
-        <view wx:elif='{{xqObj.order_state==-2}}' class='fight_success'>拼团失败</view>
+    <view wx:if="{{xqObj.delivery_method==1}}">
+        <view wx:if='{{xqObj.order_state==-1||xqObj.order_state==-2||xqObj.order_state==-3}}' class='fight_success'>已取消</view>
+        <view wx:elif='{{xqObj.order_state==-2&&xqObj.goods_type==1}}' class='fight_success'>拼团失败</view>
         <view wx:elif='{{xqObj.order_state==0}}' class='fight_success'>待支付</view>
         <view wx:elif='{{xqObj.order_state==1}}' class='fight_success'>待发货</view>
-        <view wx:elif='{{xqObj.order_state==4}}' class='fight_success'>拼团中</view>
-        <view wx:else class='fight_success'>拼团成功</view>
-
+        <view wx:elif='{{xqObj.order_state==4&&xqObj.goods_type==1}}' class='fight_success'>开团中</view>
+         <view wx:else class='fight_success'>
+            <text wx:if="{{xqObj.goods_type==1}}">拼团成功</text>
+         </view> 
+    </view>
+    <view wx:elif="{{xqObj.delivery_method==2}}">
+           <text wx:if="{{xqObj.order_state==-1||xqObj.order_state==-2||xqObj.order_state==-3}}">已取消</text>
+                    <text wx:elif='{{xqObj.order_state==3}}'>已自提</text>
+                    <text wx:elif='{{xqObj.order_state==2}}'>待自提</text>
+                    <text wx:elif='{{xqObj.order_state==4&&xqObj.goods_type==1}}'>开团中</text>
+    </view>
         <text wx:if='{{xqObj.order_state==-3}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
         <!-- <text wx:elif='{{xqObj.order_state==1}}' class='fight_success'>正在努力拼团中，请耐心等待</text> -->
         <!-- <text wx:elif="{{xqObj.order_state==4}}">拼团中</text> -->

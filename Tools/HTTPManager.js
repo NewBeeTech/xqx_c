@@ -64,6 +64,7 @@ HTTPManager.post = function (url, parm) {
             if (res.code == 0) {
               res.token&&wx.setStorageSync('token', res.token)
               parm.token = res.token;
+              console.log(url+':'+JSON.stringify(parm))
               const rsaData=common.getRsa(parm)
               const time=new Date().getTime();
               const Authorization=common.getAuthorization(rsaData,time)
@@ -96,6 +97,7 @@ HTTPManager.post = function (url, parm) {
         const rsaData=common.getRsa(parm)
         const time=new Date().getTime();
         const Authorization=common.getAuthorization(rsaData,time)
+        console.log(url+':'+JSON.stringify(parm))
         return new Promise(function (success, fail) {
           wx.request({
             url: url,
@@ -122,9 +124,10 @@ HTTPManager.post = function (url, parm) {
                       const rsaData=common.getRsa(parm)
                       const time=new Date().getTime();
                       const Authorization=common.getAuthorization(rsaData,time)
+                      console.log(url+':'+JSON.stringify(parm))
                       wx.request({
                         url: url,
-                        data: parm,
+                        data: rsaData,
                         method: "POST",
                         header: {
                           'content-type': 'application/json',

@@ -1,5 +1,6 @@
 var app = getApp();
 var appData = app.globalData;
+console.log(appData)
 var timer = require('../../components/wxTimer/wxTimer.js')
 Page({
   /**
@@ -54,6 +55,7 @@ Page({
     var intPara = this.data.intPara;
     var intPara2 = this.data.intPara2;
     // console.log(cnd)
+
     const parm={
       page: page1,
       token: token,
@@ -64,6 +66,7 @@ Page({
       var shareImgSrc = res.data;
       wx.setStorageSync('shareImgSrc', shareImgSrc)
       console.log(wx.getStorageSync('shareImgSrc'))
+
     })
   },
   /**
@@ -82,7 +85,7 @@ Page({
       arr = scene.split('=');
       obj.intPara2 = arr[1];
       // 将返回的cnd给页面数据
-      this.loadData(obj.intPara2);
+      this.loadData1(obj.intPara2);
     }
 
   },
@@ -180,6 +183,77 @@ Page({
 
     });
   },
+    loadData1: function (id) {
+      var self = this;
+      const params = {
+        token: wx.getStorageSync('token'),
+        intPara2: id
+      };
+      appData.Tool.getBargainOwnOrOtherInfo(params).then(function (result) {
+        console.log(result)
+        // var cnd = result.data.goods_group_id;
+
+        if (result.code === 0) {
+          var intPara = result.data.id;
+          var intPara2 = result.data.orderId;
+          self.setData({
+            // cnd: cnd,
+            intPara: intPara,
+            intPara2: intPara2
+          })
+          wx.hideLoading();
+          self.setData({ barginOwnData: result.data, deadTime: result.data.deadLine });
+          if (result.data.showFlag == 0) {
+            self.setData({
+              showModal: false,
+            });
+          }
+
+          const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+          const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
+          const hasPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
+          // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
+          const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
+
+          console.log(cutPrice, totalCutPrice, hasPrice)
+          self.setData({
+            cutPrice,
+            totalCutPrice,
+            hasPrice,
+            'barginOwnData.xiaojin': xiaojin
+          })
+
+
+          var wxTimer = new timer({
+            beginTime: result.data.deadLine,
+            name: 'wxTimer1',
+            complete: function () {
+              console.log("完成了")
+            }
+          })
+          wxTimer.start(self);
+        } else if (result.code == -3) {
+          wx.showToast({
+            title: '该商品已下架',
+            icon: 'none',
+            duration: 20000,
+          });
+          setTimeout(function () {
+            wx.navigateBack();
+          }, 2000);
+        } else {
+          wx.showToast({
+            title: result.message,
+            icon: 'none',
+            duration: 2000,
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
+        wx.hideLoading()
+
+      });
+    },
   showModalBtn: function () {
     // this.setData({ showModal: true });
   },
