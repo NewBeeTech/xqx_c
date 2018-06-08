@@ -1,4 +1,4 @@
-// pages/wholeOrder/wholeOrder.js
+pages/wholeOrder/wholeOrder.js
 var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
