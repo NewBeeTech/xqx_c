@@ -76,7 +76,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小确幸",
     "navigationBarTextStyle": "black",
-    "onReachBottomDistance": 50
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "color": "#9d9d9d",

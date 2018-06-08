@@ -14,7 +14,7 @@
     <view class='consAmount'>
         <text class='consTit'>消费金额（元）</text>
         <!--bindinput='inputMoney'  -->
-        <input class='consNum'  placeholder='请输入消费金额'  type='digit' bindinput='inputMoney' bindblur='inputFinish' ></input>
+        <input class='consNum'  placeholder='请输入消费金额'  type='digit' bindinput='inputMoney' bindblur='inputFinish' value='{{qingkong}}'></input>
     </view>
     <view class='discountActive' wx:if="{{info.discountMode!=null}}">
         <!-- 满减或打折开始 -->
@@ -43,7 +43,8 @@
     <!-- 小金 -->
     <view class='confirmPay'>
        <view>
-             <view class='estimate'>本单预计可返<text>{{resultMoney * ratio / 100 >= 0.01 ? filters.toFix(resultMoney * ratio/ 100):"0.00" }}</text>小金</view>
+             <!-- <view class='estimate'>本单预计可返<text>{{resultMoney * ratio / 100 >=0.01 ? filters.toFix(resultMoney * ratio/ 100):"0.00" }}</text>小金</view> -->
+             <view class='estimate'>本单预计可返<text>{{resultRatio >=0.01 ? filters.toFix(resultMoney * ratio / 100):"0.00" }}</text>小金</view>
             <view class='confirOrder' bindtap='qrmdTap'>确认买单</view>
        </view>
     </view>

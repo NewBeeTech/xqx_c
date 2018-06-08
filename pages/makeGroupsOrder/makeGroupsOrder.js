@@ -1,4 +1,3 @@
-
 var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
@@ -307,7 +306,11 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+      this.data.Ddarr = [];
+      this.data.page = 1;
+      this.getDdList();
+      console.log(123456)
+      wx.stopPullDownRefresh()
     },
 
     /**

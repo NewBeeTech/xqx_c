@@ -1,8 +1,14 @@
 var filters = {
   toFix: function (value) {
-    var aa=value.toFixed(3);//此处2为保留两位小数
-    var bb=Math.round(aa*100)
-    return bb/100
+    // var aa=value.toFixed(3);//此处2为保留两位小数
+    var bb = Math.round(value*100)
+    var cc=bb/100;
+    var dd=cc.toFixed(2)
+    if(dd<=0.01){
+        dd=0.01
+    }
+    console.log(dd)
+    return dd;
   }
 }
 module.exports = {

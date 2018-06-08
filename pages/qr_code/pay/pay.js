@@ -17,7 +17,8 @@ Page({
     isChoose: "nor",
     resultRatio:"0.00",
     merchantId:'',
-    panduanMon:''
+    panduanMon:'',
+    qingkong:''
   },
 
   /**
@@ -131,6 +132,11 @@ Page({
   },
   // 优惠活动与实付金额
   inputMoney: function (e) {
+    if (e.detail.value==''){
+      this.setData({
+        resultRatio: 0
+      })
+    }
     this.setData({
       panduanMon: e.detail.value
     })
@@ -143,10 +149,21 @@ Page({
     
       // 打折
       if (this.data.info.discountMode == "MR") {
+        var dz = e.detail.value * parseFloat(this.data.info.rebate) / 10 + '';
+        var qud;
+        if (dz.split('.')[1].charAt(2) == 0) {
+          qud = Math.floor(dz * 100) / 100;
+        } else {
+          qud = dz;
+        }
         this.setData({
           money:e.detail.value,
-          resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value *parseFloat(this.data.info.rebate)/10
+          resultMoney: this.data.info.rebate == 0 ? e.detail.value :qud
+          // resultMoney: this.data.info.rebate == 0 ? e.detail.value : e.detail.value *parseFloat(this.data.info.rebate)/10
         });
+      
+        console.log(dz)
+        console.log(qud)
       }
 
       // 满减
@@ -165,7 +182,8 @@ Page({
           if (parseFloat(e.detail.value) >= parseFloat(item.full / 100)) {
 
             result = result > e.detail.value-item.subtract / 100 || result == 0 ? e.detail.value-item.subtract / 100 : result;
-            result=parseFloat(result).toFixed(2);
+            result=parseFloat(result).toFixed(3);
+            console.log(result)
             self.setData({
               money: e.detail.value,
               resultMoney: result
@@ -180,13 +198,12 @@ Page({
           money: e.detail.value,
           resultMoney: e.detail.value //减去 减满
         });
+        // this.data.resultMoney.toFixed(3);
         console.log(this.data.resultMoney);//实付金额
       }
 
       // 实付金额
       var resultM = this.data.resultMoney == 0 ? "" : this.data.resultMoney;
-
-      // console.log(this.data.resultMoney);
 
       resultM = Math.ceil(resultM * 1000) / 1000;
       resultM = Math.ceil(Math.ceil(resultM * 1000) / 10) / 100;
@@ -380,7 +397,9 @@ Page({
    */
   onShow: function (e) {
     this.setData({
-      resultMoney:''
+      resultMoney:'',
+      qingkong:'',
+      resultRatio:0
     })
 
 
