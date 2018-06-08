@@ -131,6 +131,9 @@ Page({
       var obj = {};
       arr = scene.split('=');
       obj.cnd = arr[1];
+      this.setData({
+        from: obj.cnd,
+      })
       // 将返回的cnd给页面数据
       this.loadData(obj.cnd);
     }

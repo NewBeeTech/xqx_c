@@ -20,8 +20,8 @@
         <text wx:if='{{xqObj.order_state==-3}}'>已取消订单\n退款3个工作日内将返还你的支付账户</text>
         <!-- <text wx:elif='{{xqObj.order_state==1}}' class='fight_success'>正在努力拼团中，请耐心等待</text> -->
         <!-- <text wx:elif="{{xqObj.order_state==4}}">拼团中</text> -->
-        <text wx:elif="{{xqObj.order_state==2}}">已发货</text>
-        <text wx:elif="{{xqObj.order_state==3}}">已完成</text>
+        <text wx:elif="{{xqObj.order_state==2&&xqObj.delivery_method==1}}">已发货</text>
+        <text wx:elif="{{xqObj.order_state==3&&xqObj.delivery_method==1}}">已完成</text>
         <text wx:if="{{xqObj.order_state==3}}">本单已获得 {{xqObj.currency/100}} 小金 </text>
     </view>
         <image src='../../images/icon/waitFor.png' class='waitImg'></image>
