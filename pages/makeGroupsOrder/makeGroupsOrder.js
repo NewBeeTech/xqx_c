@@ -1,4 +1,4 @@
-pages/wholeOrder/wholeOrder.js
+
 var DateTool = require("../../Tools/DateTool.js");
 var app = getApp();
 var appData = app.globalData;
@@ -206,14 +206,14 @@ Page({
           content: title + "后款项无法退回，请谨慎操作",
           success: function (e) {
              if(e.confirm){
-              
+
               if(type1==1){
                   pro = appData.Tool.commitReceiveGoods1(obj)
               }else if(type1==3){
                   pro = appData.Tool.commitReceiveGoods(obj)
               }
               throttle(function() {
-                
+
                   pro.then(function (res) {
                       console.log(res)
                       wx.hideLoading();
@@ -239,7 +239,7 @@ Page({
                           })
                       })
 
-                  
+
               }, 10000)();
              }
           },
@@ -341,7 +341,7 @@ Page({
         })
         this.getDdList();
       }
-      
-    }  
-  
+
+    }
+
 })
