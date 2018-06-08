@@ -78,16 +78,19 @@ Page({
                 }
                 return str;
             };
-            if (res.data.list!=0&&that.data.page==1){
+            console.log(res.data.list)
+            if (res.data.list.length!=0&&that.data.page==1){
               that.setData({
-                  // Ddarr: that.data.Ddarr.concat(res.data.list)
                 Ddarr:arr
               })
-            } else if (res.data.list != 0 && that.data.page != 1){
+            } else if (res.data.list.length != 0 && that.data.page != 1){
               that.setData({
                 Ddarr: that.data.Ddarr.concat(res.data.list)
               })
-            }else{
+            } else if (res.data.list.length== 0 && that.data.page == 1){
+              that.setData({
+                Ddarr: arr
+              })
               wx.hideLoading();
               wx.showToast({
                 title: "没有更多数据了",
@@ -312,7 +315,13 @@ Page({
       console.log(123456)
       wx.stopPullDownRefresh()
     },
-
+    aa:function(){
+      this.data.Ddarr = [];
+      this.data.page = 1;
+      this.getDdList();
+      console.log(123456)
+      wx.stopPullDownRefresh()
+    },
     /**
      * 页面上拉触底事件的处理函数
      */
@@ -342,7 +351,7 @@ Page({
           Ddarr: [],
           page: 1,
         })
-        this.getDdList();
+        // this.getDdList();
       }
 
     }

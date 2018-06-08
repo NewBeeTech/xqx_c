@@ -43,7 +43,6 @@
     <!-- 小金 -->
     <view class='confirmPay'>
        <view>
-             <!-- <view class='estimate'>本单预计可返<text>{{resultMoney * ratio / 100 >=0.01 ? filters.toFix(resultMoney * ratio/ 100):"0.00" }}</text>小金</view> -->
              <view class='estimate'>本单预计可返<text>{{resultRatio >=0.01 ? filters.toFix(resultMoney * ratio / 100):"0.00" }}</text>小金</view>
             <view class='confirOrder' bindtap='qrmdTap'>确认买单</view>
        </view>

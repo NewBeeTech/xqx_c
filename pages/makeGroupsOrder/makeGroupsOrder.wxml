@@ -14,10 +14,10 @@
     <!-- 第一屏 -->
     <swiper-item>
         <!-- 全部订单 -->
-        <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}'>
+        <scroll-view bindscrolltolower='xijSoll' scroll-y='true' style='height:100%' wx:if='{{Ddarr.length}}' bindscrolltoupper='aa'>
         <view class='coupOrder'>
             <!-- 每一项订单 -->
-            <view class='order_list' wx:for='{{Ddarr}}' wx:key='{{index}}'>
+            <view class='order_list' wx:for='{{Ddarr}}'  wx:key='{{index}}'>
                 <!-- 名称与状态开始 -->
                 <view class='order_status' wx:if="{{item.delivery_method==1}}">
                     <view>
