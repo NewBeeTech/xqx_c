@@ -132,6 +132,8 @@ Page({
       obj.intPara2 = arr[1];
       // 将返回的cnd给页面数据
       this.loadData1(obj.intPara2);
+    }else{
+      this.loadData(this.data.id);
     }
 
   },
