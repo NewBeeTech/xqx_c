@@ -46,7 +46,7 @@
                     <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                         <image src="{{item.img_url}}"></image>
                         <view class='price_info'>
-                            <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                            <view class='shop_info'>{{item.name}}</view>
                             <view class='danjia'><text>￥{{item.price}}</text></view>
                             <view class='geshu'>x1</view> 
                             <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -63,6 +63,7 @@
                 </view>
                 <!-- 确认订单等 -->
                 <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
@@ -73,6 +74,7 @@
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
                 
             </view>
@@ -120,7 +122,7 @@
                     <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                         <image src="{{item.img_url}}"></image>
                         <view class='price_info'>
-                            <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                            <view class='shop_info'>{{item.name}}</view>
                             <view class='danjia'><text>￥{{item.price}}</text></view>
                             <view class='geshu'>x1</view> 
                             <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -137,9 +139,10 @@
                 </view>
                 <!-- 确认订单等 -->
                 <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
                       <block wx:if="{{item.delivery_method==2}}">
@@ -147,7 +150,9 @@
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
+
             </view>
         </view>
         <!-- 每一个订单结束 -->
@@ -193,7 +198,7 @@
                       <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                           <image src="{{item.img_url}}"></image>
                           <view class='price_info'>
-                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='shop_info'>{{item.name}}</view>
                               <view class='danjia'><text>￥{{item.price}}</text></view>
                               <view class='geshu'>x1</view> 
                               <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -209,18 +214,21 @@
                           <view class='now_fu'>实付:<text>￥{{item.group_price}}</text></view>
                   </view>
                   <!-- 确认订单等 -->
-                  <view class='order_btn_bar'>
+                 <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
                       <block wx:if="{{item.delivery_method==2}}">
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
+
               </view>
           </view>
           <!-- 每一个订单结束 -->
@@ -266,7 +274,7 @@
                       <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                           <image src="{{item.img_url}}"></image>
                           <view class='price_info'>
-                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='shop_info'>{{item.name}}</view>
                               <view class='danjia'><text>￥{{item.price}}</text></view>
                               <view class='geshu'>x1</view> 
                               <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -283,9 +291,10 @@
                   </view>
                   <!-- 确认订单等 -->
                   <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
                       <block wx:if="{{item.delivery_method==2}}">
@@ -293,6 +302,7 @@
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
               </view>
           </view>
@@ -340,7 +350,7 @@
                       <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                           <image src="{{item.img_url}}"></image>
                           <view class='price_info'>
-                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='shop_info'>{{item.name}}</view>
                               <view class='danjia'><text>￥{{item.price}}</text></view>
                               <view class='geshu'>x1</view> 
                               <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -349,7 +359,7 @@
                           </view>         
                       </view>
                   </view>
-                  <view class='zt'>
+                  <view class='zt' >
                           <view class='fight_group' wx:if="{{item.goods_type==1}}">拼团</view>
                           <view class='fight_group' wx:elif="{{item.goods_type==2}}">秒杀</view>
                           <view class='fight_group' wx:elif="{{item.goods_type==3}}">砍价</view>
@@ -357,9 +367,10 @@
                   </view>
                   <!-- 确认订单 -->
                  <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
                       <block wx:if="{{item.delivery_method==2}}">
@@ -367,6 +378,7 @@
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
               </view>
           </view>
@@ -414,7 +426,7 @@
                       <view class='order_info' bindtap='gmTap' data-id='{{item.id}}'>
                           <image src="{{item.img_url}}"></image>
                           <view class='price_info'>
-                              <view class='shop_info'>木生火烤研院好羊肉木生火烤研院好羊肉木生</view>
+                              <view class='shop_info'>{{item.name}}</view>
                               <view class='danjia'><text>￥{{item.price}}</text></view>
                               <view class='geshu'>x1</view> 
                               <view class='ziti' wx:if="{{item.delivery_method==1}}">邮寄</view>  
@@ -431,9 +443,10 @@
                   </view>
                   <!-- 确认订单等 -->
                   <view class='order_btn_bar'>
+                <view class='order_line' wx:if="{{item.order_state==1||item.order_state==2}}">
                       <block wx:if="{{item.delivery_method==1}}">
                           <view class='qr_sh' wx:if="{{item.order_state==1}}" data-goods_type='{{item.goods_type}}' data-id="{{item.id}}" bindtap='qxdTap'>取消订单</view>
-                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认收货</view>
+                          <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}' data-delivery_method="{{item.delivery_method}}"  bindtap='qrsTap'>确认收货</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==1||item.order_state==2||item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
                       <block wx:if="{{item.delivery_method==2}}">
@@ -441,6 +454,7 @@
                           <view class='qr_sh' wx:if="{{item.order_state==2}}" data-goods_type='{{item.goods_type}}' data-id='{{item.id}}'  bindtap='qrsTap' data-delivery_method="{{item.delivery_method}}">确认自提</view>
                           <!-- <view class='qr_sh' wx:if="{{item.order_state==3}}" bindtap='sohTap'>售后</view> -->
                       </block>
+                </view>
                   </view>
               </view>
           </view>

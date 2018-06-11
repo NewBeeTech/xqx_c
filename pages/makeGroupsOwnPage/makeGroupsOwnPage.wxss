@@ -437,7 +437,7 @@
 .mark .simg{
   display: block;
     font-size: 34rpx;
-    line-height:80rpx;
+    line-height:122rpx;
     color: #353535;
 }
 .mark .afriend{

@@ -43,7 +43,7 @@
           </view>
           <view class='shareImg' bindtap='shareImg' data-imgurl="{{barginOwnData.img_url}}" data-title="{{barginOwnData.group_name}}" data-nowRmb="{{barginOwnData.group_price / 100.0}}" data-preRmb="{{barginOwnData.price / 100.0}}" data-xj="{{ barginOwnData.currency / 100.0 }}">
                 <text class='simg'>生成图片分享</text>
-                <text class='afriend'>可以用来分享到朋友圈</text>
+                <!-- <text class='afriend'>可以用来分享到朋友圈</text> -->
           </view>
           <view class='cancel' bindtap='cancelBtn'>取消</view>
    </view>

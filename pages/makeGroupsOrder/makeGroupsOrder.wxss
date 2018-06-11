@@ -153,7 +153,7 @@ page{
   width: 690rpx;
   margin: 0 auto;
   height: 80rpx;
-  border-bottom: 1rpx solid  #DADADA;
+   /* border-bottom: 1rpx solid  #DADADA;  */
 }
 .fight_group{
     font-weight: normal;
@@ -183,6 +183,15 @@ page{
 .order_btn_bar{
   width: 690rpx;
   margin: 0 auto;
+  /* display: flex;
+    /* height: 82rpx; */
+    /* justify-content: flex-end;
+    align-items: center; */ 
+}
+.order_line{
+  width: 690rpx;
+  /* overflow: hidden;   */
+  border-top: 1rpx solid  #DADADA;
     display: flex;
     /* height: 82rpx; */
     justify-content: flex-end;

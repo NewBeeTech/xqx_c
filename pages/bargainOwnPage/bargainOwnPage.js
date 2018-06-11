@@ -132,10 +132,7 @@ Page({
       obj.intPara2 = arr[1];
       // 将返回的cnd给页面数据
       this.loadData1(obj.intPara2);
-    }else{
-      this.loadData(this.data.id);
     }
-
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -158,7 +155,9 @@ Page({
       wxTimerList: {},
       hid: false,   //分享弹出框
     })
-    this.loadData(this.data.id);
+    if (this.data.id!=''){
+        this.loadData(this.data.id);
+    }
   },
     loadData: function (id) {
     var self = this;
@@ -260,7 +259,6 @@ Page({
           const cutPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
           const totalCutPrice = ((result.data.price - result.data.now_price) / 100).toFixed(2)
           const hasPrice = ((result.data.now_price - result.data.group_price) / 100).toFixed(2)
-          // const xiaojin = (result.data.price / 100 * result.data.ratio / 100).toFixed(2)
           const xiaojin = (result.data.group_price * result.data.ratio / 100) > 1 ? (result.data.group_price * result.data.ratio / 10000).toFixed(2) : 0.01;
 
           console.log(cutPrice, totalCutPrice, hasPrice)
@@ -287,8 +285,10 @@ Page({
             duration: 20000,
           });
           setTimeout(function () {
-            wx.navigateBack();
-          }, 2000);
+            wx.navigateTo({
+              url: '/pages/spellGroupHome/spellGroupHome'
+            })
+          }, 3000);
         } else {
           wx.showToast({
             title: result.message,
